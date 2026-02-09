@@ -1,0 +1,45 @@
+---
+import TopNavbar from "../components/TopNavbar.astro";
+import SideNavbar from "../components/SideNavbar.astro";
+import Footer from "../components/Footer.astro";
+import "../styles/index.css";
+---
+
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Gabriel González | Full Stack Developer</title>
+  </head>
+
+  <body class="bg-black text-white selection:bg-white selection:text-black relative">
+    <!-- 🎥 Video Background -->
+    <div class="fixed inset-0 -z-10 overflow-hidden">
+      <video
+        class="w-full h-full object-cover"
+        src="/videos/Train-Station-Rainy-Day.mp4"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="metadata"
+        aria-hidden="true"
+      ></video>
+
+      <!-- Overlay dinámico: menos opacidad en mobile -->
+      <div class="absolute inset-0 bg-black/50 md:bg-black/70"></div>
+    </div>
+
+    <!-- Navegación -->
+    <TopNavbar />
+    <SideNavbar />
+
+    <!-- Contenido -->
+    <main class="pt-28 md:pl-24 relative">
+      <slot />
+    </main>
+
+    <Footer />
+  </body>
+</html>

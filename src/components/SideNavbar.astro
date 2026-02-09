@@ -1,0 +1,29 @@
+---
+const sections = [
+  { label: "Overview", href: "#overview" },
+  { label: "Proyectos", href: "#projects" },
+  { label: "Experiencia", href: "#experience" },
+  { label: "Stack", href: "#stack" },
+  { label: "Contacto", href: "#contact" },
+];
+---
+
+<aside class="hidden md:flex fixed top-20 left-0 h-[calc(100vh-5rem)] w-20 bg-black/40 backdrop-blur-md border-r border-white/10 flex-col items-center py-8 z-40">
+  <!-- Indicator -->
+  <div class="w-10 h-10 border border-white/20 rounded-xl flex items-center justify-center text-xs font-bold mb-10">
+    GG
+  </div>
+
+  <!-- Nav -->
+  <nav class="flex-1 flex flex-col gap-6">
+    {sections.map(section => (
+      <a
+        href={section.href}
+        title={section.label}
+        class="w-6 h-6 flex items-center justify-center text-gray-500 hover:text-white transition"
+      >
+        ●
+      </a>
+    ))}
+  </nav>
+</aside>

@@ -1,11 +1,129 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import PortfolioLayout from "../layouts/PortfolioLayout.astro";
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<PortfolioLayout>
+  <!-- OVERVIEW / HERO -->
+  <section
+    id="overview"
+    class="min-h-[80vh] flex flex-col justify-center gap-12"
+  >
+    <header class="space-y-6 max-w-3xl">
+      <p class="text-xs uppercase tracking-[0.4em] text-gray-500">
+        Full Stack Developer
+      </p>
+
+      <h1 class="text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight leading-tight">
+        Construyo productos web
+        <br />
+        <span class="italic font-normal text-gray-300">
+          escalables y mantenibles
+        </span>
+      </h1>
+
+      <p class="text-gray-400 leading-relaxed text-lg">
+        Desarrollo interfaces y arquitecturas web enfocadas en rendimiento,
+        claridad y experiencia de usuario. Me interesa el producto tanto como el
+        código.
+      </p>
+    </header>
+  </section>
+
+  <!-- PROYECTOS -->
+  <section id="projects" class="py-32 space-y-16">
+    <header class="max-w-2xl space-y-4">
+      <h2 class="text-3xl md:text-4xl font-semibold">
+        Proyectos seleccionados
+      </h2>
+      <p class="text-gray-400">
+        Una muestra de trabajos donde diseño, arquitectura y ejecución van de la
+        mano.
+      </p>
+    </header>
+
+    <!-- Placeholder cards -->
+    <div class="grid md:grid-cols-2 gap-12">
+      <article class="border border-white/10 p-8 rounded-2xl">
+        <h3 class="text-xl font-medium mb-2">Proyecto Uno</h3>
+        <p class="text-gray-400 text-sm">
+          Descripción breve del proyecto. Qué problema resolvía y por qué es
+          interesante.
+        </p>
+      </article>
+
+      <article class="border border-white/10 p-8 rounded-2xl">
+        <h3 class="text-xl font-medium mb-2">Proyecto Dos</h3>
+        <p class="text-gray-400 text-sm">
+          Otro proyecto relevante, con foco en decisiones técnicas y producto.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <!-- EXPERIENCIA -->
+  <section id="experience" class="py-32 space-y-16">
+    <header class="max-w-2xl space-y-4">
+      <h2 class="text-3xl md:text-4xl font-semibold">
+        Experiencia
+      </h2>
+      <p class="text-gray-400">
+        Trayectoria profesional y proyectos de largo recorrido.
+      </p>
+    </header>
+
+    <div class="space-y-10 max-w-3xl">
+      <div>
+        <p class="text-sm text-gray-500 uppercase tracking-widest">
+          2024 — Presente
+        </p>
+        <h3 class="text-lg font-medium">
+          Full Stack Developer
+        </h3>
+        <p class="text-gray-400 text-sm mt-2">
+          Trabajo en productos web con foco en arquitectura limpia, performance y
+          escalabilidad.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- STACK -->
+  <section id="stack" class="py-32 space-y-16">
+    <header class="max-w-2xl space-y-4">
+      <h2 class="text-3xl md:text-4xl font-semibold">
+        Stack técnico
+      </h2>
+      <p class="text-gray-400">
+        Herramientas que utilizo a diario.
+      </p>
+    </header>
+
+    <ul class="flex flex-wrap gap-4 text-sm text-gray-300">
+      <li class="border border-white/10 px-4 py-2 rounded-full">Astro</li>
+      <li class="border border-white/10 px-4 py-2 rounded-full">React</li>
+      <li class="border border-white/10 px-4 py-2 rounded-full">Tailwind</li>
+      <li class="border border-white/10 px-4 py-2 rounded-full">Node.js</li>
+      <li class="border border-white/10 px-4 py-2 rounded-full">PostgreSQL</li>
+    </ul>
+  </section>
+
+  <!-- CONTACTO -->
+  <section id="contact" class="py-32 space-y-12 max-w-2xl">
+    <header class="space-y-4">
+      <h2 class="text-3xl md:text-4xl font-semibold">
+        Hablemos
+      </h2>
+      <p class="text-gray-400">
+        Abierto a oportunidades, colaboraciones o simplemente charlar sobre
+        producto y tecnología.
+      </p>
+    </header>
+
+    <a
+      href="mailto:gabriel@example.com"
+      class="inline-block border border-white/20 px-8 py-4 rounded-full text-sm uppercase tracking-widest hover:bg-white hover:text-black transition"
+    >
+      Contactar
+    </a>
+  </section>
+</PortfolioLayout>

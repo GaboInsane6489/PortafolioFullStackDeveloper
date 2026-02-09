@@ -1,0 +1,53 @@
+---
+const links = [
+  { label: "Inicio", href: "/" },
+  { label: "Proyectos", href: "#projects" },
+  { label: "Sobre mí", href: "#about" },
+  { label: "Contacto", href: "#contact" },
+];
+---
+
+<nav class="fixed top-0 left-0 w-full z-50 bg-black/70 backdrop-blur-md border-b border-white/10">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between text-white">
+    <!-- Brand -->
+    <a href="/" class="text-sm font-bold tracking-widest uppercase">
+      Gabriel González
+    </a>
+
+    <!-- Desktop -->
+    <div class="hidden md:flex gap-10 text-xs uppercase tracking-widest">
+      {links.map(link => (
+        <a href={link.href} class="relative group hover:opacity-80">
+          {link.label}
+          <span class="absolute left-0 -bottom-1 w-0 h-px bg-white transition-all group-hover:w-full"></span>
+        </a>
+      ))}
+    </div>
+
+    <!-- Mobile -->
+    <button id="menuBtn" class="md:hidden text-xl">☰</button>
+  </div>
+
+  <!-- Mobile Overlay -->
+  <div
+    id="mobileMenu"
+    class="fixed inset-0 bg-black text-white flex flex-col items-center justify-center gap-10 text-2xl uppercase tracking-widest opacity-0 pointer-events-none transition-all"
+  >
+    {links.map(link => (
+      <a href={link.href}>{link.label}</a>
+    ))}
+  </div>
+</nav>
+
+<script>
+  const btn = document.getElementById("menuBtn");
+  const menu = document.getElementById("mobileMenu");
+
+  if (!btn || !menu) return;
+
+  btn.addEventListener("click", () => {
+    menu.classList.toggle("opacity-0");
+    menu.classList.toggle("pointer-events-none");
+  });
+</script>
+
