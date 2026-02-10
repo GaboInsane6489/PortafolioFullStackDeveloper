@@ -13,9 +13,10 @@ import "../styles/index.css";
     <title>Gabriel González | Full Stack Developer</title>
   </head>
 
-  <body class="bg-black text-white selection:bg-white selection:text-black relative">
-    <!-- 🎥 Video Background -->
-    <div class="fixed inset-0 -z-10 overflow-hidden">
+  <body class="bg-black text-white selection:bg-white selection:text-black relative min-h-screen">
+
+    <!-- 🎥 Video Background (capa más baja) -->
+    <div class="fixed inset-0 -z-20 overflow-hidden pointer-events-none">
       <video
         class="w-full h-full object-cover"
         src="/videos/Train-Station-Rainy-Day.mp4"
@@ -27,19 +28,34 @@ import "../styles/index.css";
         aria-hidden="true"
       ></video>
 
-      <!-- Overlay dinámico: menos opacidad en mobile -->
-      <div class="absolute inset-0 bg-black/50 md:bg-black/70"></div>
+      <!-- Overlay controlado -->
+      <div class="absolute inset-0 bg-black/40 md:bg-black/50"></div>
     </div>
 
-    <!-- Navegación -->
+    <!-- Top Navbar -->
     <TopNavbar />
-    <SideNavbar />
 
-    <!-- Contenido -->
-    <main class="pt-28 md:pl-24 relative">
-      <slot />
-    </main>
+    <!-- Contenedor principal -->
+    <div class="relative z-10 flex">
 
-    <Footer />
+      <!-- Side Navbar (solo desktop, fuera del footer) -->
+      <SideNavbar />
+
+      <!-- Columna de contenido -->
+      <div class="flex-1 flex flex-col">
+
+        <!-- Main content -->
+        <main class="pt-28 md:pl-24 flex-1">
+          <slot />
+        </main>
+
+        <!-- Footer (zona protegida) -->
+        <footer class="relative z-20 md:ml-24">
+          <Footer />
+        </footer>
+
+      </div>
+    </div>
+
   </body>
 </html>

@@ -3,125 +3,259 @@ import PortfolioLayout from "../layouts/PortfolioLayout.astro";
 ---
 
 <PortfolioLayout>
-  <!-- OVERVIEW / HERO -->
+  <!-- ===================== -->
+  <!-- HERO / OVERVIEW -->
+  <!-- ===================== -->
   <section
     id="overview"
-    class="min-h-[80vh] flex flex-col justify-center gap-12"
+    class="min-h-[85vh] flex flex-col justify-center gap-14
+           max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-20"
   >
     <header class="space-y-6 max-w-3xl">
-      <p class="text-xs uppercase tracking-[0.4em] text-gray-500">
-        Full Stack Developer
+      <p class="text-xs uppercase tracking-[0.4em] text-gray-400">
+        Junior Full Stack Developer
       </p>
 
       <h1
-        class="text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight leading-tight"
+        class="text-4xl sm:text-5xl md:text-6xl xl:text-7xl
+               font-semibold tracking-tight leading-tight"
       >
-        Construyo productos web
+        Especializado en el desarrollo de software
         <br />
         <span class="italic font-normal text-gray-300">
-          escalables y mantenibles
+          como Desarrollador Full Stack
         </span>
       </h1>
 
-      <p class="text-gray-400 leading-relaxed text-lg">
+      <p class="text-gray-400 leading-relaxed text-base sm:text-lg">
         Desarrollo interfaces y arquitecturas web enfocadas en rendimiento,
         arquitectura limpia y experiencia de usuario. Me interesa el producto
         tanto como el código.
       </p>
     </header>
+
+    <img
+      src="/images/FotoPerfil.webp"
+      alt="Foto de Gabriel González"
+      class="w-28 h-28 sm:w-36 sm:h-36 rounded-full object-cover
+             transition-transform duration-500 hover:scale-110"
+    />
   </section>
 
+  <!-- ===================== -->
   <!-- PROYECTOS -->
-  <section id="projects" class="py-32 space-y-16">
+  <!-- ===================== -->
+  <section
+    id="projects"
+    class="py-32 space-y-28 max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-20"
+  >
     <header class="max-w-2xl space-y-4">
       <h2 class="text-3xl md:text-4xl font-semibold">
         Proyectos seleccionados
       </h2>
       <p class="text-gray-400">
-        Productos donde diseño, arquitectura y ejecución van de la mano.
+        Productos reales donde diseño, arquitectura y ejecución convergen.
       </p>
     </header>
 
-    <div class="grid md:grid-cols-2 gap-12">
-      <article class="border border-white/10 p-8 rounded-2xl">
-        <h3 class="text-xl font-medium mb-2">Proyecto Uno</h3>
-        <p class="text-gray-400 text-sm">
-          Problema real, solución técnica clara y decisiones conscientes.
-        </p>
-      </article>
+    <!-- ===== PROYECTO: LUZ INTERIOR ===== -->
+    <article class="space-y-10">
+      <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
+        <div class="max-w-xl">
+          <h3 class="text-2xl font-medium">Luz Interior</h3>
+          <p class="text-gray-400 mt-2 text-sm leading-relaxed">
+            Plataforma tipo feed social con autenticación, publicaciones,
+            comentarios, likes y sistema de logros gamificado enfocado en
+            desarrollo personal y comunidad.
+          </p>
+        </div>
 
-      <article class="border border-white/10 p-8 rounded-2xl">
-        <h3 class="text-xl font-medium mb-2">Proyecto Dos</h3>
-        <p class="text-gray-400 text-sm">
-          Arquitectura escalable, foco en performance y UX.
-        </p>
-      </article>
-    </div>
-  </section>
-
-  <!-- EXPERIENCIA -->
-  <section id="experience" class="py-32 space-y-16">
-    <header class="max-w-2xl space-y-4">
-      <h2 class="text-3xl md:text-4xl font-semibold">
-        Experiencia
-      </h2>
-      <p class="text-gray-400">
-        Trayectoria y aprendizaje continuo en proyectos reales.
-      </p>
-    </header>
-
-    <div class="space-y-10 max-w-3xl">
-      <div>
-        <p class="text-sm text-gray-500 uppercase tracking-widest">
-          2024 — Presente
-        </p>
-        <h3 class="text-lg font-medium">
-          Full Stack Developer
-        </h3>
-        <p class="text-gray-400 text-sm mt-2">
-          Desarrollo de productos web con foco en calidad técnica,
-          mantenibilidad y escalabilidad.
-        </p>
+        <div class="flex gap-4">
+          <a class="border border-white/20 px-5 py-2 rounded-full text-xs uppercase tracking-widest hover:bg-white hover:text-black transition">
+            Ver proyecto
+          </a>
+          <a class="border border-white/20 px-5 py-2 rounded-full text-xs uppercase tracking-widest hover:bg-white hover:text-black transition">
+            Código
+          </a>
+        </div>
       </div>
-    </div>
+
+      <!-- Carrusel -->
+      <div class="relative group">
+        <div
+          id="carousel-luz"
+          class="flex gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory
+                 pb-4 max-w-full"
+        >
+          {[
+            "/images/LuzInterior1.webp",
+            "/images/LuzInterior2.webp",
+            "/images/LuzInterior3.webp",
+            "/images/LuzInterior4.webp",
+            "/images/LuzInterior5.webp",
+          ].map((src) => (
+            <img
+              src={src}
+              alt="Luz Interior preview"
+              loading="lazy"
+              class="snap-center shrink-0
+                     w-[90vw] sm:w-[75vw] md:w-[60vw] lg:w-[45vw] xl:w-[38vw]
+                     aspect-video object-cover rounded-2xl
+                     transition-transform duration-500
+                     group-hover:scale-[0.97]"
+            />
+          ))}
+        </div>
+
+        <!-- Controles -->
+        <div
+          class="pointer-events-none absolute inset-y-0 right-4 flex items-center gap-3
+                 opacity-0 group-hover:opacity-100 transition"
+        >
+          <button
+            class="pointer-events-auto h-10 w-10 rounded-full border border-white/30
+                   backdrop-blur hover:bg-white hover:text-black transition"
+            onclick="document.getElementById('carousel-luz').scrollBy({ left: -400, behavior: 'smooth' })"
+          >
+            ‹
+          </button>
+          <button
+            class="pointer-events-auto h-10 w-10 rounded-full border border-white/30
+                   backdrop-blur hover:bg-white hover:text-black transition"
+            onclick="document.getElementById('carousel-luz').scrollBy({ left: 400, behavior: 'smooth' })"
+          >
+            ›
+          </button>
+        </div>
+      </div>
+    </article>
+
+    <!-- ===== PROYECTO: INSTALACIONES GARCIAS ===== -->
+    <article class="space-y-10">
+      <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
+        <div class="max-w-xl">
+          <h3 class="text-2xl font-medium">Instalaciones Garcias</h3>
+          <p class="text-gray-400 mt-2 text-sm leading-relaxed">
+            Landing corporativa optimizada para conversión, SEO local y
+            visualización clara de servicios y proyectos realizados.
+          </p>
+        </div>
+
+        <div class="flex gap-4">
+          <a class="border border-white/20 px-5 py-2 rounded-full text-xs uppercase tracking-widest hover:bg-white hover:text-black transition">
+            Ver proyecto
+          </a>
+          <a class="border border-white/20 px-5 py-2 rounded-full text-xs uppercase tracking-widest hover:bg-white hover:text-black transition">
+            Código
+          </a>
+        </div>
+      </div>
+
+      <div class="relative group">
+        <div
+          id="carousel-garcias"
+          class="flex gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory
+                 pb-4 max-w-full"
+        >
+          {[
+            "/images/InstalacionesGarcias1.webp",
+            "/images/InstalacionesGarcias2.webp",
+            "/images/InstalacionesGarcias3.webp",
+            "/images/InstalacionesGarcias4.webp",
+          ].map((src) => (
+            <img
+              src={src}
+              alt="Instalaciones Garcias preview"
+              loading="lazy"
+              class="snap-center shrink-0
+                     w-[90vw] sm:w-[75vw] md:w-[60vw] lg:w-[45vw] xl:w-[38vw]
+                     aspect-video object-cover rounded-2xl
+                     transition-transform duration-500
+                     group-hover:scale-[0.97]"
+            />
+          ))}
+        </div>
+
+        <div
+          class="pointer-events-none absolute inset-y-0 right-4 flex items-center gap-3
+                 opacity-0 group-hover:opacity-100 transition"
+        >
+          <button
+            class="pointer-events-auto h-10 w-10 rounded-full border border-white/30
+                   backdrop-blur hover:bg-white hover:text-black transition"
+            onclick="document.getElementById('carousel-garcias').scrollBy({ left: -400, behavior: 'smooth' })"
+          >
+            ‹
+          </button>
+          <button
+            class="pointer-events-auto h-10 w-10 rounded-full border border-white/30
+                   backdrop-blur hover:bg-white hover:text-black transition"
+            onclick="document.getElementById('carousel-garcias').scrollBy({ left: 400, behavior: 'smooth' })"
+          >
+            ›
+          </button>
+        </div>
+      </div>
+    </article>
   </section>
 
+  <!-- ===================== -->
   <!-- STACK -->
-  <section id="stack" class="py-32 space-y-16">
+  <!-- ===================== -->
+  <section
+    id="stack"
+    class="py-32 max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-20 space-y-16"
+  >
     <header class="max-w-2xl space-y-4">
-      <h2 class="text-3xl md:text-4xl font-semibold">
-        Stack técnico
-      </h2>
+      <h2 class="text-3xl md:text-4xl font-semibold">Stack técnico</h2>
       <p class="text-gray-400">
         Herramientas que utilizo de forma profesional.
       </p>
     </header>
 
     <ul class="flex flex-wrap gap-4 text-sm text-gray-300">
-      <li class="border border-white/10 px-4 py-2 rounded-full">Astro</li>
-      <li class="border border-white/10 px-4 py-2 rounded-full">React</li>
-      <li class="border border-white/10 px-4 py-2 rounded-full">Tailwind</li>
-      <li class="border border-white/10 px-4 py-2 rounded-full">Node.js</li>
-      <li class="border border-white/10 px-4 py-2 rounded-full">PostgreSQL</li>
+      {[
+        "Astro",
+        "React",
+        "Tailwind",
+        "Node.js",
+        "PostgreSQL",
+        "Git",
+        "GitHub",
+        "JavaScript",
+        "Supabase",
+        "PHP",
+        "MySQL",
+        "Laravel",
+      ].map((tech) => (
+        <li class="border border-white/10 px-4 py-2 rounded-full">
+          {tech}
+        </li>
+      ))}
     </ul>
   </section>
 
+  <!-- ===================== -->
   <!-- CONTACTO -->
-  <section id="contact" class="py-32 space-y-12 max-w-2xl">
-    <header class="space-y-4">
-      <h2 class="text-3xl md:text-4xl font-semibold">
-        Hablemos
-      </h2>
+  <!-- ===================== -->
+  <section
+    id="contact"
+    class="py-32 max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-20"
+  >
+    <div class="max-w-2xl space-y-6">
+      <h2 class="text-3xl md:text-4xl font-semibold">Hablemos</h2>
       <p class="text-gray-400">
         Abierto a oportunidades, colaboraciones o conversaciones técnicas.
       </p>
-    </header>
 
-    <a
-      href="mailto:gabriel@example.com"
-      class="inline-block border border-white/20 px-8 py-4 rounded-full text-sm uppercase tracking-widest hover:bg-white hover:text-black transition"
-    >
-      Contactar
-    </a>
+      <a
+        href="mailto:gabriel@example.com"
+        class="inline-block border border-white/20 px-8 py-4 rounded-full
+               text-sm uppercase tracking-widest
+               hover:bg-white hover:text-black transition"
+      >
+        Contactar
+      </a>
+    </div>
   </section>
 </PortfolioLayout>
