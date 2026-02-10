@@ -1,28 +1,40 @@
 ---
+import { Icon } from 'astro-icon/components'
+
 const sections = [
-  { label: "Overview", href: "#overview" },
-  { label: "Proyectos", href: "#projects" },
-  { label: "Experiencia", href: "#experience" },
-  { label: "Stack", href: "#stack" },
-  { label: "Contacto", href: "#contact" },
+  { label: "Overview", href: "#overview", icon: "tabler:layout-dashboard" },
+  { label: "Proyectos", href: "#projects", icon: "tabler:folder" },
+  { label: "Experiencia", href: "#experience", icon: "tabler:timeline" },
+  { label: "Stack", href: "#stack", icon: "tabler:stack" },
+  { label: "Contacto", href: "#contact", icon: "tabler:mail" },
 ];
 ---
-
-<aside class="hidden md:flex fixed top-20 left-0 h-[calc(100vh-5rem)] w-20 bg-black/40 backdrop-blur-md border-r border-white/10 flex-col items-center py-8 z-40">
-  <!-- Indicator -->
-  <div class="w-10 h-10 border border-white/20 rounded-xl flex items-center justify-center text-xs font-bold mb-10">
+<aside
+  class="hidden md:flex fixed top-20 left-0
+         h-[calc(100vh-5rem)] w-20
+         bg-black/40 backdrop-blur-md
+         border-r border-white/10
+         flex-col items-center py-8
+         z-40"
+>
+  <!-- Identificador -->
+  <div
+    class="w-10 h-10 border border-white/20 rounded-xl
+           flex items-center justify-center
+           text-xs font-bold mb-10"
+  >
     GG
   </div>
 
-  <!-- Nav -->
-  <nav class="flex-1 flex flex-col gap-6">
+  <!-- Navegación vertical -->
+  <nav class="flex-1 flex flex-col gap-8">
     {sections.map(section => (
       <a
         href={section.href}
         title={section.label}
-        class="w-6 h-6 flex items-center justify-center text-gray-500 hover:text-white transition"
+        class="text-gray-500 hover:text-white transition"
       >
-        ●
+        <Icon name={section.icon} size="20" />
       </a>
     ))}
   </nav>
