@@ -1,261 +1,311 @@
 ---
 import PortfolioLayout from "../layouts/PortfolioLayout.astro";
+import { Icon } from "astro-icon/components";
 ---
 
 <PortfolioLayout>
   <!-- ===================== -->
-  <!-- HERO / OVERVIEW -->
+  <!-- HERO EDITORIAL -->
   <!-- ===================== -->
   <section
     id="overview"
-    class="min-h-[85vh] flex flex-col justify-center gap-14
-           max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-20"
+    class="relative w-full py-24 overflow-hidden border-t border-white/5"
   >
-    <header class="space-y-6 max-w-3xl">
-      <p class="text-xs uppercase tracking-[0.4em] text-gray-400">
-        Junior Full Stack Developer
-      </p>
+    <!-- CAPA ATMÓSFERA -->
+    <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-white/5 to-transparent pointer-events-none"></div>
+    <div class="absolute -bottom-24 -left-24 w-[400px] h-[400px] bg-white/5 rounded-full blur-[120px] pointer-events-none"></div>
 
-      <h1
-        class="text-4xl sm:text-5xl md:text-6xl xl:text-7xl
-               font-semibold tracking-tight leading-tight"
+    <div class="max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-20 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-20 items-center">
+        <!-- NARRATIVA -->
+        <div class="lg:col-span-7 space-y-12">
+          <div class="space-y-6">
+            <div class="flex items-center gap-4">
+              <div class="h-px w-12 bg-white"></div>
+              <span class="text-[10px] font-bold uppercase tracking-[0.6em] text-gray-300">
+                Portfolio Profesional
+              </span>
+            </div>
+
+            <h1
+              class="text-6xl md:text-8xl xl:text-9xl font-serif tracking-tighter leading-[0.85]"
+            >
+              Software con
+              <br />
+              <span class="italic font-light text-white/40 relative">
+                intención real
+                <span class="absolute -bottom-4 left-0 w-full h-px bg-gradient-to-r from-white/50 to-transparent"></span>
+              </span>
+            </h1>
+          </div>
+
+          <p class="text-gray-400 text-lg md:text-xl font-light leading-relaxed max-w-xl">
+            Desarrollo productos digitales con foco en
+            <span class="text-white italic font-medium">
+              arquitectura limpia, rendimiento y experiencia de usuario
+            </span>.
+            Me interesa el impacto real del producto, no solo el código.
+          </p>
+
+          <div class="flex flex-col sm:flex-row gap-8 items-start sm:items-center pt-4">
+            <a
+              href="#projects"
+              class="group relative px-12 py-6 bg-white text-black text-xs font-bold uppercase tracking-[0.3em] overflow-hidden transition-all duration-700 hover:bg-gray-200"
+            >
+              <span class="relative z-10">Ver proyectos</span>
+              <div class="absolute inset-0 bg-black scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500 opacity-5"></div>
+            </a>
+
+            <div class="flex -space-x-4">
+              <div class="w-10 h-10 rounded-full border-2 border-black bg-zinc-900"></div>
+              <div class="w-10 h-10 rounded-full border-2 border-black bg-zinc-800"></div>
+              <div class="w-10 h-10 rounded-full border-2 border-black bg-zinc-700 flex items-center justify-center text-[10px] text-gray-400 font-bold">
+                +5
+              </div>
+
+              <span class="pl-8 text-[10px] uppercase tracking-widest text-gray-500 font-bold self-center">
+                Proyectos reales
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- VISUAL -->
+        <div class="lg:col-span-9 relative">
+          <div class="relative group cursor-crosshair">
+            <!-- Marco flotante -->
+            <div
+              class="absolute -inset-6 border border-white/10 -z-10
+                     translate-x-4 translate-y-4
+                     group-hover:translate-x-0 group-hover:translate-y-0
+                     transition-transform duration-1000 ease-out"
+            ></div>
+
+            <div class="relative overflow-hidden rounded-sm border border-white/5">
+              <img
+                src="/images/LuzInterior1.webp"
+                alt="Proyecto Luz Interior"
+                class="w-full h-auto transition-all duration-[2000ms] group-hover:scale-110"
+              />
+
+              <!-- Overlay hover -->
+              <div
+                class="absolute inset-0 bg-black/70 opacity-0
+                       group-hover:opacity-100 transition-opacity duration-700
+                       flex flex-col justify-end p-10 space-y-6"
+              >
+                <div class="space-y-2">
+                  <p class="text-white text-[10px] uppercase tracking-widest font-bold">
+                    Proyecto destacado
+                  </p>
+                  <p class="text-white text-sm font-serif italic">
+                    “Diseño editorial aplicado a producto digital.”
+                  </p>
+                </div>
+
+                <div class="h-px w-full bg-white/40"></div>
+
+                <div class="flex gap-10">
+                  <div class="text-center">
+                    <p class="text-white text-lg font-bold">2025</p>
+                    <p class="text-white text-[8px] uppercase tracking-tighter">
+                      Año
+                    </p>
+                  </div>
+                  <div class="text-center">
+                    <p class="text-white text-lg font-bold">Astro</p>
+                    <p class="text-white text-[8px] uppercase tracking-tighter">
+                      Stack
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tag flotante -->
+            <div
+              class="absolute -bottom-8 -right-8 bg-zinc-900 border border-white/10 p-6 shadow-2xl animate-bounce-slow"
+            >
+              <p class="text-[10px] text-white font-bold uppercase tracking-widest">
+                Producto real
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FOOTER VALORES -->
+      <div
+        class="mt-28 pt-6 border-t border-white/5
+               grid grid-cols-2 md:grid-cols-4 gap-12"
       >
-        Especializado en el desarrollo de software
-        <br />
-        <span class="italic font-normal text-gray-300">
-          como Desarrollador Full Stack
-        </span>
-      </h1>
-
-      <p class="text-gray-400 leading-relaxed text-base sm:text-lg">
-        Desarrollo interfaces y arquitecturas web enfocadas en rendimiento,
-        arquitectura limpia y experiencia de usuario. Me interesa el producto
-        tanto como el código.
-      </p>
-    </header>
-
-    <img
-      src="/images/FotoPerfil.webp"
-      alt="Foto de Gabriel González"
-      class="w-28 h-28 sm:w-36 sm:h-36 rounded-full object-cover
-             transition-transform duration-500 hover:scale-110"
-    />
+        <div>
+          <h5 class="text-white text-[10px] uppercase tracking-widest font-bold mb-1">
+            Arquitectura
+          </h5>
+          <p class="text-gray-500 text-[10px]">
+            Decisiones técnicas claras.
+          </p>
+        </div>
+        <div>
+          <h5 class="text-white text-[10px] uppercase tracking-widest font-bold mb-1">
+            Rendimiento
+          </h5>
+          <p class="text-gray-500 text-[10px]">
+            Optimización real.
+          </p>
+        </div>
+        <div>
+          <h5 class="text-white text-[10px] uppercase tracking-widest font-bold mb-1">
+            UX
+          </h5>
+          <p class="text-gray-500 text-[10px]">
+            Diseño usable y limpio.
+          </p>
+        </div>
+        <div>
+          <h5 class="text-white text-[10px] uppercase tracking-widest font-bold mb-1">
+            Producto
+          </h5>
+          <p class="text-gray-500 text-[10px]">
+            Pensado para usuarios reales.
+          </p>
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- ===================== -->
   <!-- PROYECTOS -->
   <!-- ===================== -->
-  <section
-    id="projects"
-    class="py-32 space-y-28 max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-20"
-  >
-    <header class="max-w-2xl space-y-4">
-      <h2 class="text-3xl md:text-4xl font-semibold">
-        Proyectos seleccionados
-      </h2>
-      <p class="text-gray-400">
-        Productos reales donde diseño, arquitectura y ejecución convergen.
-      </p>
-    </header>
+  <div class="lg:col-span-7 space-y-12 ml-24">
+          <div class="space-y-6">
+            <div class="flex items-center gap-4">
+              <div class="h-px w-12 bg-white"></div>
+              <span class="text-[10px] font-bold uppercase tracking-[0.6em] text-gray-300">
+                Proyectos
+              </span>
+            </div>
 
-    <!-- ===== PROYECTO: LUZ INTERIOR ===== -->
-    <article class="space-y-10">
-      <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
-        <div class="max-w-xl">
-          <h3 class="text-2xl font-medium">Luz Interior</h3>
-          <p class="text-gray-400 mt-2 text-sm leading-relaxed">
-            Plataforma tipo feed social con autenticación, publicaciones,
-            comentarios, likes y sistema de logros gamificado enfocado en
-            desarrollo personal y comunidad.
+            <h1
+              class="text-4xl md:text-6xl xl:text-7xl font-serif tracking-tighter leading-[0.85]"
+            >
+              Proyectos
+              <br />
+              <span class="italic font-light text-white/40 relative">
+                que resuelven problemas reales
+                <span class="absolute -bottom-4 left-0 w-full h-px bg-gradient-to-r from-white/50 to-transparent"></span>
+              </span>
+            </h1>
+          </div>
+
+          <p class="text-gray-400 text-lg md:text-xl font-light leading-relaxed max-w-xl">
+            Desarrollo productos digitales con foco en
+            <span class="text-white italic font-medium">
+              arquitectura limpia, rendimiento y experiencia de usuario
+            </span>.
+            Me interesa el impacto real del producto, no solo el código.
           </p>
+
+          <div class="flex flex-col sm:flex-row gap-8 items-start sm:items-center pt-4">
+            <a
+              href="https://github.com/GaboInsane6489?tab=repositories"
+              class="group relative px-12 py-6 bg-white text-black text-xs font-bold uppercase tracking-[0.3em] overflow-hidden transition-all duration-700 hover:bg-gray-200"
+            >
+              <span class="relative z-10">Ver repositorios</span>
+              <div class="absolute inset-0 bg-black scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500 opacity-5"></div>
+            </a>
+
+            <div class="flex -space-x-4">
+              <div class="w-10 h-10 rounded-full border-2 border-black bg-zinc-700 flex items-center justify-center text-[10px] text-gray-400 font-bold">
+                <Icon name="tabler:brand-github" size="20" />
+              </div>
+
+              <a href="https://github.com/GaboInsane6489" target="_blank" rel="noopener noreferrer">
+                <span class="pl-8 text-[10px] uppercase tracking-widest text-gray-500 font-bold self-center">
+                  Mi GitHub
+                </span>
+              </a>
+            </div>
+          </div>
         </div>
 
-        <div class="flex gap-4">
-          <a class="border border-white/20 px-5 py-2 rounded-full text-xs uppercase tracking-widest hover:bg-white hover:text-black transition">
-            Ver proyecto
-          </a>
-          <a class="border border-white/20 px-5 py-2 rounded-full text-xs uppercase tracking-widest hover:bg-white hover:text-black transition">
-            Código
-          </a>
-        </div>
-      </div>
-
-      <!-- Carrusel -->
-      <div class="relative group">
-        <div
-          id="carousel-luz"
-          class="flex gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory
-                 pb-4 max-w-full"
-        >
-          {[
-            "/images/LuzInterior1.webp",
-            "/images/LuzInterior2.webp",
-            "/images/LuzInterior3.webp",
-            "/images/LuzInterior4.webp",
-            "/images/LuzInterior5.webp",
-          ].map((src) => (
-            <img
-              src={src}
-              alt="Luz Interior preview"
-              loading="lazy"
-              class="snap-center shrink-0
-                     w-[90vw] sm:w-[75vw] md:w-[60vw] lg:w-[45vw] xl:w-[38vw]
-                     aspect-video object-cover rounded-2xl
-                     transition-transform duration-500
-                     group-hover:scale-[0.97]"
-            />
-          ))}
-        </div>
-
-        <!-- Controles -->
-        <div
-          class="pointer-events-none absolute inset-y-0 right-4 flex items-center gap-3
-                 opacity-0 group-hover:opacity-100 transition"
-        >
-          <button
-            class="pointer-events-auto h-10 w-10 rounded-full border border-white/30
-                   backdrop-blur hover:bg-white hover:text-black transition"
-            onclick="document.getElementById('carousel-luz').scrollBy({ left: -400, behavior: 'smooth' })"
-          >
-            ‹
-          </button>
-          <button
-            class="pointer-events-auto h-10 w-10 rounded-full border border-white/30
-                   backdrop-blur hover:bg-white hover:text-black transition"
-            onclick="document.getElementById('carousel-luz').scrollBy({ left: 400, behavior: 'smooth' })"
-          >
-            ›
-          </button>
-        </div>
-      </div>
-    </article>
-
-    <!-- ===== PROYECTO: INSTALACIONES GARCIAS ===== -->
-    <article class="space-y-10">
-      <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
-        <div class="max-w-xl">
-          <h3 class="text-2xl font-medium">Instalaciones Garcias</h3>
-          <p class="text-gray-400 mt-2 text-sm leading-relaxed">
-            Landing corporativa optimizada para conversión, SEO local y
-            visualización clara de servicios y proyectos realizados.
+        <div id="projects">
+          <h2 class="text-4xl md:text-6xl xl:text-7xl font-serif tracking-tighter leading-[0.85]">
+            Proyectos
+          </h2>
+          <p class="text-gray-400 text-lg md:text-xl font-light leading-relaxed max-w-xl">
+            Aquí puedes ver algunos de mis proyectos más destacados.
           </p>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="flex flex-col items-center gap-4">
+              <div class="w-10 h-10 border border-white/20 rounded-xl flex items-center justify-center text-xs font-bold mb-10">
+                <Icon name="tabler:timeline" size="20" />
+              </div>
+              <div class="flex-1">
+                <h3 class="text-white text-lg font-bold mb-2">Luz Interior</h3>
+                <p class="text-gray-500 text-sm">Sitio web estilo feed social con foro de discusiones sobre el desarrollo personal, looksMaxxing, mejora física y mental. <span class="text-white">Además de un sistema de logros para motivar al usuario a mejorar superarse y superar sus propios desafíos.</span></p>
+              </div>
+              
+
+<div id="default-carousel" class="relative w-full" data-carousel="slide">
+    <!-- Carousel wrapper -->
+    <div class="relative h-56 overflow-hidden rounded-base md:h-96">
+         <!-- Item 1 -->
+        <div class="hidden duration-700 ease-in-out" data-carousel-item>
+            <img src="/images/LuzInterior1.webp" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
         </div>
-
-        <div class="flex gap-4">
-          <a class="border border-white/20 px-5 py-2 rounded-full text-xs uppercase tracking-widest hover:bg-white hover:text-black transition">
-            Ver proyecto
-          </a>
-          <a class="border border-white/20 px-5 py-2 rounded-full text-xs uppercase tracking-widest hover:bg-white hover:text-black transition">
-            Código
-          </a>
+        <!-- Item 2 -->
+        <div class="hidden duration-700 ease-in-out" data-carousel-item>
+            <img src="/images/LuzInterior2.webp" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
         </div>
-      </div>
-
-      <div class="relative group">
-        <div
-          id="carousel-garcias"
-          class="flex gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory
-                 pb-4 max-w-full"
-        >
-          {[
-            "/images/InstalacionesGarcias1.webp",
-            "/images/InstalacionesGarcias2.webp",
-            "/images/InstalacionesGarcias3.webp",
-            "/images/InstalacionesGarcias4.webp",
-          ].map((src) => (
-            <img
-              src={src}
-              alt="Instalaciones Garcias preview"
-              loading="lazy"
-              class="snap-center shrink-0
-                     w-[90vw] sm:w-[75vw] md:w-[60vw] lg:w-[45vw] xl:w-[38vw]
-                     aspect-video object-cover rounded-2xl
-                     transition-transform duration-500
-                     group-hover:scale-[0.97]"
-            />
-          ))}
+        <!-- Item 3 -->
+        <div class="hidden duration-700 ease-in-out" data-carousel-item>
+            <img src="/images/LuzInterior3.webp" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
         </div>
-
-        <div
-          class="pointer-events-none absolute inset-y-0 right-4 flex items-center gap-3
-                 opacity-0 group-hover:opacity-100 transition"
-        >
-          <button
-            class="pointer-events-auto h-10 w-10 rounded-full border border-white/30
-                   backdrop-blur hover:bg-white hover:text-black transition"
-            onclick="document.getElementById('carousel-garcias').scrollBy({ left: -400, behavior: 'smooth' })"
-          >
-            ‹
-          </button>
-          <button
-            class="pointer-events-auto h-10 w-10 rounded-full border border-white/30
-                   backdrop-blur hover:bg-white hover:text-black transition"
-            onclick="document.getElementById('carousel-garcias').scrollBy({ left: 400, behavior: 'smooth' })"
-          >
-            ›
-          </button>
+        <!-- Item 4 -->
+        <div class="hidden duration-700 ease-in-out" data-carousel-item>
+            <img src="/images/LuzInterior4.webp" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
         </div>
-      </div>
-    </article>
-  </section>
-
-  <!-- ===================== -->
-  <!-- STACK -->
-  <!-- ===================== -->
-  <section
-    id="stack"
-    class="py-32 max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-20 space-y-16"
-  >
-    <header class="max-w-2xl space-y-4">
-      <h2 class="text-3xl md:text-4xl font-semibold">Stack técnico</h2>
-      <p class="text-gray-400">
-        Herramientas que utilizo de forma profesional.
-      </p>
-    </header>
-
-    <ul class="flex flex-wrap gap-4 text-sm text-gray-300">
-      {[
-        "Astro",
-        "React",
-        "Tailwind",
-        "Node.js",
-        "PostgreSQL",
-        "Git",
-        "GitHub",
-        "JavaScript",
-        "Supabase",
-        "PHP",
-        "MySQL",
-        "Laravel",
-      ].map((tech) => (
-        <li class="border border-white/10 px-4 py-2 rounded-full">
-          {tech}
-        </li>
-      ))}
-    </ul>
-  </section>
-
-  <!-- ===================== -->
-  <!-- CONTACTO -->
-  <!-- ===================== -->
-  <section
-    id="contact"
-    class="py-32 max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-20"
-  >
-    <div class="max-w-2xl space-y-6">
-      <h2 class="text-3xl md:text-4xl font-semibold">Hablemos</h2>
-      <p class="text-gray-400">
-        Abierto a oportunidades, colaboraciones o conversaciones técnicas.
-      </p>
-
-      <a
-        href="mailto:gabriel@example.com"
-        class="inline-block border border-white/20 px-8 py-4 rounded-full
-               text-sm uppercase tracking-widest
-               hover:bg-white hover:text-black transition"
-      >
-        Contactar
-      </a>
+        <!-- Item 5 -->
+        <div class="hidden duration-700 ease-in-out" data-carousel-item>
+            <img src="/images/LuzInterior5.webp" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+        </div>
     </div>
-  </section>
+    <!-- Slider indicators -->
+    <div class="absolute z-30 flex -translate-x-1/2 bottom-5 left-1/2 space-x-3 rtl:space-x-reverse">
+        <button type="button" class="w-3 h-3 rounded-base" aria-current="true" aria-label="Slide 1" data-carousel-slide-to="0"></button>
+        <button type="button" class="w-3 h-3 rounded-base" aria-current="false" aria-label="Slide 2" data-carousel-slide-to="1"></button>
+        <button type="button" class="w-3 h-3 rounded-base" aria-current="false" aria-label="Slide 3" data-carousel-slide-to="2"></button>
+        <button type="button" class="w-3 h-3 rounded-base" aria-current="false" aria-label="Slide 4" data-carousel-slide-to="3"></button>
+        <button type="button" class="w-3 h-3 rounded-base" aria-current="false" aria-label="Slide 5" data-carousel-slide-to="4"></button>
+    </div>
+    <!-- Slider controls -->
+    <button type="button" class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
+        <span class="inline-flex items-center justify-center w-10 h-10 rounded-base bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+            <Icon name="tabler:arrow-wave-left-down" size="24" />
+            <span class="sr-only">Previous</span>
+        </span>
+    </button>
+    <button type="button" class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-next>
+        <span class="inline-flex items-center justify-center w-10 h-10 rounded-base bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+            <Icon name="tabler:arrow-wave-right-down" size="24" />
+            <span class="sr-only">Next</span>
+        </span>
+    </button>
+</div>
+
+            <div class="flex flex-col items-center gap-4">
+              <div class="w-10 h-10 border border-white/20 rounded-xl flex items-center justify-center text-xs font-bold mb-10">
+                <Icon name="tabler:timeline" size="20" />
+              </div>
+              <div class="flex-1">
+                <h3 class="text-white text-lg font-bold mb-2">Instalaciones Garcias</h3>
+                <p class="text-gray-500 text-sm">Landing page para una empresa de instalaciones de Drywall, construcción, carpintería y albañilería. <span class="text-white">Además de asesoramiento personalizado para los clientes.</span></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
 </PortfolioLayout>

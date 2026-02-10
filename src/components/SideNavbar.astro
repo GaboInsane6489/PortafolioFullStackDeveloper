@@ -1,21 +1,19 @@
 ---
-import { Icon } from 'astro-icon/components'
+import { Icon } from "astro-icon/components";
 
 const sections = [
   { label: "Overview", href: "#overview", icon: "tabler:layout-dashboard" },
   { label: "Proyectos", href: "#projects", icon: "tabler:folder" },
-  { label: "Experiencia", href: "#experience", icon: "tabler:timeline" },
   { label: "Stack", href: "#stack", icon: "tabler:stack" },
   { label: "Contacto", href: "#contact", icon: "tabler:mail" },
 ];
 ---
+
 <aside
-  class="hidden md:flex fixed top-20 left-0
-         h-[calc(100vh-5rem)] w-20
-         bg-black/40 backdrop-blur-md
+  class="sticky top-16 h-[calc(100vh-4rem)]
+         w-24 bg-black/40 backdrop-blur-md
          border-r border-white/10
-         flex-col items-center py-8
-         z-40"
+         flex flex-col items-center py-16"
 >
   <!-- Identificador -->
   <div
@@ -23,10 +21,12 @@ const sections = [
            flex items-center justify-center
            text-xs font-bold mb-10"
   >
-    GG
+    <a href="#overview">
+      <Icon name="tabler:timeline" size="20" />
+    </a>
   </div>
 
-  <!-- Navegación vertical -->
+  <!-- Navegación -->
   <nav class="flex-1 flex flex-col gap-8">
     {sections.map(section => (
       <a

@@ -10,13 +10,14 @@ import "../styles/index.css";
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/webp" href="/images/LogoPortafolio.webp" />
     <title>Gabriel González | Full Stack Developer</title>
   </head>
 
-  <body class="bg-black text-white selection:bg-white selection:text-black relative min-h-screen">
+  <body class="bg-black text-white min-h-screen overflow-x-hidden">
 
-    <!-- 🎥 Video Background (capa más baja) -->
-    <div class="fixed inset-0 -z-20 overflow-hidden pointer-events-none">
+    <!-- 🎥 Video Background -->
+    <div class="fixed inset-0 -z-20 pointer-events-none">
       <video
         class="w-full h-full object-cover"
         src="/videos/Train-Station-Rainy-Day.mp4"
@@ -27,35 +28,32 @@ import "../styles/index.css";
         preload="metadata"
         aria-hidden="true"
       ></video>
-
-      <!-- Overlay controlado -->
-      <div class="absolute inset-0 bg-black/40 md:bg-black/50"></div>
+      <div class="absolute inset-0 bg-black/60"></div>
     </div>
 
     <!-- Top Navbar -->
     <TopNavbar />
 
-    <!-- Contenedor principal -->
-    <div class="relative z-10 flex">
+    <!-- Layout principal -->
+    <div class="grid grid-cols-1 md:grid-cols-[96px_1fr] min-h-screen relative z-10">
 
-      <!-- Side Navbar (solo desktop, fuera del footer) -->
-      <SideNavbar />
+      <!-- Side Navbar -->
+      <aside class="hidden md:flex">
+        <SideNavbar />
+      </aside>
 
       <!-- Columna de contenido -->
-      <div class="flex-1 flex flex-col">
+      <div class="flex flex-col min-h-[calc(100vh-6rem)]">
 
-        <!-- Main content -->
-        <main class="pt-28 md:pl-24 flex-1">
+        <main class="flex-1">
           <slot />
         </main>
 
-        <!-- Footer (zona protegida) -->
-        <footer class="relative z-20 md:ml-24">
+        <footer class="bg-black/80 backdrop-blur border-t border-white/10">
           <Footer />
         </footer>
 
       </div>
     </div>
-
   </body>
 </html>
