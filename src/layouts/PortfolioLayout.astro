@@ -5,7 +5,7 @@ import Footer from "../components/Footer.astro";
 import "../styles/index.css";
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
   <head>
     <meta charset="utf-8" />
@@ -14,20 +14,18 @@ import "../styles/index.css";
     <title>Gabriel González | Full Stack Developer</title>
   </head>
 
-  <body class="bg-black text-white min-h-screen overflow-x-hidden">
-
+  <body class="min-h-screen overflow-x-hidden bg-black text-white">
     <!-- 🎥 Video Background -->
-    <div class="fixed inset-0 -z-20 pointer-events-none">
+    <div class="pointer-events-none fixed inset-0 -z-20">
       <video
-        class="w-full h-full object-cover"
+        class="h-full w-full object-cover"
         src="/videos/Train-Station-Rainy-Day.mp4"
         autoplay
         muted
         loop
         playsinline
         preload="metadata"
-        aria-hidden="true"
-      ></video>
+        aria-hidden="true"></video>
       <div class="absolute inset-0 bg-black/60"></div>
     </div>
 
@@ -35,24 +33,23 @@ import "../styles/index.css";
     <TopNavbar />
 
     <!-- Layout principal -->
-    <div class="grid grid-cols-1 md:grid-cols-[96px_1fr] min-h-screen relative z-10">
-
+    <div
+      class="relative z-10 grid min-h-screen grid-cols-1 md:grid-cols-[96px_1fr]"
+    >
       <!-- Side Navbar -->
       <aside class="hidden md:flex">
         <SideNavbar />
       </aside>
 
       <!-- Columna de contenido -->
-      <div class="flex flex-col min-h-[calc(100vh-6rem)]">
-
+      <div class="flex min-h-[calc(100vh-6rem)] flex-col">
         <main class="flex-1">
           <slot />
         </main>
 
-        <footer class="bg-black/80 backdrop-blur border-t border-white/10">
+        <footer class="border-t border-white/10 bg-black/80 backdrop-blur">
           <Footer />
         </footer>
-
       </div>
     </div>
   </body>

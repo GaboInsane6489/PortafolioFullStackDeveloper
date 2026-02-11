@@ -1,5 +1,5 @@
 ---
-import { Icon } from 'astro-icon/components'
+import { Icon } from "astro-icon/components";
 
 const links = [
   { label: "Inicio", href: "/" },
@@ -8,18 +8,16 @@ const links = [
   { label: "Contacto", href: "#contact" },
 ];
 ---
+
 <footer
-  class="bg-black border-t border-white/10 text-white pt-20 pb-10 relative z-10"
+  class="relative z-10 border-t border-white/10 bg-black pt-20 pb-10 text-white"
 >
-  <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-12 text-sm">
-    
+  <div class="mx-auto grid max-w-7xl gap-12 px-6 text-sm md:grid-cols-3">
     <!-- Marca / Identidad -->
     <div class="space-y-4">
-      <p class="font-bold uppercase tracking-widest">
-        Gabriel González
-      </p>
+      <p class="font-bold tracking-widest uppercase">Gabriel González</p>
 
-      <p class="text-gray-400 max-w-sm leading-relaxed">
+      <p class="max-w-sm leading-relaxed text-gray-400">
         Desarrollador Full Stack enfocado en rendimiento, arquitectura limpia y
         experiencias web de alto nivel.
       </p>
@@ -27,27 +25,26 @@ const links = [
 
     <!-- Navegación interna -->
     <nav aria-label="Footer navigation">
-      <h4 class="text-xs uppercase tracking-widest text-gray-500 mb-4">
+      <h4 class="mb-4 text-xs tracking-widest text-gray-500 uppercase">
         Navegación
       </h4>
 
       <ul class="space-y-3">
-        {links.map(link => (
-          <li>
-            <a
-              href={link.href}
-              class="hover:opacity-70 transition"
-            >
-              {link.label}
-            </a>
-          </li>
-        ))}
+        {
+          links.map((link) => (
+            <li>
+              <a href={link.href} class="transition hover:opacity-70">
+                {link.label}
+              </a>
+            </li>
+          ))
+        }
       </ul>
     </nav>
 
     <!-- Redes sociales -->
     <div>
-      <h4 class="text-xs uppercase tracking-widest text-gray-500 mb-4">
+      <h4 class="mb-4 text-xs tracking-widest text-gray-500 uppercase">
         Social
       </h4>
 
@@ -57,7 +54,7 @@ const links = [
             href="https://github.com"
             target="_blank"
             rel="noopener noreferrer"
-            class="flex items-center gap-3 hover:opacity-70 transition"
+            class="flex items-center gap-3 transition hover:opacity-70"
           >
             <Icon name="tabler:brand-github" size="18" />
             GitHub
@@ -69,7 +66,7 @@ const links = [
             href="https://linkedin.com"
             target="_blank"
             rel="noopener noreferrer"
-            class="flex items-center gap-3 hover:opacity-70 transition"
+            class="flex items-center gap-3 transition hover:opacity-70"
           >
             <Icon name="tabler:brand-linkedin" size="18" />
             LinkedIn
@@ -80,7 +77,9 @@ const links = [
   </div>
 
   <!-- Copyright -->
-  <div class="border-t border-white/10 mt-16 pt-6 text-center text-xs text-gray-500">
+  <div
+    class="mt-16 border-t border-white/10 pt-6 text-center text-xs text-gray-500"
+  >
     © {new Date().getFullYear()} Gabriel González — Full Stack Developer
   </div>
 </footer>
