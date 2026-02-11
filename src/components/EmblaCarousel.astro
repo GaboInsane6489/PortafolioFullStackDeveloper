@@ -1,0 +1,71 @@
+---
+import { Icon } from "astro-icon/components";
+
+interface Props {
+  images: string[];
+  autoplay?: boolean;
+  interval?: number;
+}
+
+const {
+  images,
+  autoplay = true,
+  interval = 4000
+} = Astro.props as Props;
+---
+
+<div
+  class="embla-wrapper relative group"
+  data-autoplay={String(autoplay)}
+  data-interval={interval}
+>
+  <!-- Progress bar -->
+  <div class="absolute top-0 left-0 w-full h-[3px] bg-white/10 overflow-hidden">
+    <div class="embla-progress h-full bg-white w-0 transition-[width] duration-100 ease-linear"></div>
+  </div>
+
+  <!-- Viewport -->
+  <div class="embla overflow-hidden">
+    <div class="embla__container flex">
+      {images.map((src, index) => (
+        <div class="embla__slide flex-[0_0_100%] px-2">
+          <img
+            src={src}
+            alt={`Slide ${index + 1}`}
+            class="w-full h-80 md:h-96 object-cover rounded-xl"
+            loading="lazy"
+          />
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <!-- Prev -->
+  <button
+    type="button"
+    aria-label="Previous slide"
+    class="embla-prev absolute left-3 top-1/2 -translate-y-1/2 bg-black/60 hover:bg-black/80 cursor-pointer transition px-4 py-2 rounded-full text-white"
+  >
+    <Icon name="tabler:chevron-left" size="24" />
+  </button>
+
+  <!-- Next -->
+  <button
+    type="button"
+    aria-label="Next slide"
+    class="embla-next absolute right-3 top-1/2 -translate-y-1/2 bg-black/60 hover:bg-black/80 cursor-pointer transition px-4 py-2 rounded-full text-white"
+  >
+    <Icon name="tabler:chevron-right" size="24" />
+  </button>
+</div>
+
+<!-- IMPORTANTE: Solo se importa una vez por página -->
+<script type="module">
+  import { initEmbla } from "/src/scripts/embla-init.ts";
+
+  // Evita reinicialización múltiple
+  if (!window.__EMBLA_INITIALIZED__) {
+    window.__EMBLA_INITIALIZED__ = true;
+    initEmbla();
+  }
+</script>

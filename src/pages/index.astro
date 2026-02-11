@@ -1,9 +1,16 @@
 ---
 import PortfolioLayout from "../layouts/PortfolioLayout.astro";
 import { Icon } from "astro-icon/components";
+import EmblaCarousel from "../components/EmblaCarousel.astro";
+
+const luzInteriorImages = Array.from(
+  { length: 11 },
+  (_, i) => `/images/LuzInterior${i + 1}.webp`
+);
 ---
 
 <PortfolioLayout>
+
   <!-- ===================== -->
   <!-- HERO EDITORIAL -->
   <!-- ===================== -->
@@ -11,122 +18,82 @@ import { Icon } from "astro-icon/components";
     id="overview"
     class="relative w-full overflow-hidden border-t border-white/5 py-24"
   >
-    <!-- CAPA ATMÓSFERA -->
-    <div
-      class="pointer-events-none absolute top-0 right-0 h-full w-1/2 bg-gradient-to-l from-white/5 to-transparent"
-    >
-    </div>
-    <div
-      class="pointer-events-none absolute -bottom-24 -left-24 h-[400px] w-[400px] rounded-full bg-white/5 blur-[120px]"
-    >
-    </div>
+
+    <!-- ATMÓSFERA -->
+    <div class="pointer-events-none absolute inset-y-0 right-0 w-1/2 bg-gradient-to-l from-white/5 to-transparent"></div>
+    <div class="pointer-events-none absolute -bottom-24 -left-24 h-[400px] w-[400px] rounded-full bg-white/5 blur-[120px]"></div>
 
     <div class="relative z-10 mx-auto max-w-[1600px] px-6 sm:px-10 lg:px-20">
+
       <div class="grid grid-cols-1 items-center gap-20 lg:grid-cols-12">
-        <!-- NARRATIVA -->
+
+        <!-- TEXTO -->
         <div class="space-y-12 lg:col-span-7">
+
           <div class="space-y-6">
             <div class="flex items-center gap-4">
               <div class="h-px w-12 bg-white"></div>
-              <span
-                class="text-[10px] font-bold tracking-[0.6em] text-gray-300 uppercase"
-              >
+              <span class="text-[10px] font-bold tracking-[0.6em] text-gray-300 uppercase">
                 Portfolio Profesional
               </span>
             </div>
 
-            <h1
-              class="font-serif text-6xl leading-[0.85] tracking-tighter md:text-8xl xl:text-9xl"
-            >
+            <h1 class="font-serif text-5xl leading-[0.85] tracking-tighter sm:text-6xl md:text-8xl xl:text-9xl">
               Software con
               <br />
               <span class="relative font-light text-white/40 italic">
                 intención real
-                <span
-                  class="absolute -bottom-4 left-0 h-px w-full bg-gradient-to-r from-white/50 to-transparent"
-                ></span>
+                <span class="absolute -bottom-4 left-0 h-px w-full bg-gradient-to-r from-white/50 to-transparent"></span>
               </span>
             </h1>
           </div>
 
-          <p
-            class="max-w-xl text-lg leading-relaxed font-light text-gray-400 md:text-xl"
-          >
+          <p class="max-w-xl text-lg font-light leading-relaxed text-gray-400 md:text-xl">
             Desarrollo productos digitales con foco en
-            <span class="font-medium text-white italic">
+            <span class="font-medium italic text-white">
               arquitectura limpia, rendimiento y experiencia de usuario
-            </span>. Me interesa el impacto real del producto, no solo el
-            código.
+            </span>.
+            Me interesa el impacto real del producto, no solo el código.
           </p>
 
-          <div
-            class="flex flex-col items-start gap-8 pt-4 sm:flex-row sm:items-center"
-          >
+          <div class="flex flex-col items-start gap-8 pt-4 sm:flex-row sm:items-center">
             <a
               href="#projects"
-              class="group relative overflow-hidden bg-white px-12 py-6 text-xs font-bold tracking-[0.3em] text-black uppercase transition-all duration-700 hover:bg-gray-200"
+              class="group relative overflow-hidden bg-white px-12 py-6 text-xs font-bold tracking-[0.3em] text-black uppercase transition-all duration-500 hover:bg-gray-200"
             >
               <span class="relative z-10">Ver proyectos</span>
-              <div
-                class="absolute inset-0 origin-left scale-x-0 bg-black opacity-5 transition-transform duration-500 group-hover:scale-x-100"
-              >
-              </div>
+              <div class="absolute inset-0 origin-left scale-x-0 bg-black opacity-5 transition-transform duration-500 group-hover:scale-x-100"></div>
             </a>
 
-            <div class="flex -space-x-4">
-              <div
-                class="h-10 w-10 rounded-full border-2 border-black bg-zinc-900"
-              >
-              </div>
-              <div
-                class="h-10 w-10 rounded-full border-2 border-black bg-zinc-800"
-              >
-              </div>
-              <div
-                class="flex h-10 w-10 items-center justify-center rounded-full border-2 border-black bg-zinc-700 text-[10px] font-bold text-gray-400"
-              >
-                +5
-              </div>
-
-              <span
-                class="self-center pl-8 text-[10px] font-bold tracking-widest text-gray-500 uppercase"
-              >
-                Proyectos reales
-              </span>
+            <div class="flex items-center gap-6 text-[10px] font-bold tracking-widest text-gray-500 uppercase">
+              <span>+5 Proyectos reales</span>
             </div>
           </div>
+
         </div>
 
         <!-- VISUAL -->
-        <div class="relative lg:col-span-9">
-          <div class="group relative cursor-crosshair">
-            <!-- Marco flotante -->
-            <div
-              class="absolute -inset-6 -z-10 translate-x-4 translate-y-4 border border-white/10 transition-transform duration-1000 ease-out group-hover:translate-x-0 group-hover:translate-y-0"
-            >
-            </div>
+        <div class="relative lg:col-span-5">
 
-            <div
-              class="relative overflow-hidden rounded-sm border border-white/5"
-            >
+          <div class="group relative">
+
+            <div class="absolute -inset-6 -z-10 translate-x-4 translate-y-4 border border-white/10 transition-transform duration-700 group-hover:translate-x-0 group-hover:translate-y-0"></div>
+
+            <div class="relative overflow-hidden border border-white/5 rounded-lg">
               <img
                 src="/images/LuzInterior1.webp"
                 alt="Proyecto Luz Interior"
-                class="h-auto w-full transition-all duration-[2000ms] group-hover:scale-110"
+                class="w-full h-auto transition-transform duration-[2000ms] group-hover:scale-105"
+                loading="lazy"
               />
 
-              <!-- Overlay hover -->
-              <div
-                class="absolute inset-0 flex flex-col justify-end space-y-6 bg-black/70 p-10 opacity-0 transition-opacity duration-700 group-hover:opacity-100"
-              >
-                <div class="space-y-2">
-                  <p
-                    class="text-[10px] font-bold tracking-widest text-white uppercase"
-                  >
+              <div class="absolute inset-0 flex flex-col justify-end space-y-6 bg-black/70 p-8 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+                <div>
+                  <p class="text-[10px] font-bold tracking-widest text-white uppercase">
                     Proyecto destacado
                   </p>
-                  <p class="font-serif text-sm text-white italic">
-                    “Diseño editorial aplicado a producto digital.”
+                  <p class="font-serif text-sm italic text-white">
+                    Diseño editorial aplicado a producto digital.
                   </p>
                 </div>
 
@@ -135,226 +102,107 @@ import { Icon } from "astro-icon/components";
                 <div class="flex gap-10">
                   <div class="text-center">
                     <p class="text-lg font-bold text-white">2025</p>
-                    <p class="text-[8px] tracking-tighter text-white uppercase">
-                      Año
-                    </p>
+                    <p class="text-[8px] uppercase text-white">Año</p>
                   </div>
                   <div class="text-center">
                     <p class="text-lg font-bold text-white">Astro</p>
-                    <p class="text-[8px] tracking-tighter text-white uppercase">
-                      Stack
-                    </p>
+                    <p class="text-[8px] uppercase text-white">Stack</p>
                   </div>
                 </div>
               </div>
             </div>
 
-            <!-- Tag flotante -->
-            <div
-              class="animate-bounce-slow absolute -right-8 -bottom-8 border border-white/10 bg-zinc-900 p-6 shadow-2xl"
-            >
-              <p
-                class="text-[10px] font-bold tracking-widest text-white uppercase"
-              >
-                Producto real
-              </p>
-            </div>
           </div>
+
         </div>
+
       </div>
 
       <!-- FOOTER VALORES -->
-      <div
-        class="mt-28 grid grid-cols-2 gap-12 border-t border-white/5 pt-6 md:grid-cols-4"
-      >
+      <div class="mt-28 grid grid-cols-2 gap-12 border-t border-white/5 pt-6 md:grid-cols-4">
         <div>
-          <h5
-            class="mb-1 text-[10px] font-bold tracking-widest text-white uppercase"
-          >
+          <h5 class="mb-1 text-[10px] font-bold tracking-widest text-white uppercase">
             Arquitectura
           </h5>
           <p class="text-[10px] text-gray-500">Decisiones técnicas claras.</p>
         </div>
         <div>
-          <h5
-            class="mb-1 text-[10px] font-bold tracking-widest text-white uppercase"
-          >
+          <h5 class="mb-1 text-[10px] font-bold tracking-widest text-white uppercase">
             Rendimiento
           </h5>
           <p class="text-[10px] text-gray-500">Optimización real.</p>
         </div>
         <div>
-          <h5
-            class="mb-1 text-[10px] font-bold tracking-widest text-white uppercase"
-          >
+          <h5 class="mb-1 text-[10px] font-bold tracking-widest text-white uppercase">
             UX
           </h5>
           <p class="text-[10px] text-gray-500">Diseño usable y limpio.</p>
         </div>
         <div>
-          <h5
-            class="mb-1 text-[10px] font-bold tracking-widest text-white uppercase"
-          >
+          <h5 class="mb-1 text-[10px] font-bold tracking-widest text-white uppercase">
             Producto
           </h5>
           <p class="text-[10px] text-gray-500">Pensado para usuarios reales.</p>
         </div>
       </div>
+
     </div>
   </section>
+
 
   <!-- ===================== -->
   <!-- PROYECTOS -->
   <!-- ===================== -->
-  <div class="ml-24 space-y-12 lg:col-span-7">
-    <div class="space-y-6">
-      <div class="flex items-center gap-4">
-        <div class="h-px w-12 bg-white"></div>
-        <span
-          class="text-[10px] font-bold tracking-[0.6em] text-gray-300 uppercase"
-        >
-          Proyectos
-        </span>
-      </div>
+  <section id="projects" class="py-32 border-t border-white/5">
+    <div class="mx-auto max-w-[1400px] px-6 sm:px-10 lg:px-20">
 
-      <h1
-        class="font-serif text-4xl leading-[0.85] tracking-tighter md:text-6xl xl:text-7xl"
-      >
-        Proyectos
-        <br />
-        <span class="relative font-light text-white/40 italic">
-          que resuelven problemas reales
-          <span
-            class="absolute -bottom-4 left-0 h-px w-full bg-gradient-to-r from-white/50 to-transparent"
-          ></span>
-        </span>
-      </h1>
-    </div>
-
-    <p
-      class="max-w-xl text-lg leading-relaxed font-light text-gray-400 md:text-xl"
-    >
-      Desarrollo productos digitales con foco en
-      <span class="font-medium text-white italic">
-        arquitectura limpia, rendimiento y experiencia de usuario
-      </span>. Me interesa el impacto real del producto, no solo el código.
-    </p>
-
-    <div
-      class="flex flex-col items-start gap-8 pt-4 sm:flex-row sm:items-center"
-    >
-      <a
-        href="https://github.com/GaboInsane6489?tab=repositories"
-        class="group relative overflow-hidden bg-white px-12 py-6 text-xs font-bold tracking-[0.3em] text-black uppercase transition-all duration-700 hover:bg-gray-200"
-      >
-        <span class="relative z-10">Ver repositorios</span>
-        <div
-          class="absolute inset-0 origin-left scale-x-0 bg-black opacity-5 transition-transform duration-500 group-hover:scale-x-100"
-        >
-        </div>
-      </a>
-
-      <div class="flex -space-x-4">
-        <div
-          class="flex h-10 w-10 items-center justify-center rounded-full border-2 border-black bg-zinc-700 text-[10px] font-bold text-gray-400"
-        >
-          <Icon name="tabler:brand-github" size="20" />
-        </div>
-
-        <a
-          href="https://github.com/GaboInsane6489"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <span
-            class="self-center pl-8 text-[10px] font-bold tracking-widest text-gray-500 uppercase"
-          >
-            Mi GitHub
+      <div class="max-w-3xl space-y-8">
+        <div class="flex items-center gap-4">
+          <div class="h-px w-12 bg-white"></div>
+          <span class="text-[10px] font-bold tracking-[0.6em] text-gray-300 uppercase">
+            Proyectos
           </span>
-        </a>
-      </div>
-    </div>
-  </div>
+        </div>
 
-<div id="projects" class="py-16">
-  <h2
-    class="font-serif text-4xl leading-[0.85] tracking-tighter md:text-6xl xl:text-7xl text-center"
-  >
-    Proyectos
-  </h2>
-  <p
-    class="mx-auto mt-4 max-w-xl text-lg leading-relaxed font-light text-gray-400 md:text-xl text-center"
-  >
-    Aquí puedes ver algunos de mis proyectos más destacados.
-  </p>
+        <h2 class="font-serif text-4xl md:text-6xl xl:text-7xl leading-[0.85] tracking-tighter">
+          Proyectos
+          <br />
+          <span class="relative font-light text-white/40 italic">
+            que resuelven problemas reales
+            <span class="absolute -bottom-4 left-0 h-px w-full bg-gradient-to-r from-white/50 to-transparent"></span>
+          </span>
+        </h2>
 
-  <div class="mt-12 grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-3">
-    <!-- Proyecto 1 -->
-    <div class="flex flex-col items-center gap-6">
-      <div
-        class="flex h-12 w-12 items-center justify-center rounded-xl border border-white/20 text-xs font-bold"
-      >
-        <Icon name="tabler:timeline" size="24" />
-      </div>
-      <div class="flex-1 text-center">
-        <h3 class="mb-2 text-lg font-bold text-white">Luz Interior</h3>
-        <p class="text-sm text-gray-400">
-          Sitio web estilo feed social con foro de discusiones sobre desarrollo
-          personal, mejora física y mental. <span class="text-white"
-            >Incluye un sistema de logros para motivar al usuario a superarse.</span
-          >
+        <p class="text-lg font-light text-gray-400 md:text-xl leading-relaxed">
+          Productos digitales con foco en arquitectura, rendimiento y experiencia real.
         </p>
       </div>
 
-      <!-- Carrusel -->
-      <div
-        id="carousel-luz"
-        class="relative w-full"
-        data-carousel="slide"
-      >
-        <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
-          <div class="hidden duration-700 ease-in-out" data-carousel-item>
-            <img src="/images/LuzInterior1.webp" class="w-full object-cover" alt="Luz Interior 1" />
-          </div>
-          <div class="hidden duration-700 ease-in-out" data-carousel-item>
-            <img src="/images/LuzInterior2.webp" class="w-full object-cover" alt="Luz Interior 2" />
-          </div>
-          <!-- ... más imágenes -->
-        </div>
-        <!-- Indicadores -->
-        <div class="absolute bottom-5 left-1/2 flex -translate-x-1/2 space-x-3">
-          <button type="button" class="h-3 w-3 rounded-full bg-white/50" data-carousel-slide-to="0"></button>
-          <button type="button" class="h-3 w-3 rounded-full bg-white/50" data-carousel-slide-to="1"></button>
-        </div>
-        <!-- Controles -->
-        <button type="button" class="absolute left-0 top-0 h-full px-4" data-carousel-prev>
-          <Icon name="tabler:chevron-left" size="24" />
-        </button>
-        <button type="button" class="absolute right-0 top-0 h-full px-4" data-carousel-next>
-          <Icon name="tabler:chevron-right" size="24" />
-        </button>
-      </div>
-    </div>
+      <div class="mt-20 grid grid-cols-1 gap-20">
 
-    <!-- Proyecto 2 -->
-    <div class="flex flex-col items-center gap-6">
-      <div
-        class="flex h-12 w-12 items-center justify-center rounded-xl border border-white/20 text-xs font-bold"
-      >
-        <Icon name="tabler:building" size="24" />
-      </div>
-      <div class="flex-1 text-center">
-        <h3 class="mb-2 text-lg font-bold text-white">Instalaciones García</h3>
-        <p class="text-sm text-gray-400">
-          Landing page para una empresa de instalaciones de Drywall,
-          construcción y carpintería. <span class="text-white"
-            >Incluye asesoramiento personalizado para los clientes.</span
-          >
-        </p>
-      </div>
-    </div>
-  </div>
-</div>
+        <article class="space-y-8">
 
+          <div class="flex items-center gap-4">
+            <div class="flex h-12 w-12 items-center justify-center rounded-xl border border-white/20">
+              <Icon name="tabler:timeline" size="24" />
+            </div>
+            <h3 class="text-xl font-bold text-white">
+              Luz Interior
+            </h3>
+          </div>
+
+          <p class="max-w-xl text-gray-400">
+            Plataforma estilo feed social con sistema de logros, progreso medible
+            y arquitectura modular escalable.
+          </p>
+
+          <EmblaCarousel images={luzInteriorImages} />
+
+        </article>
+
+      </div>
+
+    </div>
+  </section>
 
 </PortfolioLayout>
