@@ -12,154 +12,61 @@ const luzInteriorImages = Array.from(
 <PortfolioLayout>
 
   <!-- ===================================================== -->
-  <!-- HERO EDITORIAL -->
+  <!-- HERO / PROFILE -->
   <!-- ===================================================== -->
-  <section
-    id="overview"
-    class="relative w-full overflow-hidden border-t border-white/5 py-28 lg:py-40"
-  >
+  <section class="relative w-full border-t border-white/5 py-28 lg:py-36">
 
-    <!-- MARCA DE AGUA -->
-    <div class="absolute top-10 -left-24 pointer-events-none select-none hidden 2xl:block">
-      <span class="text-[20rem] font-serif font-black text-white/[0.02] leading-none uppercase tracking-tighter">
-        Software
-      </span>
-    </div>
+    <div class="mx-auto w-full max-w-[1300px] px-8 sm:px-12 lg:px-16 xl:px-20">
 
-    <!-- ATMÓSFERA -->
-    <div class="pointer-events-none absolute inset-y-0 right-0 w-1/2 bg-gradient-to-l from-white/5 to-transparent"></div>
-    <div class="pointer-events-none absolute -bottom-24 -left-24 h-[400px] w-[400px] rounded-full bg-white/5 blur-[120px]"></div>
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-20 items-center">
 
-    <div class="relative z-10 mx-auto max-w-[1600px] px-6 sm:px-10 lg:px-20">
+        <!-- PROFILE TEXT -->
+        <div class="lg:col-span-7 space-y-10">
 
-      <div class="grid grid-cols-1 items-center gap-24 lg:grid-cols-12">
-
-        <!-- NARRATIVA -->
-        <div class="space-y-14 lg:col-span-7">
-
-          <div class="space-y-8">
-            <div class="flex items-center gap-4">
-              <div class="h-px w-12 bg-white"></div>
-              <span class="text-[10px] font-bold tracking-[0.6em] text-gray-400 uppercase">
-                Portfolio Profesional
-              </span>
-            </div>
-
-            <h1 class="font-serif text-6xl leading-[0.85] tracking-tighter sm:text-7xl md:text-8xl xl:text-9xl">
-              Software con
-              <br />
-              <span class="relative font-light text-white/40 italic">
-                intención real
-                <span class="absolute -bottom-4 left-0 h-px w-full bg-gradient-to-r from-white/50 to-transparent"></span>
-              </span>
-            </h1>
+          <div class="flex items-center gap-4">
+            <div class="h-px w-12 bg-white"></div>
+            <span class="text-[10px] tracking-[0.6em] text-gray-400 uppercase font-bold">
+              Full Stack Developer
+            </span>
           </div>
 
-          <div class="space-y-10 max-w-xl">
-            <p class="text-xl md:text-2xl font-light leading-relaxed">
-              No desarrollo interfaces.
-              <br />
-              Construyo{" "}
-              <span class="font-medium italic underline decoration-white decoration-2 underline-offset-8">
-                sistemas digitales coherentes
-              </span>.
-            </p>
+          <h1 class="font-serif text-5xl sm:text-6xl md:text-7xl xl:text-8xl leading-[0.9] tracking-tighter">
+            Gabriel González
+            <br />
+            <span class="italic font-light text-white/40">
+              Building scalable digital systems
+            </span>
+          </h1>
 
-            <p class="text-gray-400 leading-loose">
-              Arquitectura limpia, decisiones técnicas conscientes y foco
-              absoluto en rendimiento. Cada proyecto tiene intención,
-              estructura y propósito.
-            </p>
+          <p class="text-lg md:text-xl text-gray-400 leading-relaxed max-w-2xl">
+            I design and develop modern, maintainable and performance-oriented
+            web applications. My focus is clean architecture, scalable
+            systems, and high-quality user experiences.
+          </p>
 
-            <p class="text-[10px] uppercase tracking-[0.4em] text-gray-500 font-bold">
-              Arquitectura · Rendimiento · Producto
-            </p>
-          </div>
-
-          <div class="flex flex-col items-start gap-10 pt-6 sm:flex-row sm:items-center">
-
-            <a
-              href="#projects"
-              class="group relative overflow-hidden bg-white px-14 py-6 text-xs font-bold tracking-[0.3em] text-black uppercase transition-all duration-700 hover:bg-gray-200"
-            >
-              <span class="relative z-10">Explorar proyectos</span>
-              <div class="absolute inset-0 origin-left scale-x-0 bg-black opacity-5 transition-transform duration-500 group-hover:scale-x-100"></div>
-            </a>
-
-            <div class="flex items-center gap-8 text-[10px] font-bold tracking-widest text-gray-500 uppercase">
-              <span>+5 Productos reales</span>
-            </div>
-
-          </div>
-        </div>
-
-        <!-- VISUAL -->
-        <div class="relative lg:col-span-5">
-
-          <div class="group relative cursor-crosshair">
-
-            <div class="absolute -inset-6 -z-10 translate-x-4 translate-y-4 border border-white/10 transition-transform duration-1000 group-hover:translate-x-0 group-hover:translate-y-0"></div>
-
-            <div class="relative overflow-hidden border border-white/5">
-              <img
-                src="/images/LuzInterior1.webp"
-                alt="Proyecto Luz Interior"
-                class="w-full h-auto transition-all duration-[2000ms] group-hover:scale-105"
-                loading="lazy"
-              />
-
-              <div class="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity duration-700 flex flex-col justify-end p-10 space-y-6">
-
-                <div>
-                  <p class="text-[10px] font-bold tracking-widest text-white uppercase">
-                    Proyecto destacado
-                  </p>
-                  <p class="font-serif text-sm italic text-white">
-                    Diseño editorial aplicado a producto digital.
-                  </p>
-                </div>
-
-                <div class="h-px w-full bg-white/40"></div>
-
-                <div class="flex gap-10">
-                  <div class="text-center">
-                    <p class="text-lg font-bold text-white">2025</p>
-                    <p class="text-[8px] uppercase text-white">Año</p>
-                  </div>
-                  <div class="text-center">
-                    <p class="text-lg font-bold text-white">Astro</p>
-                    <p class="text-[8px] uppercase text-white">Stack</p>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-
+          <div class="text-[10px] uppercase tracking-[0.4em] text-gray-500 font-bold">
+            Clean Architecture · Performance · Scalability · UX
           </div>
 
         </div>
 
-      </div>
+        <!-- PROFILE IMAGE -->
+        <div class="lg:col-span-5 flex justify-center lg:justify-end">
 
-      <!-- SISTEMA DE VALORES -->
-      <div class="mt-32 pt-10 border-t border-white/5 grid grid-cols-2 md:grid-cols-4 gap-16 text-center md:text-left">
+          <div class="relative group">
 
-        {[
-          { title: "Arquitectura", desc: "Decisiones técnicas conscientes." },
-          { title: "Rendimiento", desc: "Optimización medible." },
-          { title: "UX", desc: "Interfaces limpias y usables." },
-          { title: "Producto", desc: "Impacto en usuarios reales." },
-        ].map((item) => (
-          <div class="group cursor-default">
-            <div class="h-6 w-6 border border-white/20 mb-6 mx-auto md:mx-0 group-hover:border-white transition-colors"></div>
-            <h5 class="text-[10px] font-bold tracking-widest text-white uppercase mb-2">
-              {item.title}
-            </h5>
-            <p class="text-[10px] text-gray-500">
-              {item.desc}
-            </p>
+            <div class="absolute -inset-6 border border-white/10 -z-10 translate-x-4 translate-y-4 transition-all duration-700 group-hover:translate-x-0 group-hover:translate-y-0"></div>
+
+            <img
+              src="/images/FotoPerfil.webp"
+              alt="Gabriel González Profile Picture"
+              class="w-[280px] sm:w-[320px] md:w-[360px] object-cover border border-white/5"
+              loading="lazy"
+            />
+
           </div>
-        ))}
+
+        </div>
 
       </div>
 
@@ -169,96 +76,152 @@ const luzInteriorImages = Array.from(
 
 
   <!-- ===================================================== -->
-  <!-- PROYECTOS -->
+  <!-- ABOUT ME -->
   <!-- ===================================================== -->
-  <section id="projects" class="relative py-32 border-t border-white/5">
+  <section class="py-32 border-t border-white/5">
 
-    <div class="max-w-[1500px] mx-auto px-6 sm:px-10 lg:px-20">
+    <div class="mx-auto w-full max-w-[1000px] px-8 sm:px-12 lg:px-16 space-y-16">
 
-      <div class="max-w-4xl space-y-12">
+      <div class="space-y-8">
 
         <div class="flex items-center gap-4">
           <div class="h-px w-12 bg-white"></div>
-          <span class="text-[10px] font-bold tracking-[0.6em] text-gray-400 uppercase">
-            Proyecto Principal
+          <span class="text-[10px] tracking-[0.6em] text-gray-400 uppercase font-bold">
+            Professional Summary
           </span>
         </div>
 
-        <h2 class="font-serif text-5xl md:text-7xl leading-[0.85] tracking-tighter">
-          Luz Interior
+        <h2 class="font-serif text-4xl md:text-6xl leading-tight tracking-tighter">
+          Engineering with structure,
           <br />
           <span class="italic font-light text-white/40">
-            Arquitectura emocional aplicada a producto
+            not improvisation
           </span>
         </h2>
 
-        <p class="text-xl text-gray-400 leading-relaxed max-w-3xl">
-          Plataforma digital con sistema de progreso, arquitectura modular
-          escalable y enfoque en rendimiento. Diseñada como un sistema,
-          no como una colección de páginas.
+      </div>
+
+      <div class="space-y-8 text-gray-400 leading-loose text-lg">
+
+        <p>
+          I am a Full Stack Developer focused on building modern,
+          maintainable, and performance-oriented web applications. I work
+          across both frontend and backend, prioritizing clean architecture,
+          best practices, and solutions designed to scale in an organized way.
+        </p>
+
+        <p>
+          Throughout my training as a University-certified Full Stack Developer
+          and my hands-on experience, I have built and maintained real-world
+          projects in collaborative environments.
+        </p>
+
+        <p>
+          Notable examples include <span class="text-white font-medium">Instalaciones García</span>,
+          a scalable service management system, and my work on
+          <span class="text-white font-medium"> Harry Potter Foro</span>,
+          where I implemented complex features such as achievement systems,
+          notifications, database migrations, and event-driven logic directly
+          in a production environment.
+        </p>
+
+        <p>
+          I have real work experience collaborating in teams that follow
+          professional workflows: ticket systems, branching strategies, clean
+          commits, pull requests, squash merges, code reviews, and controlled
+          deployments.
+        </p>
+
+        <p>
+          My role has involved fixing real production bugs, improving existing
+          logic, and ensuring system stability.
         </p>
 
       </div>
 
-      <!-- GRID PROYECTO -->
-      <div class="mt-24 grid grid-cols-1 lg:grid-cols-2 gap-24 items-start">
+      <div class="pt-10 border-t border-white/5 text-sm text-gray-500 space-y-2">
+        <p>Location: Caracas, Venezuela</p>
+        <p>High-tech workspace · Server architecture environment</p>
+        <p>Open to remote opportunities</p>
+      </div>
 
-        <!-- DESCRIPCIÓN -->
-        <div class="space-y-12">
+    </div>
 
-          <div class="space-y-6">
-            <h3 class="text-2xl font-serif">Sistema</h3>
-            <p class="text-gray-400 leading-loose">
-              Arquitectura basada en componentes reutilizables,
-              separación clara de responsabilidades y estructura
-              preparada para escalar.
-            </p>
-          </div>
+  </section>
 
-          <div class="space-y-6">
-            <h3 class="text-2xl font-serif">Tecnología</h3>
-            <ul class="space-y-4 text-gray-400">
+
+
+  <!-- ===================================================== -->
+  <!-- FEATURED PROJECT -->
+  <!-- ===================================================== -->
+  <section id="projects" class="py-32 border-t border-white/5">
+
+    <div class="mx-auto w-full max-w-[1200px] px-8 sm:px-12 lg:px-16">
+
+      <div class="max-w-3xl space-y-10">
+
+        <div class="flex items-center gap-4">
+          <div class="h-px w-12 bg-white"></div>
+          <span class="text-[10px] tracking-[0.6em] text-gray-400 uppercase font-bold">
+            Featured Project
+          </span>
+        </div>
+
+        <h2 class="font-serif text-4xl md:text-6xl leading-[0.9] tracking-tighter">
+          Luz Interior
+          <br />
+          <span class="italic font-light text-white/40">
+            Modular architecture & scalable system design
+          </span>
+        </h2>
+
+        <p class="text-lg text-gray-400 leading-relaxed max-w-xl">
+          A structured digital platform built with reusable components,
+          modular architecture, and performance-focused implementation.
+        </p>
+
+      </div>
+
+      <div class="mt-20 grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
+
+        <div class="space-y-10 max-w-xl">
+
+          <div>
+            <h3 class="text-xl font-serif mb-4">Tech Stack</h3>
+            <ul class="space-y-3 text-gray-400">
               <li class="flex items-center gap-3">
-                <Icon name="tabler:brand-astro" size="18" />
-                Astro
+                <Icon name="tabler:brand-javascript" size="18" />
+                JavaScript
               </li>
               <li class="flex items-center gap-3">
                 <Icon name="tabler:brand-react" size="18" />
-                React (islas interactivas)
+                React
               </li>
               <li class="flex items-center gap-3">
                 <Icon name="tabler:brand-tailwind" size="18" />
                 TailwindCSS
               </li>
+              <li class="flex items-center gap-3">
+                <Icon name="tabler:brand-supabase" size="18" />
+                Supabase
+              </li>
+              <li class="flex items-center gap-3">
+                <Icon name="tabler:brand-vercel" size="18" />
+                Vercel
+              </li>
             </ul>
-          </div>
-
-          <div>
-            <a
-              href="https://github.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="group inline-flex items-center gap-4 text-white text-[10px] uppercase tracking-[0.4em] font-bold border border-white/20 px-10 py-4 hover:bg-white hover:text-black transition-all"
-            >
-              Ver repositorio
-              <Icon
-                name="tabler:arrow-up-right"
-                size="16"
-                class="group-hover:-translate-y-1 group-hover:translate-x-1 transition-transform"
-              />
-            </a>
           </div>
 
         </div>
 
-        <!-- CAROUSEL -->
-        <div class="relative">
+        <div>
           <EmblaCarousel images={luzInteriorImages} />
         </div>
 
       </div>
 
     </div>
+
   </section>
 
 </PortfolioLayout>
