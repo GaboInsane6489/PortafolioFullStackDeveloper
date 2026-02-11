@@ -9,77 +9,128 @@ const links = [
 ];
 ---
 
-<footer
-  class="relative z-10 border-t border-white/10 bg-black pt-20 pb-10 text-white"
->
-  <div class="mx-auto grid max-w-7xl gap-12 px-6 text-sm md:grid-cols-3">
-    <!-- Marca / Identidad -->
-    <div class="space-y-4">
-      <p class="font-bold tracking-widest uppercase">Gabriel González</p>
+<footer class="relative w-full bg-black text-white pt-28 pb-12 border-t border-white/5 overflow-hidden">
 
-      <p class="max-w-sm leading-relaxed text-gray-400">
-        Desarrollador Full Stack enfocado en rendimiento, arquitectura limpia y
-        experiencias web de alto nivel.
-      </p>
-    </div>
-
-    <!-- Navegación interna -->
-    <nav aria-label="Footer navigation">
-      <h4 class="mb-4 text-xs tracking-widest text-gray-500 uppercase">
-        Navegación
-      </h4>
-
-      <ul class="space-y-3">
-        {
-          links.map((link) => (
-            <li>
-              <a href={link.href} class="transition hover:opacity-70">
-                {link.label}
-              </a>
-            </li>
-          ))
-        }
-      </ul>
-    </nav>
-
-    <!-- Redes sociales -->
-    <div>
-      <h4 class="mb-4 text-xs tracking-widest text-gray-500 uppercase">
-        Social
-      </h4>
-
-      <ul class="space-y-4">
-        <li>
-          <a
-            href="https://github.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="flex items-center gap-3 transition hover:opacity-70"
-          >
-            <Icon name="tabler:brand-github" size="18" />
-            GitHub
-          </a>
-        </li>
-
-        <li>
-          <a
-            href="https://linkedin.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="flex items-center gap-3 transition hover:opacity-70"
-          >
-            <Icon name="tabler:brand-linkedin" size="18" />
-            LinkedIn
-          </a>
-        </li>
-      </ul>
-    </div>
+  <!-- MARCA DE AGUA EDITORIAL -->
+  <div class="absolute -top-10 -left-24 pointer-events-none select-none hidden 2xl:block">
+    <span class="text-[18rem] font-serif font-black text-white/[0.02] leading-none uppercase tracking-tighter">
+      GG
+    </span>
   </div>
 
-  <!-- Copyright -->
-  <div
-    class="mt-16 border-t border-white/10 pt-6 text-center text-xs text-gray-500"
-  >
-    © {new Date().getFullYear()} Gabriel González — Full Stack Developer
+  <div class="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
+
+    <!-- GRID PRINCIPAL -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-20">
+
+      <!-- IDENTIDAD -->
+      <div class="space-y-8">
+        <div class="space-y-6">
+          <div class="flex items-center gap-4">
+            <div class="h-[1px] w-12 bg-amber-400"></div>
+            <span class="text-[10px] font-bold uppercase tracking-[0.6em] text-amber-300">
+              Identidad
+            </span>
+          </div>
+
+          <h3 class="text-3xl md:text-4xl font-serif tracking-tight">
+            Gabriel González
+          </h3>
+        </div>
+
+        <p class="text-gray-400 leading-relaxed max-w-sm">
+          Desarrollo experiencias web de alto rendimiento con arquitectura limpia,
+          foco en SEO y una ejecución visual que comunica precisión.
+        </p>
+
+        <p class="text-[10px] uppercase tracking-[0.4em] text-gray-600 font-bold">
+          Código. Sistema. Impacto.
+        </p>
+      </div>
+
+      <!-- NAVEGACIÓN -->
+      <nav aria-label="Footer navigation" class="space-y-8">
+        <h4 class="text-[10px] uppercase tracking-[0.6em] text-gray-500 font-bold">
+          Navegación
+        </h4>
+
+        <ul class="space-y-4">
+          {
+            links.map((link) => (
+              <li>
+                <a
+                  href={link.href}
+                  class="group inline-flex items-center gap-3 text-sm text-gray-300 hover:text-white transition-colors"
+                >
+                  <span class="relative">
+                    {link.label}
+                    <span class="absolute -bottom-1 left-0 w-0 h-px bg-amber-400 transition-all duration-300 group-hover:w-full" />
+                  </span>
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </nav>
+
+      <!-- SOCIAL / CONTACTO -->
+      <div class="space-y-8">
+        <h4 class="text-[10px] uppercase tracking-[0.6em] text-gray-500 font-bold">
+          Conecta
+        </h4>
+
+        <ul class="space-y-6">
+          <li>
+            <a
+              href="https://github.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="group flex items-center justify-between border border-white/10 px-6 py-4 hover:border-amber-400 transition-all"
+            >
+              <div class="flex items-center gap-4">
+                <Icon name="tabler:brand-github" size="20" />
+                <span class="text-sm">GitHub</span>
+              </div>
+              <Icon
+                name="tabler:arrow-up-right"
+                size="16"
+                class="opacity-0 group-hover:opacity-100 group-hover:-translate-y-1 group-hover:translate-x-1 transition-all"
+              />
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="https://linkedin.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="group flex items-center justify-between border border-white/10 px-6 py-4 hover:border-amber-400 transition-all"
+            >
+              <div class="flex items-center gap-4">
+                <Icon name="tabler:brand-linkedin" size="20" />
+                <span class="text-sm">LinkedIn</span>
+              </div>
+              <Icon
+                name="tabler:arrow-up-right"
+                size="16"
+                class="opacity-0 group-hover:opacity-100 group-hover:-translate-y-1 group-hover:translate-x-1 transition-all"
+              />
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- DIVISOR EDITORIAL -->
+    <div class="mt-24 border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-6 text-xs text-gray-600 uppercase tracking-widest">
+
+      <p>
+        © {new Date().getFullYear()} Gabriel González
+      </p>
+
+      <p class="text-gray-500">
+        Full Stack Developer · Arquitectura & Performance
+      </p>
+    </div>
   </div>
 </footer>
