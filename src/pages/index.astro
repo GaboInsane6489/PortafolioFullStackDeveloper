@@ -5,109 +5,115 @@ import EmblaCarousel from "../components/EmblaCarousel.astro";
 
 const luzInteriorImages = Array.from(
   { length: 11 },
-  (_, i) => `/images/LuzInterior${i + 1}.webp`
+  (_, i) => `/images/LuzInterior${i + 1}.webp`,
+);
+
+const InstalacionesGarciasImages = Array.from(
+  { length: 11 },
+  (_, i) => `/images/InstalacionesGarcias${i + 1}.webp`,
+);
+
+const HarryPotterHeadForumImages = Array.from(
+  { length: 11 },
+  (_, i) => `/images/HarryPotterHeadForum${i + 1}.webp`,
 );
 ---
 
 <PortfolioLayout>
-
   <!-- ===================================================== -->
   <!-- HERO / PROFILE -->
   <!-- ===================================================== -->
   <section class="relative w-full border-t border-white/5 py-28 lg:py-36">
-
     <div class="mx-auto w-full max-w-[1300px] px-8 sm:px-12 lg:px-16 xl:px-20">
-
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-20 items-center">
-
+      <div class="grid grid-cols-1 items-center gap-20 lg:grid-cols-12">
         <!-- PROFILE TEXT -->
-        <div class="lg:col-span-7 space-y-10">
-
+        <div class="space-y-10 lg:col-span-7">
           <div class="flex items-center gap-4">
             <div class="h-px w-12 bg-white"></div>
-            <span class="text-[10px] tracking-[0.6em] text-gray-400 uppercase font-bold">
+            <span
+              class="text-[10px] font-bold tracking-[0.6em] text-gray-400 uppercase"
+            >
               Full Stack Developer
             </span>
           </div>
 
-          <h1 class="font-serif text-5xl sm:text-6xl md:text-7xl xl:text-8xl leading-[0.9] tracking-tighter">
+          <h1
+            class="font-serif text-5xl leading-[0.9] tracking-tighter sm:text-6xl md:text-7xl xl:text-8xl"
+          >
             Gabriel González
             <br />
-            <span class="italic font-light text-white/40">
+            <span class="font-light text-white/40 italic">
               Building scalable digital systems
             </span>
           </h1>
 
-          <p class="text-lg md:text-xl text-gray-400 leading-relaxed max-w-2xl">
+          <p class="max-w-2xl text-lg leading-relaxed text-gray-400 md:text-xl">
             I design and develop modern, maintainable and performance-oriented
-            web applications. My focus is clean architecture, scalable
-            systems, and high-quality user experiences.
+            web applications. My focus is clean architecture, scalable systems,
+            and high-quality user experiences.
           </p>
 
-          <div class="text-[10px] uppercase tracking-[0.4em] text-gray-500 font-bold">
+          <div
+            class="text-[10px] font-bold tracking-[0.4em] text-gray-500 uppercase"
+          >
             Clean Architecture · Performance · Scalability · UX
           </div>
-
         </div>
 
         <!-- PROFILE IMAGE -->
-        <div class="lg:col-span-5 flex justify-center lg:justify-end">
-
-          <div class="relative group">
-
-            <div class="absolute -inset-6 border border-white/10 -z-10 translate-x-4 translate-y-4 transition-all duration-700 group-hover:translate-x-0 group-hover:translate-y-0"></div>
+        <div class="flex justify-center lg:col-span-5 lg:justify-end">
+          <div class="group relative">
+            <div
+              class="absolute -inset-6 -z-10 translate-x-4 translate-y-4 border border-white/10 transition-all duration-700 group-hover:translate-x-0 group-hover:translate-y-0"
+            >
+            </div>
 
             <img
               src="/images/FotoPerfil.webp"
               alt="Gabriel González Profile Picture"
-              class="w-[280px] sm:w-[320px] md:w-[360px] object-cover border border-white/5"
+              class="w-[280px] border border-white/5 object-cover sm:w-[320px] md:w-[360px]"
               loading="lazy"
             />
-
           </div>
-
         </div>
-
       </div>
-
     </div>
   </section>
-
-
 
   <!-- ===================================================== -->
   <!-- ABOUT ME -->
   <!-- ===================================================== -->
-  <section class="py-32 border-t border-white/5">
-
-    <div class="mx-auto w-full max-w-[1000px] px-8 sm:px-12 lg:px-16 space-y-16">
-
+  <section class="border-t border-white/5 py-32">
+    <div
+      class="mx-auto w-full max-w-[1000px] space-y-16 px-8 sm:px-12 lg:px-16"
+    >
       <div class="space-y-8">
-
         <div class="flex items-center gap-4">
           <div class="h-px w-12 bg-white"></div>
-          <span class="text-[10px] tracking-[0.6em] text-gray-400 uppercase font-bold">
+          <span
+            class="text-[10px] font-bold tracking-[0.6em] text-gray-400 uppercase"
+          >
             Professional Summary
           </span>
         </div>
 
-        <h2 class="font-serif text-4xl md:text-6xl leading-tight tracking-tighter">
+        <h2
+          class="font-serif text-4xl leading-tight tracking-tighter md:text-6xl"
+        >
           Engineering with structure,
           <br />
-          <span class="italic font-light text-white/40">
+          <span class="font-light text-white/40 italic">
             not improvisation
           </span>
         </h2>
-
       </div>
 
-      <div class="space-y-8 text-gray-400 leading-loose text-lg">
-
+      <div class="space-y-8 text-lg leading-loose text-gray-400">
         <p>
-          I am a Full Stack Developer focused on building modern,
-          maintainable, and performance-oriented web applications. I work
-          across both frontend and backend, prioritizing clean architecture,
-          best practices, and solutions designed to scale in an organized way.
+          I am a Full Stack Developer focused on building modern, maintainable,
+          and performance-oriented web applications. I work across both frontend
+          and backend, prioritizing clean architecture, best practices, and
+          solutions designed to scale in an organized way.
         </p>
 
         <p>
@@ -117,12 +123,13 @@ const luzInteriorImages = Array.from(
         </p>
 
         <p>
-          Notable examples include <span class="text-white font-medium">Instalaciones García</span>,
-          a scalable service management system, and my work on
-          <span class="text-white font-medium"> Harry Potter Foro</span>,
-          where I implemented complex features such as achievement systems,
-          notifications, database migrations, and event-driven logic directly
-          in a production environment.
+          Notable examples include <span class="font-medium text-white"
+            >Instalaciones García</span
+          >, a scalable service management system, and my work on
+          <span class="font-medium text-white"> Harry Potter Foro</span>, where
+          I implemented complex features such as achievement systems,
+          notifications, database migrations, and event-driven logic directly in
+          a production environment.
         </p>
 
         <p>
@@ -136,58 +143,53 @@ const luzInteriorImages = Array.from(
           My role has involved fixing real production bugs, improving existing
           logic, and ensuring system stability.
         </p>
-
       </div>
 
-      <div class="pt-10 border-t border-white/5 text-sm text-gray-500 space-y-2">
+      <div
+        class="space-y-2 border-t border-white/5 pt-10 text-sm text-gray-500"
+      >
         <p>Location: Caracas, Venezuela</p>
         <p>High-tech workspace · Server architecture environment</p>
         <p>Open to remote opportunities</p>
       </div>
-
     </div>
-
   </section>
-
-
 
   <!-- ===================================================== -->
   <!-- FEATURED PROJECT -->
   <!-- ===================================================== -->
-  <section id="projects" class="py-32 border-t border-white/5">
-
+  <section id="projects" class="border-t border-white/5 py-32">
     <div class="mx-auto w-full max-w-[1200px] px-8 sm:px-12 lg:px-16">
-
       <div class="max-w-3xl space-y-10">
-
         <div class="flex items-center gap-4">
           <div class="h-px w-12 bg-white"></div>
-          <span class="text-[10px] tracking-[0.6em] text-gray-400 uppercase font-bold">
+          <span
+            class="text-[10px] font-bold tracking-[0.6em] text-gray-400 uppercase"
+          >
             Featured Project
           </span>
         </div>
 
-        <h2 class="font-serif text-4xl md:text-6xl leading-[0.9] tracking-tighter">
+        <h2
+          class="font-serif text-4xl leading-[0.9] tracking-tighter md:text-6xl"
+        >
           Luz Interior
           <br />
-          <span class="italic font-light text-white/40">
+          <span class="font-light text-white/40 italic">
             Modular architecture & scalable system design
           </span>
         </h2>
 
-        <p class="text-lg text-gray-400 leading-relaxed max-w-xl">
-          A structured digital platform built with reusable components,
-          modular architecture, and performance-focused implementation.
+        <p class="max-w-xl text-lg leading-relaxed text-gray-400">
+          A structured digital platform built with reusable components, modular
+          architecture, and performance-focused implementation.
         </p>
-
       </div>
 
-      <div class="mt-20 grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
-
-        <div class="space-y-10 max-w-xl">
-
+      <div class="mt-20 grid grid-cols-1 items-start gap-20 lg:grid-cols-2">
+        <div class="max-w-xl space-y-10">
           <div>
-            <h3 class="text-xl font-serif mb-4">Tech Stack</h3>
+            <h3 class="mb-4 font-serif text-xl">Tech Stack</h3>
             <ul class="space-y-3 text-gray-400">
               <li class="flex items-center gap-3">
                 <Icon name="tabler:brand-javascript" size="18" />
@@ -211,17 +213,253 @@ const luzInteriorImages = Array.from(
               </li>
             </ul>
           </div>
-
         </div>
 
         <div>
           <EmblaCarousel images={luzInteriorImages} />
         </div>
-
       </div>
-
     </div>
-
   </section>
 
+  <section id="projects" class="border-t border-white/5 py-32">
+    <div class="mx-auto w-full max-w-[1200px] px-8 sm:px-12 lg:px-16">
+      <div class="max-w-3xl space-y-10">
+        <div class="flex items-center gap-4">
+          <div class="h-px w-12 bg-white"></div>
+          <span
+            class="text-[10px] font-bold tracking-[0.6em] text-gray-400 uppercase"
+          >
+            Featured Project
+          </span>
+        </div>
+
+        <h2
+          class="font-serif text-4xl leading-[0.9] tracking-tighter md:text-6xl"
+        >
+          Instalaciones Garcia
+          <br />
+          <span class="font-light text-white/40 italic">
+            Service management system for a real company
+          </span>
+        </h2>
+
+        <p class="max-w-xl text-lg leading-relaxed text-gray-400">
+          A comprehensive service management platform designed for a real
+          company, featuring a modern interface, efficient service tracking, and
+          streamlined client communication.
+        </p>
+      </div>
+
+      <div class="mt-20 grid grid-cols-1 items-start gap-20 lg:grid-cols-2">
+        <div class="max-w-xl space-y-10">
+          <div>
+            <h3 class="mb-4 font-serif text-xl">Tech Stack</h3>
+            <ul class="space-y-3 text-gray-400">
+              <li class="flex items-center gap-3">
+                <Icon name="tabler:brand-javascript" size="18" />
+                JavaScript
+              </li>
+              <li class="flex items-center gap-3">
+                <Icon name="tabler:brand-react" size="18" />
+                React
+              </li>
+              <li class="flex items-center gap-3">
+                <Icon name="tabler:brand-tailwind" size="18" />
+                TailwindCSS
+              </li>
+              <li class="flex items-center gap-3">
+                <Icon name="tabler:brand-supabase" size="18" />
+                Supabase
+              </li>
+              <li class="flex items-center gap-3">
+                <Icon name="tabler:brand-vercel" size="18" />
+                Vercel
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div>
+          <EmblaCarousel images={InstalacionesGarciasImages} />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================== -->
+  <!-- Experience -->
+  <!-- ===================================================== -->
+  <section id="experience" class="border-t border-white/5 py-32">
+    <div class="mx-auto w-full max-w-[1200px] px-8 sm:px-12 lg:px-16">
+      <div class="max-w-3xl space-y-10">
+        <div class="flex items-center gap-4">
+          <div class="h-px w-12 bg-white"></div>
+          <span
+            class="text-[10px] font-bold tracking-[0.6em] text-gray-400 uppercase"
+          >
+            Experience
+          </span>
+        </div>
+
+        <h2
+          class="font-serif text-4xl leading-[0.9] tracking-tighter md:text-6xl"
+        >
+          Harry Potter Head Forum
+          <br />
+          <span class="font-light text-white/40 italic">
+            Real experience in a production environment with real users and real
+            problems
+          </span>
+        </h2>
+
+        <p class="max-w-xl text-lg leading-relaxed text-gray-400">
+          I have real work experience collaborating in teams that follow
+          professional workflows: ticket systems, branching strategies, clean
+          commits, pull requests, squash merges, code reviews, and controlled
+          deployments.
+        </p>
+      </div>
+
+      <div class="mt-20 grid grid-cols-1 items-start gap-20 lg:grid-cols-2">
+        <div class="max-w-xl space-y-10">
+          <div>
+            <h3 class="mb-4 font-serif text-xl">Tech Stack</h3>
+            <ul class="space-y-3 text-gray-400">
+              <li class="flex items-center gap-3">
+                <Icon name="tabler:brand-javascript" size="18" />
+                JavaScript
+              </li>
+              <li class="flex items-center gap-3">
+                <Icon name="tabler:brand-react" size="18" />
+                React
+              </li>
+              <li class="flex items-center gap-3">
+                <Icon name="tabler:brand-tailwind" size="18" />
+                TailwindCSS
+              </li>
+              <li class="flex items-center gap-3">
+                <Icon name="tabler:brand-supabase" size="18" />
+                Supabase
+              </li>
+              <li class="flex items-center gap-3">
+                <Icon name="tabler:brand-vercel" size="18" />
+                Vercel
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div>
+          <EmblaCarousel images={HarryPotterHeadForumImages} />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================== -->
+  <!-- My Github -->
+  <!-- ===================================================== -->
+  <section id="github" class="border-t border-white/5 py-32">
+    <div class="mx-auto w-full max-w-[1200px] px-8 sm:px-12 lg:px-16">
+      <div class="max-w-3xl space-y-10">
+        <div class="flex items-center gap-4">
+          <div class="h-px w-12 bg-white"></div>
+          <span
+            class="text-[10px] font-bold tracking-[0.6em] text-gray-400 uppercase"
+          >
+            My Github
+          </span>
+        </div>
+
+        <h2
+          class="font-serif text-4xl leading-[0.9] tracking-tighter md:text-6xl"
+        >
+          My Github
+          <br />
+          <span class="font-light text-white/40 italic">
+            Here you can see all my projects and my code
+          </span>
+        </h2>
+
+        <p class="max-w-xl text-lg leading-relaxed text-gray-400">
+          I have real work experience collaborating in teams that follow
+        </p>
+      </div>
+
+      <div class="mt-20 grid grid-cols-1 items-start gap-20 lg:grid-cols-2">
+        <div class="max-w-xl space-y-10">
+          <div>
+            <h3 class="mb-4 font-serif text-xl">Tech Stack</h3>
+            <ul class="space-y-3 text-gray-400">
+              <li class="flex items-center gap-3">
+                <Icon name="tabler:brand-javascript" size="18" />
+                JavaScript
+              </li>
+              <li class="flex items-center gap-3">
+                <Icon name="tabler:brand-react" size="18" />
+                React
+              </li>
+              <li class="flex items-center gap-3">
+                <Icon name="tabler:brand-tailwind" size="18" />
+                TailwindCSS
+              </li>
+              <li class="flex items-center gap-3">
+                <Icon name="tabler:brand-supabase" size="18" />
+                Supabase
+              </li>
+              <li class="flex items-center gap-3">
+                <Icon name="tabler:brand-vercel" size="18" />
+                Vercel
+              </li>
+              <li class="flex items-center gap-3">
+                <Icon name="tabler:brand-github" size="18" />
+                GitHub
+              </li>
+              <li class="flex items-center gap-3">
+                <Icon name="tabler:brand-nextjs" size="18" />
+                Next.js
+              </li>
+              <li class="flex items-center gap-3">
+                <Icon name="tabler:brand-astro" size="18" />
+                Astro
+              </li>
+              <li class="flex items-center gap-3">
+                <Icon name="tabler:brand-typescript" size="18" />
+                TypeScript
+              </li>
+              <li class="flex items-center gap-3">
+                <Icon name="tabler:brand-git" size="18" />
+                Git
+              </li>
+              <li class="flex items-center gap-3">
+                <Icon name="tabler:brand-npm" size="18" />
+                npm
+              </li>
+              <li class="flex items-center gap-3">
+                <Icon name="tabler:brand-php" size="18" />
+                PHP
+              </li>
+              <li class="flex items-center gap-3">
+                <Icon name="tabler:brand-pnpm" size="18" />
+                pnpm
+              </li>
+              <li class="flex items-center gap-3">
+                <Icon name="tabler:brand-laravel" size="18" />
+                Laravel
+              </li>
+              <li class="flex items-center gap-3">
+                <Icon name="tabler:brand-mysql" size="18" />
+                MySQL
+              </li>
+              <li class="flex items-center gap-3">
+                <Icon name="tabler:brand-mongodb" size="18" />
+                MongoDB
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 </PortfolioLayout>
