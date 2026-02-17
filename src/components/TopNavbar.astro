@@ -14,10 +14,14 @@ const links = [
   class="fixed top-0 left-0 z-50 w-full border-b border-white/5 bg-black/60 backdrop-blur-xl transition-all duration-500"
 >
   <!-- Atmosfera sutil -->
-  <div class="pointer-events-none absolute inset-0 bg-gradient-to-r from-white/[0.03] via-transparent to-white/[0.03]"></div>
+  <div
+    class="pointer-events-none absolute inset-0 bg-gradient-to-r from-white/[0.03] via-transparent to-white/[0.03]"
+  >
+  </div>
 
-  <div class="relative mx-auto flex max-w-7xl items-center justify-between px-6 py-4 text-white">
-
+  <div
+    class="relative mx-auto flex max-w-7xl items-center justify-between px-6 py-4 text-white"
+  >
     <!-- Marca -->
     <a href="/" class="group flex items-center gap-4">
       <img
@@ -25,39 +29,41 @@ const links = [
         alt="Gabriel González"
         class="h-12 w-12 transition-transform duration-500 group-hover:scale-110"
       />
-      <span class="hidden text-[10px] font-bold uppercase tracking-[0.4em] text-gray-400 md:block">
+      <span
+        class="hidden text-[10px] font-bold tracking-[0.4em] text-gray-400 uppercase md:block"
+      >
         Gabo Dev
       </span>
     </a>
 
     <!-- Desktop Links -->
-    <div class="hidden items-center gap-12 text-[11px] font-bold uppercase tracking-[0.35em] md:flex">
-      {links.map((link) => (
-        <a
-          href={link.href}
-          class="nav-link group relative text-gray-300 transition-colors duration-300 hover:text-white"
-        >
-          {link.label}
-          <span class="absolute -bottom-2 left-0 h-[1px] w-0 bg-white transition-all duration-500 group-hover:w-full"></span>
-        </a>
-      ))}
+    <div
+      class="hidden items-center gap-12 text-[11px] font-bold tracking-[0.35em] uppercase md:flex"
+    >
+      {
+        links.map((link) => (
+          <a
+            href={link.href}
+            class="nav-link group relative text-gray-300 transition-colors duration-300 hover:text-white"
+          >
+            {link.label}
+            <span class="absolute -bottom-2 left-0 h-[1px] w-0 bg-white transition-all duration-500 group-hover:w-full" />
+          </a>
+        ))
+      }
     </div>
 
     <!-- CTA Desktop -->
     <a
       href="#contact"
-      class="hidden md:inline-flex items-center gap-3 bg-white text-black px-6 py-3 text-[10px] font-bold uppercase tracking-[0.3em] transition-all duration-500 hover:bg-gray-200"
+      class="hidden items-center gap-3 bg-white px-6 py-3 text-[10px] font-bold tracking-[0.3em] text-black uppercase transition-all transition-colors duration-400 hover:bg-gray-800 hover:text-white md:inline-flex"
     >
       Contacto
       <Icon name="tabler:arrow-up-right" size="16" />
     </a>
 
     <!-- Mobile Button -->
-    <button
-      id="menuBtn"
-      aria-label="Open Menu"
-      class="relative z-50 md:hidden"
-    >
+    <button id="menuBtn" aria-label="Open Menu" class="relative z-50 md:hidden">
       <Icon name="tabler:menu-2" size="24" />
     </button>
   </div>
@@ -65,16 +71,18 @@ const links = [
   <!-- Mobile Overlay -->
   <div
     id="mobileMenu"
-    class="fixed inset-0 flex flex-col items-center justify-center gap-12 bg-black text-2xl uppercase tracking-[0.4em] text-white opacity-0 pointer-events-none transition-all duration-500"
+    class="pointer-events-none fixed inset-0 flex flex-col items-center justify-center gap-12 bg-black text-2xl tracking-[0.4em] text-white uppercase opacity-0 transition-all duration-500"
   >
-    {links.map((link) => (
-      <a
-        href={link.href}
-        class="mobile-link transition-all duration-300 hover:scale-110 hover:text-gray-300"
-      >
-        {link.label}
-      </a>
-    ))}
+    {
+      links.map((link) => (
+        <a
+          href={link.href}
+          class="mobile-link transition-all duration-300 hover:scale-110 hover:text-gray-300"
+        >
+          {link.label}
+        </a>
+      ))
+    }
 
     <div class="absolute bottom-12 text-[10px] tracking-[0.4em] text-gray-600">
       © {new Date().getFullYear()} Gabo
