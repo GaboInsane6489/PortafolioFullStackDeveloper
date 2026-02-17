@@ -9,48 +9,57 @@ const links = [
 ];
 ---
 
-<footer class="relative w-full bg-black text-white pt-28 pb-12 border-t border-white/5 overflow-hidden">
-
+<footer
+  class="relative w-full overflow-hidden border-t border-white/5 bg-black pt-28 pb-12 text-white"
+>
   <!-- MARCA DE AGUA EDITORIAL -->
-  <div class="absolute -top-10 -left-24 pointer-events-none select-none hidden 2xl:block">
-    <span class="text-[18rem] font-serif font-black text-white/[0.02] leading-none uppercase tracking-tighter">
+  <div
+    class="pointer-events-none absolute -top-10 -left-24 hidden select-none 2xl:block"
+  >
+    <span
+      class="font-serif text-[18rem] leading-none font-black tracking-tighter text-white/[0.02] uppercase"
+    >
       GG
     </span>
   </div>
 
-  <div class="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
-
+  <div class="relative z-10 mx-auto max-w-7xl px-6 lg:px-12">
     <!-- GRID PRINCIPAL -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-20">
-
+    <div class="grid grid-cols-1 gap-20 md:grid-cols-3">
       <!-- IDENTIDAD -->
       <div class="space-y-8">
         <div class="space-y-6">
           <div class="flex items-center gap-4">
             <div class="h-[1px] w-12 bg-amber-400"></div>
-            <span class="text-[10px] font-bold uppercase tracking-[0.6em] text-amber-300">
+            <span
+              class="text-[10px] font-bold tracking-[0.6em] text-amber-300 uppercase"
+            >
               Identidad
             </span>
           </div>
 
-          <h3 class="text-3xl md:text-4xl font-serif tracking-tight">
+          <h3 class="font-serif text-3xl tracking-tight md:text-4xl">
             Gabriel González
           </h3>
         </div>
 
-        <p class="text-gray-400 leading-relaxed max-w-sm">
-          Desarrollo experiencias web de alto rendimiento con arquitectura limpia,
-          foco en SEO y una ejecución visual que comunica precisión.
+        <p class="max-w-sm leading-relaxed text-gray-400">
+          Desarrollo experiencias web de alto rendimiento con arquitectura
+          limpia, foco en SEO y una ejecución visual que comunica precisión.
         </p>
 
-        <p class="text-[10px] uppercase tracking-[0.4em] text-gray-600 font-bold">
+        <p
+          class="text-[10px] font-bold tracking-[0.4em] text-gray-600 uppercase"
+        >
           Código. Sistema. Impacto.
         </p>
       </div>
 
       <!-- NAVEGACIÓN -->
       <nav aria-label="Footer navigation" class="space-y-8">
-        <h4 class="text-[10px] uppercase tracking-[0.6em] text-gray-500 font-bold">
+        <h4
+          class="text-[10px] font-bold tracking-[0.6em] text-gray-500 uppercase"
+        >
           Navegación
         </h4>
 
@@ -60,11 +69,11 @@ const links = [
               <li>
                 <a
                   href={link.href}
-                  class="group inline-flex items-center gap-3 text-sm text-gray-300 hover:text-white transition-colors"
+                  class="group inline-flex items-center gap-3 text-sm text-gray-300 transition-colors hover:text-white"
                 >
                   <span class="relative">
                     {link.label}
-                    <span class="absolute -bottom-1 left-0 w-0 h-px bg-amber-400 transition-all duration-300 group-hover:w-full" />
+                    <span class="absolute -bottom-1 left-0 h-px w-0 bg-amber-400 transition-all duration-300 group-hover:w-full" />
                   </span>
                 </a>
               </li>
@@ -75,17 +84,19 @@ const links = [
 
       <!-- SOCIAL / CONTACTO -->
       <div class="space-y-8">
-        <h4 class="text-[10px] uppercase tracking-[0.6em] text-gray-500 font-bold">
+        <h4
+          class="text-[10px] font-bold tracking-[0.6em] text-gray-500 uppercase"
+        >
           Conecta
         </h4>
 
         <ul class="space-y-6">
           <li>
             <a
-              href="https://github.com"
+              href="https://github.com/GaboInsane6489"
               target="_blank"
               rel="noopener noreferrer"
-              class="group flex items-center justify-between border border-white/10 px-6 py-4 hover:border-amber-400 transition-all"
+              class="group flex items-center justify-between border border-white/10 px-6 py-4 transition-all hover:border-amber-400"
             >
               <div class="flex items-center gap-4">
                 <Icon name="tabler:brand-github" size="20" />
@@ -94,17 +105,17 @@ const links = [
               <Icon
                 name="tabler:arrow-up-right"
                 size="16"
-                class="opacity-0 group-hover:opacity-100 group-hover:-translate-y-1 group-hover:translate-x-1 transition-all"
+                class="opacity-0 transition-all group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:opacity-100"
               />
             </a>
           </li>
 
           <li>
             <a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/in/gabriel-gonzalez-fullstack/"
               target="_blank"
               rel="noopener noreferrer"
-              class="group flex items-center justify-between border border-white/10 px-6 py-4 hover:border-amber-400 transition-all"
+              class="group flex items-center justify-between border border-white/10 px-6 py-4 transition-all hover:border-amber-400"
             >
               <div class="flex items-center gap-4">
                 <Icon name="tabler:brand-linkedin" size="20" />
@@ -113,7 +124,43 @@ const links = [
               <Icon
                 name="tabler:arrow-up-right"
                 size="16"
-                class="opacity-0 group-hover:opacity-100 group-hover:-translate-y-1 group-hover:translate-x-1 transition-all"
+                class="opacity-0 transition-all group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:opacity-100"
+              />
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.instagram.com/dreamsfallen6488/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="group flex items-center justify-between border border-white/10 px-6 py-4 transition-all hover:border-amber-400"
+            >
+              <div class="flex items-center gap-4">
+                <Icon name="tabler:brand-instagram" size="20" />
+                <span class="text-sm">Instagram</span>
+              </div>
+              <Icon
+                name="tabler:arrow-up-right"
+                size="16"
+                class="opacity-0 transition-all group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:opacity-100"
+              />
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.youtube.com/@Gabo6489Gaming-pe2tg"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="group flex items-center justify-between border border-white/10 px-6 py-4 transition-all hover:border-amber-400"
+            >
+              <div class="flex items-center gap-4">
+                <Icon name="tabler:brand-youtube" size="20" />
+                <span class="text-sm">YouTube</span>
+              </div>
+              <Icon
+                name="tabler:arrow-up-right"
+                size="16"
+                class="opacity-0 transition-all group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:opacity-100"
               />
             </a>
           </li>
@@ -122,8 +169,9 @@ const links = [
     </div>
 
     <!-- DIVISOR EDITORIAL -->
-    <div class="mt-24 border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-6 text-xs text-gray-600 uppercase tracking-widest">
-
+    <div
+      class="mt-24 flex flex-col items-center justify-between gap-6 border-t border-white/5 pt-8 text-xs tracking-widest text-gray-600 uppercase md:flex-row"
+    >
       <p>
         © {new Date().getFullYear()} Gabriel González
       </p>
