@@ -11,47 +11,86 @@ import "flowbite";
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
+    <meta name="title" content="Portafolio de Gabriel González" />
+    <meta name="description" content="Portafolio de Gabriel González" />
+    <meta name="keywords" content="Gabriel González, Full Stack Developer" />
+    <meta name="author" content="Gabriel González" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="robots" content="index, follow" />
+    <meta name="googlebot" content="index, follow" />
+    <meta name="bingbot" content="index, follow" />
+    <meta name="yandexbot" content="index, follow" />
+    <meta name="duckduckbot" content="index, follow" />
+    <meta name="msnbot" content="index, follow" />
+    <meta name="slurp" content="index, follow" />
+    <meta name="otherbots" content="index, follow" />
+    <meta name="revisit-after" content="7 days" />
+    <meta name="language" content="English" />
+    <meta name="geo.region" content="VE" />
+    <meta name="geo.placename" content="Caracas" />
+    <meta name="geo.position" content="10.500000;-66.916667" />
+    <meta name="ICBM" content="10.500000, -66.916667" />
+    <meta name="DC.title" content="Portafolio de Gabriel González" />
+    <meta name="DC.description" content="Portafolio de Gabriel González" />
+    <meta name="DC.keywords" content="Gabriel González, Full Stack Developer" />
+    <meta name="DC.creator" content="Gabriel González" />
+    <meta name="DC.publisher" content="Gabriel González" />
+    <meta name="DC.date" content="2026-02-16" />
+    <meta name="DC.type" content="Portfolio" />
+    <meta name="DC.format" content="text/html" />
+    <meta name="DC.language" content="es" />
+    <meta name="DC.relation" content="https://gabrielgonzalez.dev" />
+    <meta name="DC.coverage" content="Venezuela" />
+    <meta name="DC.rights" content="© 2026 Gabriel González" />
+    <meta name="DC.rights.uri" content="https://gabrielgonzalez.dev" />
+    <meta name="DC.source" content="https://gabrielgonzalez.dev" />
+    <meta name="DC.subject" content="Full Stack Developer" />
+    <meta name="DC.contributor" content="Gabriel González" />
+    <meta name="DC.coverage.spatial" content="Venezuela" />
+    <meta name="DC.coverage.temporal" content="2026" />
+
     <link rel="icon" type="image/webp" href="/images/LogoPortafolio.webp" />
-    <title>Gabriel González | Full Stack Developer</title>
+
+    <title>Full Stack Developer | Gabriel González</title>
   </head>
 
-  <body class="min-h-screen overflow-x-hidden bg-black text-white">
-    <!-- 🎥 Video Background -->
-    <div class="pointer-events-none fixed inset-0 -z-20">
-      <video
-        class="h-full w-full object-cover"
-        src="/videos/Train-Station-Rainy-Day.mp4"
-        autoplay
-        muted
-        loop
-        playsinline
-        preload="metadata"
-        aria-hidden="true"></video>
-      <div class="absolute inset-0 bg-black/60"></div>
+  <!-- 🎥 Video Background -->
+  <div class="pointer-events-none fixed inset-0 -z-20">
+    <video
+      class="h-full w-full object-cover"
+      src="/videos/Train-Station-Rainy-Day.mp4"
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="metadata"
+      aria-hidden="true"></video>
+    <div class="absolute inset-0 bg-black/60"></div>
+  </div>
+
+  <!-- Top Navbar -->
+  <TopNavbar />
+
+  <!-- Layout principal -->
+  <div
+    class="relative z-10 grid min-h-screen grid-cols-1 md:grid-cols-[96px_1fr]"
+  >
+    <!-- Side Navbar -->
+    <aside class="hidden md:flex">
+      <SideNavbar />
+    </aside>
+
+    <!-- Columna de contenido -->
+    <div class="flex min-h-[calc(100vh-6rem)] flex-col">
+      <main class="flex-1">
+        <slot />
+      </main>
+
+      <footer class="border-t border-white/10 bg-black/80 backdrop-blur">
+        <Footer />
+      </footer>
     </div>
+  </div>
 
-    <!-- Top Navbar -->
-    <TopNavbar />
 
-    <!-- Layout principal -->
-    <div
-      class="relative z-10 grid min-h-screen grid-cols-1 md:grid-cols-[96px_1fr]"
-    >
-      <!-- Side Navbar -->
-      <aside class="hidden md:flex">
-        <SideNavbar />
-      </aside>
-
-      <!-- Columna de contenido -->
-      <div class="flex min-h-[calc(100vh-6rem)] flex-col">
-        <main class="flex-1">
-          <slot />
-        </main>
-
-        <footer class="border-t border-white/10 bg-black/80 backdrop-blur">
-          <Footer />
-        </footer>
-      </div>
-    </div>
-  </body>
 </html>
