@@ -2,10 +2,10 @@
 import { Icon } from "astro-icon/components";
 
 const links = [
-  { label: "Inicio", href: "/" },
-  { label: "Proyectos", href: "#projects" },
-  { label: "Sobre mí", href: "#about" },
-  { label: "Contacto", href: "#contact" },
+  { label: "Beginning", href: "/" },
+  { label: "Projects", href: "#projects" },
+  { label: "About me", href: "#about-me" },
+  { label: "Contact", href: "#contact" },
 ];
 ---
 
@@ -54,13 +54,25 @@ const links = [
     </div>
 
     <!-- CTA Desktop -->
-    <a
-      href="#contact"
-      class="hidden items-center gap-3 bg-white px-6 py-3 text-[10px] font-bold tracking-[0.3em] text-black uppercase transition-all transition-colors duration-400 hover:bg-gray-800 hover:text-white md:inline-flex"
-    >
-      Contacto
-      <Icon name="tabler:arrow-up-right" size="16" />
-    </a>
+    <div class="flex gap-3">
+      <a
+        href="https://github.com/GaboInsane6489"
+        target="_blank"
+        class="hidden items-center gap-1 rounded-lg bg-white px-6 py-3 text-[10px] font-bold tracking-[0.3em] text-black uppercase transition-all transition-colors duration-400 hover:bg-gray-800 hover:text-white md:inline-flex"
+      >
+        GitHub
+        <Icon name="tabler:brand-github" size="16" />
+      </a>
+
+      <a
+        href="https://www.linkedin.com/in/gabriel-gonzalez-fullstack/"
+        target="_blank"
+        class="hidden items-center gap-1 rounded-lg bg-white px-6 py-3 text-[10px] font-bold tracking-[0.3em] text-black uppercase transition-all transition-colors duration-400 hover:bg-gray-800 hover:text-white md:inline-flex"
+      >
+        LinkedIn
+        <Icon name="tabler:brand-linkedin" size="16" />
+      </a>
+    </div>
 
     <!-- Mobile Button -->
     <button id="menuBtn" aria-label="Open Menu" class="relative z-50 md:hidden">
