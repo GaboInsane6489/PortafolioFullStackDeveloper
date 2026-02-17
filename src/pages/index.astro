@@ -9,13 +9,13 @@ const luzInteriorImages = Array.from(
 );
 
 const InstalacionesGarciasImages = Array.from(
-  { length: 11 },
+  { length: 13 },
   (_, i) => `/images/InstalacionesGarcias${i + 1}.webp`,
 );
 
 const HarryPotterHeadForumImages = Array.from(
-  { length: 11 },
-  (_, i) => `/images/HarryPotterHeadForum${i + 1}.webp`,
+  { length: 15 },
+  (_, i) => `/images/HarryPotterHead${i + 1}.webp`,
 );
 ---
 
@@ -23,7 +23,10 @@ const HarryPotterHeadForumImages = Array.from(
   <!-- ===================================================== -->
   <!-- HERO / PROFILE -->
   <!-- ===================================================== -->
-  <section class="relative w-full border-t border-white/5 py-28 lg:py-36">
+  <section
+    class="relative w-full border-t border-white/5 py-28 lg:py-36"
+    id="hero"
+  >
     <div class="mx-auto w-full max-w-[1300px] px-8 sm:px-12 lg:px-16 xl:px-20">
       <div class="grid grid-cols-1 items-center gap-20 lg:grid-cols-12">
         <!-- PROFILE TEXT -->
@@ -83,7 +86,7 @@ const HarryPotterHeadForumImages = Array.from(
   <!-- ===================================================== -->
   <!-- ABOUT ME -->
   <!-- ===================================================== -->
-  <section class="border-t border-white/5 py-32">
+  <section class="border-t border-white/5 py-32" id="about-me">
     <div
       class="mx-auto w-full max-w-[1000px] space-y-16 px-8 sm:px-12 lg:px-16"
     >
@@ -131,6 +134,20 @@ const HarryPotterHeadForumImages = Array.from(
           notifications, database migrations, and event-driven logic directly in
           a production environment.
         </p>
+        <div class="group relative">
+          <div
+            class="absolute -inset-6 -z-10 translate-x-4 translate-y-4 border border-white/30 transition-all duration-700 group-hover:translate-x-0 group-hover:translate-y-0"
+          >
+          </div>
+          <div class="flex justify-center">
+            <video
+              src="/videos/Programando.mp4"
+              class="h-auto w-full border border-white/5 shadow-2xl transition-all duration-500 hover:scale-105 hover:border-white/10 hover:shadow-2xl"
+              autoplay
+              loop
+              muted></video>
+          </div>
+        </div>
 
         <p>
           I have real work experience collaborating in teams that follow
@@ -222,7 +239,7 @@ const HarryPotterHeadForumImages = Array.from(
     </div>
   </section>
 
-  <section id="projects" class="border-t border-white/5 py-32">
+  <section class="border-t border-white/5 py-32">
     <div class="mx-auto w-full max-w-[1200px] px-8 sm:px-12 lg:px-16">
       <div class="max-w-3xl space-y-10">
         <div class="flex items-center gap-4">
@@ -256,6 +273,10 @@ const HarryPotterHeadForumImages = Array.from(
           <div>
             <h3 class="mb-4 font-serif text-xl">Tech Stack</h3>
             <ul class="space-y-3 text-gray-400">
+              <li class="flex items-center gap-3">
+                <Icon name="tabler:brand-astro" size="18" />
+                Astro
+              </li>
               <li class="flex items-center gap-3">
                 <Icon name="tabler:brand-javascript" size="18" />
                 JavaScript
@@ -327,6 +348,22 @@ const HarryPotterHeadForumImages = Array.from(
             <h3 class="mb-4 font-serif text-xl">Tech Stack</h3>
             <ul class="space-y-3 text-gray-400">
               <li class="flex items-center gap-3">
+                <Icon name="tabler:brand-php" size="18" />
+                PHP
+              </li>
+              <li class="flex items-center gap-3">
+                <Icon name="tabler:brand-laravel" size="18" />
+                Laravel
+              </li>
+              <li class="flex items-center gap-3">
+                <Icon name="tabler:brand-mysql" size="18" />
+                MySQL
+              </li>
+              <li class="flex items-center gap-3">
+                <Icon name="tabler:brand-git" size="18" />
+                Git
+              </li>
+              <li class="flex items-center gap-3">
                 <Icon name="tabler:brand-javascript" size="18" />
                 JavaScript
               </li>
@@ -356,262 +393,431 @@ const HarryPotterHeadForumImages = Array.from(
       </div>
     </div>
   </section>
+  <!-- ===================================================== -->
+  <!-- ENGINEERING / OPEN SOURCE / STACK / FOUNDATION -->
+  <!-- ===================================================== -->
 
-  <!-- ===================================================== -->
-  <!-- My Github -->
-  <!-- ===================================================== -->
-  <section id="github" class="border-t border-white/5 py-32">
-    <div class="mx-auto w-full max-w-[1200px] px-8 sm:px-12 lg:px-16">
-      <div class="mb-10 max-w-3xl space-y-10">
+  <!-- ================= ENGINEERING & OPEN SOURCE ================= -->
+  <section
+    id="engineering"
+    class="relative overflow-hidden border-t border-white/5 py-36"
+  >
+    <div
+      class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_10%,rgba(255,255,255,0.04),transparent_60%)]"
+    >
+    </div>
+
+    <div class="relative mx-auto w-full max-w-[1300px] px-6 sm:px-12 lg:px-20">
+      <!-- HEADER -->
+      <header class="max-w-4xl space-y-10">
         <div class="flex items-center gap-4">
           <div class="h-px w-12 bg-white"></div>
           <span
-            class="text-[10px] font-bold tracking-[0.6em] text-gray-400 uppercase"
+            class="text-[10px] font-bold tracking-[0.6em] text-white/60 uppercase"
           >
-            My Github
+            Engineering & Open Source
           </span>
         </div>
 
         <h2
-          class="font-serif text-4xl leading-[0.9] tracking-tighter md:text-6xl"
+          class="font-serif text-4xl leading-[0.95] tracking-tight md:text-6xl"
         >
-          My Github
+          Code is not just written.
           <br />
           <span class="font-light text-white/40 italic">
-            Here you can see all my projects and my code
+            It is architected, documented and maintained.
           </span>
         </h2>
 
-        <p class="max-w-xl text-lg leading-relaxed text-gray-400">
-          I have real work experience collaborating in teams that follow
+        <p class="max-w-2xl text-lg leading-relaxed text-gray-400">
+          My GitHub reflects structured repositories, production-grade
+          documentation, scalable architectural decisions and disciplined
+          contribution patterns.
         </p>
-      </div>
-    </div>
-  </section>
+      </header>
 
-  <!-- ===================================================== -->
-  <!-- Stack Github Full Stack Developer -->
-  <!-- ===================================================== -->
-  <section class="border-t border-white/5 py-32">
-    <div class="mx-auto w-full max-w-[1200px] px-8 sm:px-12 lg:px-16">
-      <div class="mt-20 grid grid-cols-1 items-start gap-20 lg:grid-cols-2">
-        <div>
-          <div class="mb-10 max-w-3xl space-y-10">
-            <div class="flex items-center gap-4">
-              <div class="h-px w-12 bg-white"></div>
-              <span
-                class="text-[10px] font-bold tracking-[0.6em] text-white/60 uppercase"
-              >
-                Stack Github Full Stack Developer
-              </span>
-            </div>
-
-            <h2
-              class="font-serif text-4xl leading-[0.9] tracking-tighter text-white/80 md:text-6xl"
-            >
-              Stack Github Full Stack Developer
-              <br />
-              <span class="font-light text-white/40 italic">
-                Here you can see all my stack with which I have worked
-              </span>
-            </h2>
-
-            <p class="max-w-xl text-lg leading-relaxed text-gray-400">
-              I have worked with various technologies and tools, which you can
-              see in my github
-            </p>
-          </div>
-        </div>
-        <div class="max-w-xl space-y-10">
-          <div class="rounded-lg border border-white/10 bg-white/5 p-8">
-            <h3
-              class="mb-4 font-serif text-xl tracking-tighter text-white italic"
-            >
-              Tech Stack
+      <!-- GITHUB GRID -->
+      <div class="mt-24 grid gap-20 lg:grid-cols-2">
+        <article class="group space-y-8">
+          <div class="flex items-center gap-4">
+            <Icon
+              name="tabler:brand-github"
+              size="22"
+              class="text-white/70 transition-colors duration-300 group-hover:text-white"
+            />
+            <h3 class="text-2xl font-semibold text-white/80 italic">
+              Profile Architecture
             </h3>
-            <ul
-              class="ml-10 grid grid-cols-2 gap-3 text-gray-400 transition-all duration-500 ease-in-out hover:scale-105"
-            >
-              <li class="flex items-center gap-3">
-                <Icon
-                  name="tabler:brand-javascript"
-                  class="text-yellow-500"
-                  size="18"
-                />
-                JavaScript
-              </li>
-              <li class="flex items-center gap-3">
-                <Icon
-                  name="tabler:brand-react"
-                  class="text-blue-500"
-                  size="18"
-                />
-                React
-              </li>
-              <li class="flex items-center gap-3">
-                <Icon
-                  name="tabler:brand-tailwind"
-                  class="text-blue-800"
-                  size="18"
-                />
-                TailwindCSS
-              </li>
-              <li class="flex items-center gap-3">
-                <Icon
-                  name="tabler:brand-supabase"
-                  class="text-green-500"
-                  size="18"
-                />
-                Supabase
-              </li>
-              <li class="flex items-center gap-3">
-                <Icon
-                  name="tabler:brand-vercel"
-                  class="text-gray-400"
-                  size="18"
-                />
-                Vercel
-              </li>
-              <li class="flex items-center gap-3">
-                <Icon name="tabler:brand-github" class="text-white" size="18" />
-                GitHub
-              </li>
-              <li class="flex items-center gap-3">
-                <Icon name="tabler:brand-nextjs" class="text-white" size="18" />
-                Next.js
-              </li>
-              <li class="flex items-center gap-3">
-                <Icon
-                  name="tabler:brand-astro"
-                  class="text-orange-600"
-                  size="18"
-                />
-                Astro
-              </li>
-              <li class="flex items-center gap-3">
-                <Icon
-                  name="tabler:brand-typescript"
-                  class="text-blue-500"
-                  size="18"
-                />
-                TypeScript
-              </li>
-              <li class="flex items-center gap-3">
-                <Icon
-                  name="tabler:brand-git"
-                  class="text-orange-500"
-                  size="18"
-                />
-                Git
-              </li>
-              <li class="flex items-center gap-3">
-                <Icon
-                  name="tabler:brand-npm"
-                  class="text-orange-500"
-                  size="18"
-                />
-                npm
-              </li>
-              <li class="flex items-center gap-3">
-                <Icon
-                  name="tabler:brand-php"
-                  class="text-purple-500"
-                  size="18"
-                />
-                PHP
-              </li>
-              <li class="flex items-center gap-3">
-                <Icon
-                  name="tabler:brand-pnpm"
-                  class="text-orange-700"
-                  size="18"
-                />
-                pnpm
-              </li>
-              <li class="flex items-center gap-3">
-                <Icon
-                  name="tabler:brand-laravel"
-                  class="text-orange-300"
-                  size="18"
-                />
-                Laravel
-              </li>
-              <li class="flex items-center gap-3">
-                <Icon
-                  name="tabler:brand-mysql"
-                  class="text-gray-600"
-                  size="18"
-                />
-                MySQL
-              </li>
-              <li class="flex items-center gap-3">
-                <Icon
-                  name="tabler:brand-mongodb"
-                  class="text-green-500"
-                  size="18"
-                />
-                MongoDB
-              </li>
-            </ul>
           </div>
+
+          <p class="max-w-md text-gray-400">
+            Pinned repositories, structured README hierarchy and clear stack
+            communication.
+          </p>
+
+          <div
+            class="overflow-hidden rounded-xl border border-white/10 bg-white/[0.02] backdrop-blur-md transition-all duration-500 group-hover:border-white/20"
+          >
+            <img
+              src="/images/GitHub1.webp"
+              alt="GitHub profile overview"
+              class="w-full transition-transform duration-700 group-hover:scale-[1.03]"
+              loading="lazy"
+            />
+          </div>
+        </article>
+
+        <article class="group space-y-8">
+          <div class="flex items-center gap-4">
+            <Icon
+              name="tabler:activity"
+              size="22"
+              class="text-white/70 transition-colors duration-300 group-hover:text-white"
+            />
+            <h3 class="text-2xl font-semibold text-white/80 italic">
+              Contribution Discipline
+            </h3>
+          </div>
+
+          <p class="max-w-md text-gray-400">
+            Consistent commits, version control rigor and collaborative
+            workflows.
+          </p>
+
+          <div
+            class="overflow-hidden rounded-xl border border-white/10 bg-white/[0.02] backdrop-blur-md transition-all duration-500 group-hover:border-white/20"
+          >
+            <img
+              src="/images/GitHub4.webp"
+              alt="GitHub contributions graph"
+              class="w-full transition-transform duration-700 group-hover:scale-[1.03]"
+              loading="lazy"
+            />
+          </div>
+        </article>
+      </div>
+
+      <div class="group relative mt-32">
+        <div
+          class="absolute -inset-6 -z-10 translate-x-4 translate-y-4 border border-white/30 transition-all duration-700 group-hover:translate-x-0 group-hover:translate-y-0"
+        >
+        </div>
+        <div class="flex justify-center">
+          <video
+            src="/videos/Programando2.mp4"
+            class="h-auto w-full border border-white/5 shadow-2xl transition-all duration-500 hover:scale-105 hover:border-white/10 hover:shadow-2xl"
+            autoplay
+            loop
+            muted></video>
+        </div>
+      </div>
+
+      <!-- FEATURED ATTRIBUTES -->
+      <div class="mt-32 grid gap-20 lg:grid-cols-3">
+        <article class="group space-y-6">
+          <div class="flex items-center gap-3">
+            <Icon
+              name="tabler:folder-code"
+              size="20"
+              class="text-white/70 transition-colors duration-300 group-hover:text-white"
+            />
+            <h3 class="text-lg font-semibold text-white/80 italic">
+              Repository Quality
+            </h3>
+          </div>
+
+          <p class="text-gray-400">
+            Clean structure, modular separation and long-term maintainability.
+          </p>
+
+          <img
+            src="/images/GitHub3.webp"
+            alt="Repository quality"
+            class="w-full rounded-xl border border-white/10 transition-all duration-500 group-hover:border-white/20"
+            loading="lazy"
+          />
+        </article>
+
+        <article class="group space-y-6">
+          <div class="flex items-center gap-3">
+            <Icon
+              name="tabler:file-text"
+              size="20"
+              class="text-white/70 transition-colors duration-300 group-hover:text-white"
+            />
+            <h3 class="text-lg font-semibold text-white/80 italic">
+              Documentation Standards
+            </h3>
+          </div>
+
+          <p class="text-gray-400">
+            Architectural context, metrics definition and deployment clarity.
+          </p>
+
+          <img
+            src="/images/GitHub5.webp"
+            alt="Professional README example"
+            class="w-full rounded-xl border border-white/10 transition-all duration-500 group-hover:border-white/20"
+            loading="lazy"
+          />
+        </article>
+
+        <article class="group space-y-6">
+          <div class="flex items-center gap-3">
+            <Icon
+              name="tabler:layout-grid"
+              size="20"
+              class="text-white/70 transition-colors duration-300 group-hover:text-white"
+            />
+            <h3 class="text-lg font-semibold text-white/80 italic">
+              Engineering Identity
+            </h3>
+          </div>
+
+          <p class="text-gray-400">
+            Visual coherence aligned with technical philosophy and system
+            thinking.
+          </p>
+
+          <img
+            src="/images/GitHub2.webp"
+            alt="GitHub profile design"
+            class="w-full rounded-xl border border-white/10 transition-all duration-500 group-hover:border-white/20"
+            loading="lazy"
+          />
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= TECH STACK ================= -->
+  <section
+    class="relative overflow-hidden border-t border-white/5 py-36"
+    id="tech-stack"
+  >
+    <div
+      class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(255,255,255,0.04),transparent_60%)]"
+    >
+    </div>
+
+    <div class="relative mx-auto w-full max-w-[1300px] px-6 sm:px-12 lg:px-20">
+      <header class="max-w-3xl space-y-10">
+        <div class="flex items-center gap-4">
+          <div class="h-px w-12 bg-white"></div>
+          <span
+            class="text-[10px] font-bold tracking-[0.6em] text-white/60 uppercase"
+          >
+            Technology Stack
+          </span>
+        </div>
+
+        <h2
+          class="font-serif text-4xl leading-[0.95] tracking-tight text-white/80 md:text-6xl"
+        >
+          Full Stack Engineering Toolkit
+        </h2>
+
+        <p class="text-lg text-gray-400">
+          Core technologies powering production-ready systems.
+        </p>
+      </header>
+
+      <div
+        class="mt-24 grid grid-cols-2 gap-x-14 gap-y-12 text-gray-300 md:grid-cols-3 lg:grid-cols-4"
+      >
+        <!-- ITEM TEMPLATE -->
+        <div class="group flex items-center gap-4">
+          <Icon
+            name="tabler:brand-javascript"
+            size="20"
+            class="text-white/70 transition-colors duration-300 group-hover:text-white"
+          />
+          <span
+            class="tracking-wide transition-colors duration-300 group-hover:text-white"
+            >JavaScript</span
+          >
+        </div>
+
+        <div class="group flex items-center gap-4">
+          <Icon
+            name="tabler:brand-typescript"
+            size="20"
+            class="text-white/70 transition-colors duration-300 group-hover:text-white"
+          />
+          <span>TypeScript</span>
+        </div>
+
+        <div class="group flex items-center gap-4">
+          <Icon
+            name="tabler:brand-react"
+            size="20"
+            class="text-white/70 transition-colors duration-300 group-hover:text-white"
+          />
+          <span>React</span>
+        </div>
+
+        <div class="group flex items-center gap-4">
+          <Icon
+            name="tabler:brand-nextjs"
+            size="20"
+            class="text-white/70 transition-colors duration-300 group-hover:text-white"
+          />
+          <span>Next.js</span>
+        </div>
+
+        <div class="group flex items-center gap-4">
+          <Icon
+            name="tabler:brand-astro"
+            size="20"
+            class="text-white/70 transition-colors duration-300 group-hover:text-white"
+          />
+          <span>Astro</span>
+        </div>
+
+        <div class="group flex items-center gap-4">
+          <Icon
+            name="tabler:brand-tailwind"
+            size="20"
+            class="text-white/70 transition-colors duration-300 group-hover:text-white"
+          />
+          <span>TailwindCSS</span>
+        </div>
+
+        <div class="group flex items-center gap-4">
+          <Icon
+            name="tabler:database"
+            size="20"
+            class="text-white/70 transition-colors duration-300 group-hover:text-white"
+          />
+          <span>Supabase</span>
+        </div>
+
+        <div class="group flex items-center gap-4">
+          <Icon
+            name="tabler:brand-vercel"
+            size="20"
+            class="text-white/70 transition-colors duration-300 group-hover:text-white"
+          />
+          <span>Vercel</span>
+        </div>
+
+        <div class="group flex items-center gap-4">
+          <Icon
+            name="tabler:brand-git"
+            size="20"
+            class="text-white/70 transition-colors duration-300 group-hover:text-white"
+          />
+          <span>Git</span>
+        </div>
+
+        <div class="group flex items-center gap-4">
+          <Icon
+            name="tabler:brand-github"
+            size="20"
+            class="text-white/70 transition-colors duration-300 group-hover:text-white"
+          />
+          <span>GitHub</span>
+        </div>
+
+        <div class="group flex items-center gap-4">
+          <Icon
+            name="tabler:database-cog"
+            size="20"
+            class="text-white/70 transition-colors duration-300 group-hover:text-white"
+          />
+          <span>MySQL</span>
+        </div>
+
+        <div class="group flex items-center gap-4">
+          <Icon
+            name="tabler:leaf"
+            size="20"
+            class="text-white/70 transition-colors duration-300 group-hover:text-white"
+          />
+          <span>MongoDB</span>
+        </div>
+
+        <div class="group flex items-center gap-4">
+          <Icon
+            name="tabler:brand-laravel"
+            size="20"
+            class="text-white/70 transition-colors duration-300 group-hover:text-white"
+          />
+          <span>Laravel</span>
+        </div>
+
+        <div class="group flex items-center gap-4">
+          <Icon
+            name="tabler:brand-php"
+            size="20"
+            class="text-white/70 transition-colors duration-300 group-hover:text-white"
+          />
+          <span>PHP</span>
+        </div>
+
+        <div class="group flex items-center gap-4">
+          <Icon
+            name="tabler:brand-nodejs"
+            size="20"
+            class="text-white/70 transition-colors duration-300 group-hover:text-white"
+          />
+          <span>Node.js</span>
+        </div>
+
+        <div class="group flex items-center gap-4">
+          <Icon
+            name="tabler:git-branch"
+            size="20"
+            class="text-white/70 transition-colors duration-300 group-hover:text-white"
+          />
+          <span>CI/CD Workflows</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========================================= -->
-  <!-- MY ROAD FULL STACK DEVELOPER -->
-  <!-- ========================================= -->
-  <section class="border-t border-white/5 py-32">
-    <div class="mx-auto w-full max-w-[1200px] px-8 sm:px-12 lg:px-16">
-      <h2
-        class="mb-4 font-serif text-4xl leading-[0.9] tracking-tighter text-white/80 md:text-6xl"
-      >
-        My Road Full Stack Developer
-      </h2>
-      <p class="max-w-xl text-lg leading-relaxed text-gray-400">
-        I am a full stack developer with 2 years of experience in web
-        development. I have worked with various technologies and tools, which
-        you can see in my github
-      </p>
-      <div class="grid grid-cols-1 gap-8 text-gray-400 md:grid-cols-2">
-        <h3 class="text-white/80">University</h3>
-        <p class="text-white/60">
-          Universidad Politecnica Territorial de Caracas <span
-            class="text-white/40 italic">"Mariscal Sucre"</span
-          >
-        </p>
-        <p>
-          I studied for 3 years at the Territorial Polytechnic University of
-          Caracas "Mariscal Sucre" from 2023 onwards, pursuing a degree in
-          software engineering and still in progress
-          <span class="text-white/40 italic">"towards my goals"</span>
-        </p>
-        <h4>subjects I studied at university</h4>
-        <ul
-          class="ml-10 grid list-disc grid-cols-1 gap-3 text-gray-400 lg:grid-cols-3 lg:gap-x-10"
+  <!-- ================= ENGINEERING FOUNDATION ================= -->
+  <section class="border-t border-white/5 py-36" id="engineering-foundation">
+    <div class="mx-auto w-full max-w-[1300px] px-6 sm:px-12 lg:px-20">
+      <header class="max-w-3xl space-y-8">
+        <h2
+          class="font-serif text-4xl tracking-tight text-white/80 md:text-6xl"
         >
-          <li>Programming Fundamentals</li>
-          <li>Data structures and algorithms</li>
-          <li>Mathematics I</li>
-          <li>Logic and programming</li>
-          <li>English I</li>
-          <li>Partner criticism</li>
-          <li>Architecture and design of software</li>
-          <li>Object-oriented programming</li>
-          <li>Mathematics II</li>
-          <li>English II</li>
-          <li>Algorithms and complexity</li>
-          <li>Databases</li>
-          <li>Software engineering fundamentals</li>
-          <li>Software Quality and Testing</li>
-          <li>Software project management</li>
-          <li>DevOps and continuous deployment</li>
-          <li>Calculus (Differential, Integral, Multivariable)</li>
-          <li>Linear Algebra</li>
+          Engineering Foundation
+        </h2>
+
+        <p class="text-lg text-gray-400">
+          Academic grounding supporting applied system design.
+        </p>
+      </header>
+
+      <div class="mt-20 grid gap-16 text-gray-400 md:grid-cols-2">
+        <div class="space-y-6">
+          <h3 class="font-semibold text-white/80">
+            Software Engineering Studies
+          </h3>
+
+          <p>
+            Universidad Politécnica Territorial de Caracas
+            <span class="text-white/40 italic"> "Mariscal Sucre"</span>
+          </p>
+
+          <p>
+            Focused on architecture, algorithms, database systems, quality
+            engineering and technical project management.
+          </p>
+        </div>
+
+        <ul class="grid list-disc gap-3 pl-6 lg:grid-cols-2">
+          <li>Data Structures & Algorithms</li>
+          <li>Software Architecture</li>
+          <li>Object-Oriented Programming</li>
+          <li>Advanced SQL Systems</li>
+          <li>Software Testing</li>
+          <li>Project Management</li>
+          <li>DevOps & Deployment</li>
           <li>Discrete Mathematics</li>
-          <li>Statistics and probability</li>
-          <li>Databases (Fundamentals and Advanced)</li>
+          <li>Statistics & Probability</li>
         </ul>
       </div>
     </div>
