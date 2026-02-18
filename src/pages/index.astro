@@ -24,150 +24,312 @@ const HarryPotterHeadForumImages = Array.from(
   <!-- HERO / PROFILE -->
   <!-- ===================================================== -->
   <section
-    class="relative w-full border-t border-white/5 py-28 lg:py-36"
+    class="relative w-full overflow-hidden border-t border-white/5 py-32 lg:py-48"
     id="hero"
   >
-    <div class="mx-auto w-full max-w-[1300px] px-8 sm:px-12 lg:px-16 xl:px-20">
-      <div class="grid grid-cols-1 items-center gap-20 lg:grid-cols-12">
-        <!-- PROFILE TEXT -->
+    <div
+      class="absolute inset-0 [background-image:radial-gradient(rgba(252,211,77,0.03)_1px,transparent_1px)] [background-size:40px_40px] opacity-60"
+    >
+    </div>
+
+    <div
+      class="absolute top-1/4 left-0 -z-10 h-[400px] w-[400px] rounded-full bg-amber-500/5 blur-[120px]"
+    >
+    </div>
+
+    <div
+      class="relative mx-auto w-full max-w-[1300px] px-8 sm:px-12 lg:px-16 xl:px-20"
+    >
+      <div class="grid grid-cols-1 items-center gap-16 lg:grid-cols-12">
         <div class="space-y-10 lg:col-span-7">
-          <div class="flex items-center gap-4">
-            <div class="h-px w-12 bg-white"></div>
-            <span
-              class="text-[10px] font-bold tracking-[0.6em] text-gray-400 uppercase"
+          <div class="space-y-6">
+            <div class="flex items-center gap-4">
+              <div class="h-px w-12 bg-amber-400/40"></div>
+              <span
+                class="text-[10px] font-black tracking-[0.6em] text-amber-400/60 uppercase"
+              >
+                Full Stack Developer Junior
+              </span>
+            </div>
+
+            <h1
+              class="font-serif text-6xl leading-[0.85] tracking-tighter text-white sm:text-7xl xl:text-9xl"
             >
-              Full Stack Developer Junior
-            </span>
+              Gabriel <span class="font-light text-white/40 italic"
+                >González</span
+              >
+              <br />
+              <span
+                class="font-sans text-3xl tracking-tight text-amber-200/40 italic sm:text-4xl xl:text-5xl"
+              >
+                Building scalable digital systems
+              </span>
+            </h1>
           </div>
 
-          <h1
-            class="font-serif text-5xl leading-[0.9] tracking-tighter text-white/80 sm:text-6xl md:text-7xl xl:text-8xl"
+          <p
+            class="max-w-xl text-lg leading-relaxed text-gray-400/80 md:text-xl"
           >
-            Gabriel González
-            <br />
-            <span class="font-light text-white/40 italic">
-              Building scalable digital systems
-            </span>
-          </h1>
-
-          <p class="max-w-2xl text-lg leading-relaxed text-gray-400 md:text-xl">
-            I design and develop modern, maintainable and performance-oriented
-            web applications. My focus is clean architecture, scalable systems,
-            and high-quality user experiences.
+            I bridge the gap between <span class="text-white"
+              >clean architecture</span
+            > and high-quality user experiences. Specializing in modern, performance-oriented
+            applications that scale.
           </p>
 
-          <div
-            class="text-[10px] font-bold tracking-[0.4em] text-gray-500 uppercase"
-          >
-            Clean Architecture · Performance · Scalability · UX
+          <div class="flex flex-wrap items-center gap-8 pt-4">
+            <div class="flex gap-4">
+              <a
+                href="#projects"
+                class="group relative overflow-hidden rounded-full bg-white px-8 py-3 text-sm font-bold text-black transition-all hover:bg-amber-300"
+              >
+                <span class="relative z-10">View Projects</span>
+              </a>
+              <a
+                href="#contact"
+                class="rounded-full border border-white/10 bg-white/5 px-8 py-3 text-sm font-bold text-white transition-all hover:bg-white/10"
+              >
+                Contact
+              </a>
+            </div>
+            <div class="hidden h-px w-12 bg-white/10 md:block"></div>
+            <div class="flex gap-4 text-gray-500">
+              <span
+                class="text-[10px] font-black tracking-widest uppercase italic"
+                >Available for remote</span
+              >
+            </div>
           </div>
         </div>
 
-        <!-- PROFILE IMAGE -->
         <div class="flex justify-center lg:col-span-5 lg:justify-end">
           <div class="group relative">
             <div
-              class="absolute -inset-6 -z-10 translate-x-4 translate-y-4 border border-white/10 transition-all duration-700 group-hover:translate-x-0 group-hover:translate-y-0"
+              class="absolute -inset-8 -z-10 translate-x-6 translate-y-6 border border-amber-500/10 transition-all duration-1000 group-hover:translate-x-0 group-hover:translate-y-0"
             >
             </div>
 
-            <img
-              src="/images/FotoPerfil.webp"
-              alt="Gabriel González Profile Picture"
-              class="w-[280px] border border-white/5 object-cover sm:w-[320px] md:w-[360px]"
-              loading="lazy"
-            />
+            <div
+              class="animate-bounce-slow absolute top-10 -left-12 z-20 hidden lg:block"
+            >
+              <div
+                class="rounded-lg border border-white/10 bg-zinc-900/90 p-3 shadow-2xl backdrop-blur-md"
+              >
+                <div class="mb-2 flex gap-1.5">
+                  <div class="h-1.5 w-1.5 rounded-full bg-red-500/40"></div>
+                  <div class="h-1.5 w-1.5 rounded-full bg-amber-500/40"></div>
+                </div>
+                <code class="font-mono text-[10px] text-amber-200/50"
+                  >portfolio.config.js</code
+                >
+              </div>
+            </div>
+
+            <div
+              class="relative overflow-hidden border border-white/10 bg-zinc-900 shadow-2xl transition-all duration-700 group-hover:border-amber-500/30"
+            >
+              <div
+                class="absolute inset-0 z-10 bg-amber-900/10 mix-blend-color transition-colors duration-700 group-hover:bg-transparent"
+              >
+              </div>
+
+              <img
+                src="/images/FotoPerfil.webp"
+                alt="Gabriel González"
+                class="w-[300px] contrast-[1.1] grayscale-[40%] transition-all duration-700 group-hover:scale-105 group-hover:grayscale-0 sm:w-[340px] md:w-[380px]"
+                loading="lazy"
+              />
+
+              <div
+                class="absolute inset-x-0 bottom-0 z-20 h-24 bg-gradient-to-t from-zinc-950 to-transparent"
+              >
+              </div>
+            </div>
+
+            <div
+              class="absolute -right-4 -bottom-4 z-30 bg-amber-500 px-4 py-1 text-[9px] font-black tracking-[0.2em] text-black uppercase"
+            >
+              Full Stack Junior Developer_
+            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
+  <style>
+    @keyframes bounce-slow {
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+    .animate-bounce-slow {
+      animation: bounce-slow 4s ease-in-out infinite;
+    }
+  </style>
+
   <!-- ===================================================== -->
   <!-- ABOUT ME -->
   <!-- ===================================================== -->
-  <section class="border-t border-white/5 py-32" id="about-me">
+  <section
+    class="relative border-t border-white/5 py-32 lg:py-48"
+    id="about-me"
+  >
     <div
-      class="mx-auto w-full max-w-[1000px] space-y-16 px-8 sm:px-12 lg:px-16"
+      class="absolute inset-0 [background-image:radial-gradient(rgba(252,211,77,0.05)_1px,transparent_1px)] [mask-image:linear-gradient(180deg,white,transparent)] [background-size:32px_32px] opacity-40"
     >
-      <div class="space-y-8">
-        <div class="flex items-center gap-4">
-          <div class="h-px w-12 bg-white"></div>
-          <span
-            class="text-[10px] font-bold tracking-[0.6em] text-gray-400 uppercase"
-          >
-            Professional Summary
-          </span>
+    </div>
+
+    <div class="relative mx-auto w-full max-w-[1100px] px-8 sm:px-12 lg:px-16">
+      <div class="grid grid-cols-1 gap-20 lg:grid-cols-12">
+        <div class="space-y-12 lg:col-span-7">
+          <div class="space-y-6">
+            <div class="flex items-center gap-4">
+              <div class="h-px w-12 bg-amber-300/60"></div>
+              <span
+                class="text-[10px] font-bold tracking-[0.6em] text-amber-300/80 uppercase"
+                >Professional Summary</span
+              >
+            </div>
+
+            <h2
+              class="font-serif text-5xl leading-tight tracking-tighter text-white md:text-7xl"
+            >
+              Engineering with structure,
+              <br />
+              <span class="font-light text-white/40 italic"
+                >not improvisation.</span
+              >
+            </h2>
+          </div>
+
+          <div class="space-y-6 text-lg leading-relaxed text-gray-400">
+            <p>
+              I am a <span class="font-medium text-white"
+                >Full Stack Developer</span
+              > focused on building modern, maintainable, and performance-oriented
+              web applications. I bridge the gap between complex backend logic and
+              intuitive frontend experiences.
+            </p>
+            <p>
+              Through my work on projects like <span
+                class="font-medium text-amber-200/90">Instalaciones García</span
+              > and the <span class="font-medium text-amber-200/90"
+                >Harry Potter Forum</span
+              >, I've mastered the art of shipping features in production
+              environments.
+            </p>
+          </div>
+
+          <div class="flex flex-wrap gap-3 pt-4">
+            {
+              [
+                "Code Reviews",
+                "PR Strategies",
+                "CI/CD",
+                "Clean Architecture",
+              ].map((tag) => (
+                <span class="rounded-full border border-white/10 bg-[#4D4543]/40 px-4 py-1 text-[11px] font-bold tracking-widest text-amber-200/60 uppercase backdrop-blur-sm">
+                  {tag}
+                </span>
+              ))
+            }
+          </div>
         </div>
 
-        <h2
-          class="font-serif text-4xl leading-tight tracking-tighter text-white/80 md:text-6xl"
-        >
-          Engineering with structure,
-          <br />
-          <span class="font-light text-white/40 italic">
-            not improvisation
-          </span>
-        </h2>
+        <div class="flex flex-col justify-end space-y-8 lg:col-span-5 lg:pb-4">
+          <div class="space-y-4 border-l border-amber-900/30 pl-8">
+            {
+              [
+                { label: "Location", value: "Caracas, Venezuela" },
+                { label: "Philosophy", value: "Scalable & Organized Scale" },
+                { label: "Availability", value: "Open to Remote / Global" },
+              ].map((item) => (
+                <div class="group">
+                  <p class="text-[10px] font-black tracking-widest text-amber-600/60 uppercase">
+                    {item.label}
+                  </p>
+                  <p class="text-lg text-white/70 italic transition-colors group-hover:text-amber-300">
+                    {item.value}
+                  </p>
+                </div>
+              ))
+            }
+          </div>
+        </div>
       </div>
 
-      <div class="space-y-8 text-lg leading-loose text-gray-400">
-        <p>
-          I am a Full Stack Developer focused on building modern, maintainable,
-          and performance-oriented web applications. I work across both frontend
-          and backend, prioritizing clean architecture, best practices, and
-          solutions designed to scale in an organized way.
-        </p>
+      <div class="group relative mt-24">
+        <div
+          class="absolute -inset-4 -z-10 rounded-[3rem] bg-gradient-to-b from-[#4D4543]/20 to-transparent opacity-0 blur-3xl transition-opacity duration-700 group-hover:opacity-100"
+        >
+        </div>
 
-        <p>
-          Throughout my training as a University-certified Full Stack Developer
-          and my hands-on experience, I have built and maintained real-world
-          projects in collaborative environments.
-        </p>
-
-        <p>
-          Notable examples include <span class="font-medium text-white"
-            >Instalaciones García</span
-          >, a scalable service management system, and my work on
-          <span class="font-medium text-white"> Harry Potter Foro</span>, where
-          I implemented complex features such as achievement systems,
-          notifications, database migrations, and event-driven logic directly in
-          a production environment.
-        </p>
-        <div class="group relative">
-          <div
-            class="absolute -inset-6 -z-10 translate-x-4 translate-y-4 border border-white/30 transition-all duration-700 group-hover:translate-x-0 group-hover:translate-y-0"
-          >
+        <div
+          class="overflow-hidden rounded-xl border border-[#4D4543] bg-[#2C2421] shadow-[0_20px_50px_rgba(0,0,0,0.5)]"
+        >
+          <div class="flex h-10 items-center justify-between bg-[#241C19] px-4">
+            <div class="flex items-center gap-5">
+              <div class="flex gap-1.5">
+                <div class="h-3 w-3 rounded-full bg-[#ef9f76]/50"></div>
+                <div class="h-3 w-3 rounded-full bg-[#e5c890]/50"></div>
+                <div class="h-3 w-3 rounded-full bg-[#a6d189]/50"></div>
+              </div>
+              <div
+                class="flex h-10 items-center gap-1 border-t border-t-[#ef9f76] bg-[#2C2421] px-4 py-2"
+              >
+                <Icon
+                  name="tabler:brand-typescript"
+                  size={14}
+                  class="text-[#8caaee]"
+                />
+                <span class="font-mono text-[11px] text-[#c6d0f5]"
+                  >AboutMe.tsx</span
+                >
+              </div>
+            </div>
+            <span
+              class="hidden font-mono text-[10px] tracking-tight text-white/20 sm:block"
+            >
+              GaboDev — Visual Studio Code
+            </span>
+            <div class="flex gap-3 text-white/30">
+              <Icon name="tabler:layout-sidebar-left-collapse" size={16} />
+              <Icon name="tabler:layout-bottombar-collapse" size={16} />
+            </div>
           </div>
-          <div class="flex justify-center">
+
+          <div class="relative">
+            <div
+              class="absolute top-0 bottom-0 left-0 flex w-12 flex-col items-center space-y-1 bg-[#241C19]/50 pt-4 font-mono text-[10px] text-white/10 select-none"
+            >
+              {Array.from({ length: 12 }).map((_, i) => <span>{i + 104}</span>)}
+            </div>
+
             <video
               src="/videos/Programando.mp4"
-              class="h-auto w-full border border-white/5 shadow-2xl transition-all duration-500 hover:scale-105 hover:border-white/10 hover:shadow-2xl"
+              class="w-full object-cover pl-12 transition-all duration-700 group-hover:brightness-110"
               autoplay
               loop
               muted></video>
+
+            <div
+              class="pointer-events-none absolute inset-0 border-t border-white/5"
+            >
+            </div>
           </div>
         </div>
 
-        <p>
-          I have real work experience collaborating in teams that follow
-          professional workflows: ticket systems, branching strategies, clean
-          commits, pull requests, squash merges, code reviews, and controlled
-          deployments.
-        </p>
-
-        <p>
-          My role has involved fixing real production bugs, improving existing
-          logic, and ensuring system stability.
-        </p>
-      </div>
-
-      <div
-        class="space-y-2 border-t border-white/5 pt-10 text-sm text-gray-500"
-      >
-        <p>Location: Caracas, Venezuela</p>
-        <p>High-tech workspace · Server architecture environment</p>
-        <p>Open to remote opportunities</p>
+        <div
+          class="absolute -right-6 -bottom-6 hidden rounded-xl border border-[#4D4543] bg-[#2C2421]/95 p-6 shadow-2xl backdrop-blur-xl lg:block"
+        >
+          <p class="font-serif text-xl text-[#eebebe] italic">
+            "Writing code is easy.<br />Building systems is the craft."
+          </p>
+        </div>
       </div>
     </div>
   </section>
@@ -175,133 +337,204 @@ const HarryPotterHeadForumImages = Array.from(
   <!-- ===================================================== -->
   <!-- FEATURED PROJECT -->
   <!-- ===================================================== -->
-  <section id="projects" class="border-t border-white/5 py-32">
-    <div class="mx-auto w-full max-w-[1200px] px-8 sm:px-12 lg:px-16">
-      <div class="max-w-3xl space-y-10">
-        <div class="flex items-center gap-4">
-          <div class="h-px w-12 bg-white"></div>
-          <span
-            class="text-[10px] font-bold tracking-[0.6em] text-gray-400 uppercase"
+  <section
+    id="projects"
+    class="relative overflow-hidden border-t border-white/5 py-24 lg:py-32"
+  >
+    <div
+      class="absolute inset-0 [background-image:linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] [background-size:14px_24px]"
+    >
+    </div>
+
+    <div class="relative mx-auto max-w-[1200px] px-8 sm:px-12 lg:px-16">
+      <header class="grid grid-cols-1 items-end gap-12 lg:grid-cols-12">
+        <div class="space-y-8 lg:col-span-8">
+          <div class="flex items-center gap-6">
+            <div class="h-[1px] w-12 bg-blue-400/40"></div>
+            <span
+              class="text-[10px] font-black tracking-[0.8em] text-blue-400/60 uppercase"
+            >
+              Featured Case Study
+            </span>
+          </div>
+
+          <h2
+            class="font-serif text-7xl leading-[0.9] tracking-tighter text-white md:text-9xl"
           >
-            Featured Project
-          </span>
+            Luz Interior
+          </h2>
+
+          <p class="max-w-2xl text-xl leading-relaxed font-light text-gray-400">
+            Engineered a <span class="text-white"
+              >structured digital platform</span
+            > emphasizing atomic design principles. A high-performance ecosystem built
+            for seamless scalability and modular logic.
+          </p>
         </div>
 
-        <h2
-          class="font-serif text-4xl leading-[0.9] tracking-tighter text-white/80 md:text-6xl"
-        >
-          Luz Interior
-          <br />
-          <span class="font-light text-white/40 italic">
-            Modular architecture & scalable system design
-          </span>
-        </h2>
-
-        <p class="max-w-xl text-lg leading-relaxed text-gray-400">
-          A structured digital platform built with reusable components, modular
-          architecture, and performance-focused implementation.
-        </p>
-      </div>
-
-      <div class="mt-20 grid grid-cols-1 items-center justify-center gap-20">
-        <div class="max-w-xl space-y-10">
+        <div class="space-y-6 border-l border-white/10 pb-2 pl-8 lg:col-span-4">
           <div>
-            <h3 class="mb-4 font-serif text-xl">Tech Stack</h3>
-            <ul class="flex flex-wrap gap-3 text-gray-400">
-              <li class="flex items-center gap-3">
-                <Icon name="tabler:brand-javascript" size="18" />
-                JavaScript
-              </li>
-              <li class="flex items-center gap-3">
-                <Icon name="tabler:brand-react" size="18" />
-                React
-              </li>
-              <li class="flex items-center gap-3">
-                <Icon name="tabler:brand-tailwind" size="18" />
-                TailwindCSS
-              </li>
-              <li class="flex items-center gap-3">
-                <Icon name="tabler:brand-supabase" size="18" />
-                Supabase
-              </li>
-              <li class="flex items-center gap-3">
-                <Icon name="tabler:brand-vercel" size="18" />
-                Vercel
-              </li>
-            </ul>
+            <p
+              class="text-[10px] font-bold tracking-[0.3em] text-white/20 uppercase"
+            >
+              Core Architecture
+            </p>
+            <p class="mt-1 font-serif text-sm text-gray-400 italic">
+              Modular & Scalable System
+            </p>
+          </div>
+          <div>
+            <p
+              class="text-[10px] font-bold tracking-[0.3em] text-white/20 uppercase"
+            >
+              Status
+            </p>
+            <div class="mt-2 flex items-center gap-2">
+              <span class="h-1.5 w-1.5 animate-pulse rounded-full bg-green-500"
+              ></span>
+              <p class="text-sm font-medium tracking-wide text-gray-400">
+                Production Ready
+              </p>
+            </div>
           </div>
         </div>
+      </header>
 
-        <div>
-          <EmblaCarousel images={luzInteriorImages} />
+      <div class="mt-20 flex flex-wrap gap-3">
+        {
+          [
+            {
+              name: "React",
+              icon: "tabler:brand-react",
+              color: "text-blue-400",
+            },
+            {
+              name: "TypeScript",
+              icon: "tabler:brand-typescript",
+              color: "text-blue-500",
+            },
+            {
+              name: "Supabase",
+              icon: "tabler:brand-supabase",
+              color: "text-emerald-500",
+            },
+            {
+              name: "Tailwind",
+              icon: "tabler:brand-tailwind",
+              color: "text-cyan-400",
+            },
+            {
+              name: "Vercel",
+              icon: "tabler:brand-vercel",
+              color: "text-white",
+            },
+          ].map((tech) => (
+            <div class="group flex items-center gap-2.5 rounded-full border border-white/5 bg-white/[0.03] px-5 py-2 text-xs font-medium text-gray-400 backdrop-blur-md transition-all hover:border-blue-500/30 hover:bg-blue-500/5">
+              <Icon
+                name={tech.icon}
+                class={`${tech.color} opacity-60 transition-opacity group-hover:opacity-100`}
+                size={18}
+              />
+              <span>{tech.name}</span>
+            </div>
+          ))
+        }
+      </div>
+
+      <div class="group relative mt-16">
+        <div
+          class="absolute inset-0 -z-10 scale-75 rounded-full bg-blue-500/5 blur-[120px]"
+        >
         </div>
+
+        <EmblaCarousel images={luzInteriorImages} />
       </div>
     </div>
   </section>
 
-  <section class="border-t border-white/5 py-32">
-    <div class="mx-auto w-full max-w-[1200px] px-8 sm:px-12 lg:px-16">
-      <div class="max-w-3xl space-y-10">
-        <div class="flex items-center gap-4">
-          <div class="h-px w-12 bg-white"></div>
+  <section
+    id="instalaciones-garcia"
+    class="relative border-t border-white/5 py-16 lg:py-24"
+  >
+    <div class="mx-auto max-w-[1200px] px-8 sm:px-12 lg:px-16">
+      <header class="max-w-4xl">
+        <div class="mb-12 flex items-center gap-6">
+          <div class="h-[1px] w-12 bg-emerald-500/30"></div>
           <span
-            class="text-[10px] font-bold tracking-[0.6em] text-gray-400 uppercase"
+            class="text-[10px] font-bold tracking-[0.8em] text-gray-500 uppercase"
           >
-            Featured Project
+            Enterprise Solution
           </span>
         </div>
 
         <h2
-          class="font-serif text-4xl leading-[0.9] tracking-tighter text-white/80 md:text-6xl"
+          class="font-serif text-6xl leading-[1.05] tracking-tighter text-white md:text-8xl"
         >
-          Instalaciones Garcia
-          <br />
-          <span class="font-light text-white/40 italic">
-            Service management system for a real company
+          Instalaciones García
+          <span
+            class="mt-6 block font-sans text-xl font-light tracking-normal text-white/30 italic md:text-3xl"
+          >
+            Service management system for a real company.
           </span>
         </h2>
 
-        <p class="max-w-xl text-lg leading-relaxed text-gray-400">
-          A comprehensive service management platform designed for a real
-          company, featuring a modern interface, efficient service tracking, and
-          streamlined client communication.
-        </p>
-      </div>
+        <div class="mt-16 grid grid-cols-1 gap-12 md:grid-cols-2 md:items-end">
+          <p class="text-lg leading-relaxed text-gray-400/80 lg:text-xl">
+            Developed a comprehensive ERP-lite platform tailored for
+            infrastructure services. The solution centralizes service tracking,
+            automates client workflows, and optimizes real-time resource
+            communication.
+          </p>
 
-      <div class="mt-20 grid grid-cols-1 items-start gap-20 lg:grid-cols-1">
-        <div class="max-w-xl space-y-10">
-          <div>
-            <h3 class="mb-4 font-serif text-xl">Tech Stack</h3>
-            <ul class="flex flex-wrap gap-3 text-gray-400">
-              <li class="flex items-center gap-3">
-                <Icon name="tabler:brand-astro" size="18" />
-                Astro
-              </li>
-              <li class="flex items-center gap-3">
-                <Icon name="tabler:brand-javascript" size="18" />
-                JavaScript
-              </li>
-              <li class="flex items-center gap-3">
-                <Icon name="tabler:brand-react" size="18" />
-                React
-              </li>
-              <li class="flex items-center gap-3">
-                <Icon name="tabler:brand-tailwind" size="18" />
-                TailwindCSS
-              </li>
-              <li class="flex items-center gap-3">
-                <Icon name="tabler:brand-supabase" size="18" />
-                Supabase
-              </li>
-              <li class="flex items-center gap-3">
-                <Icon name="tabler:brand-vercel" size="18" />
-                Vercel
-              </li>
-            </ul>
+          <div
+            class="h-fit border-l border-white/10 pl-8 md:border-r md:border-l-0 md:pr-8 md:pl-0 md:text-right"
+          >
+            <p
+              class="text-[10px] font-bold tracking-[0.3em] text-white/20 uppercase"
+            >
+              Project Role
+            </p>
+            <p class="mt-2 text-sm font-medium tracking-wide text-gray-400">
+              Lead Product Engineer
+            </p>
           </div>
         </div>
+      </header>
 
-        <div>
+      <div class="mt-24 border-y border-white/5 py-10">
+        <h3
+          class="mb-8 text-center font-serif text-xs tracking-[0.3em] text-white/30 uppercase"
+        >
+          Technical Ecosystem
+        </h3>
+        <ul class="flex flex-wrap justify-center gap-4">
+          {
+            [
+              { name: "Astro", icon: "tabler:brand-astro" },
+              { name: "JavaScript", icon: "tabler:brand-javascript" },
+              { name: "React", icon: "tabler:brand-react" },
+              { name: "TailwindCSS", icon: "tabler:brand-tailwind" },
+              { name: "Supabase", icon: "tabler:brand-supabase" },
+              { name: "Vercel", icon: "tabler:brand-vercel" },
+            ].map((tech) => (
+              <li class="flex items-center gap-3 rounded-xl border border-white/5 bg-white/[0.02] px-6 py-3.5 text-sm text-gray-400 backdrop-blur-sm transition-all hover:border-emerald-500/20 hover:bg-white/[0.05] hover:text-white">
+                <Icon name={tech.icon} class="opacity-70" size="20" />
+                <span class="font-medium tracking-wide">{tech.name}</span>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <div class="group relative mt-12">
+        <div
+          class="absolute inset-0 -z-10 mx-auto max-w-5xl translate-y-12 rounded-full bg-emerald-600/[0.03] blur-[140px]"
+        >
+        </div>
+
+        <div
+          class="relative z-10 mx-auto max-w-5xl transition-transform duration-700 ease-in-out group-hover:scale-[1.01]"
+        >
           <EmblaCarousel images={InstalacionesGarciasImages} />
         </div>
       </div>
@@ -311,83 +544,91 @@ const HarryPotterHeadForumImages = Array.from(
   <!-- ===================================================== -->
   <!-- Experience -->
   <!-- ===================================================== -->
-  <section id="experience" class="border-t border-white/5 py-32">
-    <div class="mx-auto w-full max-w-[1200px] px-8 sm:px-12 lg:px-16">
-      <div class="max-w-3xl space-y-10">
-        <div class="flex items-center gap-4">
-          <div class="h-px w-12 bg-white"></div>
+  <section
+    id="experience"
+    class="relative border-t border-white/5 py-16 lg:py-24"
+  >
+    <div class="mx-auto max-w-[1200px] px-8 sm:px-12 lg:px-16">
+      <header class="max-w-4xl">
+        <div class="mb-12 flex items-center gap-6">
+          <div class="h-[1px] w-12 bg-indigo-500/40"></div>
           <span
-            class="text-[10px] font-bold tracking-[0.6em] text-gray-400 uppercase"
+            class="text-[10px] font-bold tracking-[0.8em] text-gray-500 uppercase"
           >
-            Experience
+            Professional Experience
           </span>
         </div>
 
         <h2
-          class="font-serif text-4xl leading-[0.9] tracking-tighter text-white/80 md:text-6xl"
+          class="font-serif text-6xl leading-[1.05] tracking-tighter text-white md:text-8xl"
         >
           Harry Potter Head Forum
-          <br />
-          <span class="font-light text-white/40 italic">
-            Real experience in a production environment with real users and real
-            problems
+          <span
+            class="mt-6 block font-sans text-xl font-light tracking-normal text-white/30 italic md:text-3xl"
+          >
+            High-traffic production environment & community management.
           </span>
         </h2>
 
-        <p class="max-w-xl text-lg leading-relaxed text-gray-400">
-          I have real work experience collaborating in teams that follow
-          professional workflows: ticket systems, branching strategies, clean
-          commits, pull requests, squash merges, code reviews, and controlled
-          deployments.
-        </p>
-      </div>
+        <div class="mt-16 grid grid-cols-1 gap-12 md:grid-cols-2 md:items-end">
+          <p class="text-lg leading-relaxed text-gray-400/80 lg:text-xl">
+            Contributed to a live ecosystem, mastering professional workflows:
+            from ticket-driven development and branching strategies to code
+            reviews and controlled production deployments.
+          </p>
 
-      <div class="mt-20 grid grid-cols-1 items-start gap-20 lg:grid-cols-1">
-        <div class="max-w-xl space-y-10">
-          <div>
-            <h3 class="mb-4 font-serif text-xl">Tech Stack</h3>
-            <ul class="flex flex-wrap gap-3 text-gray-400">
-              <li class="flex items-center gap-3">
-                <Icon name="tabler:brand-php" size="18" />
-                PHP
-              </li>
-              <li class="flex items-center gap-3">
-                <Icon name="tabler:brand-laravel" size="18" />
-                Laravel
-              </li>
-              <li class="flex items-center gap-3">
-                <Icon name="tabler:brand-mysql" size="18" />
-                MySQL
-              </li>
-              <li class="flex items-center gap-3">
-                <Icon name="tabler:brand-git" size="18" />
-                Git
-              </li>
-              <li class="flex items-center gap-3">
-                <Icon name="tabler:brand-javascript" size="18" />
-                JavaScript
-              </li>
-              <li class="flex items-center gap-3">
-                <Icon name="tabler:brand-react" size="18" />
-                React
-              </li>
-              <li class="flex items-center gap-3">
-                <Icon name="tabler:brand-tailwind" size="18" />
-                TailwindCSS
-              </li>
-              <li class="flex items-center gap-3">
-                <Icon name="tabler:brand-supabase" size="18" />
-                Supabase
-              </li>
-              <li class="flex items-center gap-3">
-                <Icon name="tabler:brand-vercel" size="18" />
-                Vercel
-              </li>
-            </ul>
+          <div
+            class="h-fit border-l border-white/10 pl-8 md:border-r md:border-l-0 md:pr-8 md:pl-0 md:text-right"
+          >
+            <p
+              class="text-[10px] font-bold tracking-[0.3em] text-white/20 uppercase"
+            >
+              Core Focus
+            </p>
+            <p class="mt-2 text-sm font-medium tracking-wide text-gray-400">
+              Full Stack Development & DevOps
+            </p>
           </div>
         </div>
+      </header>
 
-        <div>
+      <div class="mt-24 border-y border-white/5 py-10">
+        <h3
+          class="mb-8 text-center font-serif text-xs tracking-[0.3em] text-white/30 uppercase"
+        >
+          Professional Toolchain
+        </h3>
+        <ul class="flex flex-wrap justify-center gap-4">
+          {
+            [
+              { name: "PHP", icon: "tabler:brand-php" },
+              { name: "Laravel", icon: "tabler:brand-laravel" },
+              { name: "MySQL", icon: "tabler:brand-mysql" },
+              { name: "Git", icon: "tabler:brand-git" },
+              { name: "JavaScript", icon: "tabler:brand-javascript" },
+              { name: "React", icon: "tabler:brand-react" },
+              { name: "TailwindCSS", icon: "tabler:brand-tailwind" },
+              { name: "Supabase", icon: "tabler:brand-supabase" },
+              { name: "Vercel", icon: "tabler:brand-vercel" },
+            ].map((tech) => (
+              <li class="flex items-center gap-3 rounded-xl border border-white/5 bg-white/[0.02] px-6 py-3.5 text-sm text-gray-400 backdrop-blur-sm transition-all hover:border-indigo-500/20 hover:bg-white/[0.05] hover:text-white">
+                <Icon name={tech.icon} class="opacity-70" size={20} />
+                <span class="font-medium tracking-wide">{tech.name}</span>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <div class="group relative mt-12">
+        <div
+          class="absolute inset-0 -z-10 mx-auto max-w-5xl translate-y-12 rounded-full bg-indigo-600/[0.04] blur-[140px]"
+        >
+        </div>
+
+        <div
+          class="relative z-10 mx-auto max-w-5xl transition-transform duration-700 ease-in-out group-hover:scale-[1.01]"
+        >
           <EmblaCarousel images={HarryPotterHeadForumImages} />
         </div>
       </div>
@@ -593,200 +834,169 @@ const HarryPotterHeadForumImages = Array.from(
 
   <!-- ================= TECH STACK ================= -->
   <section
-    class="relative overflow-hidden border-t border-white/5 py-36"
     id="tech-stack"
+    class="relative overflow-hidden border-t border-white/5 py-32 lg:py-48"
   >
-    <div
-      class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(255,255,255,0.04),transparent_60%)]"
-    >
+    <div class="pointer-events-none absolute inset-0">
+      <div
+        class="absolute top-0 right-0 h-[500px] w-[500px] bg-amber-500/10 blur-[120px]"
+      >
+      </div>
+      <div
+        class="absolute bottom-0 left-0 h-[500px] w-[500px] bg-blue-500/10 blur-[120px]"
+      >
+      </div>
     </div>
 
-    <div class="relative mx-auto w-full max-w-[1300px] px-6 sm:px-12 lg:px-20">
-      <header class="max-w-3xl space-y-10">
-        <div class="flex items-center gap-4">
-          <div class="h-px w-12 bg-white"></div>
+    <div class="relative mx-auto max-w-[1300px] px-8 sm:px-12 lg:px-20">
+      <header class="max-w-3xl">
+        <div class="mb-10 flex items-center gap-4">
+          <div class="h-px w-12 bg-amber-300/40"></div>
           <span
-            class="text-[10px] font-bold tracking-[0.6em] text-white/60 uppercase"
+            class="text-[10px] font-bold tracking-[0.6em] text-amber-300/60 uppercase"
+            >Technical Arsenal</span
           >
-            Technology Stack
-          </span>
         </div>
-
         <h2
-          class="font-serif text-4xl leading-[0.95] tracking-tight text-white/80 md:text-6xl"
+          class="font-serif text-5xl leading-tight tracking-tighter text-white md:text-7xl"
         >
-          Full Stack Engineering Toolkit
+          The Stack Behind <br />
+          <span class="font-light text-white/40 italic">the Craft.</span>
         </h2>
-
-        <p class="text-lg text-gray-400">
-          Core technologies powering production-ready systems.
-        </p>
       </header>
 
-      <div
-        class="mt-24 grid grid-cols-2 gap-x-14 gap-y-12 text-gray-300 md:grid-cols-3 lg:grid-cols-4"
-      >
-        <!-- ITEM TEMPLATE -->
-        <div class="group flex items-center gap-4">
-          <Icon
-            name="tabler:brand-javascript"
-            size="20"
-            class="text-white/70 transition-colors duration-300 group-hover:text-white"
-          />
-          <span
-            class="tracking-wide transition-colors duration-300 group-hover:text-white"
-            >JavaScript</span
+      <div class="mt-24 grid grid-cols-1 gap-6 md:grid-cols-12">
+        <div
+          class="group relative col-span-1 flex min-h-[400px] flex-col justify-end overflow-hidden rounded-[2.5rem] border border-white/10 bg-zinc-900 p-8 md:col-span-12 lg:col-span-8 lg:p-12"
+        >
+          <video
+            src="/videos/Hacker-Room-Rainy-Night.mp4"
+            class="absolute inset-0 h-full w-full object-cover opacity-80 mix-blend-luminosity transition-all duration-700 group-hover:scale-105 group-hover:opacity-60"
+            autoplay
+            loop
+            muted></video>
+
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-900/20 to-transparent"
           >
+          </div>
+
+          <div class="relative z-10">
+            <div class="mb-4 flex items-center gap-2">
+              <span class="h-2 w-2 animate-pulse rounded-full bg-amber-400"
+              ></span>
+              <p
+                class="text-[10px] font-bold tracking-widest text-amber-300 uppercase"
+              >
+                System Active
+              </p>
+            </div>
+            <h3 class="mb-8 font-serif text-3xl text-white">
+              Frontend Engineering
+            </h3>
+            <div class="flex flex-wrap gap-3">
+              {
+                [
+                  { name: "JavaScript", icon: "tabler:brand-javascript" },
+                  { name: "TypeScript", icon: "tabler:brand-typescript" },
+                  { name: "React", icon: "tabler:brand-react" },
+                  { name: "Next.js", icon: "tabler:brand-nextjs" },
+                  { name: "Astro", icon: "tabler:brand-astro" },
+                  { name: "TailwindCSS", icon: "tabler:brand-tailwind" },
+                ].map((tech) => (
+                  <div class="flex items-center gap-3 rounded-xl border border-white/10 bg-black/40 px-5 py-3 backdrop-blur-md transition-all hover:border-amber-300/50 hover:bg-black/60">
+                    <Icon name={tech.icon} class="text-amber-300" size={20} />
+                    <span class="text-sm font-medium text-gray-200">
+                      {tech.name}
+                    </span>
+                  </div>
+                ))
+              }
+            </div>
+          </div>
         </div>
 
-        <div class="group flex items-center gap-4">
-          <Icon
-            name="tabler:brand-typescript"
-            size="20"
-            class="text-white/70 transition-colors duration-300 group-hover:text-white"
-          />
-          <span>TypeScript</span>
+        <div
+          class="group relative col-span-1 flex flex-col justify-center overflow-hidden rounded-[2.5rem] border border-white/5 bg-zinc-900/40 p-8 backdrop-blur-md md:col-span-12 lg:col-span-4"
+        >
+          <div class="space-y-6">
+            <div class="border-l-2 border-amber-300/30 pl-4">
+              <p
+                class="text-[10px] font-bold tracking-[0.2em] text-gray-500 uppercase"
+              >
+                Current Role
+              </p>
+              <p class="font-serif text-xl text-white/80 italic">
+                Lead Full Stack Developer
+              </p>
+            </div>
+            <div class="border-l-2 border-white/10 pl-4">
+              <p
+                class="text-[10px] font-bold tracking-[0.2em] text-gray-500 uppercase"
+              >
+                Experience
+              </p>
+              <p class="font-serif text-xl text-white/80 italic">
+                4+ Years Engineering
+              </p>
+            </div>
+          </div>
         </div>
 
-        <div class="group flex items-center gap-4">
-          <Icon
-            name="tabler:brand-react"
-            size="20"
-            class="text-white/70 transition-colors duration-300 group-hover:text-white"
-          />
-          <span>React</span>
+        <div
+          class="group col-span-1 rounded-[2.5rem] border border-white/5 bg-zinc-900/40 p-8 backdrop-blur-md transition-all hover:border-white/10 md:col-span-6"
+        >
+          <h3 class="mb-8 font-serif text-2xl text-white/90 italic">
+            Architecture & Data
+          </h3>
+          <div class="grid grid-cols-2 gap-y-6">
+            {
+              [
+                { name: "Laravel", icon: "tabler:brand-laravel" },
+                { name: "PHP", icon: "tabler:brand-php" },
+                { name: "Node.js", icon: "tabler:brand-nodejs" },
+                { name: "MySQL", icon: "tabler:database-cog" },
+                { name: "MongoDB", icon: "tabler:leaf" },
+                { name: "Supabase", icon: "tabler:database" },
+              ].map((tech) => (
+                <div class="flex items-center gap-3 text-gray-400 transition-all group-hover:text-gray-200">
+                  <Icon
+                    name={tech.icon}
+                    size={18}
+                    class="text-amber-300/50 transition-colors group-hover:text-amber-300"
+                  />
+                  <span class="text-sm italic">{tech.name}</span>
+                </div>
+              ))
+            }
+          </div>
         </div>
 
-        <div class="group flex items-center gap-4">
-          <Icon
-            name="tabler:brand-nextjs"
-            size="20"
-            class="text-white/70 transition-colors duration-300 group-hover:text-white"
-          />
-          <span>Next.js</span>
+        <div
+          class="group col-span-1 rounded-[2.5rem] border border-white/5 bg-zinc-900/40 p-8 backdrop-blur-md transition-all hover:border-white/10 md:col-span-6"
+        >
+          <h3 class="mb-8 font-serif text-2xl text-white/90">
+            Development Workflow
+          </h3>
+          <div class="space-y-4">
+            {
+              [
+                "Git & GitHub Strategies",
+                "Vercel Deployment",
+                "CI/CD Pipelines",
+              ].map((item) => (
+                <div class="flex items-center justify-between border-b border-white/5 pb-2 transition-colors group-hover:border-white/10">
+                  <span class="text-sm text-gray-400">{item}</span>
+                  <Icon
+                    name="tabler:check"
+                    class="text-amber-300/40"
+                    size={16}
+                  />
+                </div>
+              ))
+            }
+          </div>
         </div>
-
-        <div class="group flex items-center gap-4">
-          <Icon
-            name="tabler:brand-astro"
-            size="20"
-            class="text-white/70 transition-colors duration-300 group-hover:text-white"
-          />
-          <span>Astro</span>
-        </div>
-
-        <div class="group flex items-center gap-4">
-          <Icon
-            name="tabler:brand-tailwind"
-            size="20"
-            class="text-white/70 transition-colors duration-300 group-hover:text-white"
-          />
-          <span>TailwindCSS</span>
-        </div>
-
-        <div class="group flex items-center gap-4">
-          <Icon
-            name="tabler:database"
-            size="20"
-            class="text-white/70 transition-colors duration-300 group-hover:text-white"
-          />
-          <span>Supabase</span>
-        </div>
-
-        <div class="group flex items-center gap-4">
-          <Icon
-            name="tabler:brand-vercel"
-            size="20"
-            class="text-white/70 transition-colors duration-300 group-hover:text-white"
-          />
-          <span>Vercel</span>
-        </div>
-
-        <div class="group flex items-center gap-4">
-          <Icon
-            name="tabler:brand-git"
-            size="20"
-            class="text-white/70 transition-colors duration-300 group-hover:text-white"
-          />
-          <span>Git</span>
-        </div>
-
-        <div class="group flex items-center gap-4">
-          <Icon
-            name="tabler:brand-github"
-            size="20"
-            class="text-white/70 transition-colors duration-300 group-hover:text-white"
-          />
-          <span>GitHub</span>
-        </div>
-
-        <div class="group flex items-center gap-4">
-          <Icon
-            name="tabler:database-cog"
-            size="20"
-            class="text-white/70 transition-colors duration-300 group-hover:text-white"
-          />
-          <span>MySQL</span>
-        </div>
-
-        <div class="group flex items-center gap-4">
-          <Icon
-            name="tabler:leaf"
-            size="20"
-            class="text-white/70 transition-colors duration-300 group-hover:text-white"
-          />
-          <span>MongoDB</span>
-        </div>
-
-        <div class="group flex items-center gap-4">
-          <Icon
-            name="tabler:brand-laravel"
-            size="20"
-            class="text-white/70 transition-colors duration-300 group-hover:text-white"
-          />
-          <span>Laravel</span>
-        </div>
-
-        <div class="group flex items-center gap-4">
-          <Icon
-            name="tabler:brand-php"
-            size="20"
-            class="text-white/70 transition-colors duration-300 group-hover:text-white"
-          />
-          <span>PHP</span>
-        </div>
-
-        <div class="group flex items-center gap-4">
-          <Icon
-            name="tabler:brand-nodejs"
-            size="20"
-            class="text-white/70 transition-colors duration-300 group-hover:text-white"
-          />
-          <span>Node.js</span>
-        </div>
-
-        <div class="group flex items-center gap-4">
-          <Icon
-            name="tabler:git-branch"
-            size="20"
-            class="text-white/70 transition-colors duration-300 group-hover:text-white"
-          />
-          <span>CI/CD Workflows</span>
-        </div>
-      </div>
-    </div>
-    <div class="group relative">
-      <div
-        class="absolute -inset-4 -z-10 translate-x-2 translate-y-2 border border-white/30 transition-all duration-700 group-hover:translate-x-0 group-hover:translate-y-0"
-      >
-      </div>
-      <div class="mt-32 flex justify-center">
-        <video
-          src="/videos/Hacker-Room-Rainy-Night.mp4"
-          class="h-auto w-[90%] border border-white/5 shadow-2xl transition-all duration-500 hover:scale-102 hover:border-white/10 hover:shadow-2xl"
-          autoplay
-          loop
-          muted></video>
       </div>
     </div>
   </section>
@@ -794,131 +1004,165 @@ const HarryPotterHeadForumImages = Array.from(
   <!-- ===================================================== -->
   <!-- EDUCATION & ENGINEERING FOUNDATION -->
   <!-- ===================================================== -->
-  <section id="education" class="border-t border-white/5 py-36">
-    <div class="mx-auto w-full max-w-[1200px] px-8 sm:px-12 lg:px-16">
-      <!-- HEADER -->
-      <header class="max-w-3xl space-y-8">
-        <div class="flex items-center gap-4">
-          <div class="h-px w-12 bg-white"></div>
+  <section
+    id="education"
+    class="relative border-t border-white/5 py-32 lg:py-48"
+  >
+    <div
+      class="absolute top-0 left-1/4 -z-10 h-64 w-64 bg-white/[0.02] blur-[120px]"
+    >
+    </div>
+
+    <div class="mx-auto max-w-[1200px] px-8 sm:px-12 lg:px-16">
+      <header class="max-w-4xl">
+        <div class="mb-12 flex items-center gap-6">
+          <div class="h-[1px] w-12 bg-white/20"></div>
           <span
-            class="text-[10px] font-bold tracking-[0.6em] text-gray-400 uppercase"
+            class="text-[10px] font-bold tracking-[0.8em] text-gray-500 uppercase"
           >
-            Education
+            Academic Foundation
           </span>
         </div>
 
         <h2
-          class="font-serif text-4xl leading-[0.95] tracking-tighter text-white md:text-6xl"
+          class="font-serif text-6xl leading-[1.05] tracking-tighter text-white md:text-8xl"
         >
-          Structured Academic Foundation
-          <br />
-          <span class="font-light text-white/40 italic">
-            Applied engineering mindset
+          Structured Mindset
+          <span
+            class="mt-6 block font-sans text-xl font-light tracking-normal text-white/30 italic md:text-3xl"
+          >
+            Engineering principles applied to modern development.
           </span>
         </h2>
-
-        <p class="max-w-2xl text-lg text-gray-400">
-          My academic path combines formal software engineering studies with
-          intensive full stack specialization, focused on system architecture,
-          production workflows and scalable development.
-        </p>
       </header>
 
-      <!-- ================= UNIVERSITY ================= -->
-      <div class="mt-24 grid gap-16 lg:grid-cols-12">
-        <div class="space-y-6 lg:col-span-5">
-          <h3 class="font-serif text-2xl text-white/90">
-            Software Engineering
-          </h3>
-
-          <p class="text-gray-400">
-            Universidad Politécnica Territorial de Caracas
-            <span class="text-white/40 italic"> Mariscal Sucre</span>
-          </p>
-
-          <p class="leading-relaxed text-gray-400">
-            Academic formation centered on software architecture, algorithmic
-            thinking, database systems, engineering quality, and structured
-            project management.
-          </p>
-        </div>
-
-        <div
-          class="grid gap-6 text-sm text-gray-400 sm:grid-cols-2 lg:col-span-7"
-        >
-          <div class="space-y-3 border border-white/5 p-6">
-            <h4 class="font-medium text-white/80">Core Engineering</h4>
-            <ul class="space-y-2">
-              <li>Data Structures & Algorithms</li>
-              <li>Object-Oriented Programming</li>
-              <li>Software Architecture</li>
-              <li>Testing & Quality Engineering</li>
-            </ul>
+      <div class="mt-32">
+        <div class="grid gap-16 lg:grid-cols-12">
+          <div class="lg:col-span-5">
+            <div class="sticky top-24 space-y-6">
+              <h3 class="font-serif text-3xl tracking-tight text-white/90">
+                Software Engineering
+              </h3>
+              <div class="space-y-1">
+                <p class="text-lg font-medium text-gray-300">UPT de Caracas</p>
+                <p class="text-sm text-white/30 italic">
+                  Mariscal Sucre · Degree Program
+                </p>
+              </div>
+              <p class="text-lg leading-relaxed text-gray-400/80">
+                Formation centered on software architecture, algorithmic
+                complexity, and the engineering quality required for
+                enterprise-grade systems.
+              </p>
+            </div>
           </div>
 
-          <div class="space-y-3 border border-white/5 p-6">
-            <h4 class="font-medium text-white/80">Systems & Data</h4>
-            <ul class="space-y-2">
-              <li>Advanced SQL Systems</li>
-              <li>Database Design</li>
-              <li>Statistics & Probability</li>
-              <li>Discrete Mathematics</li>
-            </ul>
+          <div class="grid gap-4 sm:grid-cols-2 lg:col-span-7">
+            {
+              [
+                {
+                  title: "Core Engineering",
+                  items: [
+                    "Data Structures",
+                    "OOP",
+                    "Architecture Patterns",
+                    "Quality QA",
+                  ],
+                },
+                {
+                  title: "Systems & Data",
+                  items: [
+                    "Advanced SQL",
+                    "Database Design",
+                    "Discrete Math",
+                    "Statistics",
+                  ],
+                },
+              ].map((block) => (
+                <div class="group rounded-2xl border border-white/5 bg-white/[0.01] p-8 transition-all hover:bg-white/[0.03]">
+                  <h4 class="mb-6 text-[10px] font-black tracking-[0.2em] text-white/20 uppercase italic">
+                    {block.title}
+                  </h4>
+                  <ul class="space-y-4">
+                    {block.items.map((item) => (
+                      <li class="flex items-center gap-3 text-sm text-gray-400 italic transition-colors group-hover:text-gray-200">
+                        <div class="h-1 w-1 rounded-full bg-blue-500/50" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))
+            }
           </div>
         </div>
       </div>
 
-      <!-- ================= FULL STACK CERTIFICATION ================= -->
-      <div
-        class="mt-32 grid gap-16 border-t border-white/5 pt-24 lg:grid-cols-12"
-      >
-        <!-- LEFT -->
-        <div class="space-y-6 lg:col-span-5">
-          <h3 class="font-serif text-2xl text-white/90">
-            Full Stack Development Certification
-          </h3>
+      <div class="mt-32 border-t border-white/5 pt-32">
+        <div class="grid gap-16 lg:grid-cols-12">
+          <div class="space-y-12 lg:col-span-6">
+            <div class="space-y-6">
+              <h3 class="font-serif text-3xl tracking-tight text-white/90">
+                Full Stack Specialization
+              </h3>
+              <p class="text-lg text-gray-400/80 italic">
+                ED Tech · 12-Month Intensive Program
+              </p>
+              <p class="leading-relaxed text-gray-400/80">
+                An immersive journey through the modern web ecosystem, bridging
+                the gap between visual interface engineering and scalable server
+                logic.
+              </p>
+            </div>
 
-          <p class="text-gray-400">
-            ED Tech · 12-Month Intensive Program · Hybrid Modality
-          </p>
-
-          <p class="leading-relaxed text-gray-400">
-            Comprehensive training covering frontend engineering, backend
-            architecture, database systems and production deployment workflows.
-          </p>
-
-          <div class="pt-6">
-            <img
-              src="/images/FullStackCertificate.webp"
-              alt="Full Stack Developer Certificate"
-              class="w-full max-w-sm border border-white/5"
-              loading="lazy"
-            />
-          </div>
-        </div>
-
-        <!-- RIGHT -->
-        <div
-          class="grid gap-6 text-sm text-gray-400 sm:grid-cols-2 lg:col-span-7"
-        >
-          <div class="space-y-3 border border-white/5 p-6">
-            <h4 class="font-medium text-white/80">Frontend Engineering</h4>
-            <ul class="space-y-2">
-              <li>HTML · CSS · JavaScript</li>
-              <li>React · Next.js</li>
-              <li>State Management</li>
-              <li>Testing & Form Handling</li>
-            </ul>
+            <div
+              class="group relative max-w-md overflow-hidden rounded-xl border border-white/10 bg-black/40 p-2 shadow-2xl transition-transform hover:scale-[1.02]"
+            >
+              <img
+                src="/images/FullStackCertificate.webp"
+                alt="Full Stack Developer Certificate"
+                class="rounded-lg opacity-80 transition-opacity group-hover:opacity-100"
+                loading="lazy"
+              />
+            </div>
           </div>
 
-          <div class="space-y-3 border border-white/5 p-6">
-            <h4 class="font-medium text-white/80">Backend & Deployment</h4>
-            <ul class="space-y-2">
-              <li>Node.js · Express</li>
-              <li>SQL & NoSQL Databases</li>
-              <li>MongoDB & Mongoose</li>
-              <li>Git · CI/CD · Deployment</li>
-            </ul>
+          <div class="flex flex-col justify-center lg:col-span-6">
+            <div class="grid gap-4 sm:grid-cols-2">
+              {
+                [
+                  {
+                    title: "Frontend",
+                    items: [
+                      "React / Next.js",
+                      "State Management",
+                      "Tailwind CSS",
+                      "Browser APIs",
+                    ],
+                  },
+                  {
+                    title: "Backend",
+                    items: [
+                      "Node.js / Express",
+                      "CI/CD Workflows",
+                      "Auth Systems",
+                      "Architecture",
+                    ],
+                  },
+                ].map((block) => (
+                  <div class="border-l border-white/10 py-4 pl-8">
+                    <h4 class="mb-6 text-[10px] font-bold tracking-[0.2em] text-white/30 uppercase italic">
+                      {block.title}
+                    </h4>
+                    <ul class="space-y-4 text-sm text-gray-400 italic">
+                      {block.items.map((item) => (
+                        <li>{item}</li>
+                      ))}
+                    </ul>
+                  </div>
+                ))
+              }
+            </div>
           </div>
         </div>
       </div>
