@@ -2,6 +2,7 @@
   "name": "portafoliofullstackdeveloper",
   "type": "module",
   "version": "0.0.1",
+  "packageManager": "pnpm@10.2.0",
   "scripts": {
     "start": "astro dev",
     "dev": "astro dev",
@@ -9,8 +10,7 @@
     "preview": "astro preview",
     "astro": "astro",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
-    "format": "prettier --write .",
-    "approve-builds": "astro build && echo 'Build completed successfully'"
+    "format": "prettier --write ."
   },
   "dependencies": {
     "@iconify-json/tabler": "^1.2.26",
