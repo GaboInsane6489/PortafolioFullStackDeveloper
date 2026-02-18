@@ -30,5 +30,11 @@
     "prettier": "^3.8.1",
     "prettier-plugin-astro": "^0.14.1",
     "prettier-plugin-tailwindcss": "^0.7.2"
+  },
+  "pnpm": {
+    "trustedDependencies": [
+      "esbuild",
+      "sharp"
+    ]
   }
 }
