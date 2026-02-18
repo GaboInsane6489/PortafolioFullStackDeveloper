@@ -61,12 +61,17 @@ const { images, autoplay = true, interval = 4000 } = Astro.props as Props;
 </div>
 
 <!-- IMPORTANTE: Solo se importa una vez por página -->
-<script type="module">
-  import { initEmbla } from "/src/scripts/embla-init.ts";
+<script>
+  import { initEmbla } from "../scripts/embla-init.ts";
 
-  // Evita reinicialización múltiple
-  if (!window.__EMBLA_INITIALIZED__) {
-    window.__EMBLA_INITIALIZED__ = true;
+  // Declaramos la propiedad en el objeto global Window
+  interface Window {
+    __EMBLA_INITIALIZED__?: boolean;
+  }
+
+  // Ahora TS ya sabe qué es esto y no dará error
+  if (!(window as unknown as Window).__EMBLA_INITIALIZED__) {
+    (window as unknown as Window).__EMBLA_INITIALIZED__ = true;
     initEmbla();
   }
 </script>
