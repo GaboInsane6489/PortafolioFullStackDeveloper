@@ -4,7 +4,6 @@
   "version": "0.0.1",
   "scripts": {
     "start": "astro dev",
-    "install": "pnpm install",
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
