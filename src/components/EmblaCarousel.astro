@@ -62,16 +62,19 @@ const { images, autoplay = true, interval = 4000 } = Astro.props as Props;
 
 <!-- IMPORTANTE: Solo se importa una vez por página -->
 <script>
+  // 1. Usamos una ruta RELATIVA (sin el / inicial)
+  // Ajusta la cantidad de ../ según donde esté tu archivo .astro
   import { initEmbla } from "../scripts/embla-init.ts";
 
-  // Declaramos la propiedad en el objeto global Window
-  interface Window {
-    __EMBLA_INITIALIZED__?: boolean;
-  }
+  // 2. Ejecutamos la lógica de inicialización
+  const setup = () => {
+    if (!(window as any).__EMBLA_INITIALIZED__) {
+      (window as any).__EMBLA_INITIALIZED__ = true;
+      initEmbla();
+    }
+  };
 
-  // Ahora TS ya sabe qué es esto y no dará error
-  if (!(window as unknown as Window).__EMBLA_INITIALIZED__) {
-    (window as unknown as Window).__EMBLA_INITIALIZED__ = true;
-    initEmbla();
-  }
+  // 3. Lo ejecutamos al cargar y si usas View Transitions
+  setup();
+  document.addEventListener("astro:page-load", setup);
 </script>
