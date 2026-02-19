@@ -1,0 +1,194 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<section
+  id="engineering"
+  class="relative overflow-hidden border-t border-white/5 py-36"
+>
+  <div
+    class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_10%,rgba(255,255,255,0.04),transparent_60%)]"
+  >
+  </div>
+
+  <div class="relative mx-auto w-full max-w-[1300px] px-6 sm:px-12 lg:px-20">
+    <!-- HEADER -->
+    <header class="max-w-4xl space-y-10">
+      <div class="flex items-center gap-4">
+        <div class="h-px w-12 bg-white"></div>
+        <span
+          class="text-[10px] font-bold tracking-[0.6em] text-white/60 uppercase"
+        >
+          Engineering & Open Source
+        </span>
+      </div>
+
+      <h2
+        class="font-serif text-4xl leading-[0.95] tracking-tight text-white/80 md:text-6xl"
+      >
+        Code is not just written.
+        <br />
+        <span class="font-light text-white/40 italic">
+          It is architected, documented and maintained.
+        </span>
+      </h2>
+
+      <p class="max-w-2xl text-lg leading-relaxed text-gray-400">
+        My GitHub reflects structured repositories, production-grade
+        documentation, scalable architectural decisions and disciplined
+        contribution patterns.
+      </p>
+    </header>
+
+    <!-- GITHUB GRID -->
+    <div class="mt-24 grid gap-20 lg:grid-cols-2">
+      <article class="group space-y-8">
+        <div class="flex items-center gap-4">
+          <Icon
+            name="tabler:brand-github"
+            size="22"
+            class="text-white/70 transition-colors duration-300 group-hover:text-white"
+          />
+          <h3 class="text-2xl font-semibold text-white/80 italic">
+            Profile Architecture
+          </h3>
+        </div>
+
+        <p class="max-w-md text-gray-400">
+          Pinned repositories, structured README hierarchy and clear stack
+          communication.
+        </p>
+
+        <div
+          class="overflow-hidden rounded-xl border border-white/10 bg-white/[0.02] backdrop-blur-md transition-all duration-500 group-hover:border-white/20"
+        >
+          <img
+            src="/images/GitHub1.webp"
+            alt="GitHub profile overview"
+            class="w-full transition-transform duration-700 group-hover:scale-[1.03]"
+            loading="lazy"
+          />
+        </div>
+      </article>
+
+      <article class="group space-y-8">
+        <div class="flex items-center gap-4">
+          <Icon
+            name="tabler:activity"
+            size="22"
+            class="text-white/70 transition-colors duration-300 group-hover:text-white"
+          />
+          <h3 class="text-2xl font-semibold text-white/80 italic">
+            Contribution Discipline
+          </h3>
+        </div>
+
+        <p class="max-w-md text-gray-400">
+          Consistent commits, version control rigor and collaborative workflows.
+        </p>
+
+        <div
+          class="overflow-hidden rounded-xl border border-white/10 bg-white/[0.02] backdrop-blur-md transition-all duration-500 group-hover:border-white/20"
+        >
+          <img
+            src="/images/GitHub4.webp"
+            alt="GitHub contributions graph"
+            class="w-full transition-transform duration-700 group-hover:scale-[1.03]"
+            loading="lazy"
+          />
+        </div>
+      </article>
+    </div>
+
+    <div class="group relative mt-32">
+      <div
+        class="absolute -inset-6 -z-10 translate-x-4 translate-y-4 border border-white/30 transition-all duration-700 group-hover:translate-x-0 group-hover:translate-y-0"
+      >
+      </div>
+      <div class="flex justify-center">
+        <video
+          src="/videos/Programando2.mp4"
+          class="h-auto w-full border border-white/5 shadow-2xl transition-all duration-500 hover:scale-105 hover:border-white/10 hover:shadow-2xl"
+          autoplay
+          loop
+          muted></video>
+      </div>
+    </div>
+
+    <!-- FEATURED ATTRIBUTES -->
+    <div class="mt-32 grid gap-20 lg:grid-cols-3">
+      <article class="group space-y-6">
+        <div class="flex items-center gap-3">
+          <Icon
+            name="tabler:folder-code"
+            size="20"
+            class="text-white/70 transition-colors duration-300 group-hover:text-white"
+          />
+          <h3 class="text-lg font-semibold text-white/80 italic">
+            Repository Quality
+          </h3>
+        </div>
+
+        <p class="text-gray-400">
+          Clean structure, modular separation and long-term maintainability.
+        </p>
+
+        <img
+          src="/images/GitHub3.webp"
+          alt="Repository quality"
+          class="w-full rounded-xl border border-white/10 transition-all duration-500 group-hover:border-white/20"
+          loading="lazy"
+        />
+      </article>
+
+      <article class="group space-y-6">
+        <div class="flex items-center gap-3">
+          <Icon
+            name="tabler:file-text"
+            size="20"
+            class="text-white/70 transition-colors duration-300 group-hover:text-white"
+          />
+          <h3 class="text-lg font-semibold text-white/80 italic">
+            Documentation Standards
+          </h3>
+        </div>
+
+        <p class="text-gray-400">
+          Architectural context, metrics definition and deployment clarity.
+        </p>
+
+        <img
+          src="/images/GitHub5.webp"
+          alt="Professional README example"
+          class="w-full rounded-xl border border-white/10 transition-all duration-500 group-hover:border-white/20"
+          loading="lazy"
+        />
+      </article>
+
+      <article class="group space-y-6">
+        <div class="flex items-center gap-3">
+          <Icon
+            name="tabler:layout-grid"
+            size="20"
+            class="text-white/70 transition-colors duration-300 group-hover:text-white"
+          />
+          <h3 class="text-lg font-semibold text-white/80 italic">
+            Engineering Identity
+          </h3>
+        </div>
+
+        <p class="text-gray-400">
+          Visual coherence aligned with technical philosophy and system
+          thinking.
+        </p>
+
+        <img
+          src="/images/GitHub2.webp"
+          alt="GitHub profile design"
+          class="w-full rounded-xl border border-white/10 transition-all duration-500 group-hover:border-white/20"
+          loading="lazy"
+        />
+      </article>
+    </div>
+  </div>
+</section>

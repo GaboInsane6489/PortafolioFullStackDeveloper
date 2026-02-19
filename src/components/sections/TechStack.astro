@@ -1,0 +1,193 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<section
+  id="tech-stack"
+  class="relative border-b border-white/10 py-40 lg:py-56"
+>
+  <!-- Background depth -->
+  <div
+    class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.04),transparent_70%)]"
+  >
+  </div>
+
+  <div
+    class="relative mx-auto max-w-[1600px] px-8 text-center sm:px-12 lg:px-20"
+  >
+    <!-- HEADER -->
+    <div class="mb-32">
+      <p class="font-mono text-xs tracking-[0.4em] text-white/40 uppercase">
+        Technology Stack
+      </p>
+
+      <h2 class="mt-6 font-serif text-5xl leading-tight text-white lg:text-7xl">
+        Built With Precision
+      </h2>
+
+      <p class="mx-auto mt-8 max-w-2xl text-lg text-white/50">
+        Systems engineered from interface to infrastructure.
+      </p>
+    </div>
+
+    <!-- STACK GROUPS -->
+    <div class="space-y-32">
+      {
+        [
+          {
+            title: "Frontend",
+            tech: [
+              {
+                name: "Next.js",
+                icon: "tabler:brand-nextjs",
+                color: "text-white",
+              },
+              {
+                name: "React",
+                icon: "tabler:brand-react",
+                color: "text-sky-400",
+              },
+              {
+                name: "Astro",
+                icon: "tabler:brand-astro",
+                color: "text-orange-400",
+              },
+              {
+                name: "TypeScript",
+                icon: "tabler:brand-typescript",
+                color: "text-blue-500",
+              },
+              {
+                name: "JavaScript",
+                icon: "tabler:brand-javascript",
+                color: "text-yellow-500",
+              },
+              {
+                name: "Tailwind",
+                icon: "tabler:brand-tailwind",
+                color: "text-cyan-400",
+              },
+            ],
+          },
+          {
+            title: "Backend",
+            tech: [
+              {
+                name: "Node.js",
+                icon: "tabler:brand-nodejs",
+                color: "text-green-500",
+              },
+              {
+                name: "Laravel",
+                icon: "tabler:brand-laravel",
+                color: "text-red-500",
+              },
+              {
+                name: "Supabase",
+                icon: "tabler:brand-supabase",
+                color: "text-emerald-500",
+              },
+            ],
+          },
+          {
+            title: "Database",
+            tech: [
+              {
+                name: "MongoDB",
+                icon: "tabler:brand-mongodb",
+                color: "text-green-500",
+              },
+              {
+                name: "PostgreSQL",
+                icon: "tabler:database",
+                color: "text-blue-500",
+              },
+            ],
+          },
+          {
+            title: "Deploy",
+            tech: [
+              {
+                name: "Vercel",
+                icon: "tabler:brand-vercel",
+                color: "text-white",
+              },
+              {
+                name: "GitHub",
+                icon: "tabler:brand-github",
+                color: "text-white",
+              },
+            ],
+          },
+        ].map((group) => (
+          <div class="group reveal-group relative">
+            <div class="absolute inset-0 -z-10 rounded-3xl bg-white/0 transition-all duration-700 group-hover:bg-white/[0.02]" />
+
+            <div class="flex flex-col items-center">
+              <h3 class="font-mono text-sm tracking-[0.6em] text-white/30 uppercase transition-colors duration-500 group-hover:text-white/70">
+                {group.title}
+              </h3>
+
+              <div class="mt-6 h-[1px] w-16 bg-white/30 transition-all duration-500 group-hover:w-32 group-hover:bg-white" />
+            </div>
+
+            <div class="mt-16 flex flex-wrap justify-center gap-16 lg:gap-20">
+              {group.tech.map((tech, i) => (
+                <div
+                  class="reveal-item relative flex flex-col items-center"
+                  style={`transition-delay: ${i * 120}ms;`}
+                >
+                  <div class="absolute inset-0 -z-10 rounded-full bg-white/5 opacity-0 blur-2xl transition-opacity duration-500 hover:opacity-100" />
+
+                  <Icon
+                    name={tech.icon}
+                    size={70}
+                    class={`${tech.color} cursor-pointer transition-transform duration-500 will-change-transform hover:-translate-y-3 hover:scale-110`}
+                  />
+
+                  <span class="mt-4 font-mono text-[10px] tracking-widest text-white/40 transition-all duration-500 hover:tracking-[0.3em] hover:text-white">
+                    {tech.name}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+
+  <!-- Local Styles -->
+  <style>
+    .reveal-item {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .reveal-item.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+
+  <!-- Intersection Observer -->
+  <script is:inline>
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const items = entry.target.querySelectorAll(".reveal-item");
+            items.forEach((item) => item.classList.add("visible"));
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.2 },
+    );
+
+    document.querySelectorAll(".reveal-group").forEach((group) => {
+      observer.observe(group);
+    });
+  </script>
+</section>

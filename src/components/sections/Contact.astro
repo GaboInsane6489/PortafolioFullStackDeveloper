@@ -1,0 +1,63 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<section id="contact" class="relative overflow-hidden py-32 lg:py-48">
+  <!-- Backgrounds -->
+  <div
+    class="absolute top-1/2 left-1/2 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-amber-500/5 blur-[120px]"
+  >
+  </div>
+
+  <div class="relative z-10 mx-auto w-full max-w-4xl px-8 text-center">
+    <div
+      class="mb-8 inline-flex items-center gap-2 rounded-full border border-amber-500/30 bg-amber-500/10 px-4 py-1.5"
+    >
+      <span class="relative flex h-2 w-2">
+        <span
+          class="absolute inline-flex h-full w-full animate-ping rounded-full bg-amber-400 opacity-75"
+        ></span>
+        <span class="relative inline-flex h-2 w-2 rounded-full bg-amber-500"
+        ></span>
+      </span>
+      <span
+        class="font-mono text-xs font-bold tracking-widest text-amber-500 uppercase"
+      >
+        Open for Opportunities
+      </span>
+    </div>
+
+    <h2 class="mb-8 font-serif text-5xl tracking-tight text-white md:text-7xl">
+      Ready to <span
+        class="bg-gradient-to-r from-amber-200 to-amber-500 bg-clip-text text-transparent"
+        >Architect</span
+      >
+      <br />
+      Your Next System?
+    </h2>
+
+    <p class="mx-auto mb-12 max-w-2xl text-xl font-light text-gray-400">
+      Whether you need a complete platform overhaul or a specialized technical
+      consultation, I'm ready to deploy.
+    </p>
+
+    <div class="flex flex-col items-center justify-center gap-6 sm:flex-row">
+      <a
+        href="mailto:gabrielgg2005ve@gmail.com"
+        class="group relative flex items-center gap-3 overflow-hidden rounded-lg bg-white px-8 py-4 text-sm font-bold tracking-wide text-black transition-all hover:bg-amber-400"
+      >
+        <Icon name="tabler:mail" size={20} />
+        <span>Initialize Communication</span>
+      </a>
+
+      <a
+        href="https://www.linkedin.com/in/gabriel-gonzalez-fullstack/"
+        target="_blank"
+        class="group flex items-center gap-3 rounded-lg border border-white/10 bg-white/5 px-8 py-4 text-sm font-bold tracking-wide text-white transition-all hover:bg-white/10"
+      >
+        <Icon name="tabler:brand-linkedin" size={20} />
+        <span>Connect on LinkedIn</span>
+      </a>
+    </div>
+  </div>
+</section>

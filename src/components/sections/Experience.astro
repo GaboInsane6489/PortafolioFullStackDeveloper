@@ -1,0 +1,164 @@
+---
+import { Icon } from "astro-icon/components";
+import EmblaCarousel from "../EmblaCarousel.astro";
+
+const HarryPotterHeadForumImages = Array.from(
+  { length: 15 },
+  (_, i) => `/images/HarryPotterHead${i + 1}.webp`,
+);
+---
+
+<section
+  id="experience"
+  class="relative border-b border-white/5 py-32 lg:py-48"
+>
+  <div class="relative mx-auto w-full max-w-[1600px] px-8 sm:px-12 lg:px-16">
+    <div class="grid grid-cols-1 gap-16 lg:grid-cols-12">
+      <div class="space-y-8 lg:col-span-4">
+        <div class="flex items-center gap-4">
+          <span class="flex h-px w-12 bg-amber-500/50"></span>
+          <span
+            class="font-mono text-xs font-bold tracking-widest text-amber-500 uppercase"
+          >
+            Career Path
+          </span>
+        </div>
+        <h2 class="font-serif text-5xl text-white">
+          Professional <br /> Timeline
+        </h2>
+        <p class="leading-relaxed font-light text-gray-400">
+          A chronological log of my development journey, from academic
+          foundation to leading production-grade systems.
+        </p>
+      </div>
+
+      <div
+        class="relative ml-4 space-y-12 border-l border-white/10 pl-8 lg:col-span-8 lg:ml-0 lg:pl-12"
+      >
+        <!-- Item 1: Lead Engineer -->
+        <div class="group relative">
+          <div
+            class="absolute top-2 -left-[41px] h-5 w-5 rounded-full border border-amber-500 bg-[#0A0908] transition-colors group-hover:bg-amber-500 lg:-left-[57px]"
+          >
+          </div>
+          <div class="space-y-2">
+            <div
+              class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between"
+            >
+              <h3 class="font-serif text-2xl text-white">
+                Lead Product Engineer
+              </h3>
+              <span
+                class="rounded bg-amber-500/10 px-2 py-1 font-mono text-xs text-amber-500"
+                >2024 - Present</span
+              >
+            </div>
+            <h4 class="text-lg text-gray-400">Instalaciones García</h4>
+            <p class="max-w-2xl leading-relaxed text-gray-500">
+              Spearheaded the development of a custom ERP solution. Transitioned
+              the company from manual spreadsheet workflows to a fully digital,
+              cloud-based ecosystem using React and Supabase.
+            </p>
+          </div>
+        </div>
+
+        <!-- Item 2: Harry Potter Head -->
+        <div class="group relative">
+          <div
+            class="absolute top-2 -left-[41px] h-5 w-5 rounded-full border border-white/20 bg-[#0A0908] transition-colors group-hover:border-amber-500 lg:-left-[57px]"
+          >
+          </div>
+          <div class="space-y-2">
+            <div
+              class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between"
+            >
+              <h3 class="font-serif text-2xl text-white">
+                Full Stack Developer & DevOps
+              </h3>
+              <span
+                class="rounded bg-white/5 px-2 py-1 font-mono text-xs text-gray-500"
+                >2023 - 2024</span
+              >
+            </div>
+            <h4 class="text-lg text-gray-400">Harry Potter Head Forum</h4>
+            <p class="max-w-2xl leading-relaxed text-gray-500">
+              Orchestrated the engineering of a high-traffic community platform
+              (<strong>20k+ daily users</strong>). Resolved complex tickets
+              using <span class="text-gray-300">PHP, Laravel, and MySQL</span>.
+              Architected CI/CD pipelines and optimized database queries by 40%.
+            </p>
+
+            <!-- Visual Archive -->
+            <div
+              class="mt-4 overflow-hidden rounded-xl border border-white/10 bg-[#000] sm:max-w-md"
+            >
+              <EmblaCarousel images={HarryPotterHeadForumImages} />
+              <div
+                class="bg-[#0A0908] px-4 py-2 text-[10px] tracking-widest text-gray-500 uppercase"
+              >
+                Legacy System Archive
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 3: UCAB -->
+        <div class="group relative">
+          <div
+            class="absolute top-2 -left-[41px] h-5 w-5 rounded-full border border-white/20 bg-[#0A0908] transition-colors group-hover:border-amber-500 lg:-left-[57px]"
+          >
+          </div>
+          <div class="space-y-2">
+            <div
+              class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between"
+            >
+              <h3 class="font-serif text-2xl text-white">
+                Computer Engineering Student
+              </h3>
+              <span
+                class="rounded bg-white/5 px-2 py-1 font-mono text-xs text-gray-500"
+                >Present</span
+              >
+            </div>
+            <h4 class="text-lg text-gray-400">
+              UCAB (Universidad Católica Andrés Bello)
+            </h4>
+            <p class="max-w-2xl leading-relaxed text-gray-500">
+              Currently in 3rd Semester. Deepening knowledge in algorithms,
+              system architecture, and software engineering principles.
+            </p>
+          </div>
+        </div>
+
+        <!-- Item 4: Technical Degree -->
+        <div class="group relative">
+          <div
+            class="absolute top-2 -left-[41px] h-5 w-5 rounded-full border border-white/20 bg-[#0A0908] transition-colors group-hover:border-amber-500 lg:-left-[57px]"
+          >
+          </div>
+          <div class="space-y-2">
+            <div
+              class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between"
+            >
+              <h3 class="font-serif text-2xl text-white">
+                Technical Degree in Computer Science
+              </h3>
+              <span
+                class="rounded bg-white/5 px-2 py-1 font-mono text-xs text-gray-500"
+                >2023</span
+              >
+            </div>
+            <h4 class="text-lg text-gray-400">
+              ED Tech / University Certified
+            </h4>
+            <p class="max-w-2xl leading-relaxed text-gray-500">
+              Intensive 1-year hybrid program with university validation.
+              Focused on practical full-stack development and industry
+              standards.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
