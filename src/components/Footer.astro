@@ -2,183 +2,138 @@
 import { Icon } from "astro-icon/components";
 
 const links = [
-  { label: "Inicio", href: "/" },
-  { label: "Proyectos", href: "#projects" },
-  { label: "Sobre mí", href: "#about" },
-  { label: "Contacto", href: "#contact" },
+  { label: "Home", href: "/" },
+  { label: "Projects", href: "#projects" },
+  { label: "Experience", href: "#experience" },
+  { label: "Contact", href: "#contact" },
+];
+
+const socials = [
+  {
+    label: "GitHub",
+    href: "https://github.com/GaboInsane6489",
+    icon: "tabler:brand-github",
+  },
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/gabriel-gonzalez-fullstack/",
+    icon: "tabler:brand-linkedin",
+  },
+  {
+    label: "Instagram",
+    href: "https://www.instagram.com/dreamsfallen6488/",
+    icon: "tabler:brand-instagram",
+  },
+  {
+    label: "YouTube",
+    href: "https://www.youtube.com/@Gabo6489Gaming-pe2tg",
+    icon: "tabler:brand-youtube",
+  },
 ];
 ---
 
 <footer
-  class="relative w-full overflow-hidden border-t border-white/5 bg-black pt-28 pb-12 text-white"
+  class="bg-brand-dark relative w-full overflow-hidden border-t border-white/5 pt-20 pb-10 text-white"
 >
-  <!-- MARCA DE AGUA EDITORIAL -->
-  <div
-    class="pointer-events-none absolute -top-10 -left-24 hidden select-none 2xl:block"
-  >
-    <span
-      class="font-serif text-[18rem] leading-none font-black tracking-tighter text-white/[0.02] uppercase"
-    >
-      GG
-    </span>
-  </div>
+  <!-- Grid Texture -->
+  <div class="grid-bg pointer-events-none absolute inset-0 opacity-30"></div>
 
-  <div class="relative z-10 mx-auto max-w-7xl px-6 lg:px-12">
-    <!-- GRID PRINCIPAL -->
-    <div class="grid grid-cols-1 gap-20 md:grid-cols-3">
-      <!-- IDENTIDAD -->
-      <div class="space-y-8">
-        <div class="space-y-6">
-          <div class="flex items-center gap-4">
-            <div class="h-[1px] w-12 bg-amber-400"></div>
-            <span
-              class="text-[10px] font-bold tracking-[0.6em] text-amber-300 uppercase"
-            >
-              Identidad
-            </span>
+  <div class="relative z-10 mx-auto max-w-[1600px] px-6 lg:px-12">
+    <div class="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-8">
+      <!-- Brand & Vision -->
+      <div class="space-y-6 lg:col-span-5">
+        <div class="flex items-center gap-3">
+          <div
+            class="flex h-10 w-10 items-center justify-center rounded-lg border border-white/10 bg-white/5"
+          >
+            <span class="font-mono text-xl font-bold text-amber-500">G</span>
           </div>
-
-          <h3 class="font-serif text-3xl tracking-tight md:text-4xl">
-            Gabriel González
-          </h3>
+          <span class="text-xl font-bold tracking-tight">Gabriel González</span>
         </div>
 
-        <p class="max-w-sm leading-relaxed text-gray-400">
-          Desarrollo experiencias web de alto rendimiento con arquitectura
-          limpia, foco en SEO y una ejecución visual que comunica precisión.
+        <p class="max-w-md leading-relaxed font-light text-gray-400">
+          Engineering scalable digital ecosystems with a focus on <span
+            class="font-medium text-white">performance</span
+          >, <span class="font-medium text-white">clean architecture</span>, and <span
+            class="font-medium text-white">user-centric design</span
+          >.
         </p>
 
-        <p
-          class="text-[10px] font-bold tracking-[0.4em] text-gray-600 uppercase"
-        >
-          Código. Sistema. Impacto.
-        </p>
+        <div class="pt-4">
+          <a
+            href="mailto:contact@gabrielgonzalez.dev"
+            class="group inline-flex items-center gap-2 font-mono text-sm text-gray-400 transition-colors hover:text-amber-400"
+          >
+            <Icon name="tabler:mail" />
+            <span>contact@gabrielgonzalez.dev</span>
+          </a>
+        </div>
       </div>
 
-      <!-- NAVEGACIÓN -->
-      <nav aria-label="Footer navigation" class="space-y-8">
+      <!-- Navigation -->
+      <div class="lg:col-span-3">
         <h4
-          class="text-[10px] font-bold tracking-[0.6em] text-gray-500 uppercase"
+          class="mb-6 font-mono text-xs font-bold tracking-widest text-gray-500 uppercase"
         >
-          Navegación
+          Index
         </h4>
-
-        <ul class="space-y-4">
+        <ul class="space-y-3">
           {
             links.map((link) => (
               <li>
                 <a
                   href={link.href}
-                  class="group inline-flex items-center gap-3 text-sm text-gray-300 transition-colors hover:text-white"
+                  class="group flex items-center gap-2 text-sm text-gray-400 transition-colors hover:text-white"
                 >
-                  <span class="relative">
-                    {link.label}
-                    <span class="absolute -bottom-1 left-0 h-px w-0 bg-amber-400 transition-all duration-300 group-hover:w-full" />
-                  </span>
+                  <span class="h-px w-0 bg-amber-500 transition-all group-hover:w-4" />
+                  {link.label}
                 </a>
               </li>
             ))
           }
         </ul>
-      </nav>
+      </div>
 
-      <!-- SOCIAL / CONTACTO -->
-      <div class="space-y-8">
+      <!-- Socials -->
+      <div class="lg:col-span-4">
         <h4
-          class="text-[10px] font-bold tracking-[0.6em] text-gray-500 uppercase"
+          class="mb-6 font-mono text-xs font-bold tracking-widest text-gray-500 uppercase"
         >
-          Conecta
+          Connect
         </h4>
-
-        <ul class="space-y-6">
-          <li>
-            <a
-              href="https://github.com/GaboInsane6489"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="group flex items-center justify-between border border-white/10 px-6 py-4 transition-all hover:border-amber-400"
-            >
-              <div class="flex items-center gap-4">
-                <Icon name="tabler:brand-github" size="20" />
-                <span class="text-sm">GitHub</span>
-              </div>
-              <Icon
-                name="tabler:arrow-up-right"
-                size="16"
-                class="opacity-0 transition-all group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:opacity-100"
-              />
-            </a>
-          </li>
-
-          <li>
-            <a
-              href="https://www.linkedin.com/in/gabriel-gonzalez-fullstack/"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="group flex items-center justify-between border border-white/10 px-6 py-4 transition-all hover:border-amber-400"
-            >
-              <div class="flex items-center gap-4">
-                <Icon name="tabler:brand-linkedin" size="20" />
-                <span class="text-sm">LinkedIn</span>
-              </div>
-              <Icon
-                name="tabler:arrow-up-right"
-                size="16"
-                class="opacity-0 transition-all group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:opacity-100"
-              />
-            </a>
-          </li>
-          <li>
-            <a
-              href="https://www.instagram.com/dreamsfallen6488/"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="group flex items-center justify-between border border-white/10 px-6 py-4 transition-all hover:border-amber-400"
-            >
-              <div class="flex items-center gap-4">
-                <Icon name="tabler:brand-instagram" size="20" />
-                <span class="text-sm">Instagram</span>
-              </div>
-              <Icon
-                name="tabler:arrow-up-right"
-                size="16"
-                class="opacity-0 transition-all group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:opacity-100"
-              />
-            </a>
-          </li>
-          <li>
-            <a
-              href="https://www.youtube.com/@Gabo6489Gaming-pe2tg"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="group flex items-center justify-between border border-white/10 px-6 py-4 transition-all hover:border-amber-400"
-            >
-              <div class="flex items-center gap-4">
-                <Icon name="tabler:brand-youtube" size="20" />
-                <span class="text-sm">YouTube</span>
-              </div>
-              <Icon
-                name="tabler:arrow-up-right"
-                size="16"
-                class="opacity-0 transition-all group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:opacity-100"
-              />
-            </a>
-          </li>
-        </ul>
+        <div class="grid grid-cols-2 gap-4">
+          {
+            socials.map((social) => (
+              <a
+                href={social.href}
+                target="_blank"
+                class="group flex items-center gap-3 rounded-lg border border-white/5 bg-white/[0.02] p-4 transition-all hover:border-amber-500/30 hover:bg-white/5"
+              >
+                <div class="rounded-md bg-white/5 p-2 text-gray-400 transition-colors group-hover:text-amber-400">
+                  <Icon name={social.icon} size={20} />
+                </div>
+                <span class="text-sm font-medium text-gray-300 group-hover:text-white">
+                  {social.label}
+                </span>
+              </a>
+            ))
+          }
+        </div>
       </div>
     </div>
 
-    <!-- DIVISOR EDITORIAL -->
+    <!-- Bottom Bar -->
     <div
-      class="mt-24 flex flex-col items-center justify-between gap-6 border-t border-white/5 pt-8 text-xs tracking-widest text-gray-600 uppercase md:flex-row"
+      class="mt-20 flex flex-col items-center justify-between gap-6 border-t border-white/5 pt-8 md:flex-row"
     >
-      <p>
-        © {new Date().getFullYear()} Gabriel González
+      <p class="font-mono text-xs text-gray-600">
+        &copy; {new Date().getFullYear()} Gabriel González. All rights reserved.
       </p>
 
-      <p class="text-gray-500">
-        Full Stack Developer · Arquitectura & Performance
-      </p>
+      <div class="flex items-center gap-2 font-mono text-xs text-gray-600">
+        <span class="h-2 w-2 animate-pulse rounded-full bg-green-500/50"></span>
+        <span>Systems Operational</span>
+      </div>
     </div>
   </div>
 </footer>

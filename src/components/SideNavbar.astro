@@ -2,93 +2,76 @@
 import { Icon } from "astro-icon/components";
 
 const sections = [
-  { label: "Beginning", href: "#hero", icon: "tabler:point-filled" },
-  { label: "About Me", href: "#about-me", icon: "tabler:user-code" },
+  { label: "Home", href: "#hero", icon: "tabler:home" },
+  { label: "About", href: "#about-me", icon: "tabler:user" },
   { label: "Projects", href: "#projects", icon: "tabler:folder" },
   { label: "Experience", href: "#experience", icon: "tabler:briefcase" },
-  { label: "Tech Stack", href: "#tech-stack", icon: "tabler:stack-2" },
-  { label: "Education", href: "#education", icon: "tabler:school" },
+  { label: "Stack", href: "#tech-stack", icon: "tabler:cpu" },
+  { label: "Contact", href: "#contact", icon: "tabler:mail" },
 ];
 ---
 
-<aside
-  class="fixed top-0 left-0 z-[100] flex h-screen w-20 flex-col items-center border-r border-white/5 bg-[#0A0A0A]/90 backdrop-blur-xl"
->
-  <div
-    class="group relative flex h-24 w-full flex-none items-center justify-center"
-  >
-    <div
-      class="absolute inset-0 flex items-center justify-center opacity-0 blur transition duration-500 group-hover:opacity-100"
-    >
-      <div class="h-8 w-8 rounded-full bg-amber-500/20"></div>
-    </div>
-    <a
-      href="#hero"
-      class="relative flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/5 transition-all group-hover:border-amber-500/50"
-    >
-      <Icon name="tabler:bolt" class="text-amber-400" size={20} />
-    </a>
-  </div>
-
-  <nav
-    class="flex min-h-0 w-full flex-1 flex-col items-center justify-center gap-y-4 lg:gap-y-6"
-  >
+<aside class="fixed left-6 top-1/2 z-40 hidden -translate-y-1/2 flex-col items-center gap-6 md:flex">
+  <!-- Navigation Dock -->
+  <nav class="glass-panel flex flex-col items-center gap-2 rounded-2xl p-2">
     {
       sections.map((section) => (
         <a
           href={section.href}
-          class="nav-link group relative flex w-full items-center justify-center py-2 text-gray-600 transition-all duration-300 hover:text-amber-200"
+          id={`nav-${section.href.replace("#", "")}`}
+          class="nav-link group relative flex h-10 w-10 items-center justify-center rounded-xl text-gray-400 transition-all hover:bg-white/10 hover:text-white"
           data-section={section.href.replace("#", "")}
+          aria-label={section.label}
         >
-          <span class="pointer-events-none absolute left-14 z-[110] scale-75 rounded-md border border-[#4D4543] bg-[#2C2421] px-3 py-1.5 text-[9px] font-bold tracking-widest text-amber-200 uppercase opacity-0 shadow-2xl transition-all group-hover:left-16 group-hover:scale-100 group-hover:opacity-100">
-            {section.label}
-          </span>
-
           <Icon
             name={section.icon}
-            size={22}
-            class="relative z-10 transition-transform group-hover:scale-110"
+            size={20}
+            class="transition-transform group-hover:scale-110"
           />
 
-          <div class="active-indicator absolute right-0 h-6 w-[2px] rounded-l-full bg-amber-400 opacity-0 transition-all duration-500" />
+          <!-- Tooltip -->
+          <div class="pointer-events-none absolute left-14 z-50 rounded-md border border-white/10 bg-[#0A0908] px-3 py-1.5 opacity-0 shadow-xl transition-all duration-300 group-hover:left-12 group-hover:opacity-100">
+            <span class="whitespace-nowrap font-mono text-[10px] font-bold tracking-widest text-gray-300 uppercase">
+              {section.label}
+            </span>
+            <!-- Arrow -->
+            <div class="absolute -left-1 top-1/2 h-2 w-2 -translate-y-1/2 rotate-45 border-b border-l border-white/10 bg-[#0A0908]"></div>
+          </div>
+
+          <!-- Active Indicator -->
+          <div class="active-indicator absolute -left-1 h-3 w-1 opacity-0 rounded-r-full bg-amber-500 transition-all duration-300"></div>
         </a>
       ))
     }
   </nav>
 
-  <div
-    class="flex h-24 w-full flex-none items-center justify-center border-t border-white/5"
-  >
-    <div
-      class="cursor-pointer text-gray-800 transition-colors hover:text-amber-500"
+  <!-- Source Code / Config -->
+  <div class="glass-panel flex flex-col items-center gap-2 rounded-2xl p-2">
+    <a 
+      href="https://github.com/GaboInsane6489" 
+      target="_blank"
+      class="group relative flex h-10 w-10 items-center justify-center rounded-xl text-gray-400 transition-all hover:bg-white/10 hover:text-white" 
+      aria-label="View Source"
     >
-      <Icon name="tabler:settings" size={20} />
-    </div>
+      <Icon name="tabler:code" size={20} />
+      
+      <!-- Tooltip -->
+      <div class="pointer-events-none absolute left-14 z-50 rounded-md border border-white/10 bg-[#0A0908] px-3 py-1.5 opacity-0 shadow-xl transition-all duration-300 group-hover:left-12 group-hover:opacity-100">
+        <span class="whitespace-nowrap font-mono text-[10px] font-bold tracking-widest text-gray-300 uppercase">
+          Source
+        </span>
+        <!-- Arrow -->
+         <div class="absolute -left-1 top-1/2 h-2 w-2 -translate-y-1/2 rotate-45 border-b border-l border-white/10 bg-[#0A0908]"></div>
+      </div>
+    </a>
   </div>
 </aside>
-
-<style is:global>
-  body {
-    padding-left: 0;
-  }
-
-  /* En móviles podrías quitar el padding si el navbar cambia de posición */
-  @media (max-width: 768px) {
-    body {
-      padding-left: 0;
-    }
-  }
-
-  html {
-    scroll-behavior: smooth;
-  }
-</style>
 
 <script>
   function initScrollSpy() {
     const observerOptions = {
       root: null,
-      rootMargin: "-25% 0px -65% 0px",
+      rootMargin: "-20% 0px -60% 0px",
       threshold: 0,
     };
 
@@ -97,14 +80,16 @@ const sections = [
 
       document.querySelectorAll(".nav-link").forEach((link) => {
         const isCurrent = link.getAttribute("data-section") === id;
+        
+        // Visual state updates
         link.classList.toggle("text-amber-400", isCurrent);
-        link.classList.toggle("text-gray-600", !isCurrent);
+        link.classList.toggle("bg-white/5", isCurrent); // Active background
+        link.classList.toggle("text-gray-400", !isCurrent);
 
-        const indicator = link.querySelector(
-          ".active-indicator",
-        ) as HTMLElement | null;
+        const indicator = link.querySelector(".active-indicator") as HTMLElement | null;
         if (indicator) {
           indicator.style.opacity = isCurrent ? "1" : "0";
+          indicator.style.height = isCurrent ? "20px" : "0px";
         }
       });
     };
@@ -122,6 +107,7 @@ const sections = [
     });
   }
 
+  // Run on load and after Astro swaps
   initScrollSpy();
   document.addEventListener("astro:after-swap", initScrollSpy);
 </script>
