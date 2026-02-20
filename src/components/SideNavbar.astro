@@ -11,103 +11,108 @@ const sections = [
 ];
 ---
 
-<aside class="fixed left-6 top-1/2 z-40 hidden -translate-y-1/2 flex-col items-center gap-6 md:flex">
-  <!-- Navigation Dock -->
-  <nav class="glass-panel flex flex-col items-center gap-2 rounded-2xl p-2">
+<aside
+  class="fixed top-1/2 left-6 z-40 hidden -translate-y-1/2 flex-col items-center gap-4 lg:flex"
+>
+  <nav
+    class="flex flex-col items-center gap-3 rounded-2xl border border-white/5 bg-[#0A0908]/40 p-2 shadow-2xl shadow-black/50 backdrop-blur-md"
+  >
     {
       sections.map((section) => (
         <a
           href={section.href}
-          id={`nav-${section.href.replace("#", "")}`}
-          class="nav-link group relative flex h-10 w-10 items-center justify-center rounded-xl text-gray-400 transition-all hover:bg-white/10 hover:text-white"
           data-section={section.href.replace("#", "")}
+          class="nav-link group relative flex h-10 w-10 items-center justify-center rounded-xl text-gray-500 transition-all duration-300 hover:bg-white/10 hover:text-white active:scale-90"
           aria-label={section.label}
         >
           <Icon
             name={section.icon}
             size={20}
-            class="transition-transform group-hover:scale-110"
+            class="transition-transform duration-300 group-hover:scale-110"
           />
 
-          <!-- Tooltip -->
-          <div class="pointer-events-none absolute left-14 z-50 rounded-md border border-white/10 bg-[#0A0908] px-3 py-1.5 opacity-0 shadow-xl transition-all duration-300 group-hover:left-12 group-hover:opacity-100">
-            <span class="whitespace-nowrap font-mono text-[10px] font-bold tracking-widest text-gray-300 uppercase">
+          <div class="pointer-events-none absolute left-14 z-50 rounded-lg border border-white/10 bg-[#0A0908] px-3 py-1.5 opacity-0 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.5)] transition-all duration-300 group-hover:left-12 group-hover:opacity-100">
+            <span class="font-mono text-[10px] font-bold tracking-widest whitespace-nowrap text-gray-200 uppercase">
               {section.label}
             </span>
-            <!-- Arrow -->
-            <div class="absolute -left-1 top-1/2 h-2 w-2 -translate-y-1/2 rotate-45 border-b border-l border-white/10 bg-[#0A0908]"></div>
+            <div class="absolute top-1/2 -left-1 h-2 w-2 -translate-y-1/2 rotate-45 border-b border-l border-white/10 bg-[#0A0908]" />
           </div>
 
-          <!-- Active Indicator -->
-          <div class="active-indicator absolute -left-1 h-3 w-1 opacity-0 rounded-r-full bg-amber-500 transition-all duration-300"></div>
+          <div class="active-indicator absolute -left-2 h-0 w-1 rounded-full bg-amber-500 opacity-0 shadow-[0_0_10px_rgba(245,158,11,0.5)] transition-all duration-500" />
         </a>
       ))
     }
   </nav>
 
-  <!-- Source Code / Config -->
-  <div class="glass-panel flex flex-col items-center gap-2 rounded-2xl p-2">
-    <a 
-      href="https://github.com/GaboInsane6489" 
+  <div class="h-px w-6 bg-white/10"></div>
+
+  <div
+    class="rounded-2xl border border-white/5 bg-[#0A0908]/40 p-2 backdrop-blur-md"
+  >
+    <a
+      href="https://github.com/GaboInsane6489"
       target="_blank"
-      class="group relative flex h-10 w-10 items-center justify-center rounded-xl text-gray-400 transition-all hover:bg-white/10 hover:text-white" 
+      class="group relative flex h-10 w-10 items-center justify-center rounded-xl text-gray-500 transition-all hover:bg-white/10 hover:text-white active:scale-90"
       aria-label="View Source"
     >
       <Icon name="tabler:code" size={20} />
-      
-      <!-- Tooltip -->
-      <div class="pointer-events-none absolute left-14 z-50 rounded-md border border-white/10 bg-[#0A0908] px-3 py-1.5 opacity-0 shadow-xl transition-all duration-300 group-hover:left-12 group-hover:opacity-100">
-        <span class="whitespace-nowrap font-mono text-[10px] font-bold tracking-widest text-gray-300 uppercase">
-          Source
-        </span>
-        <!-- Arrow -->
-         <div class="absolute -left-1 top-1/2 h-2 w-2 -translate-y-1/2 rotate-45 border-b border-l border-white/10 bg-[#0A0908]"></div>
+      <div
+        class="pointer-events-none absolute left-14 z-50 rounded-lg border border-white/10 bg-[#0A0908] px-3 py-1.5 opacity-0 transition-all duration-300 group-hover:left-12 group-hover:opacity-100"
+      >
+        <span
+          class="font-mono text-[10px] font-bold tracking-widest whitespace-nowrap text-gray-200 uppercase"
+          >Source</span
+        >
+        <div
+          class="absolute top-1/2 -left-1 h-2 w-2 -translate-y-1/2 rotate-45 border-b border-l border-white/10 bg-[#0A0908]"
+        >
+        </div>
       </div>
     </a>
   </div>
 </aside>
 
+<style>
+  /* Clase inyectada por el JS para el estado activo */
+  .nav-link.is-active {
+    color: #f59e0b !important;
+    background-color: rgba(245, 158, 11, 0.1);
+  }
+
+  .nav-link.is-active .active-indicator {
+    height: 1.5rem;
+    opacity: 1;
+    left: -2px;
+  }
+</style>
+
 <script>
   function initScrollSpy() {
+    const sections = document.querySelectorAll("section[id]");
+    const navLinks = document.querySelectorAll(".nav-link");
+
     const observerOptions = {
       root: null,
-      rootMargin: "-20% 0px -60% 0px",
+      rootMargin: "-40% 0px -40% 0px", // Margen central para mayor precisión
       threshold: 0,
-    };
-
-    const updateActiveState = (id: string | null) => {
-      if (!id) return;
-
-      document.querySelectorAll(".nav-link").forEach((link) => {
-        const isCurrent = link.getAttribute("data-section") === id;
-        
-        // Visual state updates
-        link.classList.toggle("text-amber-400", isCurrent);
-        link.classList.toggle("bg-white/5", isCurrent); // Active background
-        link.classList.toggle("text-gray-400", !isCurrent);
-
-        const indicator = link.querySelector(".active-indicator") as HTMLElement | null;
-        if (indicator) {
-          indicator.style.opacity = isCurrent ? "1" : "0";
-          indicator.style.height = isCurrent ? "20px" : "0px";
-        }
-      });
     };
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          updateActiveState(entry.target.id);
+          const id = entry.target.getAttribute("id");
+
+          navLinks.forEach((link) => {
+            const isActive = link.getAttribute("data-section") === id;
+            link.classList.toggle("is-active", isActive);
+          });
         }
       });
     }, observerOptions);
 
-    document.querySelectorAll("section[id]").forEach((section) => {
-      observer.observe(section);
-    });
+    sections.forEach((section) => observer.observe(section));
   }
 
-  // Run on load and after Astro swaps
   initScrollSpy();
   document.addEventListener("astro:after-swap", initScrollSpy);
 </script>

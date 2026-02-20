@@ -2,36 +2,67 @@
 import { Icon } from "astro-icon/components";
 
 const links = [
-  { label: "// home", href: "#hero" }, // Ajustado para scroll interno
+  { label: "// home", href: "#hero" },
   { label: "// projects", href: "#projects" },
   { label: "// experience", href: "#experience" },
   { label: "// contact", href: "#contact" },
 ];
 ---
 
+<div
+  id="mobileMenu"
+  class="pointer-events-none fixed inset-0 z-[150] flex flex-col items-center justify-center gap-8 bg-[#0A0908]/98 opacity-0 backdrop-blur-xl transition-all duration-500 ease-in-out lg:hidden"
+>
+  {
+    links.map((link, index) => (
+      <a
+        href={link.href}
+        style={`transition-delay: ${index * 100}ms`}
+        class="mobile-link translate-y-4 font-mono text-3xl tracking-[0.2em] text-white uppercase opacity-0 transition-all duration-500 active:scale-95 active:text-amber-500"
+      >
+        {link.label}
+      </a>
+    ))
+  }
+
+  <div
+    class="mt-8 flex translate-y-4 gap-8 opacity-0 transition-all delay-500 duration-700"
+    id="mobileSocials"
+  >
+    <a
+      href="https://github.com/GaboInsane6489"
+      target="_blank"
+      class="text-gray-500 transition-colors active:text-white"
+    >
+      <Icon name="tabler:brand-github" size={28} />
+    </a>
+    <a href="#" class="text-gray-500 transition-colors active:text-white">
+      <Icon name="tabler:brand-linkedin" size={28} />
+    </a>
+  </div>
+</div>
+
 <nav
   id="topNav"
-  class="fixed top-0 left-0 z-50 w-full border-b border-white/5 bg-[#0A0908]/0 transition-all duration-500 ease-in-out"
+  class="fixed top-0 left-0 z-[200] w-full border-b border-white/5 bg-transparent transition-all duration-500 ease-in-out"
 >
   <div
     class="mx-auto flex max-w-[1600px] items-center justify-between px-6 py-5 transition-all duration-500 lg:px-12"
     id="navContainer"
   >
-    <a href="/" class="group flex items-center gap-4">
+    <a
+      href="/"
+      class="group relative z-[210] flex items-center gap-4 transition-transform active:scale-95"
+    >
       <div
-        class="relative h-10 w-10 overflow-hidden rounded-xl border border-white/10 bg-white/5 transition-all duration-500 group-hover:border-amber-500/50 group-hover:shadow-[0_0_20px_rgba(245,158,11,0.2)]"
+        class="h-10 w-10 overflow-hidden rounded-xl border border-white/10 bg-white/5 transition-colors group-hover:border-amber-500/50"
       >
         <img
           src="/images/LogoPortafolio.webp"
           alt="Logo"
-          class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+          class="h-full w-full object-cover"
         />
-        <div
-          class="absolute inset-0 bg-gradient-to-tr from-amber-500/20 to-transparent opacity-0 transition-opacity group-hover:opacity-100"
-        >
-        </div>
       </div>
-
       <div class="hidden flex-col md:flex">
         <span
           class="text-[10px] font-bold tracking-[0.3em] text-white transition-colors group-hover:text-amber-400"
@@ -44,143 +75,120 @@ const links = [
       </div>
     </a>
 
-    <div class="hidden items-center gap-10 md:flex">
+    <div class="hidden items-center gap-10 lg:flex">
       {
         links.map((link) => (
           <a
             href={link.href}
-            class="group relative py-2 font-mono text-[11px] tracking-[0.15em] text-gray-400 transition-colors hover:text-white"
+            class="group relative font-mono text-[11px] tracking-[0.15em] text-gray-400 transition-colors hover:text-white"
           >
             <span class="relative z-10">{link.label}</span>
-            <span class="absolute -bottom-1 left-0 h-[1.5px] w-0 bg-amber-500 transition-all duration-500 ease-out group-hover:w-full group-hover:shadow-[0_0_8px_rgba(245,158,11,0.6)]" />
+            <span class="absolute -bottom-1 left-0 h-[1px] w-0 bg-amber-500 transition-all duration-300 group-hover:w-full" />
           </a>
         ))
       }
     </div>
 
-    <div class="flex items-center gap-5">
-      <a
-        href="https://github.com/GaboInsane6489"
-        target="_blank"
-        class="hidden items-center gap-3 rounded-full border border-white/10 bg-white/5 px-5 py-2 text-[10px] font-bold tracking-widest text-gray-300 uppercase transition-all duration-500 hover:border-amber-500/50 hover:bg-amber-500/5 hover:text-white md:flex"
+    <button
+      id="menuBtn"
+      class="group relative z-[210] flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-white/5 transition-all active:scale-90 active:bg-amber-500/10 lg:hidden"
+      aria-label="Menu"
+    >
+      <div
+        class="relative flex h-5 w-6 flex-col items-end justify-between overflow-hidden"
       >
-        <Icon name="tabler:brand-github" size={14} />
-        <span>Source_Code</span>
-      </a>
-
-      <button
-        id="menuBtn"
-        class="group relative z-50 flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/5 transition-all active:scale-90 md:hidden"
-      >
-        <div class="relative h-5 w-5">
-          <span
-            id="line1"
-            class="absolute top-1 block h-0.5 w-5 bg-gray-300 transition-all duration-300"
-          ></span>
-          <span
-            id="line2"
-            class="absolute bottom-1 block h-0.5 w-5 bg-gray-300 transition-all duration-300"
-          ></span>
-        </div>
-      </button>
-    </div>
-  </div>
-
-  <div
-    id="mobileMenu"
-    class="pointer-events-none fixed inset-0 z-40 flex translate-y-[-10%] flex-col items-center justify-center gap-10 bg-[#0A0908]/98 opacity-0 transition-all duration-700 ease-in-out"
-  >
-    {
-      links.map((link) => (
-        <a
-          href={link.href}
-          class="mobile-link font-mono text-2xl tracking-[0.2em] text-gray-500 uppercase transition-all duration-500 hover:text-amber-400"
-        >
-          {link.label}
-        </a>
-      ))
-    }
-
-    <div class="mt-10 flex gap-8">
-      <a
-        href="https://github.com/GaboInsane6489"
-        class="text-gray-500 transition-colors hover:text-white"
-      >
-        <Icon name="tabler:brand-github" size={28} />
-      </a>
-      <a href="#" class="text-gray-500 transition-colors hover:text-white">
-        <Icon name="tabler:brand-linkedin" size={28} />
-      </a>
-    </div>
+        <span
+          id="line1"
+          class="h-[2px] w-6 rounded-full bg-gray-200 transition-all duration-300 ease-out"
+        ></span>
+        <span
+          id="line2"
+          class="h-[2px] w-4 rounded-full bg-gray-200 transition-all duration-300 ease-out group-hover:w-6"
+        ></span>
+        <span
+          id="line3"
+          class="h-[2px] w-6 rounded-full bg-gray-200 transition-all duration-300 ease-out"
+        ></span>
+      </div>
+    </button>
   </div>
 </nav>
 
 <style>
-  /* Blur dinámico para el scroll */
   .nav-scrolled {
-    background-color: rgba(10, 9, 8, 0.85);
-    backdrop-filter: blur(12px);
-    border-bottom-color: rgba(255, 255, 255, 0.08);
-    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+    background-color: rgba(10, 9, 8, 0.8) !important;
+    backdrop-filter: blur(16px) !important;
+    -webkit-backdrop-filter: blur(16px) !important;
+    padding-top: 0.6rem !important;
+    padding-bottom: 0.6rem !important;
   }
 
-  /* Animación para el botón hamburguesa */
+  /* --- ANIMACIÓN DEL ICONO --- */
+
+  /* Línea Superior: Baja y rota */
   .menu-active #line1 {
-    transform: translateY(3px) rotate(45deg);
-    background-color: #f59e0b;
-  }
-  .menu-active #line2 {
-    transform: translateY(-4px) rotate(-45deg);
+    transform: translateY(9px) rotate(45deg);
     background-color: #f59e0b;
   }
 
-  /* Estado abierto del menú móvil */
-  .mobile-menu-open {
+  /* Línea Media: Se desliza hacia afuera y desaparece */
+  .menu-active #line2 {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+
+  /* Línea Inferior: Sube y rota invertido */
+  .menu-active #line3 {
+    transform: translateY(-9px) rotate(-45deg);
+    background-color: #f59e0b;
+  }
+
+  /* --- Otros Estilos --- */
+  #mobileMenu.is-visible {
     opacity: 1 !important;
     pointer-events: auto !important;
-    transform: translateY(0) !important;
+  }
+
+  #mobileMenu.is-visible .mobile-link,
+  #mobileMenu.is-visible #mobileSocials {
+    transform: translateY(0);
+    opacity: 1;
   }
 </style>
 
 <script>
+  // El script se mantiene igual
   const setupNav = () => {
     const nav = document.getElementById("topNav");
-    const navContainer = document.getElementById("navContainer");
     const btn = document.getElementById("menuBtn");
     const menu = document.getElementById("mobileMenu");
     const mobileLinks = document.querySelectorAll(".mobile-link");
 
-    // Scroll Logic
     const handleScroll = () => {
-      if (window.scrollY > 50) {
-        nav?.classList.add("nav-scrolled");
-        navContainer?.classList.remove("py-5");
-        navContainer?.classList.add("py-3");
-      } else {
-        nav?.classList.remove("nav-scrolled");
-        navContainer?.classList.remove("py-3");
-        navContainer?.classList.add("py-5");
-      }
+      window.scrollY > 20
+        ? nav?.classList.add("nav-scrolled")
+        : nav?.classList.remove("nav-scrolled");
+    };
+
+    const toggleMenu = () => {
+      const isOpen = menu?.classList.contains("is-visible");
+      menu?.classList.toggle("is-visible");
+      btn?.classList.toggle("menu-active");
+      document.body.style.overflow = isOpen ? "" : "hidden";
     };
 
     window.addEventListener("scroll", handleScroll);
-
-    // Toggle Menu
-    const toggleMenu = () => {
-      const isOpen = menu?.classList.contains("mobile-menu-open");
-      menu?.classList.toggle("mobile-menu-open");
-      btn?.classList.toggle("menu-active");
-      document.body.classList.toggle("overflow-hidden", !isOpen);
-    };
-
     btn?.addEventListener("click", toggleMenu);
 
-    // Cerrar al clickear link
     mobileLinks.forEach((link) => {
       link.addEventListener("click", () => {
-        if (menu?.classList.contains("mobile-menu-open")) toggleMenu();
+        menu?.classList.remove("is-visible");
+        btn?.classList.remove("menu-active");
+        document.body.style.overflow = "";
       });
     });
+
+    handleScroll();
   };
 
   setupNav();
