@@ -7,7 +7,7 @@ interface Props {
   interval?: number;
 }
 
-const { images, autoplay = true, interval = 4000 } = Astro.props as Props;
+const { images, autoplay = true, interval = 5000 } = Astro.props as Props;
 ---
 
 <div
@@ -18,31 +18,40 @@ const { images, autoplay = true, interval = 4000 } = Astro.props as Props;
   <div class="absolute -top-px left-0 z-40 h-[2px] w-full px-1">
     <div class="h-full w-full overflow-hidden rounded-full bg-white/5">
       <div
-        class="embla-progress h-full w-0 bg-gradient-to-r from-blue-500 to-cyan-400 shadow-[0_0_15px_rgba(59,130,246,0.5)] transition-[width] duration-100 ease-linear"
+        class="embla-progress h-full w-0 bg-gradient-to-r from-blue-500 to-cyan-400 shadow-[0_0_15px_rgba(59,130,246,0.5)] transition-all duration-300 ease-out"
       >
       </div>
     </div>
   </div>
 
   <div
-    class="relative overflow-hidden rounded-2xl border border-[#4D4543]/50 bg-[#1A1614] shadow-[0_40px_100px_-20px_rgba(0,0,0,0.8)]"
+    class="relative overflow-hidden rounded-2xl border border-[#4D4543]/50 bg-[#0A0908] shadow-[0_40px_100px_-20px_rgba(0,0,0,0.8)]"
   >
     <div
-      class="flex h-12 items-center justify-between border-b border-white/5 bg-[#241C19] px-6"
+      class="flex h-12 items-center justify-between border-b border-white/5 bg-[#1A1614] px-6"
     >
       <div class="flex items-center gap-4">
         <div class="flex gap-1.5">
-          <div class="h-3 w-3 rounded-full bg-[#ef9f76]/40"></div>
-          <div class="h-3 w-3 rounded-full bg-[#e5c890]/40"></div>
-          <div class="h-3 w-3 rounded-full bg-[#a6d189]/40"></div>
+          <div
+            class="h-3 w-3 rounded-full bg-[#ef9f76]/40 transition-colors group-hover:bg-[#ef9f76]"
+          >
+          </div>
+          <div
+            class="h-3 w-3 rounded-full bg-[#e5c890]/40 transition-colors group-hover:bg-[#e5c890]"
+          >
+          </div>
+          <div
+            class="h-3 w-3 rounded-full bg-[#a6d189]/40 transition-colors group-hover:bg-[#a6d189]"
+          >
+          </div>
         </div>
         <div
-          class="ml-4 flex h-12 items-center gap-2 rounded-t-md border-t-2 border-t-blue-400 bg-[#2C2421] px-4 py-2"
+          class="ml-4 flex h-12 items-center gap-2 border-t-2 border-t-blue-400 bg-[#241C19] px-4 py-2"
         >
           <Icon name="tabler:world-www" size={14} class="text-blue-400" />
           <span
             class="font-mono text-[10px] tracking-widest text-[#c6d0f5] uppercase"
-            >Preview_Live_v1.0</span
+            >Preview_v1.0</span
           >
         </div>
       </div>
@@ -51,30 +60,29 @@ const { images, autoplay = true, interval = 4000 } = Astro.props as Props;
         class="hidden items-center gap-3 rounded-md border border-white/5 bg-black/20 px-3 py-1 md:flex"
       >
         <Icon name="tabler:lock" size={12} class="text-green-500/50" />
-        <span class="font-mono text-[9px] tracking-tight text-white/30"
-          >https://luz-interior.vercel.app</span
+        <span class="font-mono text-[9px] tracking-tight text-white/30 italic"
+          >secure_environment</span
         >
       </div>
     </div>
 
-    <div class="embla overflow-hidden bg-black">
+    <div class="embla overflow-hidden">
       <div class="embla__container flex">
         {
           images.map((src, index) => (
-            /* FIX: overflow-hidden y isolation para evitar que el scale se asome */
-            <div class="embla__slide relative isolate min-w-0 flex-[0_0_100%] overflow-hidden">
+            <div class="embla__slide relative isolate min-w-0 flex-[0_0_100%] bg-[#0A0908]">
               <img
                 src={src}
                 alt={`Preview ${index + 1}`}
-                class="h-[400px] w-full object-cover opacity-90 transition-all duration-[1.5s] ease-out group-hover:scale-105 group-hover:opacity-100 md:h-[600px]"
+                class="h-[250px] w-full object-contain p-4 transition-transform duration-1000 ease-out md:h-[250px]"
                 loading="lazy"
               />
 
-              <div class="absolute bottom-6 left-6 z-20 flex items-center gap-3 font-mono text-[10px] text-white/40">
-                <span class="font-bold text-blue-400">
+              <div class="absolute right-6 bottom-6 z-20 flex items-center gap-3 font-mono text-[10px] text-white/20">
+                <span class="font-bold text-blue-400/60">
                   {String(index + 1).padStart(2, "0")}
                 </span>
-                <div class="h-px w-8 bg-white/10" />
+                <div class="h-px w-6 bg-white/5" />
                 <span>{String(images.length).padStart(2, "0")}</span>
               </div>
             </div>
@@ -86,7 +94,7 @@ const { images, autoplay = true, interval = 4000 } = Astro.props as Props;
 
   <button
     type="button"
-    class="embla-prev absolute top-1/2 -left-4 z-50 flex h-12 w-12 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full border border-white/10 bg-[#2C2421] text-white opacity-0 transition-all duration-300 group-hover:left-4 group-hover:opacity-100 hover:scale-110 hover:border-blue-400/50 hover:bg-[#3d332f]"
+    class="embla-prev absolute top-1/2 -left-3 z-50 flex h-12 w-12 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full border border-white/10 bg-[#1A1614]/80 text-white/50 backdrop-blur-md transition-all duration-500 group-hover:left-4 group-hover:bg-[#1A1614] group-hover:text-white hover:border-blue-400 hover:text-blue-400"
     aria-label="Prev"
   >
     <Icon name="tabler:chevron-left" size={24} />
@@ -94,7 +102,7 @@ const { images, autoplay = true, interval = 4000 } = Astro.props as Props;
 
   <button
     type="button"
-    class="embla-next absolute top-1/2 -right-4 z-50 flex h-12 w-12 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full border border-white/10 bg-[#2C2421] text-white opacity-0 transition-all duration-300 group-hover:right-4 group-hover:opacity-100 hover:scale-110 hover:border-blue-400/50 hover:bg-[#3d332f]"
+    class="embla-next absolute top-1/2 -right-3 z-50 flex h-12 w-12 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full border border-white/10 bg-[#1A1614]/80 text-white/50 backdrop-blur-md transition-all duration-500 group-hover:right-4 group-hover:bg-[#1A1614] group-hover:text-white hover:border-blue-400 hover:text-blue-400"
     aria-label="Next"
   >
     <Icon name="tabler:chevron-right" size={24} />
@@ -105,12 +113,9 @@ const { images, autoplay = true, interval = 4000 } = Astro.props as Props;
   import { initEmbla } from "../scripts/embla-init.ts";
 
   const setup = () => {
-    // Aseguramos que solo se inicialice una vez por carga de página
     initEmbla();
   };
 
-  // Soporte para transiciones de Astro (View Transitions)
   document.addEventListener("astro:page-load", setup);
-  // Fallback para carga inicial
   setup();
 </script>

@@ -4,69 +4,122 @@ import { Icon } from "astro-icon/components";
 
 <section
   id="certificates"
-  class="relative overflow-hidden rounded-2xl border border-white/10 bg-slate-900/50 shadow-2xl"
+  class="reveal reveal-scale relative overflow-hidden rounded-3xl border border-white/10 bg-[#0A0908] shadow-2xl"
 >
   <video
     src="/videos/Amiya-Room-Arknights.mp4"
-    class="absolute inset-0 z-0 h-full w-full object-cover opacity-60 blur-[2px]"
+    class="absolute inset-0 z-0 h-full w-full object-cover opacity-40 blur-[1px] transition-transform duration-[10s] hover:scale-110"
     autoplay
     loop
     muted
     playsinline></video>
 
   <div
-    class="absolute inset-0 z-10 bg-gradient-to-t from-slate-950 via-slate-900/40 to-transparent"
+    class="absolute inset-0 z-10 bg-gradient-to-r from-[#0A0908] via-[#0A0908]/60 to-transparent"
+  >
+  </div>
+  <div
+    class="absolute inset-0 z-10 bg-gradient-to-t from-[#0A0908] via-transparent to-transparent"
   >
   </div>
 
   <div
-    class="relative z-20 flex flex-col gap-8 p-8 md:flex-row md:items-center md:p-12"
+    class="pointer-events-none absolute inset-0 z-15 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.1)_50%),linear-gradient(90deg,rgba(255,0,0,0.02),rgba(0,255,0,0.01),rgba(0,0,255,0.02))] bg-[length:100%_4px,3px_100%]"
   >
-    <div class="flex flex-1 flex-col items-center justify-center text-center">
-      <h2
-        class="mb-6 text-sm font-bold tracking-[0.3em] text-blue-400 uppercase"
-      >
-        Credentials
-      </h2>
+  </div>
+
+  <div
+    class="relative z-20 flex flex-col gap-12 p-8 md:flex-row md:items-center md:p-16 lg:p-24"
+  >
+    <div class="reveal-scale flex flex-1 flex-col items-center justify-center">
       <div class="group relative">
-        <img
-          src="/images/FullStackCertificate.webp"
-          alt="Certificate Full Stack"
-          class="w-full max-w-[280px] rounded-lg shadow-2xl transition-all duration-500 group-hover:scale-105 group-hover:rotate-1"
-        />
         <div
-          class="absolute inset-0 rounded-lg bg-white/10 opacity-0 transition-opacity group-hover:opacity-100"
+          class="absolute -inset-1 rounded-lg bg-gradient-to-r from-blue-500 to-cyan-500 opacity-20 blur transition duration-1000 group-hover:opacity-40 group-hover:duration-200"
         >
         </div>
+
+        <div
+          class="relative overflow-hidden rounded-lg border border-white/20 shadow-2xl"
+        >
+          <img
+            src="/images/FullStackCertificate.webp"
+            alt="Certificate Full Stack"
+            class="w-full max-w-[320px] transition-all duration-700 group-hover:scale-110"
+          />
+          <div
+            class="absolute inset-0 translate-x-[-100%] bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform duration-1000 group-hover:translate-x-[100%]"
+          >
+          </div>
+        </div>
+
+        <div
+          class="absolute -right-4 -bottom-4 flex items-center gap-2 rounded-full border border-blue-500/50 bg-[#0A0908] px-4 py-2 shadow-xl backdrop-blur-xl"
+        >
+          <Icon
+            name="tabler:award"
+            class="animate-pulse text-blue-400"
+            size={18}
+          />
+          <span class="font-mono text-[10px] font-bold text-white uppercase"
+            >Best Project Award</span
+          >
+        </div>
       </div>
+
+      <p
+        class="mt-10 font-mono text-[10px] tracking-[0.4em] text-blue-400/60 uppercase"
+      >
+        ID: #FS-2023-CERT-01
+      </p>
     </div>
 
-    <div class="flex-[1.5] text-white">
-      <header class="mb-6">
-        <h3 class="text-3xl font-bold tracking-tight md:text-4xl">
-          Certificado <span class="text-blue-400">Full Stack</span> Developer
+    <div class="flex-[1.5] space-y-8 text-white">
+      <header class="reveal reveal-right space-y-4 delay-200">
+        <div class="flex items-center gap-2">
+          <span class="h-1 w-1 animate-ping rounded-full bg-blue-400"></span>
+          <h2
+            class="font-mono text-xs font-bold tracking-[0.3em] text-blue-400 uppercase"
+          >
+            Certified Credentials
+          </h2>
+        </div>
+
+        <h3 class="font-serif text-4xl font-bold tracking-tight md:text-5xl">
+          Full Stack <span class="font-light text-white/50 italic"
+            >Developer</span
+          >
         </h3>
-        <p class="mt-4 leading-relaxed text-slate-300">
-          Culminé un programa intensivo de un año con honores, destacando por el <strong
-            class="text-white">mejor proyecto de la cohorte</strong
-          >. Desarrollé soluciones integrales a problemas reales mediante un
-          enfoque práctico y técnico.
+
+        <p class="max-w-xl text-lg leading-relaxed text-slate-400">
+          Culminé un programa intensivo de un año con honores. El enfoque fue la
+          construcción de <span class="font-medium text-white"
+            >arquitecturas escalables</span
+          > y la resolución de problemas de negocio mediante software de alta fidelidad.
         </p>
       </header>
 
-      <ul class="grid grid-cols-1 gap-3 text-sm sm:grid-cols-2">
+      <ul
+        class="reveal reveal-right grid grid-cols-1 gap-3 delay-400 sm:grid-cols-2 lg:max-w-2xl"
+      >
         {
           [
-            { name: "Fundamentos", icon: "tabler:cpu" },
-            { name: "HTML & CSS", icon: "tabler:brand-html5" },
-            { name: "JavaScript Pro", icon: "tabler:brand-javascript" },
-            { name: "Backend (Node/Mongo)", icon: "tabler:database" },
-            { name: "Frontend (React/Redux)", icon: "tabler:brand-react" },
-            { name: "Proyecto Final", icon: "tabler:brand-github" },
+            { name: "Computer Science", icon: "tabler:cpu" },
+            { name: "Core Layouts", icon: "tabler:brand-html5" },
+            { name: "JavaScript Engine", icon: "tabler:brand-javascript" },
+            { name: "Server Logic", icon: "tabler:database" },
+            { name: "UI Frameworks", icon: "tabler:brand-react" },
+            { name: "Deployment Flow", icon: "tabler:brand-github" },
           ].map((item) => (
-            <li class="flex items-center gap-2 rounded-lg border border-white/5 bg-white/5 p-3 transition-colors hover:bg-white/10">
-              <Icon name={item.icon} class="text-xl text-blue-400" />
-              <span class="text-slate-200">{item.name}</span>
+            <li class="group flex items-center gap-3 rounded-xl border border-white/5 bg-white/[0.03] p-4 backdrop-blur-md transition-all duration-300 hover:border-blue-500/30 hover:bg-blue-500/5">
+              <div class="flex h-8 w-8 items-center justify-center rounded-lg bg-white/5 transition-colors group-hover:bg-blue-500/20">
+                <Icon
+                  name={item.icon}
+                  class="text-xl text-blue-400/70 group-hover:text-blue-400"
+                />
+              </div>
+              <span class="font-mono text-[11px] tracking-wider text-slate-300 transition-colors group-hover:text-white">
+                {item.name}
+              </span>
             </li>
           ))
         }

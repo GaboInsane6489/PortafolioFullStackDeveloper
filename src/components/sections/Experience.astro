@@ -14,8 +14,8 @@ const HarryPotterHeadForumImages = Array.from(
 >
   <div class="relative mx-auto w-full max-w-[1600px] px-8 sm:px-12 lg:px-16">
     <div class="grid grid-cols-1 gap-16 lg:grid-cols-12">
-      <div class="space-y-8 lg:col-span-4">
-        <div class="flex items-center gap-4">
+      <div class="space-y-8 lg:sticky lg:top-32 lg:col-span-4 lg:h-fit">
+        <div class="reveal flex items-center gap-4">
           <span class="flex h-px w-12 bg-amber-500/50"></span>
           <span
             class="font-mono text-xs font-bold tracking-widest text-amber-500 uppercase"
@@ -23,89 +23,97 @@ const HarryPotterHeadForumImages = Array.from(
             Career Path
           </span>
         </div>
-        <h2 class="font-serif text-5xl text-white">
+        <h2 class="reveal font-serif text-5xl text-white delay-100">
           Professional <br /> Timeline
         </h2>
-        <p class="leading-relaxed font-light text-gray-400">
+        <p class="reveal leading-relaxed font-light text-gray-400 delay-200">
           A chronological log of my development journey, from academic
           foundation to leading production-grade systems.
         </p>
       </div>
 
       <div
-        class="relative ml-4 space-y-12 border-l border-white/10 pl-8 lg:col-span-8 lg:ml-0 lg:pl-12"
+        class="relative ml-4 space-y-20 border-l border-white/10 pl-8 lg:col-span-8 lg:ml-0 lg:pl-12"
       >
-        <!-- Item 1: Lead Engineer -->
-        <div class="group relative">
+        <div class="reveal reveal-right group relative">
           <div
-            class="absolute top-2 -left-[41px] h-5 w-5 rounded-full border border-amber-500 bg-[#0A0908] transition-colors group-hover:bg-amber-500 lg:-left-[57px]"
+            class="absolute top-2 -left-[41px] h-5 w-5 rounded-full border border-amber-500 bg-[#0A0908] transition-all duration-500 group-hover:scale-125 group-hover:bg-amber-500 lg:-left-[57px]"
           >
+            <span
+              class="absolute inset-0 rounded-full bg-amber-500 opacity-0 transition-opacity group-hover:animate-ping group-hover:opacity-40"
+            ></span>
           </div>
+
           <div class="space-y-2">
             <div
               class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between"
             >
-              <h3 class="font-serif text-2xl text-white">
+              <h3
+                class="font-serif text-2xl text-white transition-colors group-hover:text-amber-400"
+              >
                 Lead Product Engineer
               </h3>
               <span
-                class="rounded bg-amber-500/10 px-2 py-1 font-mono text-xs text-amber-500"
-                >2024 - Present</span
+                class="w-fit rounded border border-amber-500/20 bg-amber-500/10 px-2 py-1 font-mono text-xs text-amber-500"
               >
+                2024 - Present
+              </span>
             </div>
             <h4 class="text-lg text-gray-400">Instalaciones García</h4>
             <p class="max-w-2xl leading-relaxed text-gray-500">
               Spearheaded the development of a custom ERP solution. Transitioned
               the company from manual spreadsheet workflows to a fully digital,
-              cloud-based ecosystem using React and Supabase.
+              cloud-based ecosystem using <span class="text-white"
+                >React and Supabase</span
+              >.
             </p>
           </div>
         </div>
 
-        <!-- Item 2: Harry Potter Head -->
-        <div class="group relative">
+        <div class="reveal reveal-right group relative delay-200">
           <div
-            class="absolute top-2 -left-[41px] h-5 w-5 rounded-full border border-white/20 bg-[#0A0908] transition-colors group-hover:border-amber-500 lg:-left-[57px]"
+            class="absolute top-2 -left-[41px] h-5 w-5 rounded-full border border-white/20 bg-[#0A0908] transition-all duration-500 group-hover:border-amber-500 group-hover:bg-amber-500 lg:-left-[57px]"
           >
           </div>
-          <div class="space-y-2">
-            <div
-              class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between"
-            >
-              <h3 class="font-serif text-2xl text-white">
-                Full Stack Developer & DevOps
-              </h3>
-              <span
-                class="rounded bg-white/5 px-2 py-1 font-mono text-xs text-gray-500"
-                >2023 - 2024</span
-              >
-            </div>
-            <h4 class="text-lg text-gray-400">Harry Potter Head Forum</h4>
-            <p class="max-w-2xl leading-relaxed text-gray-500">
-              Orchestrated the engineering of a high-traffic community platform
-              (<strong>20k+ daily users</strong>). Resolved complex tickets
-              using <span class="text-gray-300">PHP, Laravel, and MySQL</span>.
-              Architected CI/CD pipelines and optimized database queries by 40%.
-            </p>
 
-            <!-- Visual Archive -->
+          <div class="space-y-4">
+            <div class="space-y-2">
+              <div
+                class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between"
+              >
+                <h3 class="font-serif text-2xl text-white">
+                  Full Stack Developer & DevOps
+                </h3>
+                <span
+                  class="w-fit rounded bg-white/5 px-2 py-1 font-mono text-xs text-gray-500"
+                  >2023 - 2024</span
+                >
+              </div>
+              <h4 class="text-lg text-gray-400">Harry Potter Head Forum</h4>
+              <p class="max-w-2xl leading-relaxed text-gray-500">
+                Orchestrated the engineering of a high-traffic community
+                platform (<strong>20k+ daily users</strong>). Architected CI/CD
+                pipelines and optimized database queries by 40%.
+              </p>
+            </div>
+
             <div
-              class="mt-4 overflow-hidden rounded-xl border border-white/10 bg-[#000] sm:max-w-md"
+              class="reveal reveal-scale mt-4 overflow-hidden rounded-xl border border-white/10 bg-[#000] shadow-2xl transition-transform delay-500 group-hover:scale-[1.02] sm:max-w-md"
             >
               <EmblaCarousel images={HarryPotterHeadForumImages} />
               <div
-                class="bg-[#0A0908] px-4 py-2 text-[10px] tracking-widest text-gray-500 uppercase"
+                class="flex items-center justify-between bg-[#0A0908] px-4 py-2 text-[10px] tracking-widest text-gray-500 uppercase"
               >
-                Legacy System Archive
+                <span>Legacy System Archive</span>
+                <Icon name="tabler:archive" size={14} />
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Item 3: UCAB -->
-        <div class="group relative">
+        <div class="reveal reveal-right group relative delay-300">
           <div
-            class="absolute top-2 -left-[41px] h-5 w-5 rounded-full border border-white/20 bg-[#0A0908] transition-colors group-hover:border-amber-500 lg:-left-[57px]"
+            class="absolute top-2 -left-[41px] h-5 w-5 rounded-full border border-white/20 bg-[#0A0908] transition-all group-hover:border-amber-500 lg:-left-[57px]"
           >
           </div>
           <div class="space-y-2">
@@ -116,24 +124,23 @@ const HarryPotterHeadForumImages = Array.from(
                 Computer Engineering Student
               </h3>
               <span
-                class="rounded bg-white/5 px-2 py-1 font-mono text-xs text-gray-500"
+                class="w-fit rounded bg-white/5 px-2 py-1 font-mono text-xs text-gray-500"
                 >Present</span
               >
             </div>
             <h4 class="text-lg text-gray-400">
               UCAB (Universidad Católica Andrés Bello)
             </h4>
-            <p class="max-w-2xl leading-relaxed text-gray-500">
+            <p class="max-w-2xl leading-relaxed text-gray-500 italic">
               Currently in 3rd Semester. Deepening knowledge in algorithms,
               system architecture, and software engineering principles.
             </p>
           </div>
         </div>
 
-        <!-- Item 4: Technical Degree -->
-        <div class="group relative">
+        <div class="reveal reveal-right group relative delay-400">
           <div
-            class="absolute top-2 -left-[41px] h-5 w-5 rounded-full border border-white/20 bg-[#0A0908] transition-colors group-hover:border-amber-500 lg:-left-[57px]"
+            class="absolute top-2 -left-[41px] h-5 w-5 rounded-full border border-white/20 bg-[#0A0908] transition-all group-hover:border-amber-500 lg:-left-[57px]"
           >
           </div>
           <div class="space-y-2">
@@ -144,7 +151,7 @@ const HarryPotterHeadForumImages = Array.from(
                 Technical Degree in Computer Science
               </h3>
               <span
-                class="rounded bg-white/5 px-2 py-1 font-mono text-xs text-gray-500"
+                class="w-fit rounded bg-white/5 px-2 py-1 font-mono text-xs text-gray-500"
                 >2023</span
               >
             </div>
@@ -152,9 +159,8 @@ const HarryPotterHeadForumImages = Array.from(
               ED Tech / University Certified
             </h4>
             <p class="max-w-2xl leading-relaxed text-gray-500">
-              Intensive 1-year hybrid program with university validation.
-              Focused on practical full-stack development and industry
-              standards.
+              Intensive 1-year hybrid program with university validation focused
+              on industry standards.
             </p>
           </div>
         </div>

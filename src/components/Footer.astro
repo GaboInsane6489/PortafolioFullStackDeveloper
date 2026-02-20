@@ -2,7 +2,7 @@
 import { Icon } from "astro-icon/components";
 
 const links = [
-  { label: "Home", href: "/" },
+  { label: "Home", href: "#hero" },
   { label: "Projects", href: "#projects" },
   { label: "Experience", href: "#experience" },
   { label: "Contact", href: "#contact" },
@@ -33,60 +33,82 @@ const socials = [
 ---
 
 <footer
-  class="relative w-full overflow-hidden border-t border-white/5 bg-brand-dark pt-20 pb-10 text-white"
+  class="relative w-full overflow-hidden border-t border-white/5 bg-[#0A0908] pt-24 pb-12 text-white"
 >
-  <!-- Grid Texture -->
-  <div class="grid-bg pointer-events-none absolute inset-0 opacity-30"></div>
+  <div
+    class="absolute top-0 left-0 h-[1px] w-full bg-gradient-to-r from-transparent via-amber-500/50 to-transparent"
+  >
+  </div>
+
+  <div
+    class="pointer-events-none absolute inset-0 [background-image:linear-gradient(to_right,#808080_1px,transparent_1px),linear-gradient(to_bottom,#808080_1px,transparent_1px)] [background-size:40px_40px] opacity-[0.03]"
+  >
+  </div>
 
   <div class="relative z-10 mx-auto max-w-[1600px] px-6 lg:px-12">
-    <div class="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-8">
-      <!-- Brand & Vision -->
-      <div class="space-y-6 lg:col-span-5">
-        <div class="flex items-center gap-3">
+    <div class="grid grid-cols-1 gap-16 lg:grid-cols-12 lg:gap-8">
+      <div class="space-y-8 lg:col-span-5">
+        <div class="flex items-center gap-4">
           <div
-            class="flex h-10 w-10 items-center justify-center rounded-lg border border-white/10 bg-white/5"
+            class="group relative flex h-12 w-12 items-center justify-center overflow-hidden rounded-xl border border-white/10 bg-white/5 transition-transform hover:rotate-3"
           >
-            <span class="font-mono text-xl font-bold text-amber-500">G</span>
+            <img
+              src="/images/LogoPortafolio.webp"
+              alt="Logo"
+              class="h-8 w-8 object-contain"
+            />
           </div>
-          <span class="text-xl font-bold tracking-tight">Gabriel González</span>
+          <div class="flex flex-col">
+            <span class="text-xl font-bold tracking-widest uppercase italic"
+              >Gabriel González</span
+            >
+            <span
+              class="font-mono text-[10px] tracking-[0.4em] text-amber-500/70 uppercase"
+              >Master Developer</span
+            >
+          </div>
         </div>
 
         <p class="max-w-md leading-relaxed font-light text-gray-400">
           Engineering scalable digital ecosystems with a focus on <span
-            class="font-medium text-white">performance</span
-          >, <span class="font-medium text-white">clean architecture</span>, and <span
-            class="font-medium text-white">user-centric design</span
+            class="text-white">performance</span
+          >,
+          <span class="text-white">clean architecture</span>, and <span
+            class="text-white">user-centric design</span
           >.
         </p>
 
-        <div class="pt-4">
-          <a
-            href="mailto:gabrielgg2005ve@gmail.com"
-            class="group inline-flex items-center gap-2 font-mono text-sm text-gray-400 transition-colors hover:text-amber-400"
+        <a
+          href="mailto:gabrielgg2005ve@gmail.com"
+          class="group flex items-center gap-3 font-mono text-xs text-gray-400 transition-all hover:text-amber-400"
+        >
+          <div
+            class="flex h-8 w-8 items-center justify-center rounded-full border border-white/5 bg-white/5 group-hover:border-amber-500/30"
           >
-            <Icon name="tabler:mail" />
-            <span>gabrielgg2005ve@gmail.com</span>
-          </a>
-        </div>
+            <Icon name="tabler:mail" size={14} />
+          </div>
+          <span>gabrielgg2005ve@gmail.com</span>
+        </a>
       </div>
 
-      <!-- Navigation -->
       <div class="lg:col-span-3">
         <h4
-          class="mb-6 font-mono text-xs font-bold tracking-widest text-gray-500 uppercase"
+          class="mb-8 font-mono text-[10px] font-bold tracking-[0.5em] text-gray-500 uppercase"
         >
-          Index
+          // Index_Files
         </h4>
-        <ul class="space-y-3">
+        <ul class="space-y-4">
           {
             links.map((link) => (
               <li>
                 <a
                   href={link.href}
-                  class="group flex items-center gap-2 text-sm text-gray-400 transition-colors hover:text-white"
+                  class="group flex items-center gap-3 text-sm text-gray-400 transition-all hover:translate-x-1 hover:text-white"
                 >
-                  <span class="h-px w-0 bg-amber-500 transition-all group-hover:w-4" />
-                  {link.label}
+                  <span class="h-px w-3 bg-white/10 transition-all group-hover:w-6 group-hover:bg-amber-500" />
+                  <span class="font-mono text-[11px] tracking-widest uppercase">
+                    {link.label}
+                  </span>
                 </a>
               </li>
             ))
@@ -94,25 +116,24 @@ const socials = [
         </ul>
       </div>
 
-      <!-- Socials -->
       <div class="lg:col-span-4">
         <h4
-          class="mb-6 font-mono text-xs font-bold tracking-widest text-gray-500 uppercase"
+          class="mb-8 font-mono text-[10px] font-bold tracking-[0.5em] text-gray-500 uppercase"
         >
-          Connect
+          // Remote_Nodes
         </h4>
-        <div class="grid grid-cols-2 gap-4">
+        <div class="grid grid-cols-2 gap-3">
           {
             socials.map((social) => (
               <a
                 href={social.href}
                 target="_blank"
-                class="group flex items-center gap-3 rounded-lg border border-white/5 bg-white/[0.02] p-4 transition-all hover:border-amber-500/30 hover:bg-white/5"
+                class="group flex items-center gap-3 rounded-xl border border-white/5 bg-white/[0.02] p-3 transition-all duration-300 hover:border-amber-500/20 hover:bg-white/[0.05]"
               >
-                <div class="rounded-md bg-white/5 p-2 text-gray-400 transition-colors group-hover:text-amber-400">
-                  <Icon name={social.icon} size={20} />
+                <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-black/40 text-gray-400 shadow-inner transition-colors group-hover:text-amber-500">
+                  <Icon name={social.icon} size={22} />
                 </div>
-                <span class="text-sm font-medium text-gray-300 group-hover:text-white">
+                <span class="font-mono text-[10px] tracking-widest text-gray-400 uppercase group-hover:text-white">
                   {social.label}
                 </span>
               </a>
@@ -122,17 +143,40 @@ const socials = [
       </div>
     </div>
 
-    <!-- Bottom Bar -->
     <div
-      class="mt-20 flex flex-col items-center justify-between gap-6 border-t border-white/5 pt-8 md:flex-row"
+      class="mt-24 flex flex-col items-center justify-between gap-8 border-t border-white/5 pt-10 md:flex-row"
     >
-      <p class="font-mono text-xs text-gray-600">
-        &copy; {new Date().getFullYear()} Gabriel González. All rights reserved.
-      </p>
+      <div class="flex flex-col gap-1">
+        <p
+          class="font-mono text-[9px] tracking-[0.2em] text-gray-600 uppercase"
+        >
+          &copy; {new Date().getFullYear()} Gabriel González // All protocols reserved
+        </p>
+        <p class="font-mono text-[8px] text-gray-700 uppercase">
+          Designed for high-performance interaction
+        </p>
+      </div>
 
-      <div class="flex items-center gap-2 font-mono text-xs text-gray-600">
-        <span class="h-2 w-2 animate-pulse rounded-full bg-green-500/50"></span>
-        <span>Systems Operational</span>
+      <div
+        class="flex items-center gap-4 rounded-full border border-white/5 bg-black/40 px-5 py-2"
+      >
+        <div
+          class="flex items-center gap-2 font-mono text-[9px] tracking-widest text-gray-500 uppercase"
+        >
+          <span class="relative flex h-2 w-2">
+            <span
+              class="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-500 opacity-20"
+            ></span>
+            <span
+              class="relative inline-flex h-2 w-2 rounded-full bg-green-500/80"
+            ></span>
+          </span>
+          <span>System_Status: Optimal</span>
+        </div>
+        <div class="h-3 w-px bg-white/10"></div>
+        <span class="font-mono text-[9px] text-gray-600 uppercase"
+          >Latency: 14ms</span
+        >
       </div>
     </div>
   </div>

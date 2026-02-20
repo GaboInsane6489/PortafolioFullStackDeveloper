@@ -12,16 +12,17 @@ import { Icon } from "astro-icon/components";
     <div class="grid grid-cols-1 gap-20 lg:grid-cols-12">
       <div class="space-y-12 lg:col-span-7">
         <div class="space-y-6">
-          <div class="flex items-center gap-4">
+          <div class="reveal flex items-center gap-4">
             <div class="h-px w-12 bg-amber-300/60"></div>
             <span
               class="text-[10px] font-bold tracking-[0.6em] text-amber-300/80 uppercase"
-              >Professional Summary</span
             >
+              Professional Summary
+            </span>
           </div>
 
           <h2
-            class="font-serif text-5xl leading-tight tracking-tighter text-white md:text-7xl"
+            class="reveal font-serif text-5xl leading-tight tracking-tighter text-white delay-100 md:text-7xl"
           >
             Engineering with structure,
             <br />
@@ -31,21 +32,19 @@ import { Icon } from "astro-icon/components";
           </h2>
         </div>
 
-        <div class="space-y-6 text-lg leading-relaxed text-gray-400">
+        <div
+          class="reveal space-y-6 text-lg leading-relaxed text-gray-400 delay-200"
+        >
           <p>
             I am a <span class="font-medium text-white"
               >Full Stack Developer</span
             > focused on building modern, maintainable, and performance-oriented web
-            applications. I bridge the gap between complex backend logic and intuitive
-            frontend experiences.
+            applications.
           </p>
           <p>
             Through my work on projects like <span
               class="font-medium text-amber-200/90">Instalaciones García</span
-            > and the <span class="font-medium text-amber-200/90"
-              >Harry Potter Forum</span
-            >, I've mastered the art of shipping features in production
-            environments.
+            >, I've mastered the art of shipping features in production.
           </p>
         </div>
 
@@ -56,8 +55,10 @@ import { Icon } from "astro-icon/components";
               "PR Strategies",
               "CI/CD",
               "Clean Architecture",
-            ].map((tag) => (
-              <span class="rounded-full border border-white/10 bg-[#4D4543]/40 px-4 py-1 text-[11px] font-bold tracking-widest text-amber-200/60 uppercase backdrop-blur-sm">
+            ].map((tag, index) => (
+              <span
+                class={`reveal delay-[${(index + 4) * 100}ms] rounded-full border border-white/10 bg-[#4D4543]/40 px-4 py-1 text-[11px] font-bold tracking-widest text-amber-200/60 uppercase backdrop-blur-sm`}
+              >
                 {tag}
               </span>
             ))
@@ -66,14 +67,16 @@ import { Icon } from "astro-icon/components";
       </div>
 
       <div class="flex flex-col justify-end space-y-8 lg:col-span-5 lg:pb-4">
-        <div class="space-y-4 border-l border-amber-900/30 pl-8">
+        <div
+          class="reveal reveal-right space-y-4 border-l border-amber-900/30 pl-8 delay-500"
+        >
           {
             [
               { label: "Location", value: "Caracas, Venezuela" },
               { label: "Philosophy", value: "Scalable & Organized Scale" },
               { label: "Availability", value: "Open to Remote / Global" },
             ].map((item) => (
-              <div class="group">
+              <div class="group cursor-default">
                 <p class="text-[10px] font-black tracking-widest text-amber-600/60 uppercase">
                   {item.label}
                 </p>
@@ -87,7 +90,7 @@ import { Icon } from "astro-icon/components";
       </div>
     </div>
 
-    <div class="group relative mt-24">
+    <div class="reveal reveal-scale group relative mt-24 delay-700">
       <div
         class="absolute -inset-4 -z-10 rounded-[3rem] bg-gradient-to-b from-[#4D4543]/20 to-transparent opacity-0 blur-3xl transition-opacity duration-700 group-hover:opacity-100"
       >
@@ -139,17 +142,13 @@ import { Icon } from "astro-icon/components";
             class="w-full object-cover pl-12 transition-all duration-700 group-hover:brightness-110"
             autoplay
             loop
-            muted></video>
-
-          <div
-            class="pointer-events-none absolute inset-0 border-t border-white/5"
-          >
-          </div>
+            muted
+            playsinline></video>
         </div>
       </div>
 
       <div
-        class="absolute -right-6 -bottom-6 hidden rounded-xl border border-[#4D4543] bg-[#2C2421]/95 p-6 shadow-2xl backdrop-blur-xl lg:block"
+        class="reveal reveal-right absolute -right-6 -bottom-6 hidden rounded-xl border border-[#4D4543] bg-[#2C2421]/95 p-6 shadow-2xl backdrop-blur-xl delay-1000 lg:block"
       >
         <p class="font-serif text-xl text-[#eebebe] italic">
           "Writing code is easy.<br />Building systems is the craft."

@@ -1,193 +1,153 @@
 ---
 import { Icon } from "astro-icon/components";
+
+const techStack = [
+  // FRONTEND
+  {
+    name: "Next.js",
+    icon: "tabler:brand-nextjs",
+    color: "text-white",
+    category: "Frontend",
+  },
+  {
+    name: "React",
+    icon: "tabler:brand-react",
+    color: "text-sky-400",
+    category: "Frontend",
+  },
+  {
+    name: "Astro",
+    icon: "tabler:brand-astro",
+    color: "text-orange-400",
+    category: "Frontend",
+  },
+  {
+    name: "TypeScript",
+    icon: "tabler:brand-typescript",
+    color: "text-blue-500",
+    category: "Frontend",
+  },
+  {
+    name: "Tailwind",
+    icon: "tabler:brand-tailwind",
+    color: "text-cyan-400",
+    category: "Frontend",
+  },
+  // BACKEND & DB
+  {
+    name: "Node.js",
+    icon: "tabler:brand-nodejs",
+    color: "text-green-500",
+    category: "Backend",
+  },
+  {
+    name: "Laravel",
+    icon: "tabler:brand-laravel",
+    color: "text-red-500",
+    category: "Backend",
+  },
+  {
+    name: "Supabase",
+    icon: "tabler:brand-supabase",
+    color: "text-emerald-500",
+    category: "Database",
+  },
+  {
+    name: "PostgreSQL",
+    icon: "tabler:database",
+    color: "text-blue-400",
+    category: "Database",
+  },
+  {
+    name: "MongoDB",
+    icon: "tabler:brand-mongodb",
+    color: "text-green-600",
+    category: "Database",
+  },
+  // DEPLOY & TOOLS
+  {
+    name: "Vercel",
+    icon: "tabler:brand-vercel",
+    color: "text-white",
+    category: "Deploy",
+  },
+  {
+    name: "GitHub",
+    icon: "tabler:brand-github",
+    color: "text-white",
+    category: "Deploy",
+  },
+];
 ---
 
 <section
   id="tech-stack"
-  class="relative border-b border-white/10 py-40 lg:py-56"
+  class="relative overflow-hidden border-b border-white/5 py-32 lg:py-40"
 >
-  <!-- Background depth -->
   <div
-    class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.04),transparent_70%)]"
+    class="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.03),transparent_60%)]"
   >
   </div>
 
-  <div
-    class="relative mx-auto max-w-[1600px] px-8 text-center sm:px-12 lg:px-20"
-  >
-    <!-- HEADER -->
-    <div class="mb-32">
-      <p class="font-mono text-xs tracking-[0.4em] text-white/40 uppercase">
-        Technology Stack
-      </p>
+  <div class="relative mx-auto w-full max-w-[1600px] px-8 sm:px-12 lg:px-16">
+    <div class="mb-20 flex flex-col items-center text-center">
+      <div class="reveal flex items-center gap-4">
+        <span class="flex h-px w-8 bg-amber-500/50"></span>
+        <span
+          class="font-mono text-xs font-bold tracking-[0.4em] text-amber-500 uppercase"
+        >
+          Core Arsenal
+        </span>
+        <span class="flex h-px w-8 bg-amber-500/50"></span>
+      </div>
 
-      <h2 class="mt-6 font-serif text-5xl leading-tight text-white lg:text-7xl">
-        Built With Precision
+      <h2
+        class="reveal mt-6 font-serif text-5xl leading-tight text-white delay-100 lg:text-7xl"
+      >
+        Systems engineered from<br />
+        <span
+          class="bg-gradient-to-r from-gray-400 to-white bg-clip-text text-transparent"
+          >interface to infrastructure.</span
+        >
       </h2>
-
-      <p class="mx-auto mt-8 max-w-2xl text-lg text-white/50">
-        Systems engineered from interface to infrastructure.
-      </p>
     </div>
 
-    <!-- STACK GROUPS -->
-    <div class="space-y-32">
-      {
-        [
-          {
-            title: "Frontend",
-            tech: [
-              {
-                name: "Next.js",
-                icon: "tabler:brand-nextjs",
-                color: "text-white",
-              },
-              {
-                name: "React",
-                icon: "tabler:brand-react",
-                color: "text-sky-400",
-              },
-              {
-                name: "Astro",
-                icon: "tabler:brand-astro",
-                color: "text-orange-400",
-              },
-              {
-                name: "TypeScript",
-                icon: "tabler:brand-typescript",
-                color: "text-blue-500",
-              },
-              {
-                name: "JavaScript",
-                icon: "tabler:brand-javascript",
-                color: "text-yellow-500",
-              },
-              {
-                name: "Tailwind",
-                icon: "tabler:brand-tailwind",
-                color: "text-cyan-400",
-              },
-            ],
-          },
-          {
-            title: "Backend",
-            tech: [
-              {
-                name: "Node.js",
-                icon: "tabler:brand-nodejs",
-                color: "text-green-500",
-              },
-              {
-                name: "Laravel",
-                icon: "tabler:brand-laravel",
-                color: "text-red-500",
-              },
-              {
-                name: "Supabase",
-                icon: "tabler:brand-supabase",
-                color: "text-emerald-500",
-              },
-            ],
-          },
-          {
-            title: "Database",
-            tech: [
-              {
-                name: "MongoDB",
-                icon: "tabler:brand-mongodb",
-                color: "text-green-500",
-              },
-              {
-                name: "PostgreSQL",
-                icon: "tabler:database",
-                color: "text-blue-500",
-              },
-            ],
-          },
-          {
-            title: "Deploy",
-            tech: [
-              {
-                name: "Vercel",
-                icon: "tabler:brand-vercel",
-                color: "text-white",
-              },
-              {
-                name: "GitHub",
-                icon: "tabler:brand-github",
-                color: "text-white",
-              },
-            ],
-          },
-        ].map((group) => (
-          <div class="group reveal-group relative">
-            <div class="absolute inset-0 -z-10 rounded-3xl bg-white/0 transition-all duration-700 group-hover:bg-white/[0.02]" />
+    <div
+      class="reveal reveal-scale relative mx-auto max-w-[1200px] rounded-3xl border border-white/5 bg-white/[0.01] p-8 backdrop-blur-sm delay-200 lg:p-16"
+    >
+      <div
+        class="absolute top-0 left-1/2 h-[1px] w-3/4 -translate-x-1/2 bg-gradient-to-r from-transparent via-amber-500/20 to-transparent"
+      >
+      </div>
 
-            <div class="flex flex-col items-center">
-              <h3 class="font-mono text-sm tracking-[0.6em] text-white/30 uppercase transition-colors duration-500 group-hover:text-white/70">
-                {group.title}
-              </h3>
+      <div
+        class="grid grid-cols-2 gap-y-12 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 lg:gap-y-16"
+      >
+        {
+          techStack.map((tech, index) => (
+            <div class="group relative flex flex-col items-center justify-center">
+              <div class="absolute inset-0 -z-10 rounded-full bg-white/5 opacity-0 blur-2xl transition-all duration-500 group-hover:bg-amber-500/10 group-hover:opacity-100" />
 
-              <div class="mt-6 h-[1px] w-16 bg-white/30 transition-all duration-500 group-hover:w-32 group-hover:bg-white" />
+              <div class="relative flex h-20 w-20 items-center justify-center rounded-2xl border border-white/5 bg-[#0A0908] shadow-[0_0_15px_rgba(0,0,0,0.5)] transition-all duration-500 group-hover:-translate-y-2 group-hover:scale-110 group-hover:border-white/20 group-hover:shadow-[0_10px_30px_rgba(0,0,0,0.8)]">
+                <Icon
+                  name={tech.icon}
+                  size={40}
+                  class={`${tech.color} transition-transform duration-500 will-change-transform`}
+                />
+              </div>
+
+              <div class="mt-4 flex flex-col items-center text-center">
+                <span class="font-mono text-[11px] font-bold tracking-widest text-white transition-all duration-300 group-hover:text-amber-400">
+                  {tech.name}
+                </span>
+                <span class="mt-1 font-mono text-[9px] tracking-[0.2em] text-gray-600 uppercase transition-all duration-300 group-hover:text-gray-400">
+                  {tech.category}
+                </span>
+              </div>
             </div>
-
-            <div class="mt-16 flex flex-wrap justify-center gap-16 lg:gap-20">
-              {group.tech.map((tech, i) => (
-                <div
-                  class="reveal-item relative flex flex-col items-center"
-                  style={`transition-delay: ${i * 120}ms;`}
-                >
-                  <div class="absolute inset-0 -z-10 rounded-full bg-white/5 opacity-0 blur-2xl transition-opacity duration-500 hover:opacity-100" />
-
-                  <Icon
-                    name={tech.icon}
-                    size={70}
-                    class={`${tech.color} cursor-pointer transition-transform duration-500 will-change-transform hover:-translate-y-3 hover:scale-110`}
-                  />
-
-                  <span class="mt-4 font-mono text-[10px] tracking-widest text-white/40 transition-all duration-500 hover:tracking-[0.3em] hover:text-white">
-                    {tech.name}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </div>
-        ))
-      }
+          ))
+        }
+      </div>
     </div>
   </div>
-
-  <!-- Local Styles -->
-  <style>
-    .reveal-item {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
-    }
-
-    .reveal-item.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  </style>
-
-  <!-- Intersection Observer -->
-  <script is:inline>
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const items = entry.target.querySelectorAll(".reveal-item");
-            items.forEach((item) => item.classList.add("visible"));
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.2 },
-    );
-
-    document.querySelectorAll(".reveal-group").forEach((group) => {
-      observer.observe(group);
-    });
-  </script>
 </section>

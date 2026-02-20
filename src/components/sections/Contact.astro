@@ -2,16 +2,20 @@
 import { Icon } from "astro-icon/components";
 ---
 
-<section id="contact" class="relative overflow-hidden py-32 lg:py-48">
-  <!-- Backgrounds -->
+<section id="contact" class="relative overflow-hidden py-32 lg:py-56">
   <div
-    class="absolute top-1/2 left-1/2 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-amber-500/5 blur-[120px]"
+    class="pointer-events-none absolute top-1/2 left-1/2 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-amber-500/10 blur-[120px]"
+  >
+  </div>
+
+  <div
+    class="pointer-events-none absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-overlay"
   >
   </div>
 
   <div class="relative z-10 mx-auto w-full max-w-4xl px-8 text-center">
     <div
-      class="mb-8 inline-flex items-center gap-2 rounded-full border border-amber-500/30 bg-amber-500/10 px-4 py-1.5"
+      class="reveal mb-12 inline-flex items-center gap-3 rounded-full border border-amber-500/20 bg-amber-500/5 px-6 py-2 backdrop-blur-sm"
     >
       <span class="relative flex h-2 w-2">
         <span
@@ -21,43 +25,73 @@ import { Icon } from "astro-icon/components";
         ></span>
       </span>
       <span
-        class="font-mono text-xs font-bold tracking-widest text-amber-500 uppercase"
+        class="font-mono text-[10px] font-bold tracking-[0.3em] text-amber-500 uppercase"
       >
-        Open for Opportunities
+        Systems Ready for Deployment
       </span>
     </div>
 
-    <h2 class="mb-8 font-serif text-5xl tracking-tight text-white md:text-7xl">
+    <h2
+      class="reveal mb-10 font-serif text-5xl leading-tight tracking-tight text-white delay-100 md:text-8xl"
+    >
       Ready to <span
-        class="bg-gradient-to-r from-amber-200 to-amber-500 bg-clip-text text-transparent"
+        class="bg-gradient-to-r from-amber-200 via-amber-400 to-amber-200 bg-clip-text font-light text-transparent italic"
         >Architect</span
       >
       <br />
       Your Next System?
     </h2>
 
-    <p class="mx-auto mb-12 max-w-2xl text-xl font-light text-gray-400">
+    <p
+      class="reveal mx-auto mb-16 max-w-2xl text-lg leading-relaxed font-light text-gray-400 delay-200 md:text-xl"
+    >
       Whether you need a complete platform overhaul or a specialized technical
-      consultation, I'm ready to deploy.
+      consultation, I'm ready to initialize the connection.
     </p>
 
-    <div class="flex flex-col items-center justify-center gap-6 sm:flex-row">
+    <div
+      class="reveal flex flex-col items-center justify-center gap-6 delay-300 sm:flex-row"
+    >
       <a
         href="mailto:gabrielgg2005ve@gmail.com"
-        class="group relative flex items-center gap-3 overflow-hidden rounded-lg bg-white px-8 py-4 text-sm font-bold tracking-wide text-black transition-all hover:bg-amber-400"
+        class="group relative flex items-center gap-3 overflow-hidden rounded-full bg-amber-500 px-10 py-5 text-sm font-bold tracking-widest text-black transition-all duration-500 hover:scale-105 hover:bg-white hover:shadow-[0_0_30px_rgba(245,158,11,0.4)]"
       >
-        <Icon name="tabler:mail" size={20} />
-        <span>Initialize Communication</span>
+        <div
+          class="absolute inset-0 translate-x-[-100%] bg-gradient-to-r from-transparent via-white/40 to-transparent transition-transform duration-1000 group-hover:translate-x-[100%]"
+        >
+        </div>
+        <Icon
+          name="tabler:mail-fast"
+          size={22}
+          class="transition-transform group-hover:rotate-12"
+        />
+        <span class="uppercase">Initialize Communication</span>
       </a>
 
       <a
         href="https://www.linkedin.com/in/gabriel-gonzalez-fullstack/"
         target="_blank"
-        class="group flex items-center gap-3 rounded-lg border border-white/10 bg-white/5 px-8 py-4 text-sm font-bold tracking-wide text-white transition-all hover:bg-white/10"
+        class="group flex items-center gap-3 rounded-full border border-white/10 bg-white/5 px-10 py-5 text-sm font-bold tracking-widest text-white transition-all duration-500 hover:border-white/30 hover:bg-white/10"
       >
-        <Icon name="tabler:brand-linkedin" size={20} />
-        <span>Connect on LinkedIn</span>
+        <Icon
+          name="tabler:brand-linkedin"
+          size={22}
+          class="text-amber-500 transition-transform group-hover:scale-110"
+        />
+        <span class="uppercase">Link Protocol</span>
       </a>
+    </div>
+
+    <div
+      class="reveal mt-24 flex flex-col items-center gap-4 opacity-40 transition-opacity delay-500 hover:opacity-100"
+    >
+      <div
+        class="h-12 w-px bg-gradient-to-b from-transparent via-amber-500 to-transparent"
+      >
+      </div>
+      <p class="font-mono text-[9px] tracking-[0.5em] text-gray-400 uppercase">
+        Based in Venezuela • Available Worldwide
+      </p>
     </div>
   </div>
 </section>
