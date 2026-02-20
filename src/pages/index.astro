@@ -1,63 +1,38 @@
 ---
 import PortfolioLayout from "../layouts/PortfolioLayout.astro";
+
+// Core Sections
 import Hero from "../components/sections/Hero.astro";
 import AboutMe from "../components/sections/AboutMe.astro";
-import Projects from "../components/sections/Projects.astro";
-import Experience from "../components/sections/Experience.astro";
-import GitHub from "../components/sections/GitHub.astro";
 import TechStack from "../components/sections/TechStack.astro";
+
+// Proof of Work
+import Projects from "../components/sections/Projects.astro";
 import Laboratory from "../components/sections/Laboratory.astro";
-import Contact from "../components/sections/Contact.astro";
+
+// Professional Validation
+import Experience from "../components/sections/Experience.astro";
 import Certificates from "../components/sections/Certificates.astro";
+
+// Open Source & Engagement
+import GitHub from "../components/sections/GitHub.astro";
+import Contact from "../components/sections/Contact.astro";
 ---
 
 <PortfolioLayout>
-  <!-- ===================================================== -->
-  <!-- HERO / PROFILE -->
-  <!-- ===================================================== -->
   <Hero />
-
   <AboutMe />
 
-  <!-- ===================================================== -->
-  <!-- FEATURED PROJECT -->
-  <!-- ===================================================== -->
-  <!-- ===================================================== -->
-  <!-- SELECTED WORK / PROJECTS (BENTO GRID) -->
-  <!-- ===================================================== -->
+  <TechStack />
 
   <Projects />
 
-  <!--="====================================================" -->
-  <!-- ENGINEERING / OPEN SOURCE / STACK / FOUNDATION -->
-  <!-- ===================================================== -->
-
-  <!-- ================= ENGINEERING & OPEN SOURCE ================= -->
-  <!-- ===================================================== -->
-  <!-- PROFESSIONAL TIMELINE (EXPERIENCE & EDUCATION) -->
-  <!-- ===================================================== -->
-
   <Experience />
-
-  <!-- ===================================================== -->
-  <!-- GITHUB / OPEN SOURCE -->
-  <!-- ===================================================== -->
-  <GitHub />
-
-  <!-- ===================================================== -->
-  <!-- TECHNICAL Ecosystem -->
-  <!-- ===================================================== -->
-  <TechStack />
-
   <Certificates />
 
-  <!-- ===================================================== -->
-  <!-- COMMAND CENTER (CONTACT) -->
-  <!-- ===================================================== -->
   <Laboratory />
 
-  <!-- ===================================================== -->
-  <!-- COMMAND CENTER (CONTACT) -->
-  <!-- ===================================================== -->
+  <GitHub />
+
   <Contact />
 </PortfolioLayout>
