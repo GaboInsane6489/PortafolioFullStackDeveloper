@@ -11,14 +11,14 @@ const links = [
 
 <div
   id="mobileMenu"
-  class="pointer-events-none fixed inset-0 z-[150] flex flex-col items-center justify-center gap-8 bg-[#0A0908]/98 opacity-0 backdrop-blur-xl transition-all duration-500 ease-in-out lg:hidden"
+  class="pointer-events-none fixed inset-0 z-[150] flex flex-col items-center justify-center gap-8 bg-[#0A0908]/95 opacity-0 backdrop-blur-xl transition-all duration-400 ease-out lg:hidden"
 >
   {
     links.map((link, index) => (
       <a
         href={link.href}
-        style={`transition-delay: ${index * 100}ms`}
-        class="mobile-link translate-y-4 font-mono text-3xl tracking-[0.2em] text-white uppercase opacity-0 transition-all duration-500 active:scale-95 active:text-amber-500"
+        style={`transition-delay: ${index * 70}ms`}
+        class="mobile-link translate-y-4 font-mono text-3xl tracking-[0.2em] text-white uppercase opacity-0 transition-all duration-400 active:scale-95 active:text-amber-500"
       >
         {link.label}
       </a>
@@ -26,7 +26,7 @@ const links = [
   }
 
   <div
-    class="mt-8 flex translate-y-4 gap-8 opacity-0 transition-all delay-500 duration-700"
+    class="mt-8 flex translate-y-4 gap-8 opacity-0 transition-all delay-300 duration-500"
     id="mobileSocials"
   >
     <a
@@ -44,18 +44,17 @@ const links = [
 
 <nav
   id="topNav"
-  class="fixed top-0 left-0 z-[200] w-full border-b border-white/5 bg-transparent transition-all duration-500 ease-in-out"
+  class="fixed top-0 left-0 z-[200] w-full border-b border-white/0 bg-transparent transition-all duration-300 ease-in-out"
 >
   <div
-    class="mx-auto flex max-w-[1600px] items-center justify-between px-6 py-5 transition-all duration-500 lg:px-12"
-    id="navContainer"
+    class="mx-auto flex max-w-[1600px] items-center justify-between px-6 py-4 transition-all duration-300 lg:px-12"
   >
     <a
       href="/"
       class="group relative z-[210] flex items-center gap-4 transition-transform active:scale-95"
     >
       <div
-        class="h-10 w-10 overflow-hidden rounded-xl border border-white/10 bg-white/5 transition-colors group-hover:border-amber-500/50"
+        class="h-9 w-9 overflow-hidden rounded-xl border border-white/10 bg-white/5 transition-colors group-hover:border-amber-500/50"
       >
         <img
           src="/images/LogoPortafolio.webp"
@@ -69,7 +68,7 @@ const links = [
           >GABRIEL GONZÁLEZ</span
         >
         <span
-          class="font-mono text-[8px] tracking-widest text-gray-500 uppercase"
+          class="font-mono text-[7px] tracking-widest text-gray-500 uppercase"
           >System Architect</span
         >
       </div>
@@ -80,9 +79,9 @@ const links = [
         links.map((link) => (
           <a
             href={link.href}
-            class="group relative font-mono text-[11px] tracking-[0.15em] text-gray-400 transition-colors hover:text-white"
+            class="group relative font-mono text-[10px] tracking-[0.2em] text-gray-400 transition-colors hover:text-white"
           >
-            <span class="relative z-10">{link.label}</span>
+            <span class="relative z-10 uppercase">{link.label}</span>
             <span class="absolute -bottom-1 left-0 h-[1px] w-0 bg-amber-500 transition-all duration-300 group-hover:w-full" />
           </a>
         ))
@@ -91,23 +90,23 @@ const links = [
 
     <button
       id="menuBtn"
-      class="group relative z-[210] flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-white/5 transition-all active:scale-90 active:bg-amber-500/10 lg:hidden"
+      class="group relative z-[210] flex h-10 w-10 items-center justify-center rounded-xl border border-white/5 bg-white/5 transition-all active:scale-90 lg:hidden"
       aria-label="Menu"
     >
       <div
-        class="relative flex h-5 w-6 flex-col items-end justify-between overflow-hidden"
+        class="relative flex h-4 w-5 flex-col items-end justify-between overflow-hidden"
       >
         <span
           id="line1"
-          class="h-[2px] w-6 rounded-full bg-gray-200 transition-all duration-300 ease-out"
+          class="h-[1.5px] w-5 rounded-full bg-gray-200 transition-all duration-300"
         ></span>
         <span
           id="line2"
-          class="h-[2px] w-4 rounded-full bg-gray-200 transition-all duration-300 ease-out group-hover:w-6"
+          class="h-[1.5px] w-3 rounded-full bg-gray-200 transition-all duration-300 group-hover:w-5"
         ></span>
         <span
           id="line3"
-          class="h-[2px] w-6 rounded-full bg-gray-200 transition-all duration-300 ease-out"
+          class="h-[1.5px] w-5 rounded-full bg-gray-200 transition-all duration-300"
         ></span>
       </div>
     </button>
@@ -115,40 +114,39 @@ const links = [
 </nav>
 
 <style>
+  /* Efecto Glass Universal */
   .nav-scrolled {
-    background-color: rgba(10, 9, 8, 0.8) !important;
-    backdrop-filter: blur(16px) !important;
-    -webkit-backdrop-filter: blur(16px) !important;
-    padding-top: 0.6rem !important;
-    padding-bottom: 0.6rem !important;
+    background-color: rgba(
+      10,
+      9,
+      8,
+      0.4
+    ) !important; /* Más transparente para que el blur luzca mejor */
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    border-bottom-color: rgba(255, 255, 255, 0.08) !important;
+    /* Mantenemos el padding similar para evitar saltos bruscos */
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
   }
 
-  /* --- ANIMACIÓN DEL ICONO --- */
-
-  /* Línea Superior: Baja y rota */
   .menu-active #line1 {
-    transform: translateY(9px) rotate(45deg);
+    transform: translateY(7.5px) rotate(45deg);
     background-color: #f59e0b;
   }
-
-  /* Línea Media: Se desliza hacia afuera y desaparece */
   .menu-active #line2 {
     transform: translateX(100%);
     opacity: 0;
   }
-
-  /* Línea Inferior: Sube y rota invertido */
   .menu-active #line3 {
-    transform: translateY(-9px) rotate(-45deg);
+    transform: translateY(-7px) rotate(-45deg);
     background-color: #f59e0b;
   }
 
-  /* --- Otros Estilos --- */
   #mobileMenu.is-visible {
     opacity: 1 !important;
     pointer-events: auto !important;
   }
-
   #mobileMenu.is-visible .mobile-link,
   #mobileMenu.is-visible #mobileSocials {
     transform: translateY(0);
@@ -157,7 +155,6 @@ const links = [
 </style>
 
 <script>
-  // El script se mantiene igual
   const setupNav = () => {
     const nav = document.getElementById("topNav");
     const btn = document.getElementById("menuBtn");
@@ -165,7 +162,8 @@ const links = [
     const mobileLinks = document.querySelectorAll(".mobile-link");
 
     const handleScroll = () => {
-      window.scrollY > 20
+      // Aplicamos el cambio antes, a los 10px, para que se sienta reactivo
+      window.scrollY > 10
         ? nav?.classList.add("nav-scrolled")
         : nav?.classList.remove("nav-scrolled");
     };
@@ -179,14 +177,13 @@ const links = [
 
     window.addEventListener("scroll", handleScroll);
     btn?.addEventListener("click", toggleMenu);
-
-    mobileLinks.forEach((link) => {
+    mobileLinks.forEach((link) =>
       link.addEventListener("click", () => {
         menu?.classList.remove("is-visible");
         btn?.classList.remove("menu-active");
         document.body.style.overflow = "";
-      });
-    });
+      }),
+    );
 
     handleScroll();
   };
