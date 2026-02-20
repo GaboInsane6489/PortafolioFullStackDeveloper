@@ -57,17 +57,20 @@ import "flowbite";
 
     <TopNavbar />
 
-    <div class="relative z-10 flex min-h-screen flex-col md:flex-row">
-      <aside class="fixed top-0 left-0 z-40 hidden h-screen w-20 md:block">
-        <SideNavbar />
-      </aside>
+    <div class="relative z-10 flex min-h-screen flex-col">
+      <main class="mx-auto w-full max-w-[1600px] flex-1 pb-24 md:pb-0 md:pl-24">
+        <slot />
+      </main>
 
-      <div class="flex flex-1 flex-col md:pl-20">
-        <main class="mx-auto w-full max-w-[1600px] flex-1">
-          <slot />
-        </main>
+      <div class="pb-24 md:pb-0 md:pl-24">
         <Footer />
       </div>
+    </div>
+
+    <div
+      class="fixed right-0 bottom-4 left-0 z-40 mx-auto flex w-full max-w-[95%] justify-center md:top-0 md:right-auto md:bottom-0 md:left-6 md:w-auto md:max-w-none md:items-center"
+    >
+      <SideNavbar />
     </div>
 
     <script>

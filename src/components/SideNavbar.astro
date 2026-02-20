@@ -11,43 +11,41 @@ const sections = [
 ];
 ---
 
-<aside
-  class="fixed top-1/2 left-6 z-40 hidden -translate-y-1/2 flex-col items-center gap-4 lg:flex"
->
+<div class="flex flex-row items-center gap-4 md:flex-col">
   <nav
-    class="flex flex-col items-center gap-3 rounded-2xl border border-white/5 bg-[#0A0908]/40 p-2 shadow-2xl shadow-black/50 backdrop-blur-md"
+    class="flex flex-row items-center gap-2 rounded-2xl border border-white/5 bg-[#0A0908]/60 p-2 shadow-2xl shadow-black/50 backdrop-blur-xl md:flex-col md:gap-3 md:bg-[#0A0908]/40"
   >
     {
       sections.map((section) => (
         <a
           href={section.href}
           data-section={section.href.replace("#", "")}
-          class="nav-link group relative flex h-10 w-10 items-center justify-center rounded-xl text-gray-500 transition-all duration-300 hover:bg-white/10 hover:text-white active:scale-90"
+          class="nav-link group relative flex h-11 w-11 items-center justify-center rounded-xl text-gray-500 transition-all duration-300 hover:bg-white/10 hover:text-white active:scale-90 md:h-10 md:w-10"
           aria-label={section.label}
         >
           <Icon
             name={section.icon}
-            size={20}
+            size={22}
             class="transition-transform duration-300 group-hover:scale-110"
           />
 
-          <div class="pointer-events-none absolute left-14 z-50 rounded-lg border border-white/10 bg-[#0A0908] px-3 py-1.5 opacity-0 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.5)] transition-all duration-300 group-hover:left-12 group-hover:opacity-100">
+          <div class="pointer-events-none absolute left-14 z-50 hidden rounded-lg border border-white/10 bg-[#0A0908] px-3 py-1.5 opacity-0 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.5)] transition-all duration-300 group-hover:left-12 group-hover:opacity-100 md:block">
             <span class="font-mono text-[10px] font-bold tracking-widest whitespace-nowrap text-gray-200 uppercase">
               {section.label}
             </span>
             <div class="absolute top-1/2 -left-1 h-2 w-2 -translate-y-1/2 rotate-45 border-b border-l border-white/10 bg-[#0A0908]" />
           </div>
 
-          <div class="active-indicator absolute -left-2 h-0 w-1 rounded-full bg-amber-500 opacity-0 shadow-[0_0_10px_rgba(245,158,11,0.5)] transition-all duration-500" />
+          <div class="active-indicator absolute -bottom-1 left-1/2 h-1 w-0 -translate-x-1/2 rounded-full bg-amber-500 opacity-0 shadow-[0_0_10px_rgba(245,158,11,0.5)] transition-all duration-500 md:bottom-auto md:left-[-6px] md:h-0 md:w-1 md:translate-x-0" />
         </a>
       ))
     }
   </nav>
 
-  <div class="h-px w-6 bg-white/10"></div>
+  <div class="hidden h-px w-6 bg-white/10 md:block"></div>
 
   <div
-    class="rounded-2xl border border-white/5 bg-[#0A0908]/40 p-2 backdrop-blur-md"
+    class="hidden rounded-2xl border border-white/5 bg-[#0A0908]/40 p-2 backdrop-blur-md md:block"
   >
     <a
       href="https://github.com/GaboInsane6489"
@@ -70,19 +68,27 @@ const sections = [
       </div>
     </a>
   </div>
-</aside>
+</div>
 
 <style>
-  /* Clase inyectada por el JS para el estado activo */
   .nav-link.is-active {
     color: #f59e0b !important;
     background-color: rgba(245, 158, 11, 0.1);
   }
 
+  /* Animación del indicador en móvil (Horizontal) */
   .nav-link.is-active .active-indicator {
-    height: 1.5rem;
+    width: 1.25rem;
     opacity: 1;
-    left: -2px;
+  }
+
+  /* Animación del indicador en Desktop (Vertical) */
+  @media (min-width: 768px) {
+    .nav-link.is-active .active-indicator {
+      width: 0.25rem;
+      height: 1.5rem;
+      opacity: 1;
+    }
   }
 </style>
 
@@ -93,7 +99,7 @@ const sections = [
 
     const observerOptions = {
       root: null,
-      rootMargin: "-40% 0px -40% 0px", // Margen central para mayor precisión
+      rootMargin: "-45% 0px -45% 0px",
       threshold: 0,
     };
 
@@ -101,7 +107,6 @@ const sections = [
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           const id = entry.target.getAttribute("id");
-
           navLinks.forEach((link) => {
             const isActive = link.getAttribute("data-section") === id;
             link.classList.toggle("is-active", isActive);
