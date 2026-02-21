@@ -3,7 +3,7 @@ import { Icon } from "astro-icon/components";
 ---
 
 <section
-  class="relative w-full overflow-hidden border-b border-white/5 pt-24 pb-10 md:pt-32 md:pb-20 lg:py-24"
+  class="relative flex min-h-screen w-full items-center justify-center overflow-hidden border-b border-white/5 pt-32 pb-20 lg:pt-0 lg:pb-0"
   id="hero"
 >
   <div
@@ -11,47 +11,91 @@ import { Icon } from "astro-icon/components";
   >
   </div>
 
-  <div class="relative mx-auto w-full max-w-[1600px] px-6 sm:px-12 lg:px-16">
-    <div
-      class="grid grid-cols-1 items-center gap-8 md:gap-10 lg:grid-cols-12 lg:gap-12"
-    >
-      <div class="flex flex-col space-y-6 md:space-y-8 lg:col-span-7">
-        <div class="space-y-4">
+  <div class="relative mx-auto w-full max-w-[1300px] px-6 sm:px-12 lg:px-16">
+    <div class="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-8">
+      <div
+        class="reveal relative order-first col-span-1 flex justify-center opacity-0 transition-all delay-700 duration-1000 lg:order-last lg:col-span-5"
+      >
+        <div
+          class="relative z-10 w-full max-w-[200px] rounded-2xl border border-white/10 bg-[#0A0908]/50 p-1.5 backdrop-blur-xl sm:max-w-[240px] md:max-w-[280px] lg:max-w-[320px]"
+        >
+          <div
+            class="overflow-hidden rounded-xl border border-white/5 bg-[#050505] shadow-2xl"
+          >
+            <div
+              class="flex items-center justify-between border-b border-white/5 bg-[#0F0F0F] px-4 py-2"
+            >
+              <div class="flex gap-1.5">
+                <div class="h-1.5 w-1.5 rounded-full bg-red-500/20"></div>
+                <div class="h-1.5 w-1.5 rounded-full bg-yellow-500/20"></div>
+                <div class="h-1.5 w-1.5 rounded-full bg-green-500/20"></div>
+              </div>
+              <div class="font-mono text-[7px] tracking-[0.2em] text-gray-600">
+                env:production
+              </div>
+            </div>
+
+            <div class="group relative aspect-[4/5] overflow-hidden">
+              <img
+                src="/images/FotoPerfil.webp"
+                alt="Gabriel"
+                class="h-full w-full object-cover opacity-80 grayscale transition-all duration-700 group-hover:opacity-100 group-hover:grayscale-0"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-transparent"
+              >
+              </div>
+              <div
+                class="absolute bottom-3 left-3 rounded-lg border border-white/5 bg-black/60 px-2.5 py-1.5 font-mono text-[8px] text-amber-500 backdrop-blur-md"
+              >
+                <span class="animate-pulse">></span> online_active
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="absolute -inset-10 -z-10 rounded-full bg-amber-500/10 opacity-20 blur-[60px]"
+        >
+        </div>
+      </div>
+
+      <div
+        class="flex flex-col items-center justify-center space-y-8 text-center lg:col-span-7 lg:items-start lg:text-left"
+      >
+        <div class="space-y-6">
           <div
             class="reveal translate-y-4 opacity-0 transition-all duration-700 ease-out"
           >
             <div
-              class="inline-flex items-center gap-2 rounded-full border border-amber-500/20 bg-amber-500/5 px-2.5 py-0.5 backdrop-blur-md"
+              class="inline-flex items-center gap-2 rounded-full border border-amber-500/20 bg-amber-500/5 px-3 py-1.5 backdrop-blur-md"
             >
-              <span class="relative flex h-1.5 w-1.5">
+              <span class="relative flex h-2 w-2">
                 <span
                   class="absolute inline-flex h-full w-full animate-ping rounded-full bg-amber-400 opacity-75"
                 ></span>
                 <span
-                  class="relative inline-flex h-1.5 w-1.5 rounded-full bg-amber-500"
+                  class="relative inline-flex h-2 w-2 rounded-full bg-amber-500"
                 ></span>
               </span>
               <span
-                class="font-mono text-[9px] font-bold tracking-[0.15em] text-amber-500 uppercase"
+                class="font-mono text-[9px] font-bold tracking-[0.2em] text-amber-500 uppercase"
+                >System Status: Optimized</span
               >
-                System Status: Optimized
-              </span>
             </div>
           </div>
 
           <h1
-            class="reveal translate-y-4 font-sans text-[clamp(2rem,7vw,4.2rem)] leading-[1.05] font-extrabold tracking-tighter text-white opacity-0 transition-all delay-150 duration-700"
+            class="reveal translate-y-4 font-sans text-[clamp(2.2rem,8vw,3.8rem)] leading-[1.05] font-extrabold tracking-tighter text-white opacity-0 transition-all delay-150 duration-700"
           >
             Architecting <br />
             <span
               class="bg-gradient-to-r from-white via-white/80 to-white/40 bg-clip-text text-transparent"
+              >Digital Systems</span
             >
-              Digital Systems
-            </span>
           </h1>
 
           <p
-            class="reveal max-w-lg translate-y-4 text-sm leading-relaxed font-light text-gray-400 opacity-0 transition-all delay-300 duration-700 md:text-lg"
+            class="reveal mx-auto max-w-lg translate-y-4 text-base leading-relaxed font-light text-gray-400 opacity-0 transition-all delay-300 duration-700 md:text-lg lg:mx-0"
           >
             I transform complex requirements into scalable web ecosystems.
             <span
@@ -62,108 +106,59 @@ import { Icon } from "astro-icon/components";
         </div>
 
         <div
-          class="reveal flex translate-y-4 flex-col gap-3 opacity-0 transition-all delay-[450ms] duration-700 sm:flex-row sm:items-center"
+          class="reveal flex w-full translate-y-4 flex-col gap-4 opacity-0 transition-all delay-[450ms] duration-700 sm:flex-row sm:justify-center lg:justify-start"
         >
           <a
             href="#projects"
-            class="group relative flex items-center justify-center gap-2 overflow-hidden rounded-lg bg-white px-6 py-3 text-xs font-bold tracking-wide text-black transition-all hover:bg-amber-400 active:scale-95"
+            class="group relative flex items-center justify-center gap-3 overflow-hidden rounded-xl bg-white px-8 py-4 text-[10px] font-black tracking-widest text-black transition-all hover:bg-amber-400 active:scale-95 sm:w-auto sm:py-3.5"
           >
-            <span>View Casestudies</span>
+            <span>VIEW CASESTUDIES</span>
             <Icon
               name="tabler:arrow-right"
-              size={16}
+              size={18}
               class="transition-transform group-hover:translate-x-1"
             />
           </a>
-
           <a
             href="#contact"
-            class="group flex items-center justify-center gap-2 rounded-lg border border-white/10 bg-white/5 px-6 py-3 text-xs font-bold tracking-wide text-white transition-all hover:bg-white/10 active:scale-95"
+            class="group flex items-center justify-center gap-3 rounded-xl border border-white/10 bg-white/5 px-8 py-4 text-[10px] font-black tracking-widest text-white transition-all hover:bg-white/10 active:scale-95 sm:w-auto sm:py-3.5"
           >
-            <span>Contact System</span>
+            <span>CONTACT SYSTEM</span>
           </a>
         </div>
 
         <div
-          class="reveal grid grid-cols-2 gap-x-4 gap-y-4 border-t border-white/5 pt-6 opacity-0 transition-opacity delay-[600ms] duration-1000 sm:grid-cols-3 md:flex md:items-center md:gap-8"
+          class="reveal grid w-full max-w-sm grid-cols-2 gap-6 border-t border-white/5 pt-8 opacity-0 transition-opacity delay-[600ms] duration-1000 sm:max-w-md sm:grid-cols-3 lg:max-w-none"
         >
-          <div class="space-y-0.5">
+          <div class="flex flex-col items-center space-y-1.5 lg:items-start">
             <span
-              class="font-mono text-[8px] tracking-widest text-gray-600 uppercase"
+              class="font-mono text-[8px] tracking-[0.2em] text-gray-600 uppercase"
               >Education</span
             >
             <span class="block text-[10px] font-medium text-gray-300"
               >UCAB Engineering</span
             >
           </div>
-          <div class="space-y-0.5">
+          <div class="flex flex-col items-center space-y-1.5 lg:items-start">
             <span
-              class="font-mono text-[8px] tracking-widest text-gray-600 uppercase"
+              class="font-mono text-[8px] tracking-[0.2em] text-gray-600 uppercase"
               >Focus</span
             >
             <span class="block text-[10px] font-medium text-amber-500"
               >Scalability</span
             >
           </div>
-          <div class="col-span-2 space-y-0.5 sm:col-span-1">
+          <div
+            class="col-span-2 flex flex-col items-center space-y-1.5 sm:col-span-1 lg:items-start"
+          >
             <span
-              class="font-mono text-[8px] tracking-widest text-gray-600 uppercase"
+              class="font-mono text-[8px] tracking-[0.2em] text-gray-600 uppercase"
               >Stack</span
             >
             <span class="block text-[10px] font-medium text-gray-300"
               >Next.js · React · SQL</span
             >
           </div>
-        </div>
-      </div>
-
-      <div
-        class="reveal relative mt-4 opacity-0 transition-all delay-700 duration-1000 lg:col-span-5 lg:mt-0"
-      >
-        <div
-          class="relative z-10 mx-auto max-w-[320px] rounded-xl border border-white/10 bg-[#0A0908]/50 p-1 backdrop-blur-xl lg:max-w-none"
-        >
-          <div
-            class="overflow-hidden rounded-lg border border-white/5 bg-[#050505] shadow-2xl"
-          >
-            <div
-              class="flex items-center justify-between border-b border-white/5 bg-[#0F0F0F] px-3 py-1.5"
-            >
-              <div class="flex gap-1">
-                <div class="h-1.5 w-1.5 rounded-full bg-red-500/20"></div>
-                <div class="h-1.5 w-1.5 rounded-full bg-yellow-500/20"></div>
-                <div class="h-1.5 w-1.5 rounded-full bg-green-500/20"></div>
-              </div>
-              <div
-                class="font-mono text-[7px] tracking-widest text-gray-600 uppercase"
-              >
-                env:production
-              </div>
-            </div>
-
-            <div
-              class="group relative aspect-square overflow-hidden lg:aspect-[4/5]"
-            >
-              <img
-                src="/images/FotoPerfil.webp"
-                alt="Gabriel Profile"
-                class="h-full w-full object-cover opacity-80 mix-blend-luminosity grayscale transition-all duration-700 group-hover:opacity-100 group-hover:grayscale-0"
-              />
-              <div
-                class="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-transparent"
-              >
-              </div>
-              <div
-                class="absolute bottom-3 left-3 rounded bg-black/60 px-1.5 py-0.5 font-mono text-[9px] text-amber-500/90 backdrop-blur-sm"
-              >
-                <span class="animate-pulse">></span> online
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          class="absolute -inset-2 -z-10 rounded-full bg-amber-500/5 opacity-30 blur-2xl"
-        >
         </div>
       </div>
     </div>

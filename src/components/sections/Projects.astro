@@ -12,166 +12,208 @@ const InstalacionesGarciasImages = Array.from(
 );
 ---
 
-<section id="projects" class="relative border-b border-white/5 py-20 lg:py-32">
-  <div class="relative mx-auto w-full max-w-[1600px] px-6 sm:px-12 lg:px-16">
+<section id="projects" class="relative overflow-hidden pb-24 lg:pb-40">
+  <div
+    class="pointer-events-none absolute top-0 left-1/2 h-full w-full -translate-x-1/2 bg-[radial-gradient(circle_at_top,rgba(252,211,77,0.05),transparent_60%)]"
+  >
+  </div>
+
+  <div class="relative mx-auto w-full max-w-[1400px] px-6">
     <div
-      class="mb-16 flex flex-col justify-between gap-6 md:flex-row md:items-end lg:mb-24"
+      class="mb-16 flex flex-col justify-between gap-6 md:flex-row md:items-end lg:mb-28"
     >
       <div class="reveal space-y-4">
         <div class="flex items-center gap-3">
-          <span class="flex h-px w-8 bg-amber-500/50"></span>
+          <span class="h-px w-8 bg-amber-500/50"></span>
           <span
-            class="font-mono text-[10px] font-bold tracking-[0.3em] text-amber-500 uppercase"
+            class="font-mono text-[10px] font-bold tracking-[0.4em] text-amber-500 uppercase"
+            >Selected Works</span
           >
-            Selected Works
-          </span>
         </div>
         <h2
-          class="font-serif text-4xl leading-tight text-white md:text-6xl lg:text-7xl"
+          class="font-serif text-5xl leading-[1.1] text-white md:text-7xl lg:text-8xl"
         >
-          Digital <span
-            class="bg-gradient-to-r from-gray-100 to-gray-500 bg-clip-text text-transparent italic"
+          Digital <span class="font-light text-white/30 italic"
             >Case Studies</span
           >
         </h2>
       </div>
       <p
-        class="reveal hidden max-w-xs text-right text-sm font-light text-gray-400 delay-300 md:block lg:text-base"
+        class="reveal max-w-[280px] text-sm leading-relaxed font-light text-gray-500 md:text-right"
       >
-        A curation of production-grade systems focusing on architecture and
-        performance.
+        A curation of production-grade systems focusing on <span
+          class="text-white/60">architecture</span
+        > and <span class="text-white/60">performance</span>.
       </p>
     </div>
 
-    <div class="flex flex-col gap-24 md:gap-32">
-      <article
-        class="group relative grid grid-cols-1 gap-8 lg:grid-cols-12 lg:gap-16"
-      >
+    <div class="space-y-32 md:space-y-48">
+      <article class="group relative grid grid-cols-1 gap-12 lg:grid-cols-12">
         <div
-          class="reveal reveal-left order-2 flex flex-col justify-center space-y-6 lg:order-1 lg:col-span-6"
+          class="reveal reveal-left flex flex-col justify-center space-y-8 lg:col-span-5"
         >
-          <div class="flex items-center gap-3 text-amber-500">
-            <Icon name="tabler:school" size={22} />
+          <div class="space-y-4">
+            <div class="flex items-center gap-3 text-amber-500/80">
+              <Icon name="tabler:school" class="text-xl" />
+              <span
+                class="font-mono text-[10px] font-black tracking-widest uppercase"
+                >EdTech Operating System</span
+              >
+            </div>
+            <h3 class="font-serif text-4xl text-white md:text-6xl">
+              Martí Academy OS
+            </h3>
+            <p class="text-lg leading-relaxed text-gray-400">
+              Comprehensive educational OS converting a traditional institution
+              into a digital ecosystem. Focused on <span
+                class="text-amber-500/50">scalability</span
+              > and real-time management.
+            </p>
+          </div>
+
+          <div class="flex flex-wrap gap-3">
             <span
-              class="font-mono text-[10px] font-bold tracking-widest uppercase"
-              >EdTech Operating System</span
+              class="flex items-center gap-2 rounded-full border border-white/5 bg-white/[0.03] px-4 py-1.5 text-[10px] font-bold text-white/60"
             >
-          </div>
-          <h3 class="font-serif text-3xl text-white md:text-4xl lg:text-5xl">
-            Martí Academy OS
-          </h3>
-          <p
-            class="max-w-xl text-base leading-relaxed text-gray-400 md:text-lg"
-          >
-            Comprehensive educational OS converting a traditional institution
-            into a digital ecosystem.
-          </p>
-
-          <div
-            class="reveal space-y-3 rounded-xl border border-white/5 bg-white/5 p-5 delay-200"
-          >
-            <div class="flex items-center gap-3 text-xs text-gray-300">
-              <Icon name="tabler:database" class="text-blue-400" size={16} />
-              <span>Supabase (Auth, DB, Realtime)</span>
-            </div>
-            <div class="flex items-center gap-3 text-xs text-gray-300">
-              <Icon name="tabler:brand-nextjs" class="text-white" size={16} />
-              <span>Next.js 16 (Turbopack)</span>
-            </div>
+              <Icon name="tabler:brand-nextjs" class="text-white" /> Next.js 16
+            </span>
+            <span
+              class="flex items-center gap-2 rounded-full border border-white/5 bg-white/[0.03] px-4 py-1.5 text-[10px] font-bold text-white/60"
+            >
+              <Icon name="tabler:database" class="text-blue-400" /> Supabase
+            </span>
           </div>
 
-          <div class="pt-2">
+          <div class="pt-4">
             <a
               href="#"
-              class="inline-flex items-center gap-2 border-b border-amber-500/50 pb-1 font-mono text-[10px] font-bold tracking-widest text-amber-500 transition-all hover:border-amber-500 hover:text-amber-400"
+              class="group/link inline-flex items-center gap-3 font-mono text-xs font-bold tracking-widest text-amber-500"
             >
-              SOURCE CODE <Icon name="tabler:arrow-up-right" />
+              <span
+                class="border-b border-amber-500/30 pb-1 transition-all group-hover/link:border-amber-500"
+                >EXPLORE ARCHITECTURE</span
+              >
+              <Icon
+                name="tabler:chevron-right"
+                class="transition-transform group-hover/link:translate-x-1"
+              />
             </a>
           </div>
         </div>
 
-        <div
-          class="reveal reveal-right reveal-scale relative order-1 aspect-video overflow-hidden rounded-xl border border-white/10 bg-[#0A0908] delay-300 lg:order-2 lg:col-span-6 lg:aspect-auto lg:min-h-[400px]"
-        >
+        <div class="reveal reveal-right relative lg:col-span-7">
           <div
-            class="flex h-full w-full items-center justify-center bg-[#050505] p-8"
+            class="relative aspect-[16/10] overflow-hidden rounded-2xl border border-white/10 bg-[#050505] shadow-2xl"
           >
             <div
-              class="rounded border border-white/10 bg-black/40 px-5 py-2.5 font-mono text-xs font-bold tracking-[0.2em] text-white/50 backdrop-blur-sm"
+              class="absolute inset-0 flex items-center justify-center bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.02),transparent)]"
             >
-              SYSTEM_PREVIEW.EXE
+              <div
+                class="rounded-lg border border-white/5 bg-black/40 px-6 py-3 font-mono text-[10px] font-bold tracking-[0.3em] text-white/20 backdrop-blur-xl"
+              >
+                SYSTEM_PREVIEW.PROT
+              </div>
             </div>
           </div>
-        </div>
-      </article>
-
-      <article
-        class="group relative grid grid-cols-1 gap-8 lg:grid-cols-12 lg:gap-16"
-      >
-        <div
-          class="reveal reveal-left relative aspect-video overflow-hidden rounded-xl border border-white/10 bg-[#0A0908] delay-200 lg:col-span-7 lg:aspect-auto lg:min-h-[450px]"
-        >
-          <EmblaCarousel images={luzInteriorImages} />
-        </div>
-
-        <div
-          class="reveal reveal-right flex flex-col justify-center space-y-6 lg:col-span-5"
-        >
-          <div class="flex items-center gap-3 text-purple-400">
-            <Icon name="tabler:bulb" size={22} />
-            <span
-              class="font-mono text-[10px] font-bold tracking-widest uppercase"
-              >Growth Platform</span
-            >
-          </div>
-          <h3 class="font-serif text-3xl text-white md:text-4xl lg:text-5xl">
-            Mi Luz Interior
-          </h3>
-          <p class="text-base leading-relaxed text-gray-400 md:text-lg">
-            An internal tool designed for personal reconstruction and tracking
-            progress.
-          </p>
-          <a
-            href="#"
-            class="inline-flex items-center gap-2 font-mono text-[10px] font-bold tracking-widest text-white transition-all hover:text-purple-400"
+          <div
+            class="absolute -inset-4 -z-10 bg-amber-500/5 opacity-0 blur-3xl transition-opacity duration-700 group-hover:opacity-100"
           >
-            VIEW REPOSITORY <Icon name="tabler:arrow-right" />
-          </a>
+          </div>
         </div>
       </article>
 
-      <article
-        class="group relative grid grid-cols-1 gap-8 lg:grid-cols-12 lg:gap-16"
-      >
-        <div
-          class="reveal reveal-left order-2 flex flex-col justify-center space-y-6 lg:order-1 lg:col-span-5"
-        >
-          <div class="flex items-center gap-3 text-blue-400">
-            <Icon name="tabler:tool" size={22} />
-            <span
-              class="font-mono text-[10px] font-bold tracking-widest uppercase"
-              >Enterprise Solution</span
+      <article class="group relative grid grid-cols-1 gap-12 lg:grid-cols-12">
+        <div class="reveal reveal-left order-2 lg:order-1 lg:col-span-7">
+          <div
+            class="relative overflow-hidden rounded-2xl border border-white/10 bg-[#0A0908] shadow-2xl"
+          >
+            <div
+              class="flex items-center justify-between border-b border-white/5 bg-white/[0.02] px-4 py-3"
             >
-          </div>
-          <h3 class="font-serif text-3xl text-white md:text-4xl lg:text-5xl">
-            Instalaciones García
-          </h3>
-          <p class="text-base leading-relaxed text-gray-400 md:text-lg">
-            Industrial service management system with real-time reporting.
-          </p>
-          <div class="pt-2">
-            <span
-              class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[9px] text-white/40"
-            >
-              PRODUCTION CASE STUDY
-            </span>
+              <div class="flex gap-1.5">
+                <div class="h-2 w-2 rounded-full bg-white/10"></div>
+                <div class="h-2 w-2 rounded-full bg-white/10"></div>
+                <div class="h-2 w-2 rounded-full bg-white/10"></div>
+              </div>
+              <div
+                class="flex-1 text-center font-mono text-[8px] font-bold tracking-[0.2em] text-white/20 uppercase"
+              >
+                LUZ_INTERIOR_v2.0
+              </div>
+            </div>
+            <EmblaCarousel images={luzInteriorImages} />
           </div>
         </div>
 
         <div
-          class="reveal reveal-right relative order-1 aspect-video overflow-hidden rounded-xl border border-white/10 bg-[#0A0908] delay-200 lg:order-2 lg:col-span-7 lg:aspect-auto lg:min-h-[450px]"
+          class="reveal reveal-right order-1 flex flex-col justify-center space-y-8 lg:order-2 lg:col-span-5"
         >
-          <EmblaCarousel images={InstalacionesGarciasImages} />
+          <div class="space-y-4 text-right lg:text-left">
+            <div
+              class="flex items-center justify-end gap-3 text-purple-400/80 lg:justify-start"
+            >
+              <Icon name="tabler:bulb" class="text-xl" />
+              <span
+                class="font-mono text-[10px] font-black tracking-widest uppercase"
+                >Growth Platform</span
+              >
+            </div>
+            <h3 class="font-serif text-4xl text-white md:text-6xl">
+              Mi Luz Interior
+            </h3>
+            <p class="text-lg leading-relaxed text-gray-400">
+              An internal tool designed for <span
+                class="font-serif text-purple-400/50 italic"
+                >personal reconstruction</span
+              > and progress tracking. Engineered for privacy and seamless UX.
+            </p>
+          </div>
+
+          <div class="flex justify-end lg:justify-start">
+            <a
+              href="#"
+              class="inline-flex items-center gap-4 rounded-full border border-white/10 bg-white/5 px-6 py-2 font-mono text-[10px] font-bold tracking-widest text-white transition-all hover:bg-white/10"
+            >
+              VIEW REPOSITORY <Icon name="tabler:brand-github" />
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <article class="group relative grid grid-cols-1 gap-12 lg:grid-cols-12">
+        <div
+          class="reveal reveal-left flex flex-col justify-center space-y-8 lg:col-span-5"
+        >
+          <div class="space-y-4">
+            <div class="flex items-center gap-3 text-blue-400/80">
+              <Icon name="tabler:tool" class="text-xl" />
+              <span
+                class="font-mono text-[10px] font-black tracking-widest uppercase"
+                >Enterprise Solution</span
+              >
+            </div>
+            <h3 class="font-serif text-4xl text-white md:text-6xl">
+              Instalaciones García
+            </h3>
+            <p class="text-lg leading-relaxed text-gray-400">
+              Industrial service management system with <span
+                class="font-bold text-blue-400/50">real-time reporting</span
+              >. Designed to optimize field operations and technical oversight.
+            </p>
+          </div>
+          <div
+            class="inline-flex items-center gap-2 self-start rounded-md border border-blue-500/20 bg-blue-500/10 px-3 py-1 font-mono text-[9px] font-black tracking-tighter text-blue-400"
+          >
+            DEPLOYED IN PRODUCTION
+          </div>
+        </div>
+
+        <div class="reveal reveal-right lg:col-span-7">
+          <div
+            class="relative overflow-hidden rounded-2xl border border-white/10 bg-[#0A0908] shadow-2xl transition-transform duration-500 group-hover:scale-[1.01]"
+          >
+            <EmblaCarousel images={InstalacionesGarciasImages} />
+          </div>
         </div>
       </article>
     </div>

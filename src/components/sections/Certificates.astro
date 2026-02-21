@@ -4,126 +4,199 @@ import { Icon } from "astro-icon/components";
 
 <section
   id="certificates"
-  class="reveal reveal-scale relative overflow-hidden rounded-3xl border border-white/10 bg-[#0A0908] shadow-2xl"
+  class="reveal reveal-scale relative mx-auto mt-12 mb-24 max-w-[1400px] px-4 sm:px-8"
 >
-  <video
-    src="/videos/Amiya-Room-Arknights.mp4"
-    class="absolute inset-0 z-0 h-full w-full object-cover opacity-40 blur-[1px] transition-transform duration-[10s] hover:scale-110"
-    autoplay
-    loop
-    muted
-    playsinline></video>
-
   <div
-    class="absolute inset-0 z-10 bg-gradient-to-r from-[#0A0908] via-[#0A0908]/60 to-transparent"
+    class="relative overflow-hidden rounded-[2.5rem] border border-white/10 bg-[#0A0908] shadow-2xl"
   >
-  </div>
-  <div
-    class="absolute inset-0 z-10 bg-gradient-to-t from-[#0A0908] via-transparent to-transparent"
-  >
-  </div>
+    <video
+      src="/videos/Amiya-Room-Arknights.mp4"
+      class="absolute inset-0 z-0 h-full w-full object-cover opacity-50 blur-[0.5px] transition-transform duration-[10s] hover:scale-105"
+      autoplay
+      loop
+      muted
+      playsinline></video>
 
-  <div
-    class="pointer-events-none absolute inset-0 z-15 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.1)_50%),linear-gradient(90deg,rgba(255,0,0,0.02),rgba(0,255,0,0.01),rgba(0,0,255,0.02))] bg-[length:100%_4px,3px_100%]"
-  >
-  </div>
+    <div
+      class="absolute inset-0 z-10 bg-gradient-to-r from-[#0A0908]/90 via-[#0A0908]/60 to-transparent"
+    >
+    </div>
+    <div
+      class="absolute inset-0 z-10 bg-gradient-to-t from-[#0A0908]/80 via-transparent to-transparent"
+    >
+    </div>
 
-  <div
-    class="relative z-20 flex flex-col gap-12 p-8 md:flex-row md:items-center md:p-16 lg:p-24"
-  >
-    <div class="reveal-scale flex flex-1 flex-col items-center justify-center">
-      <div class="group relative">
-        <div
-          class="absolute -inset-1 rounded-lg bg-gradient-to-r from-blue-500 to-cyan-500 opacity-20 blur transition duration-1000 group-hover:opacity-40 group-hover:duration-200"
-        >
-        </div>
-
-        <div
-          class="relative overflow-hidden rounded-lg border border-white/20 shadow-2xl"
-        >
-          <img
-            src="/images/FullStackCertificate.webp"
-            alt="Certificate Full Stack"
-            class="w-full max-w-[320px] transition-all duration-700 group-hover:scale-110"
-          />
+    <div
+      class="relative z-20 flex flex-col gap-16 p-8 md:p-16 lg:flex-row lg:items-center lg:px-20 lg:py-24"
+    >
+      <div
+        class="reveal-scale flex flex-1 flex-col items-center justify-center"
+      >
+        <div class="group relative">
           <div
-            class="absolute inset-0 translate-x-[-100%] bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform duration-1000 group-hover:translate-x-[100%]"
+            class="absolute -inset-4 rounded-[2rem] bg-blue-600/15 opacity-0 blur-2xl transition-opacity duration-700 group-hover:opacity-100"
           >
+          </div>
+
+          <div
+            class="relative overflow-hidden rounded-2xl border border-white/20 bg-black/60 p-2 shadow-2xl transition-all duration-700 group-hover:border-blue-500/50"
+          >
+            <div class="mb-2 flex items-center justify-between px-3 pt-1">
+              <div class="flex gap-1.5">
+                <div class="h-1.5 w-1.5 rounded-full bg-red-500/50"></div>
+                <div class="h-1.5 w-1.5 rounded-full bg-amber-500/50"></div>
+                <div class="h-1.5 w-1.5 rounded-full bg-emerald-500/50"></div>
+              </div>
+              <span
+                class="font-mono text-[8px] font-bold tracking-[0.2em] text-white/40 uppercase"
+                >Credential_Viewer</span
+              >
+            </div>
+
+            <div class="relative overflow-hidden rounded-lg">
+              <img
+                src="/images/FullStackCertificate.webp"
+                alt="Full Stack Certificate"
+                class="w-full max-w-[380px] transition-all duration-1000 group-hover:scale-110"
+              />
+              <div
+                class="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.1)_50%)] bg-[length:100%_4px] opacity-20"
+              >
+              </div>
+              <div
+                class="absolute inset-0 translate-x-[-150%] bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform duration-1000 group-hover:translate-x-[150%]"
+              >
+              </div>
+            </div>
+
+            <div
+              class="mt-2 flex justify-between px-2 font-mono text-[7px] tracking-widest text-white/40 uppercase"
+            >
+              <span>Auth: 128-bit_verified</span>
+              <span>Scale: 1.0f</span>
+            </div>
+          </div>
+
+          <div
+            class="absolute -right-6 -bottom-6 flex items-center gap-3 rounded-2xl border border-blue-500/30 bg-black/90 px-5 py-3 shadow-2xl backdrop-blur-2xl transition-transform duration-500 group-hover:-translate-y-2 group-hover:scale-110"
+          >
+            <div
+              class="relative flex h-10 w-10 items-center justify-center rounded-full bg-blue-500/10"
+            >
+              <Icon
+                name="tabler:award-filled"
+                class="text-blue-400"
+                size={24}
+              />
+              <div
+                class="animate-spin-slow absolute inset-0 rounded-full border border-dashed border-blue-400/30"
+              >
+              </div>
+            </div>
+            <div class="flex flex-col">
+              <span
+                class="font-mono text-[9px] leading-none font-black tracking-tighter text-blue-400 uppercase"
+                >Honors Distinction</span
+              >
+              <span
+                class="mt-1 font-mono text-[11px] font-bold text-white uppercase"
+                >Best Project</span
+              >
+            </div>
           </div>
         </div>
 
-        <div
-          class="absolute -right-4 -bottom-4 flex items-center gap-2 rounded-full border border-blue-500/50 bg-[#0A0908] px-4 py-2 shadow-xl backdrop-blur-xl"
-        >
-          <Icon
-            name="tabler:award"
-            class="animate-pulse text-blue-400"
-            size={18}
-          />
-          <span class="font-mono text-[10px] font-bold text-white uppercase"
-            >Best Project Award</span
+        <div class="mt-16 flex items-center gap-6 opacity-60">
+          <div
+            class="h-[1px] w-12 bg-gradient-to-r from-transparent to-blue-500/50"
           >
+          </div>
+          <p
+            class="font-mono text-[10px] tracking-[0.5em] text-blue-400 uppercase"
+          >
+            FS-2023-CERT-01
+          </p>
+          <div
+            class="h-[1px] w-12 bg-gradient-to-l from-transparent to-blue-500/50"
+          >
+          </div>
         </div>
       </div>
 
-      <p
-        class="mt-10 font-mono text-[10px] tracking-[0.4em] text-blue-400/60 uppercase"
-      >
-        ID: #FS-2023-CERT-01
-      </p>
-    </div>
+      <div class="flex-[1.2] space-y-12">
+        <header class="reveal reveal-right space-y-6">
+          <div class="flex items-center gap-3">
+            <div class="relative flex h-3 w-3">
+              <span
+                class="absolute inline-flex h-full w-full animate-ping rounded-full bg-blue-400 opacity-75"
+              ></span>
+              <span
+                class="relative inline-flex h-3 w-3 rounded-full bg-blue-500 shadow-[0_0_10px_rgba(59,130,246,0.8)]"
+              ></span>
+            </div>
+            <h2
+              class="font-mono text-[11px] font-black tracking-[0.5em] text-blue-400 uppercase"
+            >
+              Certified Credentials
+            </h2>
+          </div>
 
-    <div class="flex-[1.5] space-y-8 text-white">
-      <header class="reveal reveal-right space-y-4 delay-200">
-        <div class="flex items-center gap-2">
-          <span class="h-1 w-1 animate-ping rounded-full bg-blue-400"></span>
-          <h2
-            class="font-mono text-xs font-bold tracking-[0.3em] text-blue-400 uppercase"
+          <h3
+            class="font-serif text-5xl leading-[1.1] font-bold text-white md:text-7xl"
           >
-            Certified Credentials
-          </h2>
-        </div>
+            Full Stack <br />
+            <span class="font-light text-white/40 italic">Specialist</span>
+          </h3>
 
-        <h3 class="font-serif text-4xl font-bold tracking-tight md:text-5xl">
-          Full Stack <span class="font-light text-white/50 italic"
-            >Developer</span
+          <p
+            class="max-w-xl text-lg leading-relaxed font-light text-slate-300 md:text-xl"
           >
-        </h3>
+            Egresado con honores de un programa de alto rendimiento.
+            Especializado en <span class="font-medium text-white"
+              >arquitecturas modernas</span
+            >, optimización de motores de JS y despliegues industriales.
+          </p>
+        </header>
 
-        <p class="max-w-xl text-lg leading-relaxed text-slate-400">
-          Culminé un programa intensivo de un año con honores. El enfoque fue la
-          construcción de <span class="font-medium text-white"
-            >arquitecturas escalables</span
-          > y la resolución de problemas de negocio mediante software de alta fidelidad.
-        </p>
-      </header>
-
-      <ul
-        class="reveal reveal-right grid grid-cols-1 gap-3 delay-400 sm:grid-cols-2 lg:max-w-2xl"
-      >
-        {
-          [
-            { name: "Computer Science", icon: "tabler:cpu" },
-            { name: "Core Layouts", icon: "tabler:brand-html5" },
-            { name: "JavaScript Engine", icon: "tabler:brand-javascript" },
-            { name: "Server Logic", icon: "tabler:database" },
-            { name: "UI Frameworks", icon: "tabler:brand-react" },
-            { name: "Deployment Flow", icon: "tabler:brand-github" },
-          ].map((item) => (
-            <li class="group flex items-center gap-3 rounded-xl border border-white/5 bg-white/[0.03] p-4 backdrop-blur-md transition-all duration-300 hover:border-blue-500/30 hover:bg-blue-500/5">
-              <div class="flex h-8 w-8 items-center justify-center rounded-lg bg-white/5 transition-colors group-hover:bg-blue-500/20">
-                <Icon
-                  name={item.icon}
-                  class="text-xl text-blue-400/70 group-hover:text-blue-400"
-                />
-              </div>
-              <span class="font-mono text-[11px] tracking-wider text-slate-300 transition-colors group-hover:text-white">
-                {item.name}
-              </span>
-            </li>
-          ))
-        }
-      </ul>
+        <ul class="reveal reveal-right grid grid-cols-1 gap-4 sm:grid-cols-2">
+          {
+            [
+              { name: "Computer Science", icon: "tabler:cpu" },
+              { name: "Architecture", icon: "tabler:building-bridge" },
+              { name: "JS Core Engine", icon: "tabler:brand-javascript" },
+              { name: "Data Systems", icon: "tabler:database" },
+              { name: "React Ecosystem", icon: "tabler:brand-react" },
+              { name: "DevOps / CI-CD", icon: "tabler:git-branch" },
+            ].map((item) => (
+              <li class="group flex items-center gap-4 rounded-2xl border border-white/10 bg-white/[0.03] p-4 backdrop-blur-md transition-all duration-300 hover:border-blue-500/40 hover:bg-blue-500/[0.08]">
+                <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-white/5 transition-all duration-500 group-hover:rotate-[360deg] group-hover:bg-blue-500/20">
+                  <Icon
+                    name={item.icon}
+                    class="text-2xl text-blue-400/70 group-hover:text-blue-400"
+                  />
+                </div>
+                <span class="font-mono text-[11px] font-bold tracking-widest text-slate-200 uppercase transition-colors group-hover:text-white">
+                  {item.name}
+                </span>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
     </div>
   </div>
 </section>
+
+<style>
+  @keyframes spin-slow {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  .animate-spin-slow {
+    animation: spin-slow 8s linear infinite;
+  }
+</style>

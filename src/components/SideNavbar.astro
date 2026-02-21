@@ -2,93 +2,87 @@
 import { Icon } from "astro-icon/components";
 
 const sections = [
-  { label: "Home", href: "#hero", icon: "tabler:home" },
-  { label: "About", href: "#about-me", icon: "tabler:user" },
-  { label: "Projects", href: "#projects", icon: "tabler:folder" },
-  { label: "Experience", href: "#experience", icon: "tabler:briefcase" },
-  { label: "Stack", href: "#tech-stack", icon: "tabler:cpu" },
-  { label: "Contact", href: "#contact", icon: "tabler:mail" },
+  { label: "START_UP", href: "#hero", icon: "tabler:home" },
+  { label: "PROFILE", href: "#about-me", icon: "tabler:user-code" },
+  { label: "STACK", href: "#tech-stack", icon: "tabler:cpu" },
+  { label: "PROJECTS", href: "#projects", icon: "tabler:stack-2" },
+  { label: "EXP", href: "#experience", icon: "tabler:briefcase" },
+  { label: "CERTS", href: "#certificates", icon: "tabler:certificate" },
+  { label: "LAB", href: "#laboratory", icon: "tabler:flask" },
+  { label: "ENGINEERING", href: "#engineering", icon: "tabler:brand-github" },
 ];
 ---
 
-<div class="flex flex-row items-center gap-4 md:flex-col">
+<div
+  class="fixed bottom-6 left-1/2 z-[100] flex -translate-x-1/2 flex-row items-center gap-2 lg:top-1/2 lg:bottom-auto lg:left-6 lg:translate-x-0 lg:-translate-y-1/2 lg:flex-col lg:gap-3"
+>
   <nav
-    class="flex flex-row items-center gap-2 rounded-2xl border border-white/5 bg-[#0A0908]/60 p-2 shadow-2xl shadow-black/50 backdrop-blur-xl md:flex-col md:gap-3 md:bg-[#0A0908]/40"
+    class="flex items-center gap-1 rounded-full border border-white/10 bg-[#0A0908]/70 px-2 py-1.5 shadow-2xl backdrop-blur-xl lg:flex-col lg:rounded-2xl lg:p-1.5"
   >
     {
       sections.map((section) => (
         <a
           href={section.href}
           data-section={section.href.replace("#", "")}
-          class="nav-link group relative flex h-11 w-11 items-center justify-center rounded-xl text-gray-500 transition-all duration-300 hover:bg-white/10 hover:text-white active:scale-90 md:h-10 md:w-10"
+          class="nav-link group relative flex h-9 w-9 items-center justify-center rounded-full text-gray-500 transition-all duration-300 hover:text-amber-500 active:scale-75 lg:h-9 lg:w-9 lg:rounded-xl"
           aria-label={section.label}
         >
           <Icon
             name={section.icon}
-            size={22}
-            class="transition-transform duration-300 group-hover:scale-110"
+            size={17}
+            class="relative z-10 transition-transform duration-300 group-hover:scale-110"
           />
 
-          <div class="pointer-events-none absolute left-14 z-50 hidden rounded-lg border border-white/10 bg-[#0A0908] px-3 py-1.5 opacity-0 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.5)] transition-all duration-300 group-hover:left-12 group-hover:opacity-100 md:block">
-            <span class="font-mono text-[10px] font-bold tracking-widest whitespace-nowrap text-gray-200 uppercase">
+          <div class="pointer-events-none absolute left-14 z-50 hidden rounded-md border border-white/10 bg-[#0A0908] px-2 py-1 opacity-0 shadow-xl transition-all duration-300 group-hover:left-12 group-hover:opacity-100 lg:block">
+            <span class="font-mono text-[7px] font-bold tracking-[0.2em] whitespace-nowrap text-amber-500 uppercase">
               {section.label}
             </span>
-            <div class="absolute top-1/2 -left-1 h-2 w-2 -translate-y-1/2 rotate-45 border-b border-l border-white/10 bg-[#0A0908]" />
           </div>
 
-          <div class="active-indicator absolute -bottom-1 left-1/2 h-1 w-0 -translate-x-1/2 rounded-full bg-amber-500 opacity-0 shadow-[0_0_10px_rgba(245,158,11,0.5)] transition-all duration-500 md:bottom-auto md:left-[-6px] md:h-0 md:w-1 md:translate-x-0" />
+          <div class="active-indicator absolute -bottom-1 left-1/2 h-1 w-1 -translate-x-1/2 scale-0 rounded-full bg-amber-500 shadow-[0_0_10px_rgba(245,158,11,0.8)] transition-all duration-300 lg:bottom-auto lg:-left-2 lg:h-4 lg:w-0.5 lg:translate-x-0" />
         </a>
       ))
     }
   </nav>
 
-  <div class="hidden h-px w-6 bg-white/10 md:block"></div>
-
-  <div
-    class="hidden rounded-2xl border border-white/5 bg-[#0A0908]/40 p-2 backdrop-blur-md md:block"
-  >
+  <div class="hidden sm:block lg:w-full">
+    <div
+      class="mx-auto mb-2 hidden h-6 w-px bg-gradient-to-b from-white/10 to-transparent lg:block"
+    >
+    </div>
     <a
       href="https://github.com/GaboInsane6489"
       target="_blank"
-      class="group relative flex h-10 w-10 items-center justify-center rounded-xl text-gray-500 transition-all hover:bg-white/10 hover:text-white active:scale-90"
-      aria-label="View Source"
+      class="group relative flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-[#0A0908]/70 text-gray-500 transition-all hover:text-amber-500 lg:mx-auto lg:rounded-xl"
     >
-      <Icon name="tabler:code" size={20} />
-      <div
-        class="pointer-events-none absolute left-14 z-50 rounded-lg border border-white/10 bg-[#0A0908] px-3 py-1.5 opacity-0 transition-all duration-300 group-hover:left-12 group-hover:opacity-100"
-      >
-        <span
-          class="font-mono text-[10px] font-bold tracking-widest whitespace-nowrap text-gray-200 uppercase"
-          >Source</span
-        >
-        <div
-          class="absolute top-1/2 -left-1 h-2 w-2 -translate-y-1/2 rotate-45 border-b border-l border-white/10 bg-[#0A0908]"
-        >
-        </div>
-      </div>
+      <Icon name="tabler:brand-github" size={17} />
     </a>
   </div>
 </div>
 
 <style>
+  /* Estado Activo */
   .nav-link.is-active {
     color: #f59e0b !important;
     background-color: rgba(245, 158, 11, 0.1);
   }
 
-  /* Animación del indicador en móvil (Horizontal) */
   .nav-link.is-active .active-indicator {
-    width: 1.25rem;
+    scale: 1;
     opacity: 1;
   }
 
-  /* Animación del indicador en Desktop (Vertical) */
-  @media (min-width: 768px) {
+  /* Ajuste específico para Desktop en el indicador */
+  @media (min-width: 1024px) {
     .nav-link.is-active .active-indicator {
-      width: 0.25rem;
-      height: 1.5rem;
-      opacity: 1;
+      width: 2px;
+      height: 16px;
     }
+  }
+
+  /* Animación de entrada suave */
+  .nav-link {
+    -webkit-tap-highlight-color: transparent;
   }
 </style>
 
