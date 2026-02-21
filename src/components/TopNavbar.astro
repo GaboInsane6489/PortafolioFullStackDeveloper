@@ -11,7 +11,7 @@ const links = [
 
 <div
   id="mobileMenu"
-  class="will-change-opacity pointer-events-none fixed inset-0 z-[150] flex flex-col items-center justify-center gap-8 bg-[#080706] opacity-0 transition-opacity duration-200 lg:hidden"
+  class="will-change-opacity pointer-events-none fixed inset-0 z-[150] flex flex-col items-center justify-center gap-8 bg-[#050505]/80 opacity-0 backdrop-blur-xl transition-all duration-500 ease-in-out lg:hidden"
 >
   <div
     class="absolute inset-0 bg-[linear-gradient(to_right,#808080_1px,transparent_1px),linear-gradient(to_bottom,#808080_1px,transparent_1px)] bg-[size:40px_40px] opacity-[0.03]"
@@ -22,8 +22,8 @@ const links = [
     links.map((link, index) => (
       <a
         href={link.href}
-        style={`transition-delay: ${index * 30}ms`}
-        class="mobile-link flex translate-y-4 items-center gap-4 font-sans text-3xl font-black tracking-widest text-white/70 uppercase transition-all duration-200 hover:text-amber-500 active:scale-95"
+        style={`transition-delay: ${index * 50}ms`}
+        class="mobile-link flex translate-y-8 items-center gap-4 font-sans text-3xl font-black tracking-widest text-white/70 uppercase transition-all duration-500 hover:scale-105 hover:text-amber-500 active:scale-95"
       >
         <span class="font-mono text-sm font-normal text-amber-500/50">
           0{index + 1}.
@@ -34,13 +34,13 @@ const links = [
   }
 
   <div
-    class="mt-8 flex translate-y-4 gap-10 opacity-0 transition-all delay-150 duration-300"
+    class="mt-12 flex translate-y-8 gap-10 opacity-0 transition-all delay-300 duration-700"
     id="mobileSocials"
   >
     <a
       href="https://github.com/GaboInsane6489"
       target="_blank"
-      class="text-white/40 hover:text-amber-400"
+      class="text-white/40 transition-colors hover:text-amber-400"
     >
       <Icon name="tabler:brand-github" size={32} />
     </a>
@@ -49,18 +49,18 @@ const links = [
 
 <nav
   id="topNav"
-  class="fixed top-0 left-0 z-[200] w-full border-b border-white/0 bg-transparent transition-all duration-300"
+  class="fixed top-0 left-0 z-[200] w-full border-b border-white/0 bg-transparent transition-all duration-500 ease-out"
 >
   <div
-    class="mx-auto flex max-w-[1440px] items-center justify-between px-6 py-5 lg:px-10"
+    class="mx-auto flex max-w-[1440px] items-center justify-between px-6 py-5 transition-all duration-500 lg:px-10"
     id="navContainer"
   >
     <a
       href="/"
-      class="group relative z-[210] flex items-center gap-3 active:scale-95"
+      class="group relative z-[210] flex items-center gap-3 transition-transform active:scale-95"
     >
       <div
-        class="relative h-10 w-10 overflow-hidden rounded-lg border border-white/10 bg-white/5 p-[2px]"
+        class="relative h-10 w-10 overflow-hidden rounded-lg border border-white/10 bg-white/5 p-[2px] transition-all group-hover:border-amber-500/50"
       >
         <img
           src="/images/LogoPortafolio.webp"
@@ -87,33 +87,64 @@ const links = [
               href={link.href}
               class="nav-link group relative px-4 py-2 font-mono text-[10px] tracking-[0.2em] text-gray-400 transition-all duration-300 hover:text-white"
             >
-              <span class="uppercase">{link.label}</span>
+              <div class="relative flex items-center">
+                <span class="absolute -left-2 flex items-center justify-center transition-all duration-300 group-hover:-left-3">
+                  <span class="h-[3px] w-[3px] animate-pulse rounded-full bg-amber-500/40 transition-all duration-300 group-hover:h-0 group-hover:w-0 group-hover:opacity-0" />
+                  <span class="scale-0 font-bold text-amber-500 opacity-0 transition-all duration-300 group-hover:scale-110 group-hover:opacity-100">
+                    {" "}
+                    //{" "}
+                  </span>
+                </span>
+                <span class="uppercase transition-transform duration-300 group-hover:translate-x-3">
+                  {link.label}
+                </span>
+              </div>
             </a>
           ))
         }
       </div>
-      <a
-        href="#contact"
-        class="rounded-full border border-amber-500/20 bg-amber-500/5 px-6 py-2.5 font-mono text-[9px] font-black text-amber-500 uppercase transition-all hover:bg-amber-500 hover:text-black"
-      >
-        Terminal_Connect
-      </a>
+
+      <div class="flex items-center gap-6">
+        <a
+          href="https://github.com/GaboInsane6489"
+          target="_blank"
+          class="group relative flex items-center gap-2 text-white/40 transition-all hover:text-white"
+        >
+          <Icon
+            name="tabler:brand-github"
+            size={20}
+            class="transition-transform group-hover:rotate-12"
+          />
+          <span
+            class="absolute -bottom-1 left-1/2 h-[1px] w-0 -translate-x-1/2 bg-amber-500 transition-all group-hover:w-full"
+          ></span>
+          <span
+            class="translate-y-1 font-mono text-[8px] opacity-0 transition-all group-hover:translate-y-0 group-hover:opacity-100"
+            >SOURCE</span
+          >
+        </a>
+
+        <a
+          href="#contact"
+          class="relative overflow-hidden rounded-full border border-amber-500/20 bg-amber-500/5 px-6 py-2.5 font-mono text-[9px] font-black tracking-widest text-amber-500 uppercase transition-all hover:bg-amber-500 hover:text-black hover:shadow-[0_0_25px_rgba(245,158,11,0.4)]"
+        >
+          Terminal_Connect
+        </a>
+      </div>
     </div>
 
     <button
       id="menuBtn"
-      class="group relative z-[210] flex h-11 w-11 items-center justify-center rounded-lg border border-white/10 bg-white/5 transition-all active:scale-90 lg:hidden"
+      class="group relative z-[210] flex h-11 w-11 items-center justify-center rounded-lg border border-white/10 bg-white/5 backdrop-blur-md transition-all active:scale-95 lg:hidden"
     >
-      <div
-        class="relative flex h-[10px] w-[20px] flex-col justify-between overflow-visible"
-      >
+      <div class="flex h-[12px] w-[22px] flex-col justify-between">
         <span
           id="line1"
-          class="h-[2px] w-full rounded-full bg-white transition-transform duration-200"
+          class="h-[2px] w-full rounded-full bg-white transition-all duration-300"
         ></span>
         <span
           id="line2"
-          class="h-[2px] w-full rounded-full bg-white transition-transform duration-200"
+          class="h-[2px] w-[14px] self-end rounded-full bg-white transition-all duration-300 group-hover:w-full"
         ></span>
       </div>
     </button>
@@ -121,19 +152,25 @@ const links = [
 </nav>
 
 <style>
-  /* El blur solo se queda en el nav superior al hacer scroll para no romper el rendimiento del menú */
   .nav-scrolled {
-    background-color: rgba(8, 7, 6, 0.9) !important;
-    backdrop-filter: blur(8px);
+    background-color: rgba(8, 7, 6, 0.7) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
     border-bottom-color: rgba(255, 255, 255, 0.05) !important;
   }
 
+  .nav-scrolled #navContainer {
+    padding-top: 0.8rem !important;
+    padding-bottom: 0.8rem !important;
+  }
+
   .menu-active #line1 {
-    transform: translateY(4px) rotate(45deg);
+    transform: translateY(5px) rotate(45deg);
     background-color: #f59e0b;
   }
   .menu-active #line2 {
-    transform: translateY(-4px) rotate(-45deg);
+    width: 100%;
+    transform: translateY(-5px) rotate(-45deg);
     background-color: #f59e0b;
   }
 
@@ -141,7 +178,6 @@ const links = [
     opacity: 1 !important;
     pointer-events: auto !important;
   }
-
   #mobileMenu.is-visible .mobile-link,
   #mobileMenu.is-visible #mobileSocials {
     transform: translateY(0);
@@ -157,6 +193,7 @@ const links = [
 
     let scrollTimeout: any;
 
+    // Lógica de scroll optimizada de la versión 2
     window.addEventListener(
       "scroll",
       () => {
@@ -184,9 +221,12 @@ const links = [
       toggleMenu();
     });
 
-    document.querySelectorAll(".mobile-link").forEach((link) => {
+    // Cerrar menú al clickear links
+    document.querySelectorAll(".mobile-link, .nav-link").forEach((link) => {
       link.addEventListener("click", () => {
-        if (menu?.classList.contains("is-visible")) toggleMenu();
+        if (menu?.classList.contains("is-visible")) {
+          toggleMenu();
+        }
       });
     });
   };
