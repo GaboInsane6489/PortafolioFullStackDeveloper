@@ -4,6 +4,7 @@ import SideNavbar from "../components/SideNavbar.astro";
 import Footer from "../components/Footer.astro";
 import "../styles/index.css";
 import "flowbite";
+import Analytics from "@vercel/analytics/astro";
 ---
 
 <!doctype html>
@@ -134,5 +135,6 @@ import "flowbite";
         transition-delay: 200ms;
       }
     </style>
+    <Analytics />
   </body>
 </html>
