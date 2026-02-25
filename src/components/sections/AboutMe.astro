@@ -19,7 +19,7 @@ import { Icon } from "astro-icon/components";
             <div class="h-px w-8 bg-amber-300/60"></div>
             <span
               class="text-[9px] font-bold tracking-[0.4em] text-amber-300/80 uppercase"
-              >Professional Summary</span
+              >Professional Profile</span
             >
           </div>
 
@@ -40,14 +40,26 @@ import { Icon } from "astro-icon/components";
           <p>
             I am a <span class="font-medium text-white"
               >Full Stack Developer</span
-            > focused on building modern, maintainable, and performance-oriented web
-            applications.
+            > and Computer Engineering student at UCAB, bridging the gap between <span
+              class="text-white/80">academic rigor</span
+            > and high-performance web technologies.
           </p>
           <p>
-            Through my work on projects like <span
-              class="font-medium text-amber-200/90 underline decoration-amber-500/20 underline-offset-4"
-              >Instalaciones García</span
-            >, I've mastered the art of shipping features in production.
+            Currently, I engineer features for <span
+              class="text-amber-200/90 italic">Harry Potter Head</span
+            >, managing systems for over <span class="font-medium text-white"
+              >20,000 daily active users</span
+            >. This environment has sharpened my ability to handle complex
+            tickets—from real-time notification engines to critical database
+            migrations—within a strict <span class="text-white/80"
+              >Git-flow and PR-review</span
+            > ecosystem.
+          </p>
+          <p>
+            I don't just write code; I follow professional standards to ensure
+            every deployment is <span class="text-amber-200/70"
+              >controlled, documented, and scalable</span
+            >.
           </p>
         </div>
       </div>
@@ -58,9 +70,9 @@ import { Icon } from "astro-icon/components";
         >
           {
             [
-              { label: "Location", value: "Caracas, Venezuela" },
-              { label: "Philosophy", value: "Scalable Systems" },
-              { label: "Availability", value: "Remote / Global" },
+              { label: "Core Stack", value: "Next.js / Astro / Supabase" },
+              { label: "Methodology", value: "Ticket-based / PR-driven" },
+              { label: "Expertise", value: "AI-Assisted Optimization" },
             ].map((item) => (
               <div class="group cursor-default">
                 <p class="text-[8px] font-black tracking-widest text-amber-600/60 uppercase">
@@ -77,10 +89,12 @@ import { Icon } from "astro-icon/components";
         <div class="flex flex-wrap gap-2">
           {
             [
-              "Code Reviews",
-              "PR Strategies",
-              "CI/CD",
-              "Clean Architecture",
+              "PostgreSQL",
+              "Event-Driven",
+              "CI/CD Pipelines",
+              "REST APIs",
+              "Node.js",
+              "MVC",
             ].map((tag, index) => (
               <span
                 class="reveal rounded-md border border-white/5 bg-white/[0.03] px-2.5 py-1 text-[8px] font-bold tracking-widest text-amber-200/40 uppercase backdrop-blur-sm transition-colors hover:border-amber-500/30 hover:text-amber-200/80"
@@ -115,13 +129,13 @@ import { Icon } from "astro-icon/components";
                   class="text-[#8caaee]"
                 />
                 <span class="font-mono text-[10px] text-[#c6d0f5]"
-                  >AboutMe.tsx</span
+                  >TechnicalExpertise.ts</span
                 >
               </div>
             </div>
             <span
               class="hidden font-mono text-[9px] tracking-widest text-white/10 uppercase md:block"
-              >Workspace — Gabriel G.</span
+              >Production Environment — Global</span
             >
           </div>
 
