@@ -8,12 +8,9 @@ export function initEmbla(): void {
     const viewport = wrapper.querySelector<HTMLElement>(".embla");
     if (!viewport) return;
 
-    const progressBar =
-      wrapper.querySelector<HTMLElement>(".embla-progress");
-    const prevBtn =
-      wrapper.querySelector<HTMLButtonElement>(".embla-prev");
-    const nextBtn =
-      wrapper.querySelector<HTMLButtonElement>(".embla-next");
+    const progressBar = wrapper.querySelector<HTMLElement>(".embla-progress");
+    const prevBtn = wrapper.querySelector<HTMLButtonElement>(".embla-prev");
+    const nextBtn = wrapper.querySelector<HTMLButtonElement>(".embla-next");
 
     const autoplayEnabled = wrapper.dataset.autoplay === "true";
     const interval = Number(wrapper.dataset.interval) || 4000;
@@ -117,8 +114,45 @@ export function initEmbla(): void {
     embla.on("select", resetProgress);
 
     /* =========================
+       TWEEN PHYSICS (Scale & Opacity)
+    ========================== */
+    const TWEEN_FACTOR = 0.8; // <-- LÍNEA QUE CONTROLA LA "FRICCIÓN" (Tensión del efecto al arrastrar)
+
+    const applyTween = (): void => {
+      const scrollProgress = embla.scrollProgress();
+      const snapList = embla.scrollSnapList();
+      const totalSlides = embla.slideNodes().length;
+
+      embla.slideNodes().forEach((slideNode, index) => {
+        // Obtenemos la distancia del slide actual respecto al centro de visión
+        let diffToTarget = scrollProgress - snapList[index];
+
+        // Compensación matemática para el Loop (Inercia infinita)
+        if (diffToTarget > 0.5) diffToTarget -= 1;
+        if (diffToTarget < -0.5) diffToTarget += 1;
+
+        // Calculamos el valor de interpolación en base a la distancia y fricción
+        const tweenValue =
+          1 - Math.abs(diffToTarget * TWEEN_FACTOR * totalSlides);
+
+        // Escala entre 0.85 y 1.0, Opacidad entre 0.4 y 1.0
+        const scale = Math.max(0.85, Math.min(tweenValue, 1));
+        const opacity = Math.max(0.4, Math.min(tweenValue, 1));
+
+        slideNode.style.transform = `scale(${scale})`;
+        slideNode.style.opacity = `${opacity}`;
+        slideNode.style.transformOrigin = "center center";
+      });
+    };
+
+    embla.on("scroll", applyTween);
+    embla.on("reInit", applyTween);
+
+    /* =========================
        INIT
     ========================== */
+
+    applyTween();
 
     if (autoplayEnabled) {
       startAutoplay();
