@@ -59,18 +59,32 @@ import SpeedInsights from "@vercel/speed-insights/astro";
 
     <TopNavbar />
 
+    <!-- Layout adjustments for Sidebar vs Footer collision -->
     <div class="relative z-10 flex min-h-screen flex-col">
-      <main class="mx-auto w-full max-w-[1600px] flex-1 px-4 pb-24 md:pb-0 md:px-24">
-        <slot />
-      </main>
+      <div class="mx-auto flex w-full max-w-[1600px] flex-1">
+        <!-- Sidebar Desktop -->
+        <aside class="hidden w-24 flex-shrink-0 md:block">
+          <div
+            class="sticky top-0 flex h-screen w-full items-center justify-center"
+          >
+            <SideNavbar />
+          </div>
+        </aside>
+
+        <!-- Main -->
+        <main class="flex-1 px-4 pb-24 md:pr-24 md:pb-0">
+          <slot />
+        </main>
+      </div>
 
       <div class="pb-24 md:pb-0">
         <Footer />
       </div>
     </div>
 
+    <!-- Sidebar Mobile -->
     <div
-      class="fixed right-0 bottom-4 left-0 z-40 mx-auto flex w-full max-w-[95%] justify-center md:top-0 md:right-auto md:bottom-0 md:left-6 md:w-auto md:max-w-none md:items-center"
+      class="fixed right-0 bottom-4 left-0 z-40 mx-auto flex w-full max-w-[95%] justify-center md:hidden"
     >
       <SideNavbar />
     </div>
