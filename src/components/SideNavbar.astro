@@ -17,14 +17,14 @@ const sections = [
   class="relative z-[100] flex flex-row items-center gap-2 md:flex-col md:gap-3"
 >
   <nav
-    class="flex items-center gap-1 rounded-full border border-white/10 bg-[#0A0908]/70 px-2 py-1.5 shadow-2xl backdrop-blur-xl lg:flex-col lg:rounded-2xl lg:p-1.5"
+    class="flex max-w-full items-center gap-1 overflow-x-auto overflow-y-hidden rounded-full border border-white/10 bg-[#0A0908]/90 px-2 py-1.5 shadow-2xl backdrop-blur-xl md:flex-col md:overflow-visible md:rounded-2xl md:bg-[#0A0908]/70 md:p-1.5 [&::-webkit-scrollbar]:hidden"
   >
     {
       sections.map((section) => (
         <a
           href={section.href}
           data-section={section.href.replace("#", "")}
-          class="nav-link group relative flex h-9 w-9 items-center justify-center rounded-full text-gray-500 transition-all duration-300 hover:text-amber-500 active:scale-75 lg:h-9 lg:w-9 lg:rounded-xl"
+          class="nav-link group relative flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full text-gray-500 transition-all duration-300 hover:text-amber-500 active:scale-75 md:h-9 md:w-9 md:rounded-xl"
           aria-label={section.label}
         >
           <Icon
@@ -33,27 +33,27 @@ const sections = [
             class="relative z-10 transition-transform duration-300 group-hover:scale-110"
           />
 
-          <div class="pointer-events-none absolute left-14 z-50 hidden rounded-md border border-white/10 bg-[#0A0908] px-2 py-1 opacity-0 shadow-xl transition-all duration-300 group-hover:left-12 group-hover:opacity-100 lg:block">
+          <div class="pointer-events-none absolute left-14 z-50 hidden rounded-md border border-white/10 bg-[#0A0908] px-2 py-1 opacity-0 shadow-xl transition-all duration-300 group-hover:left-12 group-hover:opacity-100 md:block">
             <span class="font-mono text-[7px] font-bold tracking-[0.2em] whitespace-nowrap text-amber-500 uppercase">
               {section.label}
             </span>
           </div>
 
-          <div class="active-indicator absolute -bottom-1 left-1/2 h-1 w-1 -translate-x-1/2 scale-0 rounded-full bg-amber-500 shadow-[0_0_10px_rgba(245,158,11,0.8)] transition-all duration-300 lg:bottom-auto lg:-left-2 lg:h-4 lg:w-0.5 lg:translate-x-0" />
+          <div class="active-indicator absolute -bottom-1 left-1/2 h-1 w-1 -translate-x-1/2 scale-0 rounded-full bg-amber-500 shadow-[0_0_10px_rgba(245,158,11,0.8)] transition-all duration-300 md:bottom-auto md:-left-2 md:h-4 md:w-0.5 md:translate-x-0" />
         </a>
       ))
     }
   </nav>
 
-  <div class="hidden sm:block lg:w-full">
+  <div class="hidden sm:block md:w-full">
     <div
-      class="mx-auto mb-2 hidden h-6 w-px bg-gradient-to-b from-white/10 to-transparent lg:block"
+      class="mx-auto mb-2 hidden h-6 w-px bg-gradient-to-b from-white/10 to-transparent md:block"
     >
     </div>
     <a
       href="https://github.com/GaboInsane6489"
       target="_blank"
-      class="group relative flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-[#0A0908]/70 text-gray-500 transition-all hover:text-amber-500 lg:mx-auto lg:rounded-xl"
+      class="group relative flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-[#0A0908]/70 text-gray-500 transition-all hover:text-amber-500 md:mx-auto md:rounded-xl"
     >
       <Icon name="tabler:brand-github" size={17} />
     </a>
@@ -73,7 +73,7 @@ const sections = [
   }
 
   /* Ajuste específico para Desktop en el indicador */
-  @media (min-width: 1024px) {
+  @media (min-width: 768px) {
     .nav-link.is-active .active-indicator {
       width: 2px;
       height: 16px;
