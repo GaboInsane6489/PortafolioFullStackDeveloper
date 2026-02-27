@@ -65,7 +65,7 @@ const { images, autoplay = true, interval = 5000 } = Astro.props as Props;
                 <img
                   src={src}
                   alt={`Preview ${index + 1}`}
-                  class="h-full w-full object-contain drop-shadow-[0_10px_30px_rgba(0,0,0,0.5)]"
+                  class="h-full w-full object-contain drop-shadow-[0_10px_30px_rgba(0,0,0,0.5)] will-change-transform"
                   loading="lazy"
                 />
               </div>

@@ -114,9 +114,10 @@ export function initEmbla(): void {
     embla.on("select", resetProgress);
 
     /* =========================
-       TWEEN PHYSICS (Scale & Opacity)
+       TWEEN PHYSICS (Scale & Opacity & Parallax)
     ========================== */
     const TWEEN_FACTOR = 0.8; // <-- LÍNEA QUE CONTROLA LA "FRICCIÓN" (Tensión del efecto al arrastrar)
+    const PARALLAX_FACTOR = 30; // <-- LÍNEA QUE CONTROLA EL DEEP PARALLAX (Porcentaje de desplazamiento, ej: 30%)
 
     const applyTween = (): void => {
       const scrollProgress = embla.scrollProgress();
@@ -142,6 +143,17 @@ export function initEmbla(): void {
         slideNode.style.transform = `scale(${scale})`;
         slideNode.style.opacity = `${opacity}`;
         slideNode.style.transformOrigin = "center center";
+
+        // --- DEEP PARALLAX LOGIC ---
+        // Identificamos la imagen dentro del slide
+        const imgNode = slideNode.querySelector("img");
+        if (imgNode) {
+          // Si el slide se mueve hacia la izquierda (diff negativo), la imagen se mueve a la derecha (parallax positivo)
+          // Multiplicamos por totalSlides para normalizar la distancia (1 = un slide entero de distancia)
+          const parallaxTranslate =
+            diffToTarget * totalSlides * PARALLAX_FACTOR;
+          imgNode.style.transform = `translate3d(${parallaxTranslate}%, 0, 0)`;
+        }
       });
     };
 
