@@ -84,18 +84,26 @@ const { images, autoplay = true, interval = 5000 } = Astro.props as Props;
     </div>
   </div>
 
+  <!-- Pagination Dots Structure -->
+  <div
+    class="embla__dots absolute bottom-6 left-1/2 z-[70] flex -translate-x-1/2 gap-3"
+    role="tablist"
+    aria-label="Slides"
+  >
+  </div>
+
   <button
     type="button"
-    class="embla-prev absolute top-1/2 -left-2 z-[70] flex h-10 w-10 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full border border-white/10 bg-[#1A1614] text-white shadow-2xl transition-all duration-300 active:scale-90 md:-left-5 md:h-12 md:w-12 md:opacity-0 md:group-hover:left-4 md:group-hover:opacity-100 lg:hover:border-blue-400 lg:hover:text-blue-400"
-    aria-label="Prev"
+    class="embla-prev absolute top-1/2 -left-2 z-[70] flex h-10 w-10 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full border border-white/10 bg-white/5 text-white shadow-inner backdrop-blur-2xl transition-all duration-300 active:scale-90 md:-left-5 md:h-12 md:w-12 md:opacity-0 md:group-hover:left-4 md:group-hover:opacity-100 lg:hover:border-blue-400 lg:hover:text-blue-400"
+    aria-label="Previous Slide"
   >
     <Icon name="tabler:chevron-left" size={24} />
   </button>
 
   <button
     type="button"
-    class="embla-next absolute top-1/2 -right-2 z-[70] flex h-10 w-10 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full border border-white/10 bg-[#1A1614] text-white shadow-2xl transition-all duration-300 active:scale-90 md:-right-5 md:h-12 md:w-12 md:opacity-0 md:group-hover:right-4 md:group-hover:opacity-100 lg:hover:border-blue-400 lg:hover:text-blue-400"
-    aria-label="Next"
+    class="embla-next absolute top-1/2 -right-2 z-[70] flex h-10 w-10 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full border border-white/10 bg-white/5 text-white shadow-inner backdrop-blur-2xl transition-all duration-300 active:scale-90 md:-right-5 md:h-12 md:w-12 md:opacity-0 md:group-hover:right-4 md:group-hover:opacity-100 lg:hover:border-blue-400 lg:hover:text-blue-400"
+    aria-label="Next Slide"
   >
     <Icon name="tabler:chevron-right" size={24} />
   </button>
