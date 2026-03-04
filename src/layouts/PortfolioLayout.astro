@@ -2,6 +2,7 @@
 import TopNavbar from "../components/layout/TopNavbar.astro";
 import SideNavbar from "../components/layout/SideNavbar.astro";
 import Footer from "../components/layout/Footer.astro";
+import Noise from "../components/ui/Noise.astro";
 import "../styles/index.css";
 import "flowbite";
 import Analytics from "@vercel/analytics/astro";
@@ -35,9 +36,10 @@ import SpeedInsights from "@vercel/speed-insights/astro";
   <body
     class="bg-[#0A0908] font-sans text-white antialiased selection:bg-amber-500/30"
   >
+    <Noise />
     <div class="pointer-events-none fixed inset-0 -z-50 overflow-hidden">
       <video
-        class="absolute h-full w-full object-cover opacity-60 transition-opacity duration-1000"
+        class="absolute h-full w-full object-cover opacity-80 mix-blend-lighten transition-opacity duration-1000"
         src="/videos/Cozy-Bedroom-Rainy-City-Moewalls-Com.mp4"
         autoplay
         muted
@@ -47,7 +49,7 @@ import SpeedInsights from "@vercel/speed-insights/astro";
         aria-hidden="true"></video>
 
       <div
-        class="absolute inset-0 bg-gradient-to-b from-[#0A0908]/40 via-[#0A0908]/20 to-[#0A0908] shadow-[inset_0_0_100px_rgba(0,0,0,0.4)]"
+        class="absolute inset-0 bg-gradient-to-b from-[#0A0908]/20 via-transparent to-[#0A0908]/80 shadow-[inset_0_0_100px_rgba(0,0,0,0.2)]"
       >
       </div>
 
