@@ -105,7 +105,7 @@ const techStack = [
 
 <section
   id="tech-stack"
-  class="relative flex min-h-screen flex-col justify-center border-t border-white/5 py-24 lg:py-32"
+  class="relative flex min-h-screen flex-col justify-center border-t border-white/5 py-24 lg:py-32 overflow-x-hidden"
 >
   <div
     class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(252,211,77,0.03),transparent_70%)]"
@@ -133,17 +133,17 @@ const techStack = [
 
     <!-- CLI Filter Bar -->
     <div class="reveal mb-12 flex flex-col gap-6 lg:mb-16">
-      <div class="flex items-center gap-4 border-b border-white/5 pb-4">
-        <span class="font-mono text-[11px] font-bold text-amber-500/60 uppercase tracking-widest sm:block hidden">[ SELECT_MODULE: ]</span>
-        <div class="flex flex-1 gap-2 overflow-x-auto pb-2 scrollbar-none sm:pb-0">
+      <div class="flex items-center gap-4 border-b border-white/5 pb-4 min-w-0">
+        <span class="font-mono text-[11px] font-bold text-amber-500/60 uppercase tracking-widest sm:block hidden whitespace-nowrap">[ SELECT_MODULE: ]</span>
+        <div class="flex flex-1 gap-2 overflow-x-auto pb-2 scrollbar-none sm:pb-0 min-w-0">
           {categories.map((cat) => (
             <button
               data-filter={cat}
-              class="filter-btn group relative flex items-center gap-2 overflow-hidden px-5 py-2.5 font-mono text-[10px] font-black tracking-widest transition-all duration-300 hover:text-white sm:px-4 sm:py-2"
+              class="filter-btn cursor-pointer group relative flex items-center gap-2 overflow-hidden px-5 py-2.5 font-mono text-[10px] font-black tracking-widest transition-all duration-300 hover:text-white sm:px-4 sm:py-2 whitespace-nowrap"
               aria-label={`Filter by ${cat}`}
             >
               <!-- Flash Effect Shadow -->
-              <span class="flash-effect absolute inset-0 -translate-x-full bg-amber-500/20 transition-transform duration-300 ease-out"></span>
+              <span class="flash-effect absolute inset-0 -translate-x-full bg-amber-500/30 transition-transform duration-300 ease-out"></span>
               
               <span class="relative z-10 text-white/20 transition-colors group-hover:text-amber-500/70">></span>
               <span class="relative z-10 text-gray-500 transition-colors group-hover:text-white uppercase">{cat}</span>
@@ -157,11 +157,14 @@ const techStack = [
     </div>
 
     <!-- The Rack Grid -->
-    <div class="reveal reveal-scale grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4">
+    <div 
+      id="tech-rack"
+      class="reveal reveal-scale grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4"
+    >
       {
         techStack.map((tech, index) => (
           <div
-            class="tech-card group relative overflow-hidden rounded-xl border border-white/5 bg-[#050505]/60 p-5 backdrop-blur-md transition-all duration-500 hover:border-amber-500/40 hover:shadow-[0_0_40px_rgba(245,158,11,0.08)]"
+            class="tech-card group relative overflow-hidden rounded-xl border border-white/5 bg-[#050505]/60 p-5 backdrop-blur-md transition-all duration-500"
             data-category={tech.category}
             style={`transition-delay: ${index * 30}ms`}
           >
@@ -215,7 +218,7 @@ const techStack = [
       }
     </div>
     
-    <!-- Mobile Integration Metadata (Instead of just a button) -->
+    <!-- Mobile Integration Metadata -->
     <div class="reveal mt-12 flex flex-col items-center gap-6 lg:hidden">
        <button 
          id="initialize-full-stack"
@@ -268,11 +271,22 @@ const techStack = [
     will-change: transform, opacity, filter;
   }
 
-  .tech-card.is-hidden {
-    opacity: 0.15;
-    filter: grayscale(1) blur(0.5px);
-    transform: scale(0.96);
-    pointer-events: none;
+  /* Materialization Animation */
+  .animate-materialize {
+    animation: materialize 0.5s cubic-bezier(0.2, 1, 0.3, 1) both;
+  }
+
+  @keyframes materialize {
+    from {
+      opacity: 0;
+      transform: scale(0.95) translateY(10px);
+      filter: blur(10px);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+      filter: blur(0);
+    }
   }
 
   /* Active Filter Indicator */
@@ -314,7 +328,7 @@ const techStack = [
       btn.addEventListener('click', () => {
         const filter = btn.getAttribute('data-filter');
         
-        // Trigger Flash Effect and Active State
+        // Update Buttons State
         filterBtns.forEach(b => {
           const marker = b.querySelector('.marker-line');
           if (b === btn) {
@@ -327,13 +341,24 @@ const techStack = [
           }
         });
 
-        // Execution Level Filter
-        cards.forEach(card => {
+        // Re-Assembly Protocol
+        let visibleCount = 0;
+        cards.forEach((card) => {
           const category = card.getAttribute('data-category');
-          if (filter === 'ALL' || category === filter) {
-            card.classList.remove('is-hidden');
+          const isMatch = filter === 'ALL' || category === filter;
+          
+          if (isMatch) {
+            card.classList.remove('hidden');
+            // Remove old animation class to re-trigger
+            (card as HTMLElement).classList.remove('animate-materialize');
+            // Trigger reflow
+            void (card as HTMLElement).offsetWidth;
+            // Add animation with staggered delay
+            (card as HTMLElement).style.animationDelay = `${visibleCount * 50}ms`;
+            (card as HTMLElement).classList.add('animate-materialize');
+            visibleCount++;
           } else {
-            card.classList.add('is-hidden');
+            card.classList.add('hidden');
           }
         });
       });
