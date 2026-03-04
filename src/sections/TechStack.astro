@@ -1,145 +1,353 @@
 ---
 import { Icon } from "astro-icon/components";
 
+const categories = ["ALL", "FRONTEND", "BACKEND", "DATABASE", "DEVOPS"];
+
 const techStack = [
   {
     name: "Next.js",
     icon: "tabler:brand-nextjs",
     color: "text-white",
-    category: "Frontend",
+    category: "FRONTEND",
+    role: "CORE_RUNTIME",
+    tag: "STABLE",
   },
   {
     name: "React",
     icon: "tabler:brand-react",
     color: "text-sky-400",
-    category: "Frontend",
+    category: "FRONTEND",
+    role: "UI_PROTOCOL",
+    tag: "STABLE",
   },
   {
     name: "Astro",
     icon: "tabler:brand-astro",
     color: "text-orange-400",
-    category: "Frontend",
+    category: "FRONTEND",
+    role: "STATIC_ENGINE",
+    tag: "OPTIMIZING",
   },
   {
     name: "TypeScript",
     icon: "tabler:brand-typescript",
     color: "text-blue-500",
-    category: "Frontend",
+    category: "FRONTEND",
+    role: "TYPE_SAFETY",
+    tag: "STABLE",
   },
   {
     name: "Tailwind",
     icon: "tabler:brand-tailwind",
     color: "text-cyan-400",
-    category: "Frontend",
+    category: "FRONTEND",
+    role: "STYLE_SYSTEM",
+    tag: "STABLE",
   },
   {
     name: "Node.js",
     icon: "tabler:brand-nodejs",
     color: "text-green-500",
-    category: "Backend",
+    category: "BACKEND",
+    role: "SERVER_CORE",
+    tag: "STABLE",
   },
   {
     name: "Laravel",
     icon: "tabler:brand-laravel",
     color: "text-red-500",
-    category: "Backend",
+    category: "BACKEND",
+    role: "API_INFRA",
+    tag: "STABLE",
   },
   {
     name: "Supabase",
     icon: "tabler:brand-supabase",
     color: "text-emerald-500",
-    category: "Database",
+    category: "DATABASE",
+    role: "AUTH_STORAGE",
+    tag: "STABLE",
   },
   {
     name: "PostgreSQL",
     icon: "tabler:database",
     color: "text-blue-400",
-    category: "Database",
+    category: "DATABASE",
+    role: "RELATIONAL_DB",
+    tag: "STABLE",
   },
   {
     name: "MongoDB",
     icon: "tabler:brand-mongodb",
     color: "text-green-600",
-    category: "Database",
+    category: "DATABASE",
+    role: "DOCUMENT_STORE",
+    tag: "STABLE",
   },
   {
     name: "Vercel",
     icon: "tabler:brand-vercel",
     color: "text-white",
-    category: "Deploy",
+    category: "DEVOPS",
+    role: "EDGE_RUNTIME",
+    tag: "STABLE",
   },
   {
-    name: "GitHub",
+    name: "GitHub Actions",
     icon: "tabler:brand-github",
     color: "text-white",
-    category: "Deploy",
+    category: "DEVOPS",
+    role: "CI_CD_PIPELINE",
+    tag: "OPTIMIZING",
   },
 ];
 ---
 
 <section
   id="tech-stack"
-  class="relative flex min-h-[80dvh] flex-col justify-center border-t border-white/5 py-16 lg:py-24"
+  class="relative flex min-h-screen flex-col justify-center border-t border-white/5 py-24 lg:py-32"
 >
   <div
-    class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(252,211,77,0.02),transparent_70%)]"
+    class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(252,211,77,0.03),transparent_70%)]"
   >
   </div>
 
-  <div class="relative mx-auto w-full max-w-[1200px] px-6">
-    <div class="mb-12 flex flex-col items-center text-center md:mb-16">
-      <div class="reveal mb-3 flex items-center gap-3">
-        <div class="h-px w-6 bg-amber-500/30"></div>
-        <span
-          class="font-mono text-[9px] font-black tracking-[0.4em] text-amber-500/80 uppercase"
-          >Arsenal</span
-        >
-        <div class="h-px w-6 bg-amber-500/30"></div>
+  <div class="relative mx-auto w-full max-w-6xl px-6">
+    <!-- Header Section -->
+    <div class="mb-16 flex flex-col items-center text-center lg:items-start lg:text-left">
+      <div class="reveal mb-4 inline-flex items-center gap-3 rounded-full border border-amber-500/20 bg-amber-500/5 px-4 py-1.5 backdrop-blur-md">
+        <span class="relative flex h-2 w-2">
+          <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-amber-400 opacity-75"></span>
+          <span class="relative inline-flex h-2 w-2 rounded-full bg-amber-500"></span>
+        </span>
+        <span class="font-mono text-[10px] font-black tracking-[0.3em] text-amber-500 uppercase">
+          Arsenal_Asset_Manager
+        </span>
       </div>
 
-      <h2
-        class="reveal font-serif text-3xl leading-tight text-white md:text-5xl lg:text-6xl"
-      >
-        Systems engineered from<br />
-        <span class="font-light text-white/30 italic"
-          >interface to infrastructure.</span
-        >
+      <h2 class="reveal font-serif text-4xl leading-tight text-white md:text-5xl lg:text-7xl">
+        Technological <br />
+        <span class="font-light text-white/30 italic">Arsenal & Tooling_</span>
       </h2>
     </div>
 
-    <div class="reveal reveal-scale mx-auto max-w-5xl delay-200">
-      <div
-        class="grid grid-cols-3 gap-x-4 gap-y-10 sm:grid-cols-4 md:grid-cols-6 lg:gap-y-12"
-      >
-        {
-          techStack.map((tech, index) => (
-            <div
-              class="group relative flex flex-col items-center"
-              style={`transition-delay: ${index * 40}ms`}
+    <!-- CLI Filter Bar -->
+    <div class="reveal mb-12 flex flex-col gap-6 lg:mb-16">
+      <div class="flex items-center gap-4 border-b border-white/5 pb-4">
+        <span class="font-mono text-[11px] font-bold text-amber-500/60 uppercase tracking-widest sm:block hidden">[ SELECT_MODULE: ]</span>
+        <div class="flex flex-1 gap-2 overflow-x-auto pb-2 scrollbar-none sm:pb-0">
+          {categories.map((cat) => (
+            <button
+              data-filter={cat}
+              class="filter-btn group relative flex items-center gap-2 overflow-hidden px-5 py-2.5 font-mono text-[10px] font-black tracking-widest transition-all duration-300 hover:text-white sm:px-4 sm:py-2"
+              aria-label={`Filter by ${cat}`}
             >
-              <div class="relative mb-3 flex h-16 w-16 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.03] transition-all duration-300 group-hover:-translate-y-1 group-hover:border-amber-500/30 group-hover:bg-amber-500/[0.05] md:h-20 md:w-20">
+              <!-- Flash Effect Shadow -->
+              <span class="flash-effect absolute inset-0 -translate-x-full bg-amber-500/20 transition-transform duration-300 ease-out"></span>
+              
+              <span class="relative z-10 text-white/20 transition-colors group-hover:text-amber-500/70">></span>
+              <span class="relative z-10 text-gray-500 transition-colors group-hover:text-white uppercase">{cat}</span>
+              
+              <!-- Active Indicator -->
+              <div class="absolute bottom-0 left-0 h-[2px] w-0 bg-amber-500 transition-all duration-500 marker-line"></div>
+            </button>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <!-- The Rack Grid -->
+    <div class="reveal reveal-scale grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4">
+      {
+        techStack.map((tech, index) => (
+          <div
+            class="tech-card group relative overflow-hidden rounded-xl border border-white/5 bg-[#050505]/60 p-5 backdrop-blur-md transition-all duration-500 hover:border-amber-500/40 hover:shadow-[0_0_40px_rgba(245,158,11,0.08)]"
+            data-category={tech.category}
+            style={`transition-delay: ${index * 30}ms`}
+          >
+            <!-- Background Scanning Line -->
+            <div class="pointer-events-none absolute inset-0 -z-10 translate-y-[-100%] bg-gradient-to-b from-transparent via-amber-500/[0.03] to-transparent transition-transform duration-[2000ms] group-hover:translate-y-[100%] animate-scan"></div>
+
+            <!-- LED Status Indicator -->
+            <div class="absolute top-4 right-4 flex items-center gap-2">
+               <span class="font-mono text-[7px] font-bold text-white/10 uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">Module_Online</span>
+               <div class={`h-1.5 w-1.5 rounded-full ${tech.tag === "OPTIMIZING" ? "bg-amber-500/40 shadow-[0_0_8px_rgba(245,158,11,0.4)]" : "bg-emerald-500/40 shadow-[0_0_8px_rgba(16,185,129,0.4)]"} animate-pulse`}></div>
+            </div>
+
+            <div class="flex items-start gap-4">
+              <!-- Icon Container with Rotating Energy -->
+              <div class="energy-border relative flex h-14 w-14 shrink-0 items-center justify-center rounded-xl border border-white/5 bg-white/[0.03] group-hover:bg-amber-500/[0.05] transition-colors duration-500">
                 <Icon
                   name={tech.icon}
-                  class={`text-3xl md:text-4xl ${tech.color} opacity-80 transition-all duration-300 group-hover:scale-110 group-hover:opacity-100`}
+                  class={`relative z-10 text-3xl ${tech.color} opacity-60 transition-all duration-500 group-hover:scale-110 group-hover:opacity-100 group-hover:drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]`}
                 />
-
-                <div class="absolute inset-0 rounded-2xl bg-gradient-to-tr from-transparent via-white/5 to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
               </div>
 
-              <div class="flex flex-col items-center text-center">
-                <span class="font-mono text-[10px] font-bold tracking-wider text-white/90 md:text-[11px]">
-                  {tech.name}
-                </span>
-                <span class="mt-0.5 font-mono text-[7px] font-medium tracking-widest text-white/20 uppercase">
-                  {tech.category}
-                </span>
+              <!-- Module Info -->
+              <div class="flex flex-1 flex-col justify-center overflow-hidden">
+                <div class="flex flex-col">
+                  <span class="truncate font-mono text-[13px] font-black tracking-tighter text-white uppercase group-hover:text-amber-500/90 transition-colors">
+                    {tech.name}
+                  </span>
+                  <div class="mt-1 flex items-center gap-2">
+                    <span class="flex-none rounded-full bg-white/5 px-2 py-0.5 font-mono text-[7px] font-bold tracking-widest text-amber-500/60 uppercase">
+                      {tech.role}
+                    </span>
+                  </div>
+                </div>
+                
+                <div class="mt-4 flex flex-col gap-1">
+                   <div class="flex items-center justify-between font-mono text-[8px] font-medium tracking-[0.2em] text-white/20 uppercase">
+                      <span class="group-hover:text-white/40 transition-colors">{tech.category}</span>
+                      <span class={`flex items-center gap-1 ${tech.tag === "OPTIMIZING" ? "text-amber-500/50" : "text-emerald-500/40"}`}>
+                        <span class="inline-block h-1 w-1 rounded-full bg-current opacity-50"></span>
+                        {tech.tag}
+                      </span>
+                   </div>
+                </div>
               </div>
-
-              <div class="absolute inset-0 -z-10 bg-amber-500/5 opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-100" />
             </div>
-          ))
-        }
+
+            <!-- Glitch Pattern Overlay (Visible only on hover) -->
+            <div class="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-5 transition-opacity duration-700 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(255,0,0,0.06),rgba(0,255,0,0.02),rgba(0,0,255,0.06))] bg-[length:100%_2px,3px_100%]"></div>
+          </div>
+        ))
+      }
+    </div>
+    
+    <!-- Mobile Integration Metadata (Instead of just a button) -->
+    <div class="reveal mt-12 flex flex-col items-center gap-6 lg:hidden">
+       <button 
+         id="initialize-full-stack"
+         class="group relative flex items-center gap-3 overflow-hidden rounded-xl border border-white/10 bg-white/5 px-8 py-4 font-mono text-[10px] font-black tracking-[0.3em] text-white uppercase transition-all hover:border-amber-500/50 hover:bg-amber-500/10 active:scale-95"
+      >
+        <span class="relative z-10 text-amber-500/40 group-hover:text-amber-500 transition-colors">>_</span>
+        <span class="relative z-10" id="expansion-text">LOAD_EXTENDED_PROTOCOL</span>
+        <Icon name="tabler:cpu" size={16} class="relative z-10 text-amber-500/50 group-hover:rotate-180 transition-transform duration-700" />
+      </button>
+
+      <div class="flex items-center gap-4 opacity-20">
+         <div class="h-px w-8 bg-gradient-to-r from-transparent to-white"></div>
+         <span class="font-mono text-[8px] tracking-[0.4em] uppercase">Architecture_Integrity_Verified</span>
+         <div class="h-px w-8 bg-gradient-to-l from-transparent to-white"></div>
       </div>
     </div>
   </div>
 </section>
+
+<style>
+  /* Rotating Energy Border */
+  .energy-border::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    padding: 1px;
+    border-radius: inherit;
+    background: conic-gradient(
+      from 0deg,
+      transparent 0deg,
+      transparent 90deg,
+      rgba(245, 158, 11, 0.4) 180deg,
+      transparent 270deg,
+      transparent 360deg
+    );
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0.3;
+    animation: rotate-border 6s linear infinite;
+  }
+
+  @keyframes rotate-border {
+    to { transform: rotate(360deg); }
+  }
+
+  /* Filter Logic State Transitions */
+  .tech-card {
+    will-change: transform, opacity, filter;
+  }
+
+  .tech-card.is-hidden {
+    opacity: 0.15;
+    filter: grayscale(1) blur(0.5px);
+    transform: scale(0.96);
+    pointer-events: none;
+  }
+
+  /* Active Filter Indicator */
+  .marker-line.active {
+    width: 100%;
+    box-shadow: 0 0 10px rgba(245, 158, 11, 0.5);
+  }
+
+  /* Flash Effect Logic */
+  .flash-active .flash-effect {
+    animation: flash-wave 0.5s ease-out forwards;
+  }
+
+  @keyframes flash-wave {
+    0% { transform: translateX(-100%); opacity: 0; }
+    50% { opacity: 1; }
+    100% { transform: translateX(100%); opacity: 0; }
+  }
+
+  /* Scan Animation */
+  .animate-scan {
+    animation: scan-line 4s linear infinite;
+  }
+  @keyframes scan-line {
+    from { transform: translateY(-100%); }
+    to { transform: translateY(100%); }
+  }
+
+  .scrollbar-none::-webkit-scrollbar { display: none; }
+  .scrollbar-none { -ms-overflow-style: none; scrollbar-width: none; }
+</style>
+
+<script>
+  const setupTechStack = () => {
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const cards = document.querySelectorAll('.tech-card');
+    
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const filter = btn.getAttribute('data-filter');
+        
+        // Trigger Flash Effect and Active State
+        filterBtns.forEach(b => {
+          const marker = b.querySelector('.marker-line');
+          if (b === btn) {
+            b.classList.add('text-white', 'flash-active');
+            marker?.classList.add('active');
+            setTimeout(() => b.classList.remove('flash-active'), 500);
+          } else {
+            b.classList.remove('text-white');
+            marker?.classList.remove('active');
+          }
+        });
+
+        // Execution Level Filter
+        cards.forEach(card => {
+          const category = card.getAttribute('data-category');
+          if (filter === 'ALL' || category === filter) {
+            card.classList.remove('is-hidden');
+          } else {
+            card.classList.add('is-hidden');
+          }
+        });
+      });
+    });
+
+    // Mobile Extension Logic
+    const expansionBtn = document.getElementById('initialize-full-stack');
+    const expansionText = document.getElementById('expansion-text');
+    expansionBtn?.addEventListener('click', () => {
+      if (expansionText) expansionText.textContent = "PROTOCOL_ESTABLISHED_";
+      expansionBtn.classList.add('border-amber-500/50', 'bg-amber-500/20', 'text-amber-500');
+    });
+  };
+
+  setupTechStack();
+  document.addEventListener("astro:after-swap", setupTechStack);
+</script>
