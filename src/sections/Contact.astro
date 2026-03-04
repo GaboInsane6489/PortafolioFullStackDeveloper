@@ -44,19 +44,12 @@ import { Icon } from "astro-icon/components";
       id="contact-form"
       class="reveal mx-auto flex max-w-md flex-col gap-6 text-left"
     >
-      <input
-        type="hidden"
-        name="access_key"
-        value="91d5dea0-56d8-4a01-9589-27909b6301ac"
-      />
-      <input
-        type="hidden"
-        name="subject"
-        id="hidden-subject"
-        value="New connection initialized from Portfolio"
-      />
+      <input type="hidden" name="access_key" value="91d5dea0-56d8-4a01-9589-27909b6301ac" />
+      <input type="hidden" name="subject" value="[PORTFOLIO_SYSTEM_UPLINK] New Message Received" />
       <input type="hidden" name="from_name" value="PORTFOLIO COMMAND CENTER" />
       <input type="hidden" name="replyto" id="hidden-replyto" value="" />
+      <input type="hidden" name="00_PROTOCOL_STATUS" value="ESTABLISHED" />
+      <input type="hidden" name="01_SECURITY_LEVEL" value="ENCRYPTED_USER_DATA" />
 
       <div class="flex flex-col gap-2">
         <label
@@ -67,7 +60,7 @@ import { Icon } from "astro-icon/components";
         <input
           type="text"
           id="name"
-          name="OPERATOR_NAME"
+          name="OPERATOR_IDENTITY"
           required
           class="w-full rounded-none border border-white/10 bg-black/40 px-4 py-3 font-mono text-sm text-white placeholder-gray-600 outline-none transition-colors focus:border-amber-500/50 focus:bg-amber-500/5"
           placeholder="Enter your name"
@@ -83,7 +76,7 @@ import { Icon } from "astro-icon/components";
         <input
           type="email"
           id="email"
-          name="OPERATOR_MAIL"
+          name="CONTACT_ENDPOINT"
           required
           class="w-full rounded-none border border-white/10 bg-black/40 px-4 py-3 font-mono text-sm text-white placeholder-gray-600 outline-none transition-colors focus:border-amber-500/50 focus:bg-amber-500/5"
           placeholder="Enter your email"
@@ -98,13 +91,14 @@ import { Icon } from "astro-icon/components";
         >
         <textarea
           id="message"
-          name="DATA_PAYLOAD"
+          name="TRANSMITTED_PAYLOAD"
           required
           rows="4"
           class="w-full resize-none rounded-none border border-white/10 bg-black/40 px-4 py-3 font-mono text-sm text-white placeholder-gray-600 outline-none transition-colors focus:border-amber-500/50 focus:bg-amber-500/5"
           placeholder="Type your message here..."
         ></textarea>
       </div>
+      <input type="hidden" name="ZZ_LOG_END" value="--- END OF TRANSMISSION ---" />
 
       <button
         type="submit"
@@ -166,10 +160,10 @@ import { Icon } from "astro-icon/components";
       e.preventDefault();
       
       const formData = new FormData(form);
-      const operatorName = formData.get("OPERATOR_NAME");
-      const operatorMail = formData.get("OPERATOR_MAIL");
+      const operatorName = formData.get("OPERATOR_IDENTITY");
+      const operatorMail = formData.get("CONTACT_ENDPOINT");
       
-      formData.set("subject", `[TERMINAL UPLINK] Mensaje de ${operatorName}`);
+      formData.set("subject", `[PORTFOLIO_SYSTEM_UPLINK] Mensaje de ${operatorName}`);
       formData.set("replyto", operatorMail as string);
       
       // Update UI to loading state
