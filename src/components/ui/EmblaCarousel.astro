@@ -130,7 +130,7 @@ const { images, autoplay = true, interval = 5000 } = Astro.props as Props;
 </style>
 
 <script>
-  import { initEmbla } from "../scripts/embla-init.ts";
+  import { initEmbla } from "../../scripts/embla-init.ts";
   const setup = () => initEmbla();
   document.addEventListener("astro:page-load", setup);
   setup();
