@@ -3,7 +3,7 @@ import { Icon } from "astro-icon/components";
 ---
 
 <section
-  class="relative flex min-h-[100dvh] w-full flex-col justify-center overflow-hidden border-b border-white/5 pt-10 pb-10 md:pt-24 lg:pt-20 lg:pb-10"
+  class="relative flex min-h-[100dvh] w-full flex-col justify-start overflow-hidden border-b border-white/5 pt-24 pb-10 md:justify-start md:pt-32 lg:justify-center lg:pt-20 lg:pb-10"
   id="hero"
 >
   <div
@@ -33,7 +33,7 @@ import { Icon } from "astro-icon/components";
                 <div class="h-1.5 w-1.5 rounded-full bg-green-500/20"></div>
               </div>
               <div
-                class="font-mono text-[7px] tracking-[0.2em] text-gray-600 uppercase"
+                class="font-mono text-[clamp(9px,1.2vw,11px)] tracking-[0.2em] text-gray-600 uppercase"
               >
                 env:production
               </div>
@@ -50,7 +50,7 @@ import { Icon } from "astro-icon/components";
               >
               </div>
               <div
-                class="absolute bottom-3 left-3 rounded-lg border border-white/5 bg-black/60 px-2.5 py-1.5 font-mono text-[8px] text-amber-500 backdrop-blur-md"
+                class="absolute bottom-3 left-3 rounded-lg border border-white/5 bg-black/60 px-2.5 py-1.5 font-mono text-[clamp(10px,1.5vw,12px)] text-amber-500 backdrop-blur-md"
               >
                 <span class="animate-pulse">></span> online_active
               </div>
@@ -82,7 +82,7 @@ import { Icon } from "astro-icon/components";
                 ></span>
               </span>
               <span
-                class="font-mono text-[9px] font-bold tracking-[0.2em] text-amber-500 uppercase"
+                class="font-mono text-[clamp(10px,1.5vw,12px)] font-bold tracking-[0.2em] text-amber-500 uppercase"
                 >Status: Ready for Deployment</span
               >
             </div>
@@ -135,21 +135,21 @@ import { Icon } from "astro-icon/components";
         >
           <div class="flex flex-col items-center space-y-1.5 lg:items-start">
             <span
-              class="font-mono text-[10px] tracking-[0.2em] text-gray-600 uppercase md:text-[8px]"
+              class="font-mono text-[clamp(10px,1.5vw,12px)] tracking-[0.2em] text-gray-600 uppercase"
               >Education</span
             >
             <span
-              class="block text-[11px] font-medium text-gray-300 md:text-[10px]"
+              class="block text-[clamp(12px,1.8vw,14px)] font-medium text-gray-300"
               >UCAB Engineering</span
             >
           </div>
           <div class="flex flex-col items-center space-y-1.5 lg:items-start">
             <span
-              class="font-mono text-[10px] tracking-[0.2em] text-gray-600 uppercase md:text-[8px]"
+              class="font-mono text-[clamp(10px,1.5vw,12px)] tracking-[0.2em] text-gray-600 uppercase"
               >Mindset</span
             >
             <span
-              class="block text-[11px] font-medium text-amber-500 md:text-[10px]"
+              class="block text-[clamp(12px,1.8vw,14px)] font-medium text-amber-500"
               >Scalable Logic</span
             >
           </div>
@@ -157,11 +157,11 @@ import { Icon } from "astro-icon/components";
             class="col-span-2 flex flex-col items-center space-y-1.5 sm:col-span-1 lg:items-start"
           >
             <span
-              class="font-mono text-[10px] tracking-[0.2em] text-gray-600 uppercase md:text-[8px]"
+              class="font-mono text-[clamp(10px,1.5vw,12px)] tracking-[0.2em] text-gray-600 uppercase"
               >Tools</span
             >
             <span
-              class="block text-[11px] font-medium text-gray-300 md:text-[10px]"
+              class="block text-[clamp(12px,1.8vw,14px)] font-medium text-gray-300"
               >Next.js · Supabase · Git</span
             >
           </div>
