@@ -1,5 +1,7 @@
 ---
 import { Icon } from "astro-icon/components";
+import { Image } from "astro:assets";
+import fullStackCert from "../../public/images/FullStackCertificate.webp";
 ---
 
 <section
@@ -7,25 +9,8 @@ import { Icon } from "astro-icon/components";
   class="reveal reveal-scale relative mx-auto mt-12 mb-24 max-w-[1400px] px-4 sm:px-8"
 >
   <div
-    class="relative overflow-hidden rounded-[2.5rem] border border-white/10 bg-[#0A0908] shadow-2xl"
+    class="relative overflow-hidden rounded-[2.5rem] border border-white/5 bg-transparent"
   >
-    <video
-      src="/videos/Futuristic-Night-City-Cyberpunk-2077-Moewalls-Com.mp4"
-      class="absolute inset-0 z-0 h-full w-full object-cover opacity-50 blur-[0.5px] transition-transform duration-[10s] hover:scale-105"
-      autoplay
-      loop
-      muted
-      playsinline></video>
-
-    <div
-      class="absolute inset-0 z-10 bg-gradient-to-r from-[#0A0908]/90 via-[#0A0908]/60 to-transparent"
-    >
-    </div>
-    <div
-      class="absolute inset-0 z-10 bg-gradient-to-t from-[#0A0908]/80 via-transparent to-transparent"
-    >
-    </div>
-
     <div
       class="relative z-20 flex flex-col gap-16 p-8 md:p-16 lg:flex-row lg:items-center lg:px-20 lg:py-24"
     >
@@ -54,10 +39,15 @@ import { Icon } from "astro-icon/components";
             </div>
 
             <div class="relative overflow-hidden rounded-lg">
-              <img
-                src="/images/FullStackCertificate.webp"
+              <Image
+                src={fullStackCert}
                 alt="Full Stack Certificate"
-                class="w-full max-w-[380px] transition-all duration-1000 group-hover:scale-110"
+                width={500}
+                height={350}
+                format="webp"
+                quality={80}
+                loading="lazy"
+                class="w-full max-w-[380px] transition-all duration-1000 group-hover:scale-110 md:max-w-[500px]"
               />
               <div
                 class="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.1)_50%)] bg-[length:100%_4px] opacity-20"
@@ -70,7 +60,7 @@ import { Icon } from "astro-icon/components";
             </div>
 
             <div
-              class="mt-2 flex justify-between px-2 font-mono text-[7px] tracking-widest text-white/40 uppercase"
+              class="mt-2 flex justify-between px-2 font-mono text-[clamp(10px,2vw,12px)] tracking-widest text-white/40 uppercase"
             >
               <span>Auth: 128-bit_verified</span>
               <span>Scale: 1.0f</span>
@@ -78,7 +68,7 @@ import { Icon } from "astro-icon/components";
           </div>
 
           <div
-            class="absolute -right-6 -bottom-6 flex items-center gap-3 rounded-2xl border border-blue-500/30 bg-black/90 px-5 py-3 shadow-2xl backdrop-blur-2xl transition-transform duration-500 group-hover:-translate-y-2 group-hover:scale-110"
+            class="absolute -right-2 -bottom-2 flex items-center gap-3 rounded-2xl border border-blue-500/30 bg-black/90 px-5 py-3 shadow-2xl backdrop-blur-2xl transition-transform duration-500 group-hover:-translate-y-2 group-hover:scale-110 md:-right-6 md:-bottom-6"
           >
             <div
               class="relative flex h-10 w-10 items-center justify-center rounded-full bg-blue-500/10"
@@ -142,7 +132,7 @@ import { Icon } from "astro-icon/components";
           </div>
 
           <h3
-            class="font-serif text-5xl leading-[1.1] font-bold text-white md:text-7xl"
+            class="font-serif text-4xl leading-[1.1] font-bold text-white md:text-5xl lg:text-6xl"
           >
             Full Stack <br />
             <span class="font-light text-white/40 italic">Specialist</span>
