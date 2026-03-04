@@ -39,37 +39,95 @@ import { Icon } from "astro-icon/components";
       especializada? Estoy listo para inicializar la conexión y escalar tu idea.
     </p>
 
-    <div
-      class="reveal flex flex-col items-center justify-center gap-5 sm:flex-row"
+    <!-- Contact Form HUD -->
+    <form
+      id="contact-form"
+      class="reveal mx-auto flex max-w-md flex-col gap-6 text-left"
     >
-      <a
-        href="mailto:gabrielgg2005ve@gmail.com"
-        class="group relative flex items-center gap-3 overflow-hidden rounded-xl bg-amber-500 px-8 py-4 text-[11px] font-black tracking-[0.2em] text-black uppercase transition-all duration-300 hover:scale-[1.05] hover:bg-white hover:shadow-[0_20px_50px_rgba(245,158,11,0.2)]"
-      >
-        <Icon
-          name="tabler:mail-fast"
-          size={18}
-          class="transition-transform group-hover:rotate-12"
-        />
-        <span>Initialize Communication</span>
-      </a>
+      <input
+        type="hidden"
+        name="access_key"
+        value="91d5dea0-56d8-4a01-9589-27909b6301ac"
+      />
+      <input
+        type="hidden"
+        name="subject"
+        value="New connection initialized from Portfolio"
+      />
 
-      <a
-        href="https://www.linkedin.com/in/gabriel-gonzalez-fullstack/"
-        target="_blank"
-        class="group flex items-center gap-3 rounded-xl border border-white/10 bg-white/5 px-8 py-4 text-[11px] font-black tracking-[0.2em] text-white uppercase transition-all duration-300 hover:border-amber-500/50 hover:bg-white/10"
-      >
-        <Icon
-          name="tabler:brand-linkedin"
-          size={18}
-          class="text-amber-500 transition-transform group-hover:-translate-y-1"
+      <div class="flex flex-col gap-2">
+        <label
+          for="name"
+          class="font-mono text-[10px] uppercase tracking-widest text-amber-500/70"
+          >> IDENTIFIER_</label
+        >
+        <input
+          type="text"
+          id="name"
+          name="name"
+          required
+          class="w-full rounded-none border border-white/10 bg-black/40 px-4 py-3 font-mono text-sm text-white placeholder-gray-600 outline-none transition-colors focus:border-amber-500/50 focus:bg-amber-500/5"
+          placeholder="Enter your name"
         />
-        <span>Link Protocol</span>
-      </a>
-    </div>
+      </div>
+
+      <div class="flex flex-col gap-2">
+        <label
+          for="email"
+          class="font-mono text-[10px] uppercase tracking-widest text-amber-500/70"
+          >> COMM_LINK_</label
+        >
+        <input
+          type="email"
+          id="email"
+          name="email"
+          required
+          class="w-full rounded-none border border-white/10 bg-black/40 px-4 py-3 font-mono text-sm text-white placeholder-gray-600 outline-none transition-colors focus:border-amber-500/50 focus:bg-amber-500/5"
+          placeholder="Enter your email"
+        />
+      </div>
+
+      <div class="flex flex-col gap-2">
+        <label
+          for="message"
+          class="font-mono text-[10px] uppercase tracking-widest text-amber-500/70"
+          >> PAYLOAD_</label
+        >
+        <textarea
+          id="message"
+          name="message"
+          required
+          rows="4"
+          class="w-full resize-none rounded-none border border-white/10 bg-black/40 px-4 py-3 font-mono text-sm text-white placeholder-gray-600 outline-none transition-colors focus:border-amber-500/50 focus:bg-amber-500/5"
+          placeholder="Type your message here..."
+        ></textarea>
+      </div>
+
+      <button
+        type="submit"
+        id="submit-btn"
+        class="group relative mt-2 flex w-full items-center justify-center gap-3 overflow-hidden border border-amber-500/30 bg-amber-500/10 px-8 py-4 font-mono text-[11px] font-black tracking-[0.2em] text-amber-500 uppercase transition-all duration-300 hover:border-amber-500 hover:bg-amber-500/20 hover:shadow-[0_0_30px_rgba(245,158,11,0.15)]"
+      >
+        <span
+          class="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-amber-500/20 to-transparent transition-transform duration-500 ease-out group-hover:translate-x-full"
+        ></span>
+        <Icon
+          name="tabler:terminal-2"
+          size={18}
+          class="transition-transform group-hover:scale-110"
+        />
+        <span id="btn-text">Execute Command</span>
+      </button>
+
+      <div
+        id="status-message"
+        class="mt-2 hidden text-center font-mono text-[11px] uppercase tracking-widest"
+      >
+      </div>
+    </form>
 
     <div
-      class="reveal mt-20 flex flex-col items-center gap-4 opacity-40 transition-opacity hover:opacity-100"
+      class="reveal mt-16 flex flex-col items-center gap-4 opacity-40 transition-opacity hover:opacity-100"
     >
       <div
         class="h-8 w-px bg-gradient-to-b from-transparent via-amber-500/50 to-transparent"
@@ -91,3 +149,66 @@ import { Icon } from "astro-icon/components";
     transition: all 0.8s cubic-bezier(0.2, 1, 0.3, 1);
   }
 </style>
+
+<script>
+  const setupContactForm = () => {
+    const form = document.getElementById("contact-form") as HTMLFormElement;
+    const statusMessage = document.getElementById("status-message");
+    const btnText = document.getElementById("btn-text");
+    const submitBtn = document.getElementById("submit-btn") as HTMLButtonElement;
+
+    if (!form || !statusMessage || !btnText || !submitBtn) return;
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      
+      const formData = new FormData(form);
+      
+      // Update UI to loading state
+      submitBtn.disabled = true;
+      btnText.textContent = "Transmitting...";
+      statusMessage.classList.remove("hidden", "text-red-500", "text-amber-500");
+      statusMessage.classList.add("text-gray-400");
+      statusMessage.textContent = "[SYSTEM]: Establishing secure link...";
+
+      try {
+        const response = await fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          body: formData,
+        });
+
+        const data = await response.json();
+
+        if (data.success) {
+          form.reset();
+          btnText.textContent = "Execute Command";
+          statusMessage.classList.remove("text-gray-400", "text-red-500");
+          statusMessage.classList.add("text-amber-500");
+          statusMessage.textContent = "[SYSTEM]: Message transmitted successfully.";
+        } else {
+          btnText.textContent = "Retry Connection";
+          statusMessage.classList.remove("text-gray-400", "text-amber-500");
+          statusMessage.classList.add("text-red-500");
+          statusMessage.textContent = "[ERROR]: Transmission failed. Check logs.";
+        }
+      } catch (error) {
+        btnText.textContent = "Retry Connection";
+        statusMessage.classList.remove("text-gray-400", "text-amber-500");
+        statusMessage.classList.add("text-red-500");
+        statusMessage.textContent = "[ERROR]: Connection lost. Target unreachable.";
+      } finally {
+        submitBtn.disabled = false;
+        
+        // Hide success message after 5 seconds
+        if (statusMessage.classList.contains("text-amber-500")) {
+          setTimeout(() => {
+            statusMessage.classList.add("hidden");
+          }, 5000);
+        }
+      }
+    });
+  };
+
+  setupContactForm();
+  document.addEventListener("astro:after-swap", setupContactForm);
+</script>
