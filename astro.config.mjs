@@ -5,7 +5,7 @@ import icon from "astro-icon";
 import sitemap from "@astrojs/sitemap";
 
 export default defineConfig({
-  site: "https://portafolio-full-stack-developer-pink.vercel.app",
+  site: "https://gabo-fullstack.vercel.app",
   integrations: [
     icon({
       include: {
