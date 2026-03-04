@@ -52,8 +52,11 @@ import { Icon } from "astro-icon/components";
       <input
         type="hidden"
         name="subject"
+        id="hidden-subject"
         value="New connection initialized from Portfolio"
       />
+      <input type="hidden" name="from_name" value="PORTFOLIO COMMAND CENTER" />
+      <input type="hidden" name="replyto" id="hidden-replyto" value="" />
 
       <div class="flex flex-col gap-2">
         <label
@@ -64,7 +67,7 @@ import { Icon } from "astro-icon/components";
         <input
           type="text"
           id="name"
-          name="name"
+          name="OPERATOR_NAME"
           required
           class="w-full rounded-none border border-white/10 bg-black/40 px-4 py-3 font-mono text-sm text-white placeholder-gray-600 outline-none transition-colors focus:border-amber-500/50 focus:bg-amber-500/5"
           placeholder="Enter your name"
@@ -80,7 +83,7 @@ import { Icon } from "astro-icon/components";
         <input
           type="email"
           id="email"
-          name="email"
+          name="OPERATOR_MAIL"
           required
           class="w-full rounded-none border border-white/10 bg-black/40 px-4 py-3 font-mono text-sm text-white placeholder-gray-600 outline-none transition-colors focus:border-amber-500/50 focus:bg-amber-500/5"
           placeholder="Enter your email"
@@ -95,7 +98,7 @@ import { Icon } from "astro-icon/components";
         >
         <textarea
           id="message"
-          name="message"
+          name="DATA_PAYLOAD"
           required
           rows="4"
           class="w-full resize-none rounded-none border border-white/10 bg-black/40 px-4 py-3 font-mono text-sm text-white placeholder-gray-600 outline-none transition-colors focus:border-amber-500/50 focus:bg-amber-500/5"
@@ -163,6 +166,11 @@ import { Icon } from "astro-icon/components";
       e.preventDefault();
       
       const formData = new FormData(form);
+      const operatorName = formData.get("OPERATOR_NAME");
+      const operatorMail = formData.get("OPERATOR_MAIL");
+      
+      formData.set("subject", `[TERMINAL UPLINK] Mensaje de ${operatorName}`);
+      formData.set("replyto", operatorMail as string);
       
       // Update UI to loading state
       submitBtn.disabled = true;
