@@ -3,7 +3,7 @@ import { Icon } from "astro-icon/components";
 ---
 
 <section
-  class="relative flex min-h-[100dvh] w-full flex-col justify-center overflow-hidden border-b border-white/5 pt-20 pb-10 md:pt-24 lg:pt-20 lg:pb-10"
+  class="relative flex min-h-[100dvh] w-full flex-col justify-center overflow-hidden border-b border-white/5 pt-10 pb-10 md:pt-24 lg:pt-20 lg:pb-10"
   id="hero"
 >
   <div
@@ -12,12 +12,14 @@ import { Icon } from "astro-icon/components";
   </div>
 
   <div class="relative mx-auto w-full max-w-[1300px] px-6 sm:px-12 lg:px-16">
-    <div class="grid grid-cols-1 items-center gap-8 lg:grid-cols-12 lg:gap-6">
+    <div
+      class="grid grid-cols-1 items-center gap-4 md:grid-cols-12 md:gap-8 lg:gap-6"
+    >
       <div
-        class="reveal relative order-first col-span-1 flex justify-center opacity-0 transition-all delay-700 duration-1000 lg:order-last lg:col-span-5"
+        class="reveal relative order-first col-span-1 flex justify-center opacity-0 transition-all delay-700 duration-1000 md:order-last md:col-span-5"
       >
         <div
-          class="relative z-10 w-full max-w-[180px] rounded-2xl border border-white/10 bg-[#0A0908]/50 p-1.5 backdrop-blur-xl sm:max-w-[220px] md:max-w-[260px] lg:max-w-[300px]"
+          class="relative z-10 w-full max-w-[160px] cursor-pointer rounded-2xl border border-white/10 bg-[#0A0908]/50 p-1.5 backdrop-blur-md transition-all duration-300 active:scale-[0.98] active:ring-2 active:ring-amber-500/30 sm:max-w-[220px] md:max-w-[260px] md:backdrop-blur-xl lg:max-w-[300px]"
         >
           <div
             class="overflow-hidden rounded-xl border border-white/5 bg-[#050505] shadow-2xl"
@@ -62,7 +64,7 @@ import { Icon } from "astro-icon/components";
       </div>
 
       <div
-        class="flex flex-col items-center justify-center space-y-6 text-center lg:col-span-7 lg:items-start lg:space-y-4 lg:text-left"
+        class="flex flex-col items-center justify-center space-y-4 text-center md:col-span-7 md:items-start md:space-y-4 md:text-left lg:space-y-4"
       >
         <div class="space-y-4 lg:space-y-3">
           <div
@@ -87,7 +89,7 @@ import { Icon } from "astro-icon/components";
           </div>
 
           <h1
-            class="reveal translate-y-4 font-sans text-[clamp(2.5rem,6vw,3.5rem)] leading-[1.05] font-extrabold tracking-tighter text-white opacity-0 transition-all delay-150 duration-700 md:text-[clamp(3rem,6vw,4rem)] lg:text-6xl"
+            class="reveal translate-y-4 font-sans text-[clamp(2rem,8vw,2.5rem)] leading-[1.05] font-extrabold tracking-tighter text-white opacity-0 transition-all delay-150 duration-700 md:text-[clamp(3rem,6vw,4rem)] lg:text-6xl"
           >
             Building Next-Gen <br />
             <span
@@ -107,7 +109,7 @@ import { Icon } from "astro-icon/components";
         </div>
 
         <div
-          class="reveal flex w-full translate-y-4 flex-col gap-4 opacity-0 transition-all delay-[450ms] duration-700 sm:flex-row sm:justify-center lg:justify-start"
+          class="reveal flex w-full translate-y-4 flex-col gap-4 opacity-0 transition-all delay-[450ms] duration-700 sm:flex-row sm:justify-center md:justify-start lg:justify-start"
         >
           <a
             href="#projects"
@@ -129,23 +131,25 @@ import { Icon } from "astro-icon/components";
         </div>
 
         <div
-          class="reveal grid w-full max-w-sm grid-cols-2 gap-6 border-t border-white/5 pt-8 opacity-0 transition-opacity delay-[600ms] duration-1000 sm:max-w-md sm:grid-cols-3 lg:max-w-none lg:pt-5"
+          class="reveal grid w-full max-w-sm grid-cols-2 gap-6 border-t border-white/5 pt-6 opacity-0 transition-opacity delay-[600ms] duration-1000 sm:max-w-md sm:grid-cols-3 md:pt-8 lg:max-w-none lg:pt-5"
         >
           <div class="flex flex-col items-center space-y-1.5 lg:items-start">
             <span
-              class="font-mono text-[8px] tracking-[0.2em] text-gray-600 uppercase"
+              class="font-mono text-[10px] tracking-[0.2em] text-gray-600 uppercase md:text-[8px]"
               >Education</span
             >
-            <span class="block text-[10px] font-medium text-gray-300"
+            <span
+              class="block text-[11px] font-medium text-gray-300 md:text-[10px]"
               >UCAB Engineering</span
             >
           </div>
           <div class="flex flex-col items-center space-y-1.5 lg:items-start">
             <span
-              class="font-mono text-[8px] tracking-[0.2em] text-gray-600 uppercase"
+              class="font-mono text-[10px] tracking-[0.2em] text-gray-600 uppercase md:text-[8px]"
               >Mindset</span
             >
-            <span class="block text-[10px] font-medium text-amber-500"
+            <span
+              class="block text-[11px] font-medium text-amber-500 md:text-[10px]"
               >Scalable Logic</span
             >
           </div>
@@ -153,10 +157,11 @@ import { Icon } from "astro-icon/components";
             class="col-span-2 flex flex-col items-center space-y-1.5 sm:col-span-1 lg:items-start"
           >
             <span
-              class="font-mono text-[8px] tracking-[0.2em] text-gray-600 uppercase"
+              class="font-mono text-[10px] tracking-[0.2em] text-gray-600 uppercase md:text-[8px]"
               >Tools</span
             >
-            <span class="block text-[10px] font-medium text-gray-300"
+            <span
+              class="block text-[11px] font-medium text-gray-300 md:text-[10px]"
               >Next.js · Supabase · Git</span
             >
           </div>
