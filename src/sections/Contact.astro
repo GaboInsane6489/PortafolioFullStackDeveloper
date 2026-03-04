@@ -2,140 +2,181 @@
 import { Icon } from "astro-icon/components";
 ---
 
-<section id="contact" class="relative overflow-hidden py-24 lg:py-32">
-  <div class="relative z-10 mx-auto w-full max-w-4xl px-8 text-center">
+<section id="contact" class="relative overflow-hidden py-12 md:py-24 lg:py-32">
+  <div class="relative z-10 mx-auto w-full max-w-6xl px-8">
     <div
-      class="reveal mb-8 inline-flex items-center gap-3 rounded-full border border-amber-500/20 bg-amber-500/5 px-5 py-2 backdrop-blur-md"
+      class="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:items-start lg:gap-20"
     >
-      <span class="relative flex h-2 w-2">
-        <span
-          class="absolute inline-flex h-full w-full animate-ping rounded-full bg-amber-400 opacity-75"
-        ></span>
-        <span class="relative inline-flex h-2 w-2 rounded-full bg-amber-500"
-        ></span>
-      </span>
-      <span
-        class="font-mono text-[9px] font-black tracking-[0.3em] text-amber-500 uppercase"
-      >
-        Systems Online / Ready for Deployment
-      </span>
-    </div>
-
-    <h2
-      class="reveal mb-8 font-serif text-5xl leading-[1.1] tracking-tight text-white md:text-7xl"
-    >
-      Ready to <span
-        class="bg-gradient-to-r from-amber-200 via-amber-400 to-amber-200 bg-clip-text font-light text-transparent italic"
-        >Architect</span
-      >
-      <br />
-      Your Next System?
-    </h2>
-
-    <p
-      class="reveal mx-auto mb-12 max-w-xl text-base leading-relaxed font-light text-gray-400 md:text-lg"
-    >
-      ¿Necesitas una infraestructura robusta o una consultoría técnica
-      especializada? Estoy listo para inicializar la conexión y escalar tu idea.
-    </p>
-
-    <!-- Contact Form HUD -->
-    <form
-      id="contact-form"
-      class="reveal mx-auto flex max-w-md flex-col gap-6 text-left"
-    >
-      <input type="hidden" name="access_key" value="91d5dea0-56d8-4a01-9589-27909b6301ac" />
-      <input type="hidden" name="subject" value="[PORTFOLIO_SYSTEM_UPLINK] New Message Received" />
-      <input type="hidden" name="from_name" value="PORTFOLIO COMMAND CENTER" />
-      <input type="hidden" name="replyto" id="hidden-replyto" value="" />
-      <input type="hidden" name="00_PROTOCOL_STATUS" value="ESTABLISHED" />
-      <input type="hidden" name="01_SECURITY_LEVEL" value="ENCRYPTED_USER_DATA" />
-
-      <div class="flex flex-col gap-2">
-        <label
-          for="name"
-          class="font-mono text-[10px] uppercase tracking-widest text-amber-500/70"
-          >> IDENTIFIER_</label
+      <!-- System Info: Sticky on Desktop -->
+      <div class="text-center lg:sticky lg:top-32 lg:col-span-5 lg:text-left">
+        <div
+          class="reveal mb-6 inline-flex items-center gap-3 rounded-full border border-amber-500/20 bg-amber-500/5 px-5 py-2 backdrop-blur-md"
         >
-        <input
-          type="text"
-          id="name"
-          name="OPERATOR_IDENTITY"
-          required
-          class="w-full rounded-none border border-white/10 bg-black/40 px-4 py-3 font-mono text-sm text-white placeholder-gray-600 outline-none transition-colors focus:border-amber-500/50 focus:bg-amber-500/5"
-          placeholder="Enter your name"
-        />
-      </div>
+          <span class="relative flex h-2 w-2">
+            <span
+              class="absolute inline-flex h-full w-full animate-ping rounded-full bg-amber-400 opacity-75"
+            ></span>
+            <span class="relative inline-flex h-2 w-2 rounded-full bg-amber-500"
+            ></span>
+          </span>
+          <span
+            class="font-mono text-[9px] font-black tracking-[0.3em] text-amber-500 uppercase"
+          >
+            Systems Online / Ready for Deployment
+          </span>
+        </div>
 
-      <div class="flex flex-col gap-2">
-        <label
-          for="email"
-          class="font-mono text-[10px] uppercase tracking-widest text-amber-500/70"
-          >> COMM_LINK_</label
+        <h2
+          class="reveal mb-6 font-serif text-4xl leading-[1.1] tracking-tight text-white md:text-6xl lg:text-7xl"
         >
-        <input
-          type="email"
-          id="email"
-          name="CONTACT_ENDPOINT"
-          required
-          class="w-full rounded-none border border-white/10 bg-black/40 px-4 py-3 font-mono text-sm text-white placeholder-gray-600 outline-none transition-colors focus:border-amber-500/50 focus:bg-amber-500/5"
-          placeholder="Enter your email"
-        />
-      </div>
+          Ready to <span
+            class="bg-gradient-to-r from-amber-200 via-amber-400 to-amber-200 bg-clip-text font-light text-transparent italic"
+            >Architect</span
+          >
+          <br />
+          Your Next System?
+        </h2>
 
-      <div class="flex flex-col gap-2">
-        <label
-          for="message"
-          class="font-mono text-[10px] uppercase tracking-widest text-amber-500/70"
-          >> PAYLOAD_</label
+        <p
+          class="reveal mx-auto mb-8 max-w-xl text-base leading-relaxed font-light text-gray-400 md:text-lg lg:mx-0"
         >
-        <textarea
-          id="message"
-          name="TRANSMITTED_PAYLOAD"
-          required
-          rows="4"
-          class="w-full resize-none rounded-none border border-white/10 bg-black/40 px-4 py-3 font-mono text-sm text-white placeholder-gray-600 outline-none transition-colors focus:border-amber-500/50 focus:bg-amber-500/5"
-          placeholder="Type your message here..."
-        ></textarea>
+          ¿Necesitas una infraestructura robusta o una consultoría técnica
+          especializada? Estoy listo para inicializar la conexión y escalar tu
+          idea.
+        </p>
       </div>
-      <input type="hidden" name="ZZ_LOG_END" value="--- END OF TRANSMISSION ---" />
 
-      <button
-        type="submit"
-        id="submit-btn"
-        class="group relative mt-2 flex w-full items-center justify-center gap-3 overflow-hidden border border-amber-500/30 bg-amber-500/10 px-8 py-4 font-mono text-[11px] font-black tracking-[0.2em] text-amber-500 uppercase transition-all duration-300 hover:border-amber-500 hover:bg-amber-500/20 hover:shadow-[0_0_30px_rgba(245,158,11,0.15)]"
-      >
-        <span
-          class="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-amber-500/20 to-transparent transition-transform duration-500 ease-out group-hover:translate-x-full"
-        ></span>
-        <Icon
-          name="tabler:terminal-2"
-          size={18}
-          class="transition-transform group-hover:scale-110"
-        />
-        <span id="btn-text">Execute Command</span>
-      </button>
+      <!-- Command Interface -->
+      <div class="lg:col-span-7">
+        <form
+          id="contact-form"
+          class="reveal grid grid-cols-1 gap-6 sm:grid-cols-2"
+        >
+          <input
+            type="hidden"
+            name="access_key"
+            value="91d5dea0-56d8-4a01-9589-27909b6301ac"
+          />
+          <input
+            type="hidden"
+            name="subject"
+            value="[PORTFOLIO_SYSTEM_UPLINK] New Message Received"
+          />
+          <input
+            type="hidden"
+            name="from_name"
+            value="PORTFOLIO COMMAND CENTER"
+          />
+          <input type="hidden" name="replyto" id="hidden-replyto" value="" />
+          <input type="hidden" name="00_PROTOCOL_STATUS" value="ESTABLISHED" />
+          <input
+            type="hidden"
+            name="01_SECURITY_LEVEL"
+            value="ENCRYPTED_USER_DATA"
+          />
 
-      <div
-        id="status-message"
-        class="mt-2 hidden text-center font-mono text-[11px] uppercase tracking-widest"
-      >
-      </div>
-    </form>
+          <div class="flex flex-col gap-2 sm:col-span-1">
+            <label
+              for="name"
+              class="font-mono text-[10px] tracking-widest text-amber-500/70 uppercase"
+              >> IDENTIFIER_</label
+            >
+            <input
+              type="text"
+              id="name"
+              name="OPERATOR_IDENTITY"
+              required
+              class="w-full rounded-none border border-white/10 bg-black/40 px-4 py-3 font-mono text-sm text-white placeholder-gray-600 transition-colors outline-none focus:border-amber-500/50 focus:bg-amber-500/5"
+              placeholder="Enter your name"
+            />
+          </div>
 
-    <div
-      class="reveal mt-16 flex flex-col items-center gap-4 opacity-40 transition-opacity hover:opacity-100"
-    >
-      <div
-        class="h-8 w-px bg-gradient-to-b from-transparent via-amber-500/50 to-transparent"
-      >
-      </div>
-      <div
-        class="flex flex-col items-center gap-1 font-mono text-[9px] tracking-[0.4em] text-gray-500 uppercase"
-      >
-        <p>Based in Venezuela</p>
-        <p class="text-amber-500/40">•</p>
-        <p>Available Worldwide</p>
+          <div class="flex flex-col gap-2 sm:col-span-1">
+            <label
+              for="email"
+              class="font-mono text-[10px] tracking-widest text-amber-500/70 uppercase"
+              >> COMM_LINK_</label
+            >
+            <input
+              type="email"
+              id="email"
+              name="CONTACT_ENDPOINT"
+              required
+              class="w-full rounded-none border border-white/10 bg-black/40 px-4 py-3 font-mono text-sm text-white placeholder-gray-600 transition-colors outline-none focus:border-amber-500/50 focus:bg-amber-500/5"
+              placeholder="Enter your email"
+            />
+          </div>
+
+          <div class="flex flex-col gap-2 sm:col-span-2">
+            <label
+              for="message"
+              class="font-mono text-[10px] tracking-widest text-amber-500/70 uppercase"
+              >> PAYLOAD_</label
+            >
+            <textarea
+              id="message"
+              name="TRANSMITTED_PAYLOAD"
+              required
+              rows="4"
+              class="w-full resize-none rounded-none border border-white/10 bg-black/40 px-4 py-3 font-mono text-sm text-white placeholder-gray-600 transition-colors outline-none focus:border-amber-500/50 focus:bg-amber-500/5"
+              placeholder="Type your message here..."></textarea>
+          </div>
+
+          <input
+            type="hidden"
+            name="ZZ_LOG_END"
+            value="--- END OF TRANSMISSION ---"
+          />
+
+          <div class="sm:col-span-2">
+            <button
+              type="submit"
+              id="submit-btn"
+              class="group relative flex w-full items-center justify-center gap-3 overflow-hidden border border-amber-500/30 bg-amber-500/10 px-8 py-4 font-mono text-[11px] font-black tracking-[0.2em] text-amber-500 uppercase transition-all duration-300 hover:border-amber-500 hover:bg-amber-500/20 hover:shadow-[0_0_30px_rgba(245,158,11,0.15)]"
+            >
+              <span
+                class="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-amber-500/20 to-transparent transition-transform duration-500 ease-out group-hover:translate-x-full"
+              ></span>
+              <Icon
+                name="tabler:terminal-2"
+                size={18}
+                class="transition-transform group-hover:scale-110"
+              />
+              <span id="btn-text">Execute Command</span>
+            </button>
+
+            <div
+              id="status-message"
+              class="mt-4 hidden text-center font-mono text-[11px] tracking-widest uppercase"
+            >
+            </div>
+
+            <!-- Compact System Metadata -->
+            <div
+              class="mt-8 flex items-center justify-between border-t border-white/5 pt-6 opacity-30"
+            >
+              <div
+                class="flex items-center gap-2 font-mono text-[8px] tracking-widest text-gray-500 uppercase"
+              >
+                <Icon
+                  name="tabler:map-pin"
+                  size={12}
+                  class="text-amber-500/50"
+                />
+                <span>Venezuela_HQ</span>
+              </div>
+              <div
+                class="mx-4 h-px flex-1 bg-gradient-to-r from-amber-500/20 to-transparent"
+              >
+              </div>
+              <div
+                class="font-mono text-[8px] tracking-widest text-gray-500 uppercase"
+              >
+                <span>Available_Global</span>
+              </div>
+            </div>
+          </div>
+        </form>
       </div>
     </div>
   </div>
@@ -152,24 +193,33 @@ import { Icon } from "astro-icon/components";
     const form = document.getElementById("contact-form") as HTMLFormElement;
     const statusMessage = document.getElementById("status-message");
     const btnText = document.getElementById("btn-text");
-    const submitBtn = document.getElementById("submit-btn") as HTMLButtonElement;
+    const submitBtn = document.getElementById(
+      "submit-btn",
+    ) as HTMLButtonElement;
 
     if (!form || !statusMessage || !btnText || !submitBtn) return;
 
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
-      
+
       const formData = new FormData(form);
       const operatorName = formData.get("OPERATOR_IDENTITY");
       const operatorMail = formData.get("CONTACT_ENDPOINT");
-      
-      formData.set("subject", `[PORTFOLIO_SYSTEM_UPLINK] Mensaje de ${operatorName}`);
+
+      formData.set(
+        "subject",
+        `[PORTFOLIO_SYSTEM_UPLINK] Mensaje de ${operatorName}`,
+      );
       formData.set("replyto", operatorMail as string);
-      
+
       // Update UI to loading state
       submitBtn.disabled = true;
       btnText.textContent = "Transmitting...";
-      statusMessage.classList.remove("hidden", "text-red-500", "text-amber-500");
+      statusMessage.classList.remove(
+        "hidden",
+        "text-red-500",
+        "text-amber-500",
+      );
       statusMessage.classList.add("text-gray-400");
       statusMessage.textContent = "[SYSTEM]: Establishing secure link...";
 
@@ -186,21 +236,24 @@ import { Icon } from "astro-icon/components";
           btnText.textContent = "Execute Command";
           statusMessage.classList.remove("text-gray-400", "text-red-500");
           statusMessage.classList.add("text-amber-500");
-          statusMessage.textContent = "[SYSTEM]: Message transmitted successfully.";
+          statusMessage.textContent =
+            "[SYSTEM]: Message transmitted successfully.";
         } else {
           btnText.textContent = "Retry Connection";
           statusMessage.classList.remove("text-gray-400", "text-amber-500");
           statusMessage.classList.add("text-red-500");
-          statusMessage.textContent = "[ERROR]: Transmission failed. Check logs.";
+          statusMessage.textContent =
+            "[ERROR]: Transmission failed. Check logs.";
         }
       } catch (error) {
         btnText.textContent = "Retry Connection";
         statusMessage.classList.remove("text-gray-400", "text-amber-500");
         statusMessage.classList.add("text-red-500");
-        statusMessage.textContent = "[ERROR]: Connection lost. Target unreachable.";
+        statusMessage.textContent =
+          "[ERROR]: Connection lost. Target unreachable.";
       } finally {
         submitBtn.disabled = false;
-        
+
         // Hide success message after 5 seconds
         if (statusMessage.classList.contains("text-amber-500")) {
           setTimeout(() => {
