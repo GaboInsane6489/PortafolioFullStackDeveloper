@@ -8,244 +8,216 @@ const t = useTranslations(lang);
 
 <section
   id="laboratory"
-  class="flex justify-center px-4 py-24 sm:px-8 lg:py-32"
+  class="flex justify-center px-4 py-12 sm:px-8 lg:py-16"
 >
   <div
-    class="reveal reveal-scale relative mx-auto w-full max-w-[1400px] overflow-hidden rounded-[2.5rem] border border-emerald-500/20 bg-[#0A0908] shadow-[0_0_50px_rgba(16,185,129,0.1)]"
+    class="reveal reveal-scale relative mx-auto w-full max-w-[1400px] overflow-hidden rounded-[2rem] border border-amber-500/10 shadow-[0_0_50px_rgba(245,158,11,0.02)]"
   >
-    <video
-      class="absolute inset-0 h-full w-full object-cover opacity-60 transition-transform duration-[20s] hover:scale-105"
-      src="/videos/Hacker-Room-Rainy-Night.mp4"
-      autoplay
-      muted
-      loop
-      playsinline></video>
+    <div class="grid-bg pointer-events-none absolute inset-0 opacity-10"></div>
 
-    <div
-      class="absolute inset-0 bg-gradient-to-r from-[#0A0908] via-[#0A0908]/40 to-transparent"
-    >
-    </div>
-    <div
-      class="absolute inset-0 bg-gradient-to-t from-[#0A0908] via-transparent to-transparent"
-    >
-    </div>
-
-    <div class="relative z-10 px-8 py-16 sm:px-12 lg:px-20 lg:py-24">
-      <div class="mb-16">
-        <div class="reveal flex items-center gap-4">
-          <span class="flex h-px w-12 bg-emerald-500/50"></span>
-          <span
-            class="font-mono text-[10px] font-black tracking-[0.4em] text-emerald-500 uppercase"
-            >{t("lab.badge")}</span
+    <div class="relative z-10 px-6 py-10 sm:px-10 lg:px-14 lg:py-12">
+      <!-- Header Focus -->
+      <div
+        class="mb-8 flex flex-col items-start justify-between gap-4 md:flex-row md:items-end lg:mb-10"
+      >
+        <div>
+          <div class="reveal flex items-center gap-3">
+            <span class="h-px w-8 bg-amber-500/40"></span>
+            <span
+              class="font-mono text-[9px] font-black tracking-[0.4em] text-amber-500 uppercase"
+              >{t("lab.badge")}</span
+            >
+          </div>
+          <h2
+            class="reveal mt-3 font-serif text-3xl leading-tight text-white md:text-5xl lg:text-6xl"
           >
+            {t("lab.title1")}
+            <span
+              class="bg-gradient-to-r from-amber-400 to-amber-600 bg-clip-text text-transparent italic"
+              >{t("lab.title2")}</span
+            >
+          </h2>
         </div>
-        <h2
-          class="reveal mt-6 font-serif text-5xl leading-tight text-white md:text-7xl"
-        >
-          {t("lab.title1")}
-          <span
-            class="bg-gradient-to-r from-emerald-400 to-emerald-600 bg-clip-text text-transparent italic"
-            >{t("lab.title2")}</span
-          >
-        </h2>
         <p
-          class="reveal mt-6 max-w-xl text-lg leading-relaxed font-light text-gray-400"
+          class="reveal max-w-md font-mono text-[11px] leading-relaxed text-gray-500 md:text-right"
         >
           {t("lab.description")}
         </p>
       </div>
 
-      <div
-        class="grid grid-cols-1 items-stretch gap-12 lg:grid-cols-2 lg:gap-16"
-      >
+      <!-- PANORAMIC COLLAGE GRID -->
+      <div class="grid grid-cols-1 gap-6 lg:grid-cols-3 lg:gap-8">
+        <!-- Column 1: Engineering Toolkit (The Base) -->
         <div
-          class="reveal reveal-right group relative overflow-hidden rounded-2xl border border-emerald-500/20 bg-black/70 backdrop-blur-md transition-all duration-500 hover:border-emerald-500/40"
+          class="reveal reveal-right group relative overflow-hidden rounded-xl border border-white/5 bg-black/60 p-6 backdrop-blur-xl transition-all duration-500 hover:border-amber-500/30"
         >
           <div
-            class="flex items-center justify-between border-b border-emerald-500/20 bg-emerald-500/5 px-6 py-3"
+            class="mb-6 flex items-center justify-between border-b border-white/5 pb-4"
           >
-            <div class="flex gap-2">
-              <div class="h-2.5 w-2.5 rounded-full bg-red-500/40"></div>
-              <div class="h-2.5 w-2.5 rounded-full bg-yellow-500/40"></div>
-              <div class="h-2.5 w-2.5 rounded-full bg-emerald-500/40"></div>
+            <div class="flex gap-1.5">
+              <div class="h-1.5 w-1.5 rounded-full bg-red-500/30"></div>
+              <div class="h-1.5 w-1.5 rounded-full bg-amber-500/30"></div>
             </div>
             <span
-              class="font-mono text-[9px] font-bold tracking-[0.2em] text-emerald-500/40 uppercase"
-              >session@power_user — bash</span
+              class="font-mono text-[8px] tracking-widest text-amber-500/40 uppercase"
+              >ENGINEERING_TOOLKIT</span
             >
           </div>
 
-          <div class="p-8">
-            <div class="absolute top-10 right-10 opacity-10">
-              <Icon name="tabler:cpu" class="h-24 w-24 text-emerald-500" />
-            </div>
+          <div class="space-y-4">
+            {
+              [
+                {
+                  label: t("lab.specs.cpu"),
+                  val: t("lab.specs.cpu.val"),
+                  icon: "tabler:binary-tree",
+                },
+                {
+                  label: t("lab.specs.ram"),
+                  val: t("lab.specs.ram.val"),
+                  icon: "tabler:database-cog",
+                },
+                {
+                  label: t("lab.specs.gpu"),
+                  val: t("lab.specs.gpu.val"),
+                  icon: "tabler:engine",
+                },
+                {
+                  label: t("lab.specs.os"),
+                  val: t("lab.specs.os.val"),
+                  icon: "tabler:lambda",
+                },
+              ].map((item) => (
+                <div class="group/item flex flex-col gap-1 border-b border-white/[0.02] pb-3 last:border-0">
+                  <div class="flex items-center gap-2">
+                    <Icon
+                      name={item.icon}
+                      class="text-gray-600 transition-colors group-hover/item:text-amber-500/60"
+                      size={14}
+                    />
+                    <span class="font-mono text-[10px] tracking-tighter text-gray-500 uppercase">
+                      {item.label}
+                    </span>
+                  </div>
+                  <span class="text-[13px] font-bold text-gray-300 transition-colors group-hover/item:text-amber-200">
+                    {item.val}
+                  </span>
+                </div>
+              ))
+            }
+          </div>
+        </div>
 
+        <!-- Column 2: Anti-Gravity Paradox (Central Visual) -->
+        <div
+          class="reveal reveal-scale relative flex aspect-square flex-col overflow-hidden rounded-xl border border-amber-500/10 bg-[#080808] p-4 lg:aspect-auto"
+        >
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-amber-500/5 to-transparent"
+          >
+          </div>
+          <div
+            class="relative z-10 flex h-full flex-col items-center justify-center gap-6"
+          >
+            <div class="group relative">
+              <div
+                class="absolute -inset-4 rounded-full bg-amber-500/10 opacity-0 blur-2xl transition-opacity duration-700 group-hover:opacity-100"
+              >
+              </div>
+              <img
+                src="/images/CodeAntigravity.webp"
+                alt="Code Paradox"
+                class="relative h-32 w-32 object-contain drop-shadow-[0_0_20px_rgba(245,158,11,0.2)] transition-all duration-700 group-hover:scale-110 group-hover:drop-shadow-[0_0_30px_rgba(245,158,11,0.4)] md:h-40 md:w-40"
+              />
+            </div>
+            <div class="text-center">
+              <span
+                class="block font-mono text-[10px] tracking-[0.3em] text-amber-500/60 uppercase"
+                >System_Paradox</span
+              >
+              <span class="mt-1 block font-serif text-lg text-white/80"
+                >Anti-Gravity Engine</span
+              >
+            </div>
+            <div class="flex gap-4">
+              <div class="h-0.5 w-12 bg-amber-500/20"></div>
+              <Icon
+                name="tabler:atom-2"
+                class="animate-spin-slow text-amber-500"
+                size={20}
+              />
+              <div class="h-0.5 w-12 bg-amber-500/20"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Column 3: Research & Methodology (Operations) -->
+        <div class="reveal reveal-left flex flex-col gap-6">
+          <div
+            class="flex-1 rounded-xl border border-white/5 bg-black/60 p-6 backdrop-blur-xl transition-all hover:border-amber-500/20"
+          >
             <h3
-              class="mb-10 flex items-center gap-3 font-mono text-xs font-black tracking-[0.2em] text-emerald-400 uppercase"
+              class="mb-6 flex items-center justify-between font-mono text-[11px] font-black tracking-widest text-amber-500 uppercase"
             >
-              <Icon name="tabler:terminal-2" size={18} class="animate-pulse" />
-              <span>{t("lab.specs.title")}</span>
+              <span>{t("lab.active.title")}</span>
+              <Icon
+                name="tabler:activity-heartbeat"
+                class="animate-pulse"
+                size={16}
+              />
             </h3>
 
-            <div
-              class="relative z-10 space-y-5 font-mono text-[11px] md:text-sm"
-            >
+            <div class="space-y-5">
               {
                 [
-                  {
-                    label: t("lab.specs.cpu"),
-                    val: "AMD Ryzen 9 7950X",
-                    icon: "tabler:cpu",
-                  },
-                  {
-                    label: t("lab.specs.ram"),
-                    val: "32GB DDR5 6000MHz",
-                    icon: "tabler:database-export",
-                  },
-                  {
-                    label: t("lab.specs.gpu"),
-                    val: "NVIDIA RTX 4090 24GB",
-                    icon: "tabler:device-desktop",
-                  },
-                  {
-                    label: t("lab.specs.os"),
-                    val: "Arch Linux (Hyprland)",
-                    icon: "tabler:prompt",
-                  },
-                ].map((spec) => (
-                  <div class="group/row flex items-center justify-between border-b border-white/[0.03] pb-3 transition-colors hover:border-emerald-500/30">
-                    <div class="flex items-center gap-3">
-                      <Icon
-                        name={spec.icon}
-                        class="text-gray-500 group-hover/row:text-emerald-500/50"
-                        size={14}
-                      />
-                      <span class="text-gray-500 group-hover/row:text-gray-300">
-                        {spec.label}
-                      </span>
+                  { name: t("lab.active.res1"), icon: "tabler:brain" },
+                  { name: t("lab.active.res2"), icon: "tabler:arrows-join-2" },
+                  { name: t("lab.active.res3"), icon: "tabler:components" },
+                ].map((res) => (
+                  <div class="group flex items-center gap-4 border-b border-white/[0.03] pb-3 transition-all last:border-0 hover:translate-x-1">
+                    <div class="flex h-7 w-7 items-center justify-center rounded-lg bg-amber-500/5 text-amber-500/40 transition-colors group-hover:bg-amber-500/10 group-hover:text-amber-500">
+                      <Icon name={res.icon} size={14} />
                     </div>
-                    <span class="text-emerald-100/70 group-hover/row:text-emerald-300">
-                      {spec.val}
+                    <span class="font-mono text-[11px] text-gray-400 uppercase transition-colors group-hover:text-gray-200">
+                      {res.name}
                     </span>
                   </div>
                 ))
               }
             </div>
-
-            <div
-              class="mt-10 flex items-center gap-3 font-mono text-emerald-500/60"
-            >
-              <span class="font-bold text-emerald-500">root@lab:~#</span>
-              <span class="text-white/80">neofetch</span>
-              <span class="h-4 w-2 animate-pulse bg-emerald-500"></span>
-            </div>
-          </div>
-        </div>
-
-        <div
-          class="reveal reveal-left flex flex-col justify-between space-y-10 lg:pl-4"
-        >
-          <div
-            class="flex items-end justify-between border-b border-white/10 pb-6"
-          >
-            <div class="space-y-1">
-              <h3 class="font-serif text-4xl text-white">
-                {t("lab.active.title")}
-              </h3>
-              <p
-                class="flex items-center gap-2 font-mono text-[10px] tracking-widest text-gray-400"
-              >
-                <Icon
-                  name="tabler:loader"
-                  class="animate-spin text-emerald-500"
-                  size={14}
-                />
-                {t("lab.active.monitor")}
-              </p>
-            </div>
-            <div class="text-right">
-              <span
-                class="block font-mono text-5xl font-black tracking-tighter text-emerald-500"
-                >84%</span
-              >
-            </div>
-          </div>
-
-          <div class="space-y-8">
-            {
-              [
-                {
-                  name: "AI Agents & LLM Orchestration",
-                  status: "Running",
-                  color: "bg-emerald-500",
-                  text: "text-emerald-400",
-                  w: "w-[75%]",
-                },
-                {
-                  name: "Rust / Systems Programming",
-                  status: "Compiling",
-                  color: "bg-amber-500",
-                  text: "text-amber-400",
-                  w: "w-[45%]",
-                },
-                {
-                  name: "WebGL / Three.js Shaders",
-                  status: "Rendering",
-                  color: "bg-blue-500",
-                  text: "text-blue-400",
-                  w: "w-[30%]",
-                },
-              ].map((skill) => (
-                <div class="group">
-                  <div class="mb-3 flex justify-between font-mono text-[11px] tracking-widest uppercase">
-                    <span class="text-gray-400 transition-colors group-hover:text-white">
-                      {skill.name}
-                    </span>
-                    <span class={`${skill.text} animate-pulse`}>
-                      {skill.status}
-                    </span>
-                  </div>
-                  <div class="h-1.5 w-full overflow-hidden rounded-full bg-white/10">
-                    <div
-                      class={`relative h-full ${skill.w} ${skill.color} rounded-full`}
-                    >
-                      <div class="absolute inset-0 w-full animate-[shimmer_2s_infinite] bg-gradient-to-r from-transparent via-white/30 to-transparent" />
-                    </div>
-                  </div>
-                </div>
-              ))
-            }
           </div>
 
           <div class="grid grid-cols-2 gap-4">
             <div
-              class="group rounded-2xl border border-white/10 bg-black/40 p-5 transition-all hover:border-emerald-500/30 hover:bg-black/60"
+              class="rounded-xl border border-white/5 bg-black/40 p-4 transition-all hover:border-amber-500/20"
             >
-              <div
-                class="mb-3 font-mono text-[9px] font-black tracking-[0.3em] text-gray-500 uppercase"
+              <span
+                class="mb-2 block font-mono text-[8px] tracking-widest text-gray-600 uppercase"
+                >{t("lab.method.automation")}</span
               >
-                Primary_Editor
-              </div>
-              <div class="flex items-center gap-3 font-mono text-sm text-white">
-                <Icon name="tabler:code" class="text-blue-400" size={20} />
-                <span>VS Code</span>
+              <div
+                class="flex items-center gap-2 font-mono text-xs text-amber-100/90"
+              >
+                <Icon
+                  name="tabler:git-merge"
+                  size={14}
+                  class="text-amber-500"
+                />
+                <span>CI/CD</span>
               </div>
             </div>
             <div
-              class="group rounded-2xl border border-white/10 bg-black/40 p-5 transition-all hover:border-emerald-500/30 hover:bg-black/60"
+              class="rounded-xl border border-white/5 bg-black/40 p-4 transition-all hover:border-amber-500/20"
             >
-              <div
-                class="mb-3 font-mono text-[9px] font-black tracking-[0.3em] text-gray-500 uppercase"
+              <span
+                class="mb-2 block font-mono text-[8px] tracking-widest text-gray-600 uppercase"
+                >{t("lab.method.protocol")}</span
               >
-                Theme
-              </div>
-              <div class="flex items-center gap-3 font-mono text-sm text-white">
-                <Icon
-                  name="tabler:color-swatch"
-                  class="text-purple-400"
-                  size={20}
-                />
-                <span>Tokyo Night</span>
+              <div
+                class="flex items-center gap-2 font-mono text-xs text-amber-100/90"
+              >
+                <Icon name="tabler:terminal" size={14} class="text-amber-500" />
+                <span>PR-Driven</span>
               </div>
             </div>
           </div>
@@ -256,12 +228,67 @@ const t = useTranslations(lang);
 </section>
 
 <style>
-  @keyframes shimmer {
-    0% {
-      transform: translateX(-100%);
+  #laboratory {
+    min-height: auto;
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .reveal-scale {
+    transform: scale(0.95);
+  }
+  .reveal-scale.active {
+    transform: scale(1);
+  }
+  .reveal-right {
+    transform: translateX(-20px);
+  }
+  .reveal-right.active {
+    transform: translateX(0);
+  }
+  .reveal-left {
+    transform: translateX(20px);
+  }
+  .reveal-left.active {
+    transform: translateX(0);
+  }
+
+  @keyframes spin-slow {
+    from {
+      transform: rotate(0deg);
     }
-    100% {
-      transform: translateX(100%);
+    to {
+      transform: rotate(360deg);
     }
   }
+  .animate-spin-slow {
+    animation: spin-slow 8s linear infinite;
+  }
 </style>
+
+<script>
+  function initReveal() {
+    const reveals = document.querySelectorAll(".reveal");
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("active");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1 },
+    );
+    reveals.forEach((el) => observer.observe(el));
+  }
+  initReveal();
+  document.addEventListener("astro:page-load", initReveal);
+</script>
