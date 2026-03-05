@@ -1,6 +1,10 @@
 ---
 import { Icon } from "astro-icon/components";
 import EmblaCarousel from "../components/ui/EmblaCarousel.astro";
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 
 const luzInteriorImages = Array.from(
   { length: 11 },
@@ -27,24 +31,22 @@ const InstalacionesGarciasImages = Array.from(
           <span class="h-px w-8 bg-amber-500/50"></span>
           <span
             class="font-mono text-[10px] font-bold tracking-[0.4em] text-amber-500 uppercase"
-            >Selected Works</span
+            >{t("projects.badge")}</span
           >
         </div>
         <h2
           class="font-serif text-5xl leading-[1.1] text-white md:text-7xl lg:text-8xl"
         >
-          Digital <span class="font-light text-white/30 italic"
-            >Case Studies</span
+          {t("projects.title1")}
+          <span class="font-light text-white/30 italic"
+            >{t("projects.title2")}</span
           >
         </h2>
       </div>
       <p
         class="reveal max-w-[280px] text-sm leading-relaxed font-light text-gray-500 md:text-right"
-      >
-        A curation of production-grade systems focusing on <span
-          class="text-white/60">architecture</span
-        > and <span class="text-white/60">performance</span>.
-      </p>
+        set:html={t("projects.description")}
+      />
     </div>
 
     <div class="space-y-32 md:space-y-48">
@@ -57,7 +59,7 @@ const InstalacionesGarciasImages = Array.from(
               <Icon name="tabler:school" class="text-xl" />
               <span
                 class="font-mono text-[10px] font-black tracking-widest uppercase"
-                >EdTech Operating System</span
+                >{t("projects.marti.badge")}</span
               >
             </div>
             <h3
@@ -65,13 +67,10 @@ const InstalacionesGarciasImages = Array.from(
             >
               Martí Academy OS
             </h3>
-            <p class="text-lg leading-relaxed text-gray-400">
-              A robust educational platform built to handle complex academic
-              workflows. Engineered with <span class="text-amber-500/50"
-                >scalable architecture</span
-              >, real-time data synchronization, and an intuitive UI for
-              efficient institution management.
-            </p>
+            <p
+              class="text-lg leading-relaxed text-gray-400"
+              set:html={t("projects.marti.description")}
+            />
           </div>
 
           <div class="flex flex-wrap gap-3">
@@ -96,7 +95,7 @@ const InstalacionesGarciasImages = Array.from(
             >
               <span
                 class="border-b border-amber-500/30 pb-1 transition-all group-hover/link:border-amber-500"
-                >EXPLORE ARCHITECTURE</span
+                >{t("projects.marti.cta")}</span
               >
               <Icon
                 name="tabler:chevron-right"
@@ -162,7 +161,7 @@ const InstalacionesGarciasImages = Array.from(
               <Icon name="tabler:bulb" class="text-xl" />
               <span
                 class="font-mono text-[10px] font-black tracking-widest uppercase"
-                >Growth Platform</span
+                >{t("projects.luz.badge")}</span
               >
             </div>
             <h3
@@ -170,13 +169,10 @@ const InstalacionesGarciasImages = Array.from(
             >
               Mi Luz Interior
             </h3>
-            <p class="text-lg leading-relaxed text-gray-400">
-              A modern application designed for <span
-                class="font-serif text-purple-400/50 italic"
-                >personal reconstruction</span
-              > and tracking. Built with complex state management, modular components,
-              and a focus on seamless, privacy-first UX.
-            </p>
+            <p
+              class="text-lg leading-relaxed text-gray-400"
+              set:html={t("projects.luz.description")}
+            />
           </div>
 
           <div class="flex justify-end lg:justify-start">
@@ -186,7 +182,8 @@ const InstalacionesGarciasImages = Array.from(
               rel="noopener noreferrer"
               class="inline-flex items-center gap-4 rounded-full border border-white/10 bg-white/5 px-6 py-3 font-mono text-sm font-bold tracking-widest text-white transition-all hover:bg-white/10"
             >
-              VIEW REPOSITORY <Icon name="tabler:brand-github" />
+              {t("projects.luz.cta")}
+              <Icon name="tabler:brand-github" />
             </a>
           </div>
         </div>
@@ -201,7 +198,7 @@ const InstalacionesGarciasImages = Array.from(
               <Icon name="tabler:tool" class="text-xl" />
               <span
                 class="font-mono text-[10px] font-black tracking-widest uppercase"
-                >Enterprise Solution</span
+                >{t("projects.garcia.badge")}</span
               >
             </div>
             <h3
@@ -209,17 +206,15 @@ const InstalacionesGarciasImages = Array.from(
             >
               Instalaciones García
             </h3>
-            <p class="text-lg leading-relaxed text-gray-400">
-              Production-ready platform for a real-world client featuring <span
-                class="font-bold text-blue-400/50">high performance</span
-              > and SEO optimization. Designed to streamline field operations, improve
-              load times, and drive conversion.
-            </p>
+            <p
+              class="text-lg leading-relaxed text-gray-400"
+              set:html={t("projects.garcia.description")}
+            />
           </div>
           <div
             class="inline-flex items-center gap-2 self-start rounded-md border border-blue-500/20 bg-blue-500/10 px-3 py-1 font-mono text-[9px] font-black tracking-tighter text-blue-400"
           >
-            DEPLOYED IN PRODUCTION
+            >{t("projects.garcia.status")}
           </div>
 
           <div class="pt-4">
@@ -231,7 +226,7 @@ const InstalacionesGarciasImages = Array.from(
             >
               <span
                 class="border-b border-blue-500/30 pb-1 transition-all group-hover/link:border-blue-500"
-                >VIEW REPOSITORY</span
+                >{t("projects.garcia.cta")}</span
               >
               <Icon
                 name="tabler:chevron-right"

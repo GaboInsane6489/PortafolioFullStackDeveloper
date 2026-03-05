@@ -1,5 +1,9 @@
 ---
 import { Icon } from "astro-icon/components";
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 
 const categories = ["ALL", "FRONTEND", "BACKEND", "DATABASE", "DEVOPS"];
 
@@ -121,20 +125,20 @@ const techStack = [
           <span class="relative inline-flex h-2 w-2 rounded-full bg-amber-500"></span>
         </span>
         <span class="font-mono text-[10px] font-black tracking-[0.3em] text-amber-500 uppercase">
-          Arsenal_Asset_Manager
+          {t("stack.badge")}
         </span>
       </div>
 
       <h2 class="reveal font-serif text-4xl leading-tight text-white md:text-5xl lg:text-7xl">
-        Technological <br />
-        <span class="font-light text-white/30 italic">Arsenal & Tooling_</span>
+        {t("stack.title1")} <br />
+        <span class="font-light text-white/30 italic">{t("stack.title2")}</span>
       </h2>
     </div>
 
     <!-- CLI Filter Bar -->
     <div class="reveal mb-12 flex flex-col gap-6 lg:mb-16">
       <div class="flex items-center gap-4 border-b border-white/5 pb-4 min-w-0">
-        <span class="font-mono text-[11px] font-bold text-amber-500/60 uppercase tracking-widest sm:block hidden whitespace-nowrap">[ SELECT_MODULE: ]</span>
+        <span class="font-mono text-[11px] font-bold text-amber-500/60 uppercase tracking-widest sm:block hidden whitespace-nowrap">{t("stack.filter")}</span>
         <div class="flex flex-1 gap-2 overflow-x-auto pb-2 scrollbar-none sm:pb-0 min-w-0">
           {categories.map((cat) => (
             <button
@@ -173,7 +177,7 @@ const techStack = [
 
             <!-- LED Status Indicator -->
             <div class="absolute top-4 right-4 flex items-center gap-2">
-               <span class="font-mono text-[7px] font-bold text-white/10 uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">Module_Online</span>
+               <span class="font-mono text-[7px] font-bold text-white/10 uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">{t("stack.status.online")}</span>
                <div class={`h-1.5 w-1.5 rounded-full ${tech.tag === "OPTIMIZING" ? "bg-amber-500/40 shadow-[0_0_8px_rgba(245,158,11,0.4)]" : "bg-emerald-500/40 shadow-[0_0_8px_rgba(16,185,129,0.4)]"} animate-pulse`}></div>
             </div>
 

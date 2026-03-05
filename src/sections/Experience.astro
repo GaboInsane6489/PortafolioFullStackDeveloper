@@ -1,6 +1,10 @@
 ---
 import { Icon } from "astro-icon/components";
 import EmblaCarousel from "../components/ui/EmblaCarousel.astro";
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 
 const HarryPotterHeadForumImages = Array.from(
   { length: 15 },
@@ -25,23 +29,20 @@ const HarryPotterHeadForumImages = Array.from(
           <span
             class="font-mono text-[10px] font-bold tracking-[0.3em] text-amber-500 uppercase"
           >
-            Career Path
+            {t("exp.badge")}
           </span>
         </div>
         <h2
           class="reveal font-serif text-5xl leading-tight text-white md:text-6xl"
         >
-          Professional <br class="hidden lg:block" />
-          <span class="text-white/30 italic">Timeline</span>
+          {t("exp.title1")}
+          <br class="hidden lg:block" />
+          <span class="text-white/30 italic">{t("exp.title2")}</span>
         </h2>
         <p
           class="reveal max-w-sm text-lg leading-relaxed font-light text-gray-500"
-        >
-          A chronological log of my development journey, from academic
-          foundation to building <span class="text-white/60"
-            >production-grade systems</span
-          >.
-        </p>
+          set:html={t("exp.description")}
+        />
       </div>
 
       <div
@@ -64,12 +65,12 @@ const HarryPotterHeadForumImages = Array.from(
               <h3
                 class="font-serif text-2xl text-white transition-colors group-hover:text-amber-400 md:text-3xl"
               >
-                Full Stack Developer
+                {t("exp.garcia.role")}
               </h3>
               <span
                 class="w-fit rounded-full border border-amber-500/20 bg-amber-500/5 px-3 py-1 font-mono text-[clamp(10px,1.2vw,12px)] font-bold tracking-tighter text-amber-500"
               >
-                2024 — PRESENT
+                {t("exp.garcia.date")}
               </span>
             </div>
             <div class="flex items-center gap-2 text-gray-400">
@@ -82,13 +83,8 @@ const HarryPotterHeadForumImages = Array.from(
             </div>
             <p
               class="max-w-2xl text-base leading-relaxed text-gray-500 md:text-lg"
-            >
-              Spearheaded the development of a custom enterprise solution.
-              Transitioned the company from manual workflows to a <strong
-                class="text-base font-medium text-white/80"
-                >fully digital, real-time ecosystem</strong
-              > to optimize field operations and technical oversight.
-            </p>
+              set:html={t("exp.garcia.desc")}
+            />
           </div>
         </div>
 
@@ -106,25 +102,19 @@ const HarryPotterHeadForumImages = Array.from(
                 <h3
                   class="font-serif text-2xl text-white transition-colors group-hover:text-white md:text-3xl"
                 >
-                  Full Stack Developer
+                  {t("exp.hph.role")}
                 </h3>
                 <span
                   class="w-fit rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[clamp(10px,1.2vw,12px)] font-bold text-gray-500"
                 >
-                  2024 — PRESENT
+                  {t("exp.hph.date")}
                 </span>
               </div>
               <h4 class="text-lg text-gray-400">Harry Potter Head</h4>
               <p
                 class="max-w-2xl text-base leading-relaxed text-gray-500 md:text-lg"
-              >
-                Core developer for a high-traffic international community with <span
-                  class="text-white/60">20,000+ daily active users</span
-                >. Engineered complex economy systems using <strong
-                  >Atomic SQL</strong
-                > to prevent race conditions and optimized database performance through
-                bulk inserts.
-              </p>
+                set:html={t("exp.hph.desc")}
+              />
             </div>
 
             <div
@@ -137,7 +127,8 @@ const HarryPotterHeadForumImages = Array.from(
                 class="flex items-center justify-between bg-[#0A0908] px-5 py-3 text-[clamp(10px,1.2vw,12px)] font-bold tracking-[0.2em] text-gray-600 uppercase"
               >
                 <span class="flex items-center gap-2 italic">
-                  <Icon name="tabler:archive" size={14} /> System Archive
+                  <Icon name="tabler:archive" size={14} />
+                  {t("exp.hph.archive")}
                 </span>
                 <span class="opacity-40">v2.4.0</span>
               </div>
@@ -155,7 +146,7 @@ const HarryPotterHeadForumImages = Array.from(
               class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between"
             >
               <h3 class="font-serif text-2xl text-white md:text-3xl">
-                Computer Engineering
+                {t("exp.ucab.role")}
               </h3>
               <span
                 class="w-fit rounded-full border border-blue-500/20 bg-blue-500/5 px-3 py-1 font-mono text-[clamp(10px,1.2vw,12px)] font-bold text-blue-400"
@@ -165,13 +156,8 @@ const HarryPotterHeadForumImages = Array.from(
             </div>
             <p
               class="max-w-2xl text-base leading-relaxed text-gray-500 italic md:text-lg"
-            >
-              Building a robust theoretical foundation in <span
-                class="text-white/60"
-                >computational logic, advanced data structures, and algorithms</span
-              > at Universidad Católica Andrés Bello, bridging the gap between academic
-              engineering and real-world development.
-            </p>
+              set:html={t("exp.ucab.desc")}
+            />
           </div>
         </div>
       </div>

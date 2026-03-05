@@ -1,5 +1,9 @@
 ---
 import { Icon } from "astro-icon/components";
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <section
@@ -19,17 +23,17 @@ import { Icon } from "astro-icon/components";
             <div class="h-px w-8 bg-amber-300/60"></div>
             <span
               class="text-[9px] font-bold tracking-[0.4em] text-amber-300/80 uppercase"
-              >Professional Profile</span
+              >{t("about.badge")}</span
             >
           </div>
 
           <h2
             class="reveal font-serif text-4xl leading-[1.1] tracking-tighter text-white delay-100 md:text-5xl lg:text-7xl"
           >
-            Engineering with structure,
+            {t("about.title1")}
             <br />
             <span class="font-light text-white/30 italic"
-              >not improvisation.</span
+              >{t("about.title2")}</span
             >
           </h2>
         </div>
@@ -37,30 +41,9 @@ import { Icon } from "astro-icon/components";
         <div
           class="reveal max-w-2xl space-y-4 text-base leading-relaxed text-gray-400 delay-200 md:text-lg"
         >
-          <p>
-            I am a <span class="font-medium text-white"
-              >Full Stack Developer</span
-            > and Computer Engineering student at UCAB, bridging the gap between <span
-              class="text-white/80">academic rigor</span
-            > and high-performance web technologies.
-          </p>
-          <p>
-            Currently, I engineer features for <span
-              class="text-amber-200/90 italic">Harry Potter Head</span
-            >, managing systems for over <span class="font-medium text-white"
-              >20,000 daily active users</span
-            >. This environment has sharpened my ability to handle complex
-            tickets—from real-time notification engines to critical database
-            migrations—within a strict <span class="text-white/80"
-              >Git-flow and PR-review</span
-            > ecosystem.
-          </p>
-          <p>
-            I don't just write code; I follow professional standards to ensure
-            every deployment is <span class="text-amber-200/70"
-              >controlled, documented, and scalable</span
-            >.
-          </p>
+          <p set:html={t("about.p1")} />
+          <p set:html={t("about.p2")} />
+          <p set:html={t("about.p3")} />
         </div>
       </div>
 
@@ -70,9 +53,9 @@ import { Icon } from "astro-icon/components";
         >
           {
             [
-              { label: "Core Stack", value: "Next.js / Astro / Supabase" },
-              { label: "Methodology", value: "Ticket-based / PR-driven" },
-              { label: "Expertise", value: "AI-Assisted Optimization" },
+              { label: t("about.stat1.label"), value: t("about.stat1.value") },
+              { label: t("about.stat2.label"), value: t("about.stat2.value") },
+              { label: t("about.stat3.label"), value: t("about.stat3.value") },
             ].map((item) => (
               <div class="group cursor-default">
                 <p class="text-[8px] font-black tracking-widest text-amber-600/60 uppercase">
@@ -156,10 +139,8 @@ import { Icon } from "astro-icon/components";
               <p
                 class="font-serif text-xl leading-tight text-white/90 italic md:text-2xl"
               >
-                "Writing code is easy.<br />
-                <span class="text-amber-500/80"
-                  >Building systems is the craft."</span
-                >
+                "{t("about.quote1")}"<br />
+                <span class="text-amber-500/80">"{t("about.quote2")}"</span>
               </p>
             </div>
           </div>

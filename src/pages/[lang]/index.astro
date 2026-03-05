@@ -1,0 +1,44 @@
+---
+import PortfolioLayout from "../../layouts/PortfolioLayout.astro";
+
+// Core Sections
+import Hero from "../../sections/Hero.astro";
+import AboutMe from "../../sections/AboutMe.astro";
+import TechStack from "../../sections/TechStack.astro";
+
+// Proof of Work
+import Projects from "../../sections/Projects.astro";
+import Laboratory from "../../sections/Laboratory.astro";
+
+// Professional Validation
+import Experience from "../../sections/Experience.astro";
+import Certificates from "../../sections/Certificates.astro";
+
+// Open Source & Engagement
+import GitHub from "../../sections/GitHub.astro";
+import Contact from "../../sections/Contact.astro";
+
+import { languages } from "../../i18n/ui";
+
+export function getStaticPaths() {
+  return Object.keys(languages).map((lang) => ({ params: { lang } }));
+}
+---
+
+<PortfolioLayout>
+  <Hero />
+  <AboutMe />
+
+  <TechStack />
+
+  <Projects />
+
+  <Experience />
+  <Certificates />
+
+  <Laboratory />
+
+  <GitHub />
+
+  <Contact />
+</PortfolioLayout>

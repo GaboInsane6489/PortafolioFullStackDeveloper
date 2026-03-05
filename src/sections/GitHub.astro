@@ -1,5 +1,9 @@
 ---
 import { Icon } from "astro-icon/components";
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <section
@@ -20,18 +24,18 @@ import { Icon } from "astro-icon/components";
           <span class="h-px w-8 bg-amber-500/50"></span>
           <span
             class="text-[10px] font-bold tracking-[0.4em] text-amber-500 uppercase"
-            >Engineering Systems</span
+            >{t("eng.badge")}</span
           >
         </div>
         <h2
           class="reveal font-serif text-4xl leading-none text-white md:text-5xl"
         >
-          Core <span class="font-light text-white/40 italic">Architecture</span>
+          {t("eng.title1")}
+          <span class="font-light text-white/40 italic">{t("eng.title2")}</span>
         </h2>
       </div>
       <p class="reveal max-w-md text-sm leading-relaxed text-gray-400">
-        Mi flujo de trabajo transforma lógica compleja en repositorios
-        mantenibles. Código que no solo funciona, sino que escala.
+        {t("eng.description")}
       </p>
     </div>
 
@@ -65,10 +69,10 @@ import { Icon } from "astro-icon/components";
             <p
               class="font-mono text-[10px] tracking-[0.2em] text-amber-500 uppercase"
             >
-              System_Active
+              {t("eng.active.badge")}
             </p>
             <p class="text-sm font-medium text-white/90">
-              Architecture Deep Dive
+              {t("eng.active.title")}
             </p>
           </div>
         </div>
@@ -90,7 +94,7 @@ import { Icon } from "astro-icon/components";
           <Icon name="tabler:brand-github" class="text-amber-400" size={24} />
           <span
             class="w-fit rounded bg-black/40 p-1 px-2 font-mono text-[10px] font-bold tracking-widest text-white/60 uppercase backdrop-blur-sm"
-            >Engineering Identity</span
+            >{t("eng.identity")}</span
           >
         </div>
       </article>
@@ -109,7 +113,7 @@ import { Icon } from "astro-icon/components";
           <p
             class="font-mono text-[9px] font-bold tracking-tighter text-amber-400 uppercase"
           >
-            Commit_Cycle: Constant & Disciplined
+            {t("eng.cycle")}
           </p>
         </div>
       </article>

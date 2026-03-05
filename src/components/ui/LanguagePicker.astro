@@ -1,0 +1,56 @@
+---
+import { getLangFromUrl } from "../../i18n/utils";
+import { languages } from "../../i18n/ui";
+
+const lang = getLangFromUrl(Astro.url);
+
+// Helper to preserve the rest of the URL when switching languages
+const getLocalizedPath = (l: string) => {
+  const path = Astro.url.pathname;
+  const parts = path.split("/").filter(Boolean);
+
+  // If the first part is a language, replace it
+  if (Object.keys(languages).includes(parts[0])) {
+    parts[0] = l;
+  } else {
+    // If no language prefix, add it (shouldn't happen with our dynamic route setup)
+    parts.unshift(l);
+  }
+
+  return `/${parts.join("/")}`;
+};
+---
+
+<div class="group relative">
+  <button
+    class="flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1.5 font-mono text-[10px] font-bold tracking-widest text-white uppercase transition-all hover:bg-white/10"
+  >
+    <span class="opacity-50">LANG:</span>
+    <span>{lang}</span>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="h-3 w-3 transition-transform group-hover:rotate-180"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg
+    >
+  </button>
+
+  <div
+    class="invisible absolute right-0 z-50 mt-2 w-32 origin-top-right scale-95 transform rounded-xl border border-white/10 bg-[#0A0908] py-2 opacity-0 shadow-2xl transition-all group-hover:visible group-hover:scale-100 group-hover:opacity-100"
+  >
+    {
+      Object.entries(languages).map(([l, label]: [string, string]) => (
+        <a
+          href={getLocalizedPath(l)}
+          class={`block px-4 py-2 font-mono text-[10px] font-bold tracking-widest transition-colors hover:bg-white/5 ${l === lang ? "text-amber-500" : "text-white/60 hover:text-white"}`}
+        >
+          {label.toUpperCase()}
+        </a>
+      ))
+    }
+  </div>
+</div>

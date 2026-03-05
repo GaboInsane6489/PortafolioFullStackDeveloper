@@ -1,11 +1,16 @@
 ---
 import { Icon } from "astro-icon/components";
+import { getLangFromUrl, useTranslations } from "../../i18n/utils";
+import LanguagePicker from "../ui/LanguagePicker.astro";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 
 const links = [
-  { label: "HOME", href: "#hero" },
-  { label: "PROJECTS", href: "#projects" },
-  { label: "EXPERIENCE", href: "#experience" },
-  { label: "CONTACT", href: "#contact" },
+  { label: t("nav.startup"), href: "#hero" },
+  { label: t("nav.projects"), href: "#projects" },
+  { label: t("nav.exp"), href: "#experience" },
+  { label: t("nav.lab"), href: "#laboratory" },
 ];
 ---
 
@@ -74,7 +79,7 @@ const links = [
         >
         <span
           class="font-mono text-[7px] tracking-[0.3em] text-amber-500/60 uppercase"
-          >System_Architect</span
+          >{t("hero.role")}</span
         >
       </div>
     </a>
@@ -128,8 +133,10 @@ const links = [
           href="#contact"
           class="relative overflow-hidden rounded-full border border-amber-500/20 bg-amber-500/5 px-6 py-2.5 font-mono text-[9px] font-black tracking-widest text-amber-500 uppercase transition-all hover:bg-amber-500 hover:text-black hover:shadow-[0_0_25px_rgba(245,158,11,0.4)]"
         >
-          Terminal_Connect
+          {t("hero.cta")}
         </a>
+
+        <LanguagePicker />
       </div>
     </div>
 

@@ -2,6 +2,10 @@
 import { Icon } from "astro-icon/components";
 import { Image } from "astro:assets";
 import fullStackCert from "../../public/images/FullStackCertificate.webp";
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <section
@@ -34,7 +38,7 @@ import fullStackCert from "../../public/images/FullStackCertificate.webp";
               </div>
               <span
                 class="font-mono text-[8px] font-bold tracking-[0.2em] text-white/40 uppercase"
-                >Credential_Viewer</span
+                >{t("certs.badge.viewer")}</span
               >
             </div>
 
@@ -86,11 +90,11 @@ import fullStackCert from "../../public/images/FullStackCertificate.webp";
             <div class="flex flex-col">
               <span
                 class="font-mono text-[9px] leading-none font-black tracking-tighter text-blue-400 uppercase"
-                >Honors Distinction</span
+                >{t("certs.badge.honors")}</span
               >
               <span
                 class="mt-1 font-mono text-[11px] font-bold text-white uppercase"
-                >Best Project</span
+                >{t("certs.badge.best")}</span
               >
             </div>
           </div>
@@ -127,35 +131,35 @@ import fullStackCert from "../../public/images/FullStackCertificate.webp";
             <h2
               class="font-mono text-[11px] font-black tracking-[0.5em] text-blue-400 uppercase"
             >
-              Certified Credentials
+              {t("certs.title.certified")}
             </h2>
           </div>
 
           <h3
             class="font-serif text-4xl leading-[1.1] font-bold text-white md:text-5xl lg:text-6xl"
           >
-            Full Stack <br />
-            <span class="font-light text-white/40 italic">Specialist</span>
+            {t("certs.title.main1")}
+            <br />
+            <span class="font-light text-white/40 italic"
+              >{t("certs.title.main2")}</span
+            >
           </h3>
 
           <p
             class="max-w-xl text-lg leading-relaxed font-light text-slate-300 md:text-xl"
-          >
-            Graduated with honors from a high-performance program. Specializing
-            in <span class="font-medium text-white">modern architectures</span>,
-            JS engine optimization, and production-ready deployments.
-          </p>
+            set:html={t("certs.description")}
+          />
         </header>
 
         <ul class="reveal reveal-right grid grid-cols-1 gap-4 sm:grid-cols-2">
           {
             [
-              { name: "Computer Science", icon: "tabler:cpu" },
-              { name: "Architecture", icon: "tabler:building-bridge" },
-              { name: "JS Core Engine", icon: "tabler:brand-javascript" },
-              { name: "Data Systems", icon: "tabler:database" },
-              { name: "React Ecosystem", icon: "tabler:brand-react" },
-              { name: "DevOps / CI-CD", icon: "tabler:git-branch" },
+              { name: t("certs.item1"), icon: "tabler:cpu" },
+              { name: t("certs.item2"), icon: "tabler:building-bridge" },
+              { name: t("certs.item3"), icon: "tabler:brand-javascript" },
+              { name: t("certs.item4"), icon: "tabler:database" },
+              { name: t("certs.item5"), icon: "tabler:brand-react" },
+              { name: t("certs.item6"), icon: "tabler:git-branch" },
             ].map((item) => (
               <li class="group flex items-center gap-4 rounded-2xl border border-white/10 bg-white/[0.03] p-4 backdrop-blur-md transition-all duration-300 hover:border-blue-500/40 hover:bg-blue-500/[0.08]">
                 <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-white/5 transition-all duration-500 group-hover:rotate-[360deg] group-hover:bg-blue-500/20">

@@ -1,5 +1,9 @@
 ---
 import { Icon } from "astro-icon/components";
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <section
@@ -32,23 +36,22 @@ import { Icon } from "astro-icon/components";
           <span class="flex h-px w-12 bg-emerald-500/50"></span>
           <span
             class="font-mono text-[10px] font-black tracking-[0.4em] text-emerald-500 uppercase"
-            >R&D Facility</span
+            >{t("lab.badge")}</span
           >
         </div>
         <h2
           class="reveal mt-6 font-serif text-5xl leading-tight text-white md:text-7xl"
         >
-          The <span
+          {t("lab.title1")}
+          <span
             class="bg-gradient-to-r from-emerald-400 to-emerald-600 bg-clip-text text-transparent italic"
-            >Laboratory</span
+            >{t("lab.title2")}</span
           >
         </h2>
         <p
           class="reveal mt-6 max-w-xl text-lg leading-relaxed font-light text-gray-400"
         >
-          Digital Sanctuary. Where <span class="text-emerald-400/80"
-            >deep work</span
-          > converges into high-performance systems.
+          {t("lab.description")}
         </p>
       </div>
 
@@ -81,7 +84,7 @@ import { Icon } from "astro-icon/components";
               class="mb-10 flex items-center gap-3 font-mono text-xs font-black tracking-[0.2em] text-emerald-400 uppercase"
             >
               <Icon name="tabler:terminal-2" size={18} class="animate-pulse" />
-              <span>// Workstation_Specs</span>
+              <span>{t("lab.specs.title")}</span>
             </h3>
 
             <div
@@ -90,22 +93,22 @@ import { Icon } from "astro-icon/components";
               {
                 [
                   {
-                    label: "CPU_UNIT",
+                    label: t("lab.specs.cpu"),
                     val: "AMD Ryzen 9 7950X",
                     icon: "tabler:cpu",
                   },
                   {
-                    label: "MEMORY",
+                    label: t("lab.specs.ram"),
                     val: "32GB DDR5 6000MHz",
                     icon: "tabler:database-export",
                   },
                   {
-                    label: "GPU_CORE",
+                    label: t("lab.specs.gpu"),
                     val: "NVIDIA RTX 4090 24GB",
                     icon: "tabler:device-desktop",
                   },
                   {
-                    label: "OS_KERNEL",
+                    label: t("lab.specs.os"),
                     val: "Arch Linux (Hyprland)",
                     icon: "tabler:prompt",
                   },
@@ -146,7 +149,9 @@ import { Icon } from "astro-icon/components";
             class="flex items-end justify-between border-b border-white/10 pb-6"
           >
             <div class="space-y-1">
-              <h3 class="font-serif text-4xl text-white">Active Research</h3>
+              <h3 class="font-serif text-4xl text-white">
+                {t("lab.active.title")}
+              </h3>
               <p
                 class="flex items-center gap-2 font-mono text-[10px] tracking-widest text-gray-400"
               >
@@ -155,7 +160,7 @@ import { Icon } from "astro-icon/components";
                   class="animate-spin text-emerald-500"
                   size={14}
                 />
-                SYSTEM_LOAD_MONITOR
+                {t("lab.active.monitor")}
               </p>
             </div>
             <div class="text-right">

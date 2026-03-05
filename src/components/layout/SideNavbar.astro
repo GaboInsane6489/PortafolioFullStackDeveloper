@@ -1,15 +1,24 @@
 ---
 import { Icon } from "astro-icon/components";
+import { getLangFromUrl, useTranslations } from "../../i18n/utils";
+import LanguagePicker from "../ui/LanguagePicker.astro";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 
 const sections = [
-  { label: "START_UP", href: "#hero", icon: "tabler:home" },
-  { label: "PROFILE", href: "#about-me", icon: "tabler:user-code" },
-  { label: "STACK", href: "#tech-stack", icon: "tabler:cpu" },
-  { label: "PROJECTS", href: "#projects", icon: "tabler:stack-2" },
-  { label: "EXP", href: "#experience", icon: "tabler:briefcase" },
-  { label: "CERTS", href: "#certificates", icon: "tabler:certificate" },
-  { label: "LAB", href: "#laboratory", icon: "tabler:flask" },
-  { label: "ENGINEERING", href: "#engineering", icon: "tabler:brand-github" },
+  { label: t("nav.startup"), href: "#hero", icon: "tabler:home" },
+  { label: t("nav.profile"), href: "#about-me", icon: "tabler:user-code" },
+  { label: t("nav.stack"), href: "#tech-stack", icon: "tabler:cpu" },
+  { label: t("nav.projects"), href: "#projects", icon: "tabler:stack-2" },
+  { label: t("nav.exp"), href: "#experience", icon: "tabler:briefcase" },
+  { label: t("nav.certs"), href: "#certificates", icon: "tabler:certificate" },
+  { label: t("nav.lab"), href: "#laboratory", icon: "tabler:flask" },
+  {
+    label: t("nav.engineering"),
+    href: "#engineering",
+    icon: "tabler:brand-github",
+  },
 ];
 ---
 
@@ -56,6 +65,9 @@ const sections = [
     >
       <Icon name="tabler:brand-github" size={17} />
     </a>
+    <div class="mt-2 md:hidden">
+      <LanguagePicker />
+    </div>
   </div>
 </div>
 

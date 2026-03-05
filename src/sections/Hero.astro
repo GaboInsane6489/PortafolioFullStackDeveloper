@@ -1,5 +1,9 @@
 ---
 import { Icon } from "astro-icon/components";
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <section
@@ -83,28 +87,26 @@ import { Icon } from "astro-icon/components";
               </span>
               <span
                 class="font-mono text-[clamp(10px,1.5vw,12px)] font-bold tracking-[0.2em] text-amber-500 uppercase"
-                >Status: Ready for Deployment</span
+                >{t("nav.status")}</span
               >
             </div>
           </div>
 
           <h1
-            class="reveal translate-y-4 font-sans text-[clamp(2rem,8vw,2.5rem)] leading-[1.05] font-extrabold tracking-tighter text-white opacity-0 transition-all delay-150 duration-700 md:text-[clamp(3rem,6vw,4rem)] lg:text-6xl"
+            class="reveal translate-y-4 font-sans text-[clamp(1.5rem,6vw,2.2rem)] leading-[1.1] font-bold tracking-tighter text-white opacity-0 transition-all delay-150 duration-700 md:text-[clamp(2.5rem,5vw,3rem)] lg:text-5xl"
           >
-            Building Next-Gen <br />
+            {t("hero.description1")}
+            <br />
             <span
               class="bg-gradient-to-r from-white via-white/80 to-white/40 bg-clip-text text-transparent"
-              >Web Experiences</span
+              >{t("hero.description2")}</span
             >
           </h1>
 
           <p
-            class="reveal mx-auto max-w-lg translate-y-4 text-base leading-relaxed font-light text-gray-400 opacity-0 transition-all delay-300 duration-700 md:text-lg lg:mx-0"
+            class="reveal mx-auto max-w-lg translate-y-4 font-mono text-xs font-medium tracking-[0.1em] text-amber-500/80 uppercase opacity-0 transition-all delay-300 duration-700 md:text-sm lg:mx-0"
           >
-            Computer Engineering student and <span
-              class="font-medium text-white">Full Stack Developer</span
-            >. I build structured, maintainable, and efficient applications from
-            the ground up.
+            {t("hero.tagline")}
           </p>
         </div>
 
@@ -126,7 +128,7 @@ import { Icon } from "astro-icon/components";
             href="#contact"
             class="group flex items-center justify-center gap-3 rounded-xl border border-white/10 bg-white/5 px-8 py-4 text-[10px] font-black tracking-widest text-white transition-all hover:bg-white/10 active:scale-95 sm:w-auto sm:py-3.5"
           >
-            <span>CONNECT</span>
+            <span class="uppercase">{t("hero.cta")}</span>
           </a>
         </div>
 

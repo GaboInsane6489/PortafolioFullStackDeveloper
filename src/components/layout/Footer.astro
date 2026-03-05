@@ -1,11 +1,15 @@
 ---
 import { Icon } from "astro-icon/components";
+import { getLangFromUrl, useTranslations } from "../../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 
 const links = [
-  { label: "Home", href: "#hero" },
-  { label: "Projects", href: "#projects" },
-  { label: "Experience", href: "#experience" },
-  { label: "Contact", href: "#contact" },
+  { label: t("nav.startup"), href: "#hero" },
+  { label: t("nav.projects"), href: "#projects" },
+  { label: t("nav.exp"), href: "#experience" },
+  { label: t("nav.lab"), href: "#laboratory" },
 ];
 
 const socials = [
@@ -105,12 +109,8 @@ const socials = [
 
         <p
           class="max-w-md font-sans text-sm leading-relaxed font-light text-gray-400 sm:text-base"
-        >
-          Construyendo el futuro a través de <span
-            class="text-gray-100 underline decoration-amber-500/30 underline-offset-4"
-            >código de alto rendimiento</span
-          >.
-        </p>
+          set:html={t("footer.tagline")}
+        />
 
         <a
           href="mailto:gabrielgg2005ve@gmail.com"
@@ -129,7 +129,7 @@ const socials = [
         <h4
           class="col-span-2 flex items-center gap-3 font-mono text-[10px] font-bold tracking-[0.5em] text-gray-600 uppercase lg:col-auto lg:mb-10"
         >
-          <span class="h-[1px] w-4 bg-gray-800"></span> // INDEX
+          <span class="h-[1px] w-4 bg-gray-800"></span> // {t("footer.index")}
         </h4>
         <ul
           class="col-span-2 grid grid-cols-2 gap-4 lg:col-auto lg:block lg:space-y-5"
@@ -160,7 +160,7 @@ const socials = [
         <h4
           class="mb-8 flex items-center gap-3 font-mono text-[10px] font-bold tracking-[0.5em] text-gray-600 uppercase"
         >
-          <span class="h-[1px] w-4 bg-gray-800"></span> // NODES
+          <span class="h-[1px] w-4 bg-gray-800"></span> // {t("footer.nodes")}
         </h4>
         <div class="grid grid-cols-2 gap-4">
           {
@@ -192,7 +192,7 @@ const socials = [
           class="font-mono text-[10px] tracking-[0.3em] text-gray-500 uppercase"
         >
           &copy; {new Date().getFullYear()} Gabriel González // <span
-            class="text-amber-500/40">SECURED</span
+            class="text-amber-500/40">{t("footer.secured")}</span
           >
         </p>
         <div class="h-1 w-32 overflow-hidden rounded-full bg-white/5">
@@ -218,7 +218,7 @@ const socials = [
           </div>
           <span
             class="font-mono text-[9px] tracking-tighter text-gray-400 uppercase"
-            >STATUS: OPTIMAL</span
+            >{t("footer.status")}</span
           >
           <div class="mx-3 h-4 w-px bg-white/10"></div>
           <span class="font-mono text-[9px] text-amber-500/70 uppercase"

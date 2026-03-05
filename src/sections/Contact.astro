@@ -1,14 +1,20 @@
 ---
 import { Icon } from "astro-icon/components";
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <section id="contact" class="relative overflow-hidden py-12 md:py-24 lg:py-32">
   <div class="relative z-10 mx-auto w-full max-w-6xl px-8">
     <div
-      class="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:items-start lg:gap-20"
+      class="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:items-start lg:gap-x-12"
     >
       <!-- System Info: Sticky on Desktop -->
-      <div class="text-center lg:sticky lg:top-32 lg:col-span-5 lg:text-left">
+      <div
+        class="mb-8 text-center lg:sticky lg:top-32 lg:col-span-5 lg:mb-0 lg:text-left"
+      >
         <div
           class="reveal mb-6 inline-flex items-center gap-3 rounded-full border border-amber-500/20 bg-amber-500/5 px-5 py-2 backdrop-blur-md"
         >
@@ -22,28 +28,26 @@ import { Icon } from "astro-icon/components";
           <span
             class="font-mono text-[9px] font-black tracking-[0.3em] text-amber-500 uppercase"
           >
-            Systems Online / Ready for Deployment
+            {t("nav.status")}
           </span>
         </div>
 
         <h2
-          class="reveal mb-6 font-serif text-4xl leading-[1.1] tracking-tight text-white md:text-6xl lg:text-7xl"
+          class="reveal mb-6 font-serif text-3xl leading-tight tracking-tight text-balance text-white md:text-4xl lg:text-5xl"
         >
-          Ready to <span
-            class="bg-gradient-to-r from-amber-200 via-amber-400 to-amber-200 bg-clip-text font-light text-transparent italic"
-            >Architect</span
-          >
+          {t("contact.title")}
           <br />
-          Your Next System?
+          <span
+            class="bg-gradient-to-r from-amber-200 via-amber-400 to-amber-200 bg-clip-text font-light text-transparent italic"
+          >
+            {t("contact.subtitle")}
+          </span>
         </h2>
 
         <p
-          class="reveal mx-auto mb-8 max-w-xl text-base leading-relaxed font-light text-gray-400 md:text-lg lg:mx-0"
-        >
-          ¿Necesitas una infraestructura robusta o una consultoría técnica
-          especializada? Estoy listo para inicializar la conexión y escalar tu
-          idea.
-        </p>
+          class="reveal mx-auto mb-8 max-w-sm text-xs leading-relaxed font-light text-gray-400 md:text-sm lg:mx-0"
+          set:html={t("contact.description")}
+        />
       </div>
 
       <!-- Command Interface -->
@@ -79,7 +83,8 @@ import { Icon } from "astro-icon/components";
             <label
               for="name"
               class="font-mono text-[10px] tracking-widest text-amber-500/70 uppercase"
-              >> IDENTIFIER_</label
+            >
+              {t("contact.form.name")} _</label
             >
             <input
               type="text"
@@ -95,7 +100,8 @@ import { Icon } from "astro-icon/components";
             <label
               for="email"
               class="font-mono text-[10px] tracking-widest text-amber-500/70 uppercase"
-              >> COMM_LINK_</label
+            >
+              {t("contact.form.email")} _</label
             >
             <input
               type="email"
@@ -111,7 +117,8 @@ import { Icon } from "astro-icon/components";
             <label
               for="message"
               class="font-mono text-[10px] tracking-widest text-amber-500/70 uppercase"
-              >> PAYLOAD_</label
+            >
+              {t("contact.form.message")} _</label
             >
             <textarea
               id="message"
@@ -142,7 +149,7 @@ import { Icon } from "astro-icon/components";
                 size={18}
                 class="transition-transform group-hover:scale-110"
               />
-              <span id="btn-text">Execute Command</span>
+              <span id="btn-text">{t("contact.form.cta")}</span>
             </button>
 
             <div
@@ -163,7 +170,7 @@ import { Icon } from "astro-icon/components";
                   size={12}
                   class="text-amber-500/50"
                 />
-                <span>Venezuela_HQ</span>
+                <span>{t("contact.info.location")}</span>
               </div>
               <div
                 class="mx-4 h-px flex-1 bg-gradient-to-r from-amber-500/20 to-transparent"
@@ -172,7 +179,7 @@ import { Icon } from "astro-icon/components";
               <div
                 class="font-mono text-[8px] tracking-widest text-gray-500 uppercase"
               >
-                <span>Available_Global</span>
+                <span>{t("contact.info.availability")}</span>
               </div>
             </div>
           </div>
@@ -208,20 +215,39 @@ import { Icon } from "astro-icon/components";
 
       formData.set(
         "subject",
-        `[PORTFOLIO_SYSTEM_UPLINK] Mensaje de ${operatorName}`,
+        `[PORTFOLIO_SYSTEM_UPLINK] Message from ${operatorName}`,
       );
       formData.set("replyto", operatorMail as string);
 
+      // Get translations for script (simplified for client-side)
+      const isEs = window.location.pathname.includes("/es");
+      const msgEstablishing = isEs
+        ? "[SISTEMA]: Estableciendo enlace seguro..."
+        : "[SYSTEM]: Establishing secure link...";
+      const msgTransmitting = isEs ? "Transmitiendo..." : "Transmitting...";
+      const msgSuccess = isEs
+        ? "[SISTEMA]: Mensaje transmitido con éxito."
+        : "[SYSTEM]: Message transmitted successfully.";
+      const msgError = isEs
+        ? "[ERROR]: Fallo en la transmisión. Revisar logs."
+        : "[ERROR]: Transmission failed. Check logs.";
+      const msgConnectionLost = isEs
+        ? "[ERROR]: Conexión perdida. Objetivo inalcanzable."
+        : "[ERROR]: Connection lost. Target unreachable.";
+      const btnRetry = isEs ? "Reintentar Conexión" : "Retry Connection";
+
+      const originalBtnText = btnText.textContent;
+
       // Update UI to loading state
       submitBtn.disabled = true;
-      btnText.textContent = "Transmitting...";
+      btnText.textContent = msgTransmitting;
       statusMessage.classList.remove(
         "hidden",
         "text-red-500",
         "text-amber-500",
       );
       statusMessage.classList.add("text-gray-400");
-      statusMessage.textContent = "[SYSTEM]: Establishing secure link...";
+      statusMessage.textContent = msgEstablishing;
 
       try {
         const response = await fetch("https://api.web3forms.com/submit", {
@@ -233,24 +259,21 @@ import { Icon } from "astro-icon/components";
 
         if (data.success) {
           form.reset();
-          btnText.textContent = "Execute Command";
+          btnText.textContent = originalBtnText;
           statusMessage.classList.remove("text-gray-400", "text-red-500");
           statusMessage.classList.add("text-amber-500");
-          statusMessage.textContent =
-            "[SYSTEM]: Message transmitted successfully.";
+          statusMessage.textContent = msgSuccess;
         } else {
-          btnText.textContent = "Retry Connection";
+          btnText.textContent = btnRetry;
           statusMessage.classList.remove("text-gray-400", "text-amber-500");
           statusMessage.classList.add("text-red-500");
-          statusMessage.textContent =
-            "[ERROR]: Transmission failed. Check logs.";
+          statusMessage.textContent = msgError;
         }
       } catch (error) {
-        btnText.textContent = "Retry Connection";
+        btnText.textContent = btnRetry;
         statusMessage.classList.remove("text-gray-400", "text-amber-500");
         statusMessage.classList.add("text-red-500");
-        statusMessage.textContent =
-          "[ERROR]: Connection lost. Target unreachable.";
+        statusMessage.textContent = msgConnectionLost;
       } finally {
         submitBtn.disabled = false;
 
