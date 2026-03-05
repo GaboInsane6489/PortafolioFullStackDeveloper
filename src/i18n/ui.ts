@@ -22,6 +22,7 @@ export const ui = {
     "nav.engineering": "ENGINEERING",
 
     // Hero
+    "hero.title": "GABRIEL GONZÁLEZ",
     "hero.role": "SYSTEM_ARCHITECT & FULL_STACK_DEV",
     "hero.greeting": "Hello, I am",
     "hero.stats.experience": "Years_Dev",
@@ -30,6 +31,12 @@ export const ui = {
     "hero.description2": "Digital Architectures",
     "hero.cta": "INITIALIZE_COMMUNICATION",
     "hero.tagline": "Full Stack Dev | Computer Engineering @ UCAB",
+    "hero.stats.label1": "ENGINEERING",
+    "hero.stats.value1": "Enterprise Systems",
+    "hero.stats.label2": "CORE",
+    "hero.stats.value2": "High-Performance Architectures",
+    "hero.stats.label3": "STRATEGY",
+    "hero.stats.value3": "Impact-Driven Design",
 
     // Footer
     "footer.tagline":
@@ -182,6 +189,7 @@ export const ui = {
     "nav.engineering": "INGENIERÍA",
 
     // Hero
+    "hero.title": "GABRIEL GONZÁLEZ",
     "hero.role": "SYSTEM_ARCHITECT & FULL_STACK_DEV",
     "hero.greeting": "Hola, soy",
     "hero.stats.experience": "Años_Dev",
@@ -190,6 +198,12 @@ export const ui = {
     "hero.description2": "Digitales Escalables",
     "hero.cta": "INICIALIZAR_COMUNICACIÓN",
     "hero.tagline": "Full Stack Dev | Ing. Informática @ UCAB",
+    "hero.stats.label1": "INGENIERÍA",
+    "hero.stats.value1": "Sistemas de Grado Empresarial",
+    "hero.stats.label2": "ARQUITECTURA",
+    "hero.stats.value2": "Núcleo de Alto Rendimiento",
+    "hero.stats.label3": "ESTRATEGIA",
+    "hero.stats.value3": "Lógica a Prueba de Futuro",
 
     // Footer
     "footer.tagline":

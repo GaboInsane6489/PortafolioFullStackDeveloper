@@ -19,11 +19,13 @@ const t = useTranslations(lang);
     <div
       class="grid grid-cols-1 items-center gap-4 md:grid-cols-12 md:gap-8 lg:gap-6"
     >
+      <!-- AVATAR CONTAINER: T=700ms (Main Entrance) -->
       <div
         class="reveal relative order-first col-span-1 flex justify-center opacity-0 transition-all delay-700 duration-1000 md:order-last md:col-span-5"
       >
         <div
-          class="relative z-10 w-full max-w-[160px] cursor-pointer rounded-2xl border border-white/10 bg-[#0A0908]/50 p-1.5 backdrop-blur-md transition-all duration-300 active:scale-[0.98] active:ring-2 active:ring-amber-500/30 sm:max-w-[220px] md:max-w-[260px] md:backdrop-blur-xl lg:max-w-[300px]"
+          id="hero-avatar-container"
+          class="group relative z-10 w-full max-w-[160px] cursor-pointer rounded-2xl border border-white/10 bg-[#0A0908]/50 p-1.5 backdrop-blur-md transition-all duration-500 will-change-transform hover:scale-[1.03] hover:shadow-[0_0_40px_rgba(245,158,11,0.2)] active:scale-[0.98] active:ring-2 active:ring-amber-500/30 sm:max-w-[220px] md:max-w-[260px] md:backdrop-blur-xl lg:max-w-[300px]"
         >
           <div
             class="overflow-hidden rounded-xl border border-white/5 bg-[#050505] shadow-2xl"
@@ -43,18 +45,18 @@ const t = useTranslations(lang);
               </div>
             </div>
 
-            <div class="group relative aspect-[4/5] overflow-hidden">
+            <div class="relative aspect-[4/5] overflow-hidden bg-[#0A0A0A]">
               <img
                 src="/images/FotoPerfil.webp"
                 alt="Gabriel Gonzalez Profile"
-                class="h-full w-full object-cover opacity-80 grayscale transition-all duration-700 group-hover:opacity-100 group-hover:grayscale-0"
+                class="h-full w-full object-cover transition-all duration-700 group-hover:scale-110"
               />
               <div
-                class="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-transparent"
+                class="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-transparent opacity-40 transition-opacity duration-700 group-hover:opacity-20"
               >
               </div>
               <div
-                class="absolute bottom-3 left-3 rounded-lg border border-white/5 bg-black/60 px-2.5 py-1.5 font-mono text-[clamp(10px,1.5vw,12px)] text-amber-500 backdrop-blur-md"
+                class="absolute bottom-3 left-3 z-30 rounded-lg border border-white/5 bg-black/60 px-2.5 py-1.5 font-mono text-[clamp(10px,1.5vw,12px)] text-amber-500 shadow-lg backdrop-blur-md"
               >
                 <span class="animate-pulse">></span> online_active
               </div>
@@ -62,15 +64,17 @@ const t = useTranslations(lang);
           </div>
         </div>
         <div
-          class="absolute -inset-10 -z-10 rounded-full bg-amber-500/10 opacity-20 blur-[60px]"
+          class="absolute -inset-10 -z-10 rounded-full bg-amber-500/5 opacity-20 blur-[60px] transition-all duration-700 group-hover:bg-amber-500/10 group-hover:opacity-40"
         >
         </div>
       </div>
 
+      <!-- TEXT CONTENT -->
       <div
         class="flex flex-col items-center justify-center space-y-4 text-center md:col-span-7 md:items-start md:space-y-4 md:text-left lg:space-y-4"
       >
         <div class="space-y-4 lg:space-y-3">
+          <!-- STATUS: T=0ms -->
           <div
             class="reveal translate-y-4 opacity-0 transition-all duration-700 ease-out"
           >
@@ -92,17 +96,19 @@ const t = useTranslations(lang);
             </div>
           </div>
 
+          <!-- HEADLINE: T=150ms -->
           <h1
             class="reveal translate-y-4 font-sans text-[clamp(1.5rem,6vw,2.2rem)] leading-[1.1] font-bold tracking-tighter text-white opacity-0 transition-all delay-150 duration-700 md:text-[clamp(2.5rem,5vw,3rem)] lg:text-5xl"
           >
             {t("hero.description1")}
             <br />
             <span
-              class="bg-gradient-to-r from-white via-white/80 to-white/40 bg-clip-text text-transparent"
+              class="bg-gradient-to-r from-white via-amber-400/80 to-white/40 bg-clip-text text-transparent"
               >{t("hero.description2")}</span
             >
           </h1>
 
+          <!-- TAGLINE: T=300ms -->
           <p
             class="reveal mx-auto max-w-lg translate-y-4 font-mono text-xs font-medium tracking-[0.1em] text-amber-500/80 uppercase opacity-0 transition-all delay-300 duration-700 md:text-sm lg:mx-0"
           >
@@ -110,61 +116,71 @@ const t = useTranslations(lang);
           </p>
         </div>
 
+        <!-- REFINED BUTTONS: T=450ms -->
         <div
           class="reveal flex w-full translate-y-4 flex-col gap-4 opacity-0 transition-all delay-[450ms] duration-700 sm:flex-row sm:justify-center md:justify-start lg:justify-start"
         >
           <a
             href="#projects"
-            class="group relative flex items-center justify-center gap-3 overflow-hidden rounded-xl bg-white px-8 py-4 text-[10px] font-black tracking-widest text-black transition-all hover:bg-amber-400 active:scale-95 sm:w-auto sm:py-3.5"
+            class="group relative flex items-center justify-center gap-3 overflow-hidden rounded-xl bg-white px-8 py-4 text-[10px] font-black tracking-widest text-black transition-all hover:shadow-[0_0_25px_rgba(255,255,255,0.2)] active:scale-95 sm:w-auto sm:py-3.5"
           >
-            <span>EXPLORE WORK</span>
+            <span class="relative z-10">EXPLORE WORK</span>
             <Icon
               name="tabler:arrow-right"
               size={18}
-              class="transition-transform group-hover:translate-x-1"
+              class="relative z-10 transition-transform group-hover:translate-x-1"
             />
+            <div
+              class="absolute inset-0 -translate-x-full bg-amber-400 transition-transform duration-500 ease-out group-hover:translate-x-0"
+            >
+            </div>
           </a>
           <a
             href="#contact"
-            class="group flex items-center justify-center gap-3 rounded-xl border border-white/10 bg-white/5 px-8 py-4 text-[10px] font-black tracking-widest text-white transition-all hover:bg-white/10 active:scale-95 sm:w-auto sm:py-3.5"
+            class="group relative flex items-center justify-center gap-3 overflow-hidden rounded-xl border border-white/10 bg-white/5 px-8 py-4 text-[10px] font-black tracking-widest text-white transition-all hover:bg-white/10 active:scale-95 sm:w-auto sm:py-3.5"
           >
             <span class="uppercase">{t("hero.cta")}</span>
+            <div
+              class="absolute inset-x-0 bottom-0 h-px scale-x-0 bg-gradient-to-r from-transparent via-amber-500 to-transparent transition-transform duration-500 group-hover:scale-x-100"
+            >
+            </div>
           </a>
         </div>
 
+        <!-- STRATEGIC SELLING STATS: T=600ms -->
         <div
-          class="reveal grid w-full max-w-sm grid-cols-2 gap-6 border-t border-white/5 pt-6 opacity-0 transition-opacity delay-[600ms] duration-1000 sm:max-w-md sm:grid-cols-3 md:pt-8 lg:max-w-none lg:pt-5"
+          class="reveal grid w-full max-w-sm grid-cols-2 gap-6 border-t border-white/5 pt-6 opacity-0 transition-all delay-[600ms] duration-1000 sm:max-w-md sm:grid-cols-3 md:pt-8 lg:max-w-none lg:pt-5"
         >
           <div class="flex flex-col items-center space-y-1.5 lg:items-start">
             <span
-              class="font-mono text-[clamp(10px,1.5vw,12px)] tracking-[0.2em] text-gray-600 uppercase"
-              >Education</span
+              class="font-mono text-[clamp(10px,1.5vw,12px)] tracking-[0.3em] text-gray-600 uppercase"
+              >{t("hero.stats.label1")}</span
             >
             <span
-              class="block text-[clamp(12px,1.8vw,14px)] font-medium text-gray-300"
-              >UCAB Engineering</span
+              class="block text-[clamp(12px,1.8vw,14px)] font-bold text-gray-200"
+              >{t("hero.stats.value1")}</span
             >
           </div>
           <div class="flex flex-col items-center space-y-1.5 lg:items-start">
             <span
-              class="font-mono text-[clamp(10px,1.5vw,12px)] tracking-[0.2em] text-gray-600 uppercase"
-              >Mindset</span
+              class="font-mono text-[clamp(10px,1.5vw,12px)] tracking-[0.3em] text-gray-600 uppercase"
+              >{t("hero.stats.label2")}</span
             >
             <span
-              class="block text-[clamp(12px,1.8vw,14px)] font-medium text-amber-500"
-              >Scalable Logic</span
+              class="block text-[clamp(12px,1.8vw,14px)] font-bold text-amber-500"
+              >{t("hero.stats.value2")}</span
             >
           </div>
           <div
             class="col-span-2 flex flex-col items-center space-y-1.5 sm:col-span-1 lg:items-start"
           >
             <span
-              class="font-mono text-[clamp(10px,1.5vw,12px)] tracking-[0.2em] text-gray-600 uppercase"
-              >Tools</span
+              class="font-mono text-[clamp(10px,1.5vw,12px)] tracking-[0.3em] text-gray-600 uppercase"
+              >{t("hero.stats.label3")}</span
             >
             <span
-              class="block text-[clamp(12px,1.8vw,14px)] font-medium text-gray-300"
-              >Next.js · Supabase · Git</span
+              class="block text-[clamp(12px,1.8vw,14px)] font-bold text-gray-200"
+              >{t("hero.stats.value3")}</span
             >
           </div>
         </div>
@@ -172,3 +188,56 @@ const t = useTranslations(lang);
     </div>
   </div>
 </section>
+
+<style>
+  /* Entrance Sequence Trigger */
+  .reveal {
+    opacity: 0;
+  }
+
+  .reveal.active {
+    opacity: 1;
+    transform: translateY(0) translateX(0) scale(1);
+  }
+
+  /* Optimized Grid BG */
+  .grid-bg {
+    background-size: 50px 50px;
+    background-image:
+      linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    mask-image: radial-gradient(circle at 50% 50%, black 20%, transparent 80%);
+  }
+
+  .will-change-transform {
+    will-change: transform, box-shadow;
+  }
+</style>
+
+<script>
+  function initReveal() {
+    const reveals = document.querySelectorAll(".reveal");
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: "0px 0px -50px 0px",
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("active");
+          // Once revealed, no need to keep observing
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    reveals.forEach((el) => observer.observe(el));
+  }
+
+  // Run on first load
+  initReveal();
+
+  // Run on view transition (Astro integration)
+  document.addEventListener("astro:page-load", initReveal);
+</script>
