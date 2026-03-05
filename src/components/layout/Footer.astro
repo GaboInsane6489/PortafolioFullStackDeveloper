@@ -92,9 +92,10 @@ const socials = [
           </div>
           <div class="flex flex-col">
             <h2
-              class="text-2xl font-black tracking-tighter text-white uppercase italic sm:text-3xl"
+              class="group/name relative text-2xl font-black tracking-tighter text-white uppercase italic sm:text-3xl"
             >
-              Gabriel González
+              <span class="relative z-10">Gabriel González</span>
+              <span class="absolute inset-0 -z-10 translate-x-1 translate-y-1 text-amber-500/0 transition-all group-hover/name:text-amber-500/20 group-hover/name:blur-sm">Gabriel González</span>
             </h2>
             <div
               class="flex items-center justify-center gap-2 font-mono text-[9px] font-bold tracking-[0.4em] text-amber-500 lg:justify-start"
@@ -114,10 +115,10 @@ const socials = [
 
         <a
           href="mailto:gabrielgg2005ve@gmail.com"
-          class="group relative inline-flex w-full items-center justify-center gap-4 overflow-hidden rounded-xl border border-white/5 bg-white/[0.02] px-6 py-4 transition-all active:scale-[0.98] active:bg-amber-500/10 sm:w-auto md:py-3"
+          class="group relative inline-flex w-full items-center justify-center gap-4 overflow-hidden rounded-xl border border-white/20 bg-white/[0.05] px-6 py-4 transition-all hover:border-amber-500/50 hover:bg-amber-500/10 hover:shadow-[0_0_30px_rgba(245,158,11,0.2)] active:scale-[0.98] sm:w-auto md:py-3"
         >
-          <Icon name="tabler:mail" size={20} class="text-amber-500" />
-          <span class="font-mono text-xs tracking-widest text-gray-300"
+          <Icon name="tabler:mail" size={20} class="text-amber-500 drop-shadow-[0_0_8px_rgba(245,158,11,0.4)]" />
+          <span class="font-mono text-xs font-bold tracking-widest text-slate-200 group-hover:text-white"
             >GABRIELGG2005VE@GMAIL.COM</span
           >
         </a>
@@ -127,9 +128,9 @@ const socials = [
         class="grid grid-cols-2 gap-8 sm:gap-12 lg:col-span-3 lg:block lg:space-y-10"
       >
         <h4
-          class="col-span-2 flex items-center gap-3 font-mono text-[10px] font-bold tracking-[0.5em] text-gray-600 uppercase lg:col-auto lg:mb-10"
+          class="col-span-2 flex items-center gap-3 font-mono text-[10px] font-black tracking-[0.5em] text-amber-500/80 uppercase lg:col-auto lg:mb-10"
         >
-          <span class="h-[1px] w-4 bg-gray-800"></span> // {t("footer.index")}
+          <span class="h-[1px] w-4 bg-amber-500/40"></span> // {t("footer.index")}
         </h4>
         <ul
           class="col-span-2 grid grid-cols-2 gap-4 lg:col-auto lg:block lg:space-y-5"
@@ -139,7 +140,7 @@ const socials = [
               <li>
                 <a
                   href={link.href}
-                  class="group flex items-center py-2 text-gray-500 transition-all active:text-amber-500 lg:py-0 lg:hover:text-white"
+                  class="group flex items-center py-2 text-slate-400 transition-all active:text-amber-500 lg:py-0 lg:hover:text-white"
                 >
                   <span class="font-mono text-[11px] tracking-[0.2em] uppercase">
                     {link.label}
@@ -158,9 +159,9 @@ const socials = [
 
       <div class="lg:col-span-4">
         <h4
-          class="mb-8 flex items-center gap-3 font-mono text-[10px] font-bold tracking-[0.5em] text-gray-600 uppercase"
+          class="mb-8 flex items-center gap-3 font-mono text-[10px] font-black tracking-[0.5em] text-amber-500/80 uppercase"
         >
-          <span class="h-[1px] w-4 bg-gray-800"></span> // {t("footer.nodes")}
+          <span class="h-[1px] w-4 bg-amber-500/40"></span> // {t("footer.nodes")}
         </h4>
         <div class="grid grid-cols-2 gap-4">
           {
@@ -168,15 +169,19 @@ const socials = [
               <a
                 href={social.href}
                 target="_blank"
-                class="group relative flex flex-col gap-3 rounded-2xl border border-white/5 bg-white/[0.02] p-5 transition-all active:scale-95 active:border-amber-500/40 active:bg-amber-500/5 lg:hover:-translate-y-2 lg:hover:bg-white/[0.03]"
+                class="group relative flex flex-col gap-3 overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] p-5 transition-all active:scale-95 active:border-amber-500/40 active:bg-amber-500/5 lg:hover:-translate-y-2 lg:hover:border-amber-500/30 lg:hover:bg-white/[0.05]"
               >
-                <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-black/50 text-gray-500 shadow-inner group-active:text-amber-500 lg:group-hover:text-amber-500">
+                <!-- Scanner Line FX -->
+                <div class="absolute inset-0 -translate-y-full bg-gradient-to-b from-transparent via-amber-500/5 to-transparent transition-transform duration-[2000ms] group-hover:translate-y-full"></div>
+                <div class="pointer-events-none absolute inset-0 opacity-0 bg-[radial-gradient(#ffffff,transparent_1px)] [background-size:10px_10px] group-hover:opacity-[0.03] transition-opacity"></div>
+
+                <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-black/60 text-slate-400 shadow-inner group-active:text-amber-500 lg:group-hover:scale-110 lg:group-hover:text-amber-400 transition-all">
                   <Icon name={social.icon} size={22} />
                 </div>
-                <span class="font-mono text-[10px] tracking-widest text-gray-500 uppercase group-active:text-white lg:group-hover:text-white">
+                <span class="font-mono text-[10px] font-bold tracking-widest text-slate-400 uppercase group-active:text-white lg:group-hover:text-white transition-colors">
                   {social.label}
                 </span>
-                <div class="absolute top-3 right-3 h-1.5 w-1.5 rounded-full bg-white/5 group-active:bg-amber-500 lg:group-hover:bg-amber-500" />
+                <div class="absolute top-3 right-3 h-1.5 w-1.5 rounded-full bg-white/10 group-active:bg-amber-500 lg:group-hover:bg-amber-500 lg:group-hover:shadow-[0_0_8px_rgba(245,158,11,0.6)] transition-all" />
               </a>
             ))
           }
@@ -189,10 +194,10 @@ const socials = [
     >
       <div class="flex flex-col items-center space-y-3 md:items-start">
         <p
-          class="font-mono text-[10px] tracking-[0.3em] text-gray-500 uppercase"
+          class="font-mono text-[10px] tracking-[0.3em] text-slate-400 uppercase font-bold"
         >
           &copy; {new Date().getFullYear()} Gabriel González // <span
-            class="text-amber-500/40">{t("footer.secured")}</span
+            class="text-amber-500">{t("footer.secured")}</span
           >
         </p>
         <div class="h-1 w-32 overflow-hidden rounded-full bg-white/5">
@@ -204,24 +209,24 @@ const socials = [
         class="flex w-full flex-col items-center gap-4 sm:flex-row sm:justify-center md:w-auto"
       >
         <div
-          class="flex items-center gap-3 rounded-full border border-white/5 bg-black/40 px-6 py-3 shadow-xl backdrop-blur-sm"
+          class="flex items-center gap-3 rounded-full border border-white/10 bg-black/60 px-6 py-3 shadow-2xl backdrop-blur-md"
         >
           <div class="relative h-2 w-2">
             <div
-              class="absolute inset-0 animate-ping rounded-full bg-green-500 opacity-20"
+              class="absolute inset-0 animate-ping rounded-full bg-green-500 opacity-30"
             >
             </div>
             <div
-              class="h-full w-full rounded-full bg-green-500 shadow-[0_0_10px_rgba(34,197,94,0.8)]"
+              class="h-full w-full rounded-full bg-green-500 shadow-[0_0_12px_rgba(34,197,94,0.9)]"
             >
             </div>
           </div>
           <span
-            class="font-mono text-[9px] tracking-tighter text-gray-400 uppercase"
+            class="font-mono text-[9px] font-bold tracking-tighter text-slate-200 uppercase"
             >{t("footer.status")}</span
           >
-          <div class="mx-3 h-4 w-px bg-white/10"></div>
-          <span class="font-mono text-[9px] text-amber-500/70 uppercase"
+          <div class="mx-3 h-4 w-px bg-white/20"></div>
+          <span class="font-mono text-[9px] font-black text-amber-500 uppercase drop-shadow-[0_0_5px_rgba(245,158,11,0.3)]"
             >LATENCY: 14MS</span
           >
         </div>
