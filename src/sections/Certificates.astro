@@ -10,38 +10,46 @@ const t = useTranslations(lang);
 
 <section
   id="certificates"
-  class="reveal reveal-scale relative mx-auto mt-12 mb-24 max-w-[1400px] px-4 sm:px-8"
+  class="reveal reveal-scale relative mx-auto my-12 max-w-[1400px] px-4 sm:px-8"
 >
+  <!-- Main Data Vault Container -->
   <div
-    class="relative overflow-hidden rounded-[2.5rem] border border-white/5 bg-transparent"
+    class="relative overflow-hidden rounded-[2.5rem] border border-amber-500/10 shadow-[0_0_50px_rgba(245,158,11,0.02)]"
   >
+    <div class="grid-bg pointer-events-none absolute inset-0 opacity-10"></div>
+
     <div
-      class="relative z-20 flex flex-col gap-16 p-8 md:p-16 lg:flex-row lg:items-center lg:px-20 lg:py-24"
+      class="relative z-20 grid grid-cols-1 gap-12 p-8 md:p-12 lg:grid-cols-2 lg:items-center lg:gap-16 lg:px-20 lg:py-16"
     >
+      <!-- Side A: Visual Credential Viewer (50% Width) -->
       <div
-        class="reveal-scale flex flex-1 flex-col items-center justify-center"
+        class="reveal-scale flex flex-col items-center justify-center lg:pr-8"
       >
         <div class="group relative">
+          <!-- Glow Base -->
           <div
-            class="absolute -inset-4 rounded-[2rem] bg-blue-600/15 opacity-0 blur-2xl transition-opacity duration-700 group-hover:opacity-100"
+            class="absolute -inset-4 rounded-[2rem] bg-amber-500/10 opacity-0 blur-2xl transition-opacity duration-700 group-hover:opacity-100"
           >
           </div>
 
+          <!-- Viewer Frame -->
           <div
-            class="relative overflow-hidden rounded-2xl border border-white/20 bg-black/60 p-2 shadow-2xl transition-all duration-700 group-hover:border-blue-500/50"
+            class="relative overflow-hidden rounded-2xl border border-amber-500/20 bg-black/60 p-2 shadow-2xl transition-all duration-700 group-hover:border-amber-500/40"
           >
-            <div class="mb-2 flex items-center justify-between px-3 pt-1">
+            <div
+              class="mb-2 flex items-center justify-between border-b border-amber-500/10 px-3 pt-1 pb-1.5"
+            >
               <div class="flex gap-1.5">
-                <div class="h-1.5 w-1.5 rounded-full bg-red-500/50"></div>
-                <div class="h-1.5 w-1.5 rounded-full bg-amber-500/50"></div>
-                <div class="h-1.5 w-1.5 rounded-full bg-emerald-500/50"></div>
+                <div class="h-1.5 w-1.5 rounded-full bg-red-500/40"></div>
+                <div class="h-1.5 w-1.5 rounded-full bg-amber-500/40"></div>
               </div>
               <span
-                class="font-mono text-[8px] font-bold tracking-[0.2em] text-white/40 uppercase"
+                class="font-mono text-[8px] font-bold tracking-[0.2em] text-amber-500/40 uppercase"
                 >{t("certs.badge.viewer")}</span
               >
             </div>
 
+            <!-- Image Hub -->
             <div class="relative overflow-hidden rounded-lg">
               <Image
                 src={fullStackCert}
@@ -49,132 +57,143 @@ const t = useTranslations(lang);
                 width={500}
                 height={350}
                 format="webp"
-                quality={80}
+                quality={90}
                 loading="lazy"
-                class="w-full max-w-[380px] transition-all duration-1000 group-hover:scale-110 md:max-w-[500px]"
+                class="w-full max-w-[380px] transition-all duration-1000 group-hover:scale-105 group-hover:rotate-1 md:max-w-[500px]"
               />
               <div
-                class="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.1)_50%)] bg-[length:100%_4px] opacity-20"
-              >
-              </div>
-              <div
-                class="absolute inset-0 translate-x-[-150%] bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform duration-1000 group-hover:translate-x-[150%]"
+                class="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.1)_50%)] bg-[length:100%_4px] opacity-10"
               >
               </div>
             </div>
 
+            <!-- Footer Meta -->
             <div
-              class="mt-2 flex justify-between px-2 font-mono text-[clamp(10px,2vw,12px)] tracking-widest text-white/40 uppercase"
+              class="mt-2 flex justify-between px-2 font-mono text-[9px] tracking-widest text-amber-500/30 uppercase"
             >
               <span>Auth: 128-bit_verified</span>
-              <span>Scale: 1.0f</span>
+              <span>Enc: logic_kernel_0x1</span>
             </div>
           </div>
 
+          <!-- Floating Badge Merit -->
           <div
-            class="absolute -right-2 -bottom-2 flex items-center gap-3 rounded-2xl border border-blue-500/30 bg-black/90 px-5 py-3 shadow-2xl backdrop-blur-2xl transition-transform duration-500 group-hover:-translate-y-2 group-hover:scale-110 md:-right-6 md:-bottom-6"
+            class="absolute -right-3 -bottom-3 flex items-center gap-3 rounded-2xl border border-amber-500/30 bg-black/90 px-4 py-3 shadow-2xl backdrop-blur-2xl transition-all duration-500 group-hover:-translate-y-2 group-hover:scale-110 md:-right-6 md:-bottom-2"
           >
             <div
-              class="relative flex h-10 w-10 items-center justify-center rounded-full bg-blue-500/10"
+              class="relative flex h-9 w-9 items-center justify-center rounded-full bg-amber-500/10"
             >
               <Icon
                 name="tabler:award-filled"
-                class="text-blue-400"
-                size={24}
+                class="text-amber-400"
+                size={20}
               />
               <div
-                class="animate-spin-slow absolute inset-0 rounded-full border border-dashed border-blue-400/30"
+                class="animate-spin-slow absolute inset-0 rounded-full border border-dashed border-amber-400/30"
               >
               </div>
             </div>
             <div class="flex flex-col">
               <span
-                class="font-mono text-[9px] leading-none font-black tracking-tighter text-blue-400 uppercase"
+                class="font-mono text-[8px] leading-none font-black tracking-tighter text-amber-400 uppercase"
                 >{t("certs.badge.honors")}</span
               >
               <span
-                class="mt-1 font-mono text-[11px] font-bold text-white uppercase"
+                class="mt-1 font-mono text-[10px] font-bold text-white uppercase"
                 >{t("certs.badge.best")}</span
               >
             </div>
           </div>
         </div>
 
-        <div class="mt-16 flex items-center gap-6 opacity-60">
+        <!-- Serial Tag -->
+        <div class="mt-10 flex items-center gap-4 opacity-40">
           <div
-            class="h-[1px] w-12 bg-gradient-to-r from-transparent to-blue-500/50"
+            class="h-[1px] w-8 bg-gradient-to-r from-transparent to-amber-500/50"
           >
           </div>
           <p
-            class="font-mono text-[10px] tracking-[0.5em] text-blue-400 uppercase"
+            class="font-mono text-[9px] tracking-[0.5em] text-amber-500 uppercase"
           >
             FS-2023-CERT-01
           </p>
           <div
-            class="h-[1px] w-12 bg-gradient-to-l from-transparent to-blue-500/50"
+            class="h-[1px] w-8 bg-gradient-to-l from-transparent to-amber-500/50"
           >
           </div>
         </div>
       </div>
 
-      <div class="flex-[1.2] space-y-12">
-        <header class="reveal reveal-right space-y-6">
+      <!-- Side B: Technical Specs (Data Nodes - 50% Width) -->
+      <div
+        class="flex flex-col space-y-8 lg:border-l lg:border-white/5 lg:pl-12"
+      >
+        <header class="reveal reveal-right space-y-4">
           <div class="flex items-center gap-3">
-            <div class="relative flex h-3 w-3">
-              <span
-                class="absolute inline-flex h-full w-full animate-ping rounded-full bg-blue-400 opacity-75"
-              ></span>
-              <span
-                class="relative inline-flex h-3 w-3 rounded-full bg-blue-500 shadow-[0_0_10px_rgba(59,130,246,0.8)]"
-              ></span>
-            </div>
+            <Icon
+              name="tabler:shield-check"
+              class="animate-pulse text-amber-500"
+              size={14}
+            />
             <h2
-              class="font-mono text-[11px] font-black tracking-[0.5em] text-blue-400 uppercase"
+              class="font-mono text-[10px] font-black tracking-[0.5em] text-amber-500 uppercase"
             >
               {t("certs.title.certified")}
             </h2>
           </div>
 
-          <h3
-            class="font-serif text-4xl leading-[1.1] font-bold text-white md:text-5xl lg:text-6xl"
-          >
+          <h3 class="font-serif text-3xl leading-tight text-white md:text-5xl">
             {t("certs.title.main1")}
-            <br />
-            <span class="font-light text-white/40 italic"
+            <span
+              class="bg-gradient-to-r from-amber-400 to-amber-600 bg-clip-text text-transparent italic"
               >{t("certs.title.main2")}</span
             >
           </h3>
 
           <p
-            class="max-w-xl text-lg leading-relaxed font-light text-slate-300 md:text-xl"
+            class="max-w-xl text-sm leading-relaxed font-light text-gray-400 md:text-base"
             set:html={t("certs.description")}
           />
         </header>
 
-        <ul class="reveal reveal-right grid grid-cols-1 gap-4 sm:grid-cols-2">
+        <!-- System Modules Grid -->
+        <ul
+          class="reveal reveal-right grid grid-cols-1 gap-3 sm:grid-cols-2 lg:gap-4"
+        >
           {
             [
               { name: t("certs.item1"), icon: "tabler:cpu" },
-              { name: t("certs.item2"), icon: "tabler:building-bridge" },
-              { name: t("certs.item3"), icon: "tabler:brand-javascript" },
-              { name: t("certs.item4"), icon: "tabler:database" },
-              { name: t("certs.item5"), icon: "tabler:brand-react" },
-              { name: t("certs.item6"), icon: "tabler:git-branch" },
+              { name: t("certs.item2"), icon: "tabler:binary-tree" },
+              { name: t("certs.item3"), icon: "tabler:lambda" },
+              { name: t("certs.item4"), icon: "tabler:database-cog" },
+              { name: t("certs.item5"), icon: "tabler:cloud-computing" },
+              { name: t("certs.item6"), icon: "tabler:settings-automation" },
             ].map((item) => (
-              <li class="group flex items-center gap-4 rounded-2xl border border-white/10 bg-white/[0.03] p-4 backdrop-blur-md transition-all duration-300 hover:border-blue-500/40 hover:bg-blue-500/[0.08]">
-                <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-white/5 transition-all duration-500 group-hover:rotate-[360deg] group-hover:bg-blue-500/20">
+              <li class="group flex items-center gap-3 rounded-xl border border-white/5 bg-white/[0.02] p-3 backdrop-blur-md transition-all duration-300 hover:border-amber-500/30 hover:bg-amber-500/[0.05]">
+                <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-amber-500/5 transition-all duration-500 group-hover:bg-amber-500/20">
                   <Icon
                     name={item.icon}
-                    class="text-2xl text-blue-400/70 group-hover:text-blue-400"
+                    class="text-lg text-amber-500/40 group-hover:text-amber-500"
                   />
                 </div>
-                <span class="font-mono text-[11px] font-bold tracking-widest text-slate-200 uppercase transition-colors group-hover:text-white">
+                <span class="font-mono text-[10px] font-bold tracking-tight text-gray-400 uppercase transition-colors group-hover:text-amber-200">
                   {item.name}
                 </span>
               </li>
             ))
           }
         </ul>
+
+        <!-- Anti-Scroll Control: System Status -->
+        <div
+          class="flex items-center gap-4 rounded-lg border border-white/5 bg-black/40 p-4"
+        >
+          <div class="h-2 w-2 animate-pulse rounded-full bg-amber-500"></div>
+          <span
+            class="font-mono text-[9px] tracking-widest text-gray-500 uppercase"
+            >System Integrity: Nominal // Grid_Active</span
+          >
+        </div>
       </div>
     </div>
   </div>
