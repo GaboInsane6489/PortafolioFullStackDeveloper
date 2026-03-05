@@ -28,7 +28,7 @@ const links = [
       <a
         href={link.href}
         style={`transition-delay: ${index * 50}ms`}
-        class="mobile-link flex translate-y-8 items-center gap-4 font-sans text-3xl font-black tracking-widest text-white/70 uppercase transition-all duration-500 hover:scale-105 hover:text-amber-500 active:scale-95"
+        class="mobile-link flex translate-y-8 items-center gap-4 font-sans text-3xl font-black tracking-widest text-white uppercase transition-all duration-500 hover:scale-105 hover:text-amber-500 active:scale-95"
       >
         <span class="font-mono text-sm font-normal text-amber-500/50">
           0{index + 1}.
@@ -78,7 +78,7 @@ const links = [
           >G. GONZÁLEZ</span
         >
         <span
-          class="font-mono text-[7px] tracking-[0.3em] text-amber-500/60 uppercase"
+          class="font-mono text-[7px] tracking-[0.3em] text-amber-500 uppercase"
           >{t("hero.role")}</span
         >
       </div>
@@ -90,11 +90,11 @@ const links = [
           links.map((link) => (
             <a
               href={link.href}
-              class="nav-link group relative px-4 py-2 font-mono text-[10px] tracking-[0.2em] text-gray-400 transition-all duration-300 hover:text-white"
+              class="nav-link group relative flex items-center px-4 py-2 font-mono text-[10px] font-bold tracking-[0.2em] text-slate-200 transition-all duration-300 hover:text-white"
             >
               <div class="relative flex items-center">
                 <span class="absolute -left-2 flex items-center justify-center transition-all duration-300 group-hover:-left-3">
-                  <span class="h-[3px] w-[3px] animate-pulse rounded-full bg-amber-500/40 transition-all duration-300 group-hover:h-0 group-hover:w-0 group-hover:opacity-0" />
+                  <span class="h-[3px] w-[3px] animate-pulse rounded-full bg-amber-500 transition-all duration-300 group-hover:h-0 group-hover:w-0 group-hover:opacity-0" />
                   <span class="scale-0 font-bold text-amber-500 opacity-0 transition-all duration-300 group-hover:scale-110 group-hover:opacity-100">
                     {" "}
                     //{" "}
@@ -113,7 +113,7 @@ const links = [
         <a
           href="https://github.com/GaboInsane6489"
           target="_blank"
-          class="group relative flex items-center gap-2 text-white/40 transition-all hover:text-white"
+          class="group relative flex items-center gap-2 text-white/60 transition-all hover:text-white"
         >
           <Icon
             name="tabler:brand-github"
@@ -131,7 +131,7 @@ const links = [
 
         <a
           href="#contact"
-          class="relative overflow-hidden rounded-full border border-amber-500/20 bg-amber-500/5 px-6 py-2.5 font-mono text-[9px] font-black tracking-widest text-amber-500 uppercase transition-all hover:bg-amber-500 hover:text-black hover:shadow-[0_0_25px_rgba(245,158,11,0.4)]"
+          class="relative overflow-hidden rounded-full border border-amber-500/40 bg-amber-500/10 px-6 py-2.5 font-mono text-[9px] font-black tracking-widest text-amber-500 uppercase transition-all hover:bg-amber-500 hover:text-black hover:shadow-[0_0_30px_rgba(245,158,11,0.5)]"
         >
           {t("hero.cta")}
         </a>
