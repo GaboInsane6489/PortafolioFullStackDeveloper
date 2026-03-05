@@ -13,7 +13,8 @@ const t = useTranslations(lang);
   <div
     class="reveal reveal-scale relative mx-auto w-full max-w-[1400px] overflow-hidden rounded-[2rem] border border-amber-500/10 shadow-[0_0_50px_rgba(245,158,11,0.02)]"
   >
-    <div class="grid-bg pointer-events-none absolute inset-0 opacity-10"></div>
+    <div class="grid-bg pointer-events-none absolute inset-0 opacity-[0.05]">
+    </div>
 
     <div class="relative z-10 px-6 py-6 sm:px-10 lg:px-14 lg:py-8">
       <!-- Header Focus -->
@@ -24,7 +25,7 @@ const t = useTranslations(lang);
           <div class="reveal flex items-center gap-3">
             <span class="h-px w-8 bg-amber-500/40"></span>
             <span
-              class="font-mono text-[9px] font-black tracking-[0.4em] text-amber-500 uppercase"
+              class="font-mono text-[9px] font-black tracking-[0.4em] text-amber-500 uppercase drop-shadow-[0_0_8px_rgba(245,158,11,0.3)]"
               >{t("lab.badge")}</span
             >
           </div>
@@ -59,7 +60,7 @@ const t = useTranslations(lang);
               <div class="h-1.5 w-1.5 rounded-full bg-amber-500/30"></div>
             </div>
             <span
-              class="font-mono text-[8px] tracking-widest text-amber-500/40 uppercase"
+              class="font-mono text-[8px] font-bold tracking-widest text-amber-500/80 uppercase"
               >ENGINEERING_TOOLKIT</span
             >
           </div>
@@ -95,7 +96,7 @@ const t = useTranslations(lang);
                       class="text-gray-600 transition-colors group-hover/item:text-amber-500/60"
                       size={14}
                     />
-                    <span class="font-mono text-[10px] tracking-tighter text-gray-500 uppercase">
+                    <span class="font-mono text-[10px] font-bold tracking-tighter text-gray-400 uppercase">
                       {item.label}
                     </span>
                   </div>
@@ -132,10 +133,10 @@ const t = useTranslations(lang);
             </div>
             <div class="text-center">
               <span
-                class="block font-mono text-[10px] tracking-[0.3em] text-amber-500/60 uppercase"
+                class="block font-mono text-[10px] font-bold tracking-[0.3em] text-amber-500 uppercase"
                 >System_Paradox</span
               >
-              <span class="mt-1 block font-serif text-lg text-white/80"
+              <span class="mt-1 block font-serif text-lg font-medium text-white"
                 >Anti-Gravity Engine</span
               >
             </div>
@@ -175,10 +176,10 @@ const t = useTranslations(lang);
                   { name: t("lab.active.res3"), icon: "tabler:components" },
                 ].map((res) => (
                   <div class="group flex items-center gap-4 border-b border-white/[0.03] pb-3 transition-all last:border-0 hover:translate-x-1">
-                    <div class="flex h-7 w-7 items-center justify-center rounded-lg bg-amber-500/5 text-amber-500/40 transition-colors group-hover:bg-amber-500/10 group-hover:text-amber-500">
+                    <div class="flex h-7 w-7 items-center justify-center rounded-lg bg-amber-500/10 text-amber-500/60 transition-colors group-hover:bg-amber-500/20 group-hover:text-amber-500">
                       <Icon name={res.icon} size={14} />
                     </div>
-                    <span class="font-mono text-[11px] text-gray-400 uppercase transition-colors group-hover:text-gray-200">
+                    <span class="font-mono text-[11px] text-slate-300 uppercase transition-colors group-hover:text-white">
                       {res.name}
                     </span>
                   </div>
@@ -192,7 +193,7 @@ const t = useTranslations(lang);
               class="rounded-xl border border-white/5 bg-black/40 p-4 transition-all hover:border-amber-500/20"
             >
               <span
-                class="mb-2 block font-mono text-[8px] tracking-widest text-gray-600 uppercase"
+                class="mb-2 block font-mono text-[8px] font-bold tracking-widest text-gray-400 uppercase"
                 >{t("lab.method.automation")}</span
               >
               <div
@@ -210,7 +211,7 @@ const t = useTranslations(lang);
               class="rounded-xl border border-white/5 bg-black/40 p-4 transition-all hover:border-amber-500/20"
             >
               <span
-                class="mb-2 block font-mono text-[8px] tracking-widest text-gray-600 uppercase"
+                class="mb-2 block font-mono text-[8px] font-bold tracking-widest text-gray-400 uppercase"
                 >{t("lab.method.protocol")}</span
               >
               <div
