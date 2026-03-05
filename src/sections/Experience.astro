@@ -43,7 +43,7 @@ const HarryPotterHeadForumImages = Array.from(
           >
         </h2>
         <p
-          class="reveal max-w-sm font-mono text-[11px] leading-relaxed text-gray-500"
+          class="reveal max-w-sm font-mono text-[11px] leading-relaxed text-slate-300"
           set:html={t("exp.description")}
         />
       </div>
@@ -54,7 +54,7 @@ const HarryPotterHeadForumImages = Array.from(
         <div class="reveal reveal-right group relative">
           <!-- Tactical Timeline Node -->
           <div
-            class="absolute top-2 -left-[50px] h-4 w-4 rounded-full border border-amber-500/30 bg-[#0A0908] transition-all duration-500 group-hover:scale-110 lg:-left-[74px] lg:h-6 lg:w-6"
+            class="absolute top-2 -left-[50px] h-4 w-4 rounded-full border border-amber-500 bg-[#0A0908] shadow-[0_0_10px_rgba(245,158,11,0.2)] transition-all duration-500 group-hover:scale-110 group-hover:shadow-[0_0_15px_rgba(245,158,11,0.4)] lg:-left-[74px] lg:h-6 lg:w-6"
           >
             <div class="absolute inset-0 flex items-center justify-center">
               <div class="h-1.5 w-1.5 animate-pulse rounded-full bg-amber-500">
@@ -72,7 +72,7 @@ const HarryPotterHeadForumImages = Array.from(
             >
               <div class="space-y-1">
                 <span
-                  class="font-mono text-[8px] tracking-[0.2em] text-amber-500/40 uppercase"
+                  class="font-mono text-[8px] font-bold tracking-[0.2em] text-amber-500 uppercase"
                   >MISSION_ACTIVE // PRD_STP</span
                 >
                 <h3
@@ -87,7 +87,8 @@ const HarryPotterHeadForumImages = Array.from(
                 >
                   {t("exp.garcia.date")}
                 </span>
-                <span class="font-mono text-[8px] text-gray-600 uppercase"
+                <span
+                  class="font-mono text-[8px] font-bold text-slate-400 uppercase"
                   >AUTH: SENIOR_ENGINEER</span
                 >
               </div>
@@ -102,16 +103,19 @@ const HarryPotterHeadForumImages = Array.from(
                 <Icon name="tabler:briefcase" size={20} />
               </div>
               <div class="flex flex-col">
-                <span class="font-mono text-[9px] text-gray-500 uppercase"
+                <span
+                  class="font-mono text-[9px] font-bold text-amber-500/80 uppercase"
                   >ENTITY_NODE</span
                 >
-                <span class="font-bold text-gray-300">Instalaciones García</span
+                <span
+                  class="font-bold text-white transition-colors group-hover:text-amber-200"
+                  >Instalaciones García</span
                 >
               </div>
             </div>
 
             <p
-              class="max-w-2xl font-mono text-[12px] leading-relaxed text-gray-500"
+              class="max-w-2xl font-mono text-[12px] leading-relaxed font-medium text-slate-300"
               set:html={t("exp.garcia.desc")}
             />
           </div>
@@ -129,7 +133,7 @@ const HarryPotterHeadForumImages = Array.from(
             >
               <div class="space-y-1">
                 <span
-                  class="font-mono text-[8px] tracking-[0.2em] text-gray-600 uppercase"
+                  class="font-mono text-[8px] font-bold tracking-[0.2em] text-slate-400 uppercase"
                   >MISSION_LOG // ARC_2.4</span
                 >
                 <h3
@@ -140,11 +144,12 @@ const HarryPotterHeadForumImages = Array.from(
               </div>
               <div class="flex flex-col items-end gap-1">
                 <span
-                  class="w-fit rounded border border-white/10 bg-white/5 px-3 py-1 font-mono text-[10px] font-bold text-gray-500"
+                  class="w-fit rounded border border-white/20 bg-white/5 px-3 py-1 font-mono text-[10px] font-black text-slate-300"
                 >
                   {t("exp.hph.date")}
                 </span>
-                <span class="font-mono text-[8px] text-gray-700 uppercase"
+                <span
+                  class="font-mono text-[8px] font-bold text-slate-500 uppercase"
                   >DEP_ID: HPH_FORUM</span
                 >
               </div>
@@ -159,15 +164,16 @@ const HarryPotterHeadForumImages = Array.from(
                 <Icon name="tabler:users-group" size={20} />
               </div>
               <div class="flex flex-col">
-                <span class="font-mono text-[9px] text-gray-500 uppercase"
+                <span
+                  class="font-mono text-[9px] font-bold text-slate-500 uppercase"
                   >COMMUNITY_INFRA</span
                 >
-                <span class="font-bold text-gray-400">Harry Potter Head</span>
+                <span class="font-bold text-slate-200">Harry Potter Head</span>
               </div>
             </div>
 
             <p
-              class="max-w-2xl font-mono text-[12px] leading-relaxed text-gray-500"
+              class="max-w-2xl font-mono text-[12px] leading-relaxed text-slate-400"
               set:html={t("exp.hph.desc")}
             />
 
@@ -188,7 +194,7 @@ const HarryPotterHeadForumImages = Array.from(
                   />
                   {t("exp.hph.archive")}
                 </span>
-                <span class="opacity-40">v2.4.0 // LATEST_STABLE</span>
+                <span class="opacity-80">v2.4.0 // LATEST_STABLE</span>
               </div>
             </div>
           </div>
@@ -196,7 +202,7 @@ const HarryPotterHeadForumImages = Array.from(
 
         <div class="reveal reveal-right group relative delay-200">
           <div
-            class="absolute top-2 -left-[50px] h-4 w-4 rounded-full border border-amber-500/20 bg-[#0A0908] transition-all group-hover:border-amber-500/50 lg:-left-[74px] lg:h-6 lg:w-6"
+            class="absolute top-2 -left-[50px] h-4 w-4 rounded-full border border-amber-500 bg-[#0A0908] shadow-[0_0_10px_rgba(245,158,11,0.2)] transition-all group-hover:border-amber-500 lg:-left-[74px] lg:h-6 lg:w-6"
           >
           </div>
           <div class="space-y-6">
@@ -205,7 +211,7 @@ const HarryPotterHeadForumImages = Array.from(
             >
               <div class="space-y-1">
                 <span
-                  class="font-mono text-[8px] tracking-[0.2em] text-amber-500/20 uppercase"
+                  class="font-mono text-[8px] font-black tracking-[0.2em] text-amber-500/60 uppercase"
                   >ACADEMIC_ORCHESTRATION</span
                 >
                 <h3 class="font-serif text-2xl text-white md:text-3xl">
@@ -213,7 +219,7 @@ const HarryPotterHeadForumImages = Array.from(
                 </h3>
               </div>
               <span
-                class="w-fit rounded border border-amber-500/10 bg-amber-500/5 px-3 py-1 font-mono text-[10px] font-bold text-amber-500/60 uppercase"
+                class="w-fit rounded border border-amber-500/30 bg-amber-500/10 px-3 py-1 font-mono text-[10px] font-black text-amber-500 uppercase"
               >
                 UCAB • 3RD SEMESTER
               </span>
@@ -228,15 +234,16 @@ const HarryPotterHeadForumImages = Array.from(
                 <Icon name="tabler:school" size={20} />
               </div>
               <div class="flex flex-col">
-                <span class="font-mono text-[9px] text-gray-500 uppercase"
+                <span
+                  class="font-mono text-[9px] font-bold text-amber-500/40 uppercase"
                   >INSTITUTION_NODE</span
                 >
-                <span class="font-bold text-gray-400">UCAB</span>
+                <span class="font-bold text-slate-300">UCAB</span>
               </div>
             </div>
 
             <p
-              class="max-w-2xl font-mono text-[12px] leading-relaxed text-gray-500 italic"
+              class="max-w-2xl font-mono text-[12px] leading-relaxed font-medium text-slate-400 italic"
               set:html={t("exp.ucab.desc")}
             />
           </div>
