@@ -14,7 +14,7 @@ const HarryPotterHeadForumImages = Array.from(
 
 <section
   id="experience"
-  class="relative border-t border-white/5 py-24 lg:py-40"
+  class="relative border-t border-white/5 py-16 lg:py-24"
 >
   <div
     class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(252,211,77,0.02),transparent_50%)]"
@@ -27,7 +27,7 @@ const HarryPotterHeadForumImages = Array.from(
         <div class="reveal flex items-center gap-3">
           <span class="h-[1px] w-8 bg-amber-500/40"></span>
           <span
-            class="font-mono text-[10px] font-bold tracking-[0.3em] text-amber-500 uppercase"
+            class="font-mono text-[10px] font-black tracking-[0.3em] text-amber-500 uppercase"
           >
             {t("exp.badge")}
           </span>
@@ -37,52 +37,81 @@ const HarryPotterHeadForumImages = Array.from(
         >
           {t("exp.title1")}
           <br class="hidden lg:block" />
-          <span class="text-white/30 italic">{t("exp.title2")}</span>
+          <span
+            class="bg-gradient-to-r from-amber-400 to-amber-600 bg-clip-text text-transparent italic"
+            >{t("exp.title2")}</span
+          >
         </h2>
         <p
-          class="reveal max-w-sm text-lg leading-relaxed font-light text-gray-500"
+          class="reveal max-w-sm font-mono text-[11px] leading-relaxed text-gray-500"
           set:html={t("exp.description")}
         />
       </div>
 
       <div
-        class="relative ml-4 space-y-20 border-l border-white/10 pl-10 md:pl-16 lg:col-span-8 lg:ml-0"
+        class="relative ml-4 space-y-12 border-l border-white/10 pl-10 md:pl-16 lg:col-span-8 lg:ml-0"
       >
         <div class="reveal reveal-right group relative">
+          <!-- Tactical Timeline Node -->
           <div
-            class="absolute top-2 -left-[50px] h-4 w-4 rounded-full border-2 border-amber-500 bg-[#0A0908] transition-transform duration-500 group-hover:scale-125 lg:-left-[74px] lg:h-6 lg:w-6"
+            class="absolute top-2 -left-[50px] h-4 w-4 rounded-full border border-amber-500/30 bg-[#0A0908] transition-all duration-500 group-hover:scale-110 lg:-left-[74px] lg:h-6 lg:w-6"
           >
-            <span
-              class="absolute inset-0 animate-ping rounded-full bg-amber-500/40"
-            ></span>
-            <span class="absolute inset-1 rounded-full bg-amber-500"></span>
+            <div class="absolute inset-0 flex items-center justify-center">
+              <div class="h-1.5 w-1.5 animate-pulse rounded-full bg-amber-500">
+              </div>
+            </div>
+            <div
+              class="absolute top-1/2 -right-20 h-px w-16 bg-gradient-to-r from-amber-500/20 to-transparent lg:-right-24 lg:w-20"
+            >
+            </div>
           </div>
 
-          <div class="space-y-4">
+          <div class="space-y-6">
             <div
-              class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between"
+              class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between"
             >
-              <h3
-                class="font-serif text-2xl text-white transition-colors group-hover:text-amber-400 md:text-3xl"
-              >
-                {t("exp.garcia.role")}
-              </h3>
-              <span
-                class="w-fit rounded-full border border-amber-500/20 bg-amber-500/5 px-3 py-1 font-mono text-[clamp(10px,1.2vw,12px)] font-bold tracking-tighter text-amber-500"
-              >
-                {t("exp.garcia.date")}
-              </span>
+              <div class="space-y-1">
+                <span
+                  class="font-mono text-[8px] tracking-[0.2em] text-amber-500/40 uppercase"
+                  >MISSION_ACTIVE // PRD_STP</span
+                >
+                <h3
+                  class="font-serif text-2xl text-white transition-colors group-hover:text-amber-400 md:text-3xl"
+                >
+                  {t("exp.garcia.role")}
+                </h3>
+              </div>
+              <div class="flex flex-col items-end gap-1">
+                <span
+                  class="w-fit rounded border border-amber-500/20 bg-amber-500/5 px-3 py-1 font-mono text-[10px] font-bold tracking-tighter text-amber-500"
+                >
+                  {t("exp.garcia.date")}
+                </span>
+                <span class="font-mono text-[8px] text-gray-600 uppercase"
+                  >AUTH: SENIOR_ENGINEER</span
+                >
+              </div>
             </div>
-            <div class="flex items-center gap-2 text-gray-400">
-              <Icon
-                name="tabler:briefcase"
-                size={18}
-                class="text-amber-500/50"
-              />
-              <span class="font-medium">Instalaciones García</span>
+
+            <div
+              class="flex items-center gap-3 rounded-lg border border-white/5 bg-white/[0.02] p-4 group-hover:border-amber-500/10"
+            >
+              <div
+                class="flex h-10 w-10 items-center justify-center rounded-lg bg-amber-500/5 text-amber-500/30"
+              >
+                <Icon name="tabler:briefcase" size={20} />
+              </div>
+              <div class="flex flex-col">
+                <span class="font-mono text-[9px] text-gray-500 uppercase"
+                  >ENTITY_NODE</span
+                >
+                <span class="font-bold text-gray-300">Instalaciones García</span
+                >
+              </div>
             </div>
+
             <p
-              class="max-w-2xl text-base leading-relaxed text-gray-500 md:text-lg"
+              class="max-w-2xl font-mono text-[12px] leading-relaxed text-gray-500"
               set:html={t("exp.garcia.desc")}
             />
           </div>
@@ -90,32 +119,57 @@ const HarryPotterHeadForumImages = Array.from(
 
         <div class="reveal reveal-right group relative delay-100">
           <div
-            class="absolute top-2 -left-[50px] h-4 w-4 rounded-full border-2 border-white/20 bg-[#0A0908] transition-all duration-500 group-hover:border-amber-500 lg:-left-[74px] lg:h-6 lg:w-6"
+            class="absolute top-2 -left-[50px] h-4 w-4 rounded-full border border-white/20 bg-[#0A0908] transition-all duration-500 group-hover:border-amber-500 lg:-left-[74px] lg:h-6 lg:w-6"
           >
           </div>
 
           <div class="space-y-6">
-            <div class="space-y-4">
-              <div
-                class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between"
-              >
+            <div
+              class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between"
+            >
+              <div class="space-y-1">
+                <span
+                  class="font-mono text-[8px] tracking-[0.2em] text-gray-600 uppercase"
+                  >MISSION_LOG // ARC_2.4</span
+                >
                 <h3
                   class="font-serif text-2xl text-white transition-colors group-hover:text-white md:text-3xl"
                 >
                   {t("exp.hph.role")}
                 </h3>
+              </div>
+              <div class="flex flex-col items-end gap-1">
                 <span
-                  class="w-fit rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-[clamp(10px,1.2vw,12px)] font-bold text-gray-500"
+                  class="w-fit rounded border border-white/10 bg-white/5 px-3 py-1 font-mono text-[10px] font-bold text-gray-500"
                 >
                   {t("exp.hph.date")}
                 </span>
+                <span class="font-mono text-[8px] text-gray-700 uppercase"
+                  >DEP_ID: HPH_FORUM</span
+                >
               </div>
-              <h4 class="text-lg text-gray-400">Harry Potter Head</h4>
-              <p
-                class="max-w-2xl text-base leading-relaxed text-gray-500 md:text-lg"
-                set:html={t("exp.hph.desc")}
-              />
             </div>
+
+            <div
+              class="flex items-center gap-3 rounded-lg border border-white/5 bg-white/[0.02] p-4 group-hover:border-white/10"
+            >
+              <div
+                class="flex h-10 w-10 items-center justify-center rounded-lg bg-white/5 text-gray-600"
+              >
+                <Icon name="tabler:users-group" size={20} />
+              </div>
+              <div class="flex flex-col">
+                <span class="font-mono text-[9px] text-gray-500 uppercase"
+                  >COMMUNITY_INFRA</span
+                >
+                <span class="font-bold text-gray-400">Harry Potter Head</span>
+              </div>
+            </div>
+
+            <p
+              class="max-w-2xl font-mono text-[12px] leading-relaxed text-gray-500"
+              set:html={t("exp.hph.desc")}
+            />
 
             <div
               class="reveal reveal-scale mt-6 max-w-2xl overflow-hidden rounded-2xl border border-white/10 bg-black shadow-2xl transition-transform duration-500 group-hover:scale-[1.01]"
@@ -124,13 +178,17 @@ const HarryPotterHeadForumImages = Array.from(
                 <EmblaCarousel images={HarryPotterHeadForumImages} />
               </div>
               <div
-                class="flex items-center justify-between bg-[#0A0908] px-5 py-3 text-[clamp(10px,1.2vw,12px)] font-bold tracking-[0.2em] text-gray-600 uppercase"
+                class="flex items-center justify-between bg-[#0A0908] px-5 py-3 font-mono text-[10px] font-black tracking-[0.2em] text-gray-600 uppercase"
               >
                 <span class="flex items-center gap-2 italic">
-                  <Icon name="tabler:archive" size={14} />
+                  <Icon
+                    name="tabler:archive"
+                    size={14}
+                    class="text-amber-500/40"
+                  />
                   {t("exp.hph.archive")}
                 </span>
-                <span class="opacity-40">v2.4.0</span>
+                <span class="opacity-40">v2.4.0 // LATEST_STABLE</span>
               </div>
             </div>
           </div>
@@ -138,24 +196,47 @@ const HarryPotterHeadForumImages = Array.from(
 
         <div class="reveal reveal-right group relative delay-200">
           <div
-            class="absolute top-2 -left-[50px] h-4 w-4 rounded-full border-2 border-white/20 bg-[#0A0908] transition-all group-hover:border-amber-500/50 lg:-left-[74px] lg:h-6 lg:w-6"
+            class="absolute top-2 -left-[50px] h-4 w-4 rounded-full border border-amber-500/20 bg-[#0A0908] transition-all group-hover:border-amber-500/50 lg:-left-[74px] lg:h-6 lg:w-6"
           >
           </div>
-          <div class="space-y-3">
+          <div class="space-y-6">
             <div
-              class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between"
+              class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between"
             >
-              <h3 class="font-serif text-2xl text-white md:text-3xl">
-                {t("exp.ucab.role")}
-              </h3>
+              <div class="space-y-1">
+                <span
+                  class="font-mono text-[8px] tracking-[0.2em] text-amber-500/20 uppercase"
+                  >ACADEMIC_ORCHESTRATION</span
+                >
+                <h3 class="font-serif text-2xl text-white md:text-3xl">
+                  {t("exp.ucab.role")}
+                </h3>
+              </div>
               <span
-                class="w-fit rounded-full border border-blue-500/20 bg-blue-500/5 px-3 py-1 font-mono text-[clamp(10px,1.2vw,12px)] font-bold text-blue-400"
+                class="w-fit rounded border border-amber-500/10 bg-amber-500/5 px-3 py-1 font-mono text-[10px] font-bold text-amber-500/60 uppercase"
               >
                 UCAB • 3RD SEMESTER
               </span>
             </div>
+
+            <div
+              class="flex items-center gap-3 rounded-lg border border-amber-500/5 bg-amber-500/5 p-4 group-hover:border-amber-500/10"
+            >
+              <div
+                class="flex h-10 w-10 items-center justify-center rounded-lg bg-amber-500/10 text-amber-500/40 transition-colors group-hover:text-amber-500"
+              >
+                <Icon name="tabler:school" size={20} />
+              </div>
+              <div class="flex flex-col">
+                <span class="font-mono text-[9px] text-gray-500 uppercase"
+                  >INSTITUTION_NODE</span
+                >
+                <span class="font-bold text-gray-400">UCAB</span>
+              </div>
+            </div>
+
             <p
-              class="max-w-2xl text-base leading-relaxed text-gray-500 italic md:text-lg"
+              class="max-w-2xl font-mono text-[12px] leading-relaxed text-gray-500 italic"
               set:html={t("exp.ucab.desc")}
             />
           </div>

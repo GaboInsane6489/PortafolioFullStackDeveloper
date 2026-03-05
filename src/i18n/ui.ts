@@ -97,41 +97,41 @@ export const ui = {
     "lab.method.protocol": "METHODOLOGY",
     "lab.method.protocol.val": "PR-Driven Development",
 
-    // Projects
-    "projects.badge": "Selected Works",
-    "projects.title1": "Digital",
+    // Projects (Deployed Systems Inventory)
+    "projects.badge": "DEPLOYED_SYSTEMS_INVENTORY",
+    "projects.title1": "Engineering",
     "projects.title2": "Case Studies",
     "projects.description":
-      "A curation of production-grade systems focusing on <span class='text-white/60'>architecture</span> and <span class='text-white/60'>performance</span>.",
-    "projects.marti.badge": "EdTech Operating System",
+      "A technical curation of production-grade systems focusing on <span class='text-white/60'>architectural integrity</span> and <span class='text-white/60'>logic performance</span>.",
+    "projects.marti.badge": "EDTECH_OPERATING_SYSTEM",
     "projects.marti.description":
-      "A robust educational platform built to handle complex academic workflows. Engineered with <span class='text-amber-500/50'>scalable architecture</span>, real-time data synchronization, and an intuitive UI for efficient institution management.",
-    "projects.marti.cta": "EXPLORE ARCHITECTURE",
-    "projects.luz.badge": "Growth Platform",
+      "High-scale educational infrastructure engineered to handle massive academic state. Features <span class='text-amber-500/50'>atomic data synchronization</span>, modular component architecture, and high-concurrency event handling.",
+    "projects.marti.cta": "SYSTEM_ARCHITECTURE",
+    "projects.luz.badge": "CORE_GROWTH_NODE",
     "projects.luz.description":
-      "A modern application designed for <span class='font-serif text-purple-400/50 italic'>personal reconstruction</span> and tracking. Built with complex state management, modular components, and a focus on seamless, privacy-first UX.",
-    "projects.luz.cta": "VIEW REPOSITORY",
-    "projects.garcia.badge": "Enterprise Solution",
+      "Personalized reconstruction engine with complex state orchestration. Built with <span class='font-serif text-purple-400/50 italic'>modular logic</span> and a focus on high-performance reactive interfaces.",
+    "projects.luz.cta": "REPOSITORY_ACCESS",
+    "projects.garcia.badge": "ENTERPRISE_CORE_SOLUTION",
     "projects.garcia.description":
-      "Production-ready platform for a real-world client featuring <span class='font-bold text-blue-400/50'>high performance</span> and SEO optimization. Designed to streamline field operations, improve load times, and drive conversion.",
-    "projects.garcia.status": "DEPLOYED IN PRODUCTION",
-    "projects.garcia.cta": "VIEW REPOSITORY",
+      "Client-centric system optimized for peak load efficiency and SEO crawlability. Designed to streamline field operations and maximize <span class='font-bold text-blue-400/50'>conversion throughput</span>.",
+    "projects.garcia.status": "ACTIVE_IN_PRODUCTION",
+    "projects.garcia.cta": "SOURCE_PROTOCOL",
 
-    // Experience
-    "exp.badge": "Career Path",
-    "exp.title1": "Professional",
-    "exp.title2": "Timeline",
+    // Experience (Operational Mission Log)
+    "exp.badge": "OPERATIONAL_MISSION_LOG",
+    "exp.title1": "Engineering",
+    "exp.title2": "Chronicles",
     "exp.description":
-      "A chronological log of my development journey, from academic foundation to building <span class='text-white/60'>production-grade systems</span>.",
-    "exp.garcia.role": "Full Stack Developer",
+      "A sequential log of system operations, from academic kernel-building to <span class='text-white/60'>high-traffic production deployments</span>.",
+    "exp.garcia.role": "Full Stack Architect",
     "exp.garcia.date": "2024 — PRESENT",
     "exp.garcia.desc":
-      "Spearheaded the development of a custom enterprise solution. Transitioned the company from manual workflows to a <strong class='text-base font-medium text-white/80'>fully digital, real-time ecosystem</strong> to optimize field operations and technical oversight.",
-    "exp.hph.role": "Full Stack Developer",
+      "Spearheaded the development of a custom enterprise engine. Orchestrated the transition from manual flows to a <strong class='text-base font-medium text-white/80'>real-time digital ecosystem</strong> with precise field oversight.",
+    "exp.hph.role": "Core Full Stack Developer",
     "exp.hph.date": "2024 — PRESENT",
     "exp.hph.desc":
-      "Core developer for a high-traffic international community with <span class='text-white/60'>20,000+ daily active users</span>. Engineered complex economy systems using <strong>Atomic SQL</strong> to prevent race conditions and optimized database performance through bulk inserts.",
-    "exp.hph.archive": "System Archive",
+      "Lead maintainer for a high-traffic community infrastructure with <span class='text-white/60'>20k+ daily cycles</span>. Engineered <strong>Atomic SQL systems</strong> and mass-data ingestion pipelines.",
+    "exp.hph.archive": "SYSTEM_ARCHIVE_v2.4",
     "exp.ucab.role": "Computer Engineering",
     "exp.ucab.date": "UCAB • 3RD SEMESTER",
     "exp.ucab.desc":
@@ -275,41 +275,41 @@ export const ui = {
     "lab.method.protocol": "METODOLOGÍA",
     "lab.method.protocol.val": "Desarrollo Basado en PRs",
 
-    // Projects
-    "projects.badge": "Trabajos Seleccionados",
-    "projects.title1": "Casos de",
-    "projects.title2": "Estudio Digitales",
+    // Projects (Inventario de Sistemas Desplegados)
+    "projects.badge": "INVENTARIO_SISTEMAS_DESPLEGADOS",
+    "projects.title1": "Crónicas de",
+    "projects.title2": "Ingeniería Digital",
     "projects.description":
-      "Una curaduría de sistemas de grado de producción enfocados en <span class='text-white/60'>arquitectura</span> y <span class='text-white/60'>rendimiento</span>.",
-    "projects.marti.badge": "Sistema Operativo EdTech",
+      "Una curaduría técnica de sistemas escala de producción enfocados en <span class='text-white/60'>integridad arquitectónica</span> y <span class='text-white/60'>rendimiento lógico</span>.",
+    "projects.marti.badge": "SISTEMA_OPERATIVO_EDTECH",
     "projects.marti.description":
-      "Una plataforma educativa robusta construida para manejar flujos de trabajo académicos complejos. Diseñada con <span class='text-amber-500/50'>arquitectura escalable</span>, sincronización de datos en tiempo real y una interfaz intuitiva.",
-    "projects.marti.cta": "EXPLORAR ARQUITECTURA",
-    "projects.luz.badge": "Plataforma de Crecimiento",
+      "Infraestructura educativa de alta escala construida para manejar flujos académicos masivos. Incluye <span class='text-amber-500/50'>sincronización atómica de datos</span> y manejo de eventos de alta concurrencia.",
+    "projects.marti.cta": "ARQUITECTURA_DEL_SISTEMA",
+    "projects.luz.badge": "NODO_DE_CRECIMIENTO_CORE",
     "projects.luz.description":
-      "Una aplicación moderna diseñada para la <span class='font-serif text-purple-400/50 italic'>reconstrucción personal</span> y el seguimiento. Construida con gestión de estado compleja y enfoque en UX privada.",
-    "projects.luz.cta": "VER REPOSITORIO",
-    "projects.garcia.badge": "Solución Empresarial",
+      "Motor de reconstrucción personal con orquestación de estado compleja. Construido con <span class='font-serif text-purple-400/50 italic'>lógica modular</span> e interfaces reactivas de alto rendimiento.",
+    "projects.luz.cta": "ACCESO_AL_REPOSITORIO",
+    "projects.garcia.badge": "SOLUCIÓN_EMPRESARIAL_CORE",
     "projects.garcia.description":
-      "Plataforma lista para producción para un cliente real con <span class='font-bold text-blue-400/50'>alto rendimiento</span> y optimización SEO. Diseñada para mejorar tiempos de carga y conversión.",
-    "projects.garcia.status": "DESPLEGADO EN PRODUCCIÓN",
-    "projects.garcia.cta": "VER REPOSITORIO",
+      "Sistema centrado en el cliente optimizado para eficiencia de carga y rastreo SEO. Diseñado para maximizar el <span class='font-bold text-blue-400/50'>flujo de conversión</span> y operaciones de campo.",
+    "projects.garcia.status": "ACTIVO_EN_PRODUCCIÓN",
+    "projects.garcia.cta": "PROTOCOLO_FUENTE",
 
-    // Experience
-    "exp.badge": "Trayectoria",
-    "exp.title1": "Línea de Tiempo",
-    "exp.title2": "Profesional",
+    // Experience (Log de Misiones Operativas)
+    "exp.badge": "LOG_MISIONES_OPERATIVAS",
+    "exp.title1": "Crónicas de",
+    "exp.title2": "Ingeniería",
     "exp.description":
-      "Un registro cronológico de mi viaje de desarrollo, desde la base académica hasta la construcción de <span class='text-white/60'>sistemas de grado de producción</span>.",
-    "exp.garcia.role": "Desarrollador Full Stack",
+      "Un registro secuencial de operaciones de sistema, desde la construcción del kernel académico hasta <span class='text-white/60'>despliegues de producción de alto tráfico</span>.",
+    "exp.garcia.role": "Arquitecto Full Stack",
     "exp.garcia.date": "2024 — PRESENTE",
     "exp.garcia.desc":
-      "Lideré el desarrollo de una solución empresarial personalizada. Transicioné a la empresa de flujos manuales a un <strong class='text-base font-medium text-white/80'>ecosistema digital en tiempo real</strong> para optimizar operaciones.",
-    "exp.hph.role": "Desarrollador Full Stack",
+      "Lideré el desarrollo de un motor empresarial personalizado. Orquesté la transición de flujos manuales a un <strong class='text-base font-medium text-white/80'>ecosistema digital en tiempo real</strong> para optimizar operaciones.",
+    "exp.hph.role": "Desarrollador Full Stack Core",
     "exp.hph.date": "2024 — PRESENTE",
     "exp.hph.desc":
-      "Desarrollador principal para una comunidad internacional con <span class='text-white/60'>20,000+ usuarios activos diarios</span>. Diseñé sistemas de economía complejos usando <strong>SQL Atómico</strong> y optimicé el rendimiento de la DB.",
-    "exp.hph.archive": "Archivo del Sistema",
+      "Mantenedor principal de infraestructura comunitaria con <span class='text-white/60'>20k+ ciclos diarios</span>. Diseñé sistemas de <strong>SQL Atómico</strong> y pipelines de ingesta de datos masivos.",
+    "exp.hph.archive": "ARCHIVO_DEL_SISTEMA_v2.4",
     "exp.ucab.role": "Ingeniería Informática",
     "exp.ucab.date": "UCAB • 3ER SEMESTRE",
     "exp.ucab.desc":
