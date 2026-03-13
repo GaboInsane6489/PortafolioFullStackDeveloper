@@ -26,14 +26,21 @@ const sections = [
   class="relative z-[100] flex flex-row items-center gap-2 md:flex-col md:gap-3"
 >
   <nav
-    class="flex max-w-full items-center gap-1 overflow-x-auto overflow-y-hidden rounded-full border border-white/10 bg-[#0A0908]/90 px-2 py-1.5 shadow-2xl backdrop-blur-xl md:flex-col md:overflow-visible md:rounded-2xl md:bg-[#0A0908]/70 md:p-1.5 [&::-webkit-scrollbar]:hidden"
+    id="side-nav"
+    class="relative flex max-w-full items-center gap-1 overflow-x-auto overflow-y-hidden rounded-full border border-white/10 bg-[#0A0908]/80 px-2 py-1.5 shadow-[0_0_20px_rgba(0,0,0,0.5),inset_0_0_10px_rgba(255,255,255,0.05)] backdrop-blur-2xl md:flex-col md:overflow-visible md:rounded-2xl md:bg-[#0A0908]/60 md:p-1.5 [&::-webkit-scrollbar]:hidden"
   >
+    {/* Fluid Active Indicator Background */}
+    <div
+      id="nav-indicator"
+      class="absolute bg-amber-500/15 border border-amber-500/30 rounded-full transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] md:rounded-xl opacity-0 pointer-events-none"
+    ></div>
+
     {
       sections.map((section) => (
         <a
           href={section.href}
           data-section={section.href.replace("#", "")}
-          class="nav-link group relative flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full text-slate-400 transition-all duration-300 hover:text-amber-400 active:scale-75 md:h-9 md:w-9 md:rounded-xl"
+          class="nav-link group relative flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full text-slate-400 transition-all duration-300 hover:text-amber-400 active:scale-75 md:h-9 md:w-9 md:rounded-xl"
           aria-label={section.label}
         >
           <Icon
@@ -41,13 +48,13 @@ const sections = [
             class="relative z-10 h-[18px] w-[18px] transition-transform duration-300 group-hover:scale-110 md:h-[20px] md:w-[20px] lg:h-[22px] lg:w-[22px]"
           />
 
-          <div class="pointer-events-none absolute left-16 z-50 hidden rounded-md border border-white/10 bg-[#0A0908] px-3 py-1.5 opacity-0 shadow-xl transition-all duration-300 group-hover:left-14 group-hover:opacity-100 md:block">
-            <span class="font-mono text-[11px] font-bold tracking-[0.2em] whitespace-nowrap text-amber-500 uppercase">
+          <div class="pointer-events-none absolute left-16 z-50 hidden rounded-md border border-white/10 bg-[#0A0908]/90 px-3 py-1.5 opacity-0 shadow-2xl backdrop-blur-md transition-all duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] group-hover:translate-x-[-8px] group-hover:opacity-100 md:block">
+            <span class="font-mono text-[11px] font-bold tracking-[0.2em] whitespace-nowrap text-amber-500 uppercase drop-shadow-[0_0_8px_rgba(245,158,11,0.5)]">
               {section.label}
             </span>
           </div>
 
-          <div class="active-indicator absolute -bottom-1 left-1/2 h-1 w-1 -translate-x-1/2 scale-0 rounded-full bg-amber-500 shadow-[0_0_10px_rgba(245,158,11,0.8)] transition-all duration-300 md:bottom-auto md:-left-2 md:h-4 md:w-0.5 md:translate-x-0" />
+          <div class="active-indicator absolute -bottom-1 left-1/2 h-1 w-1 -translate-x-1/2 scale-0 rounded-full bg-amber-500 shadow-[0_0_12px_rgba(245,158,11,1)] transition-all duration-500 md:bottom-auto md:-left-2 md:h-5 md:w-0.5 md:translate-x-0" />
         </a>
       ))
     }
@@ -75,8 +82,6 @@ const sections = [
   /* Estado Activo */
   .nav-link.is-active {
     color: #fbbf24 !important; /* amber-400 */
-    background-color: rgba(245, 158, 11, 0.15);
-    border: 1px solid rgba(245, 158, 11, 0.2);
   }
 
   .nav-link.is-active .active-indicator {
@@ -84,11 +89,21 @@ const sections = [
     opacity: 1;
   }
 
-  /* Ajuste específico para Desktop en el indicador */
+  /* HUD Pulse Animation */
+  @keyframes active-pulse {
+    0%, 100% { box-shadow: 0 0 12px rgba(245, 158, 11, 0.4); }
+    50% { box-shadow: 0 0 20px rgba(245, 158, 11, 0.8); }
+  }
+
+  #nav-indicator {
+    animation: active-pulse 2s infinite ease-in-out;
+  }
+
+  /* Ajuste específico para Desktop en el indicador lateral */
   @media (min-width: 768px) {
     .nav-link.is-active .active-indicator {
       width: 2px;
-      height: 16px;
+      height: 20px;
     }
   }
 
@@ -102,6 +117,21 @@ const sections = [
   function initScrollSpy() {
     const sections = document.querySelectorAll("section[id]");
     const navLinks = document.querySelectorAll(".nav-link");
+    const navIndicator = document.getElementById("nav-indicator");
+    const sideNav = document.getElementById("side-nav");
+
+    function updateIndicator(activeLink: Element) {
+      if (!activeLink || !navIndicator || !sideNav) return;
+
+      const navRect = sideNav.getBoundingClientRect();
+      const linkRect = activeLink.getBoundingClientRect();
+
+      navIndicator.style.opacity = "1";
+      navIndicator.style.width = `${linkRect.width}px`;
+      navIndicator.style.height = `${linkRect.height}px`;
+      navIndicator.style.left = `${linkRect.left - navRect.left}px`;
+      navIndicator.style.top = `${linkRect.top - navRect.top}px`;
+    }
 
     const observerOptions = {
       root: null,
@@ -116,12 +146,22 @@ const sections = [
           navLinks.forEach((link) => {
             const isActive = link.getAttribute("data-section") === id;
             link.classList.toggle("is-active", isActive);
+            if (isActive) updateIndicator(link);
           });
         }
       });
     }, observerOptions);
 
     sections.forEach((section) => observer.observe(section));
+
+    // Handle initial state and resize
+    const initialActive = document.querySelector(".nav-link.is-active");
+    if (initialActive) updateIndicator(initialActive);
+
+    window.addEventListener("resize", () => {
+      const active = document.querySelector(".nav-link.is-active");
+      if (active) updateIndicator(active);
+    });
   }
 
   initScrollSpy();
