@@ -168,7 +168,7 @@ const t = useTranslations(lang);
               { name: t("certs.item4"), icon: "tabler:database-cog" },
               { name: t("certs.item5"), icon: "tabler:cloud-computing" },
               { name: t("certs.item6"), icon: "tabler:settings-automation" },
-            ].map((item) => (
+            ].map((item: any) => (
               <li class="group relative flex items-center gap-3 overflow-hidden rounded-xl border border-white/10 bg-white/[0.03] p-3 backdrop-blur-md transition-all duration-300 hover:border-amber-500/40 hover:bg-amber-500/[0.08]">
                 <!-- Item Scanner Line -->
                 <div class="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-amber-500/5 to-transparent transition-transform duration-1000 group-hover:translate-x-full"></div>

@@ -1,0 +1,227 @@
+---
+import { getCollection, type CollectionEntry, render } from "astro:content";
+import PortfolioLayout from "../../../layouts/PortfolioLayout.astro";
+import { Icon } from "astro-icon/components";
+
+export async function getStaticPaths() {
+  const projects = await getCollection("projects");
+  return projects.map((project: CollectionEntry<"projects">) => {
+    const [lang, slug] = project.id.split("/");
+    return {
+      params: { lang, slug },
+      props: { project },
+    };
+  });
+}
+
+interface Props {
+  project: CollectionEntry<"projects">;
+}
+
+const { project } = Astro.props;
+const { lang } = Astro.params;
+const { Content } = await render(project);
+const { title, description, badge, techStack, mainImage, images, githubUrl, liveUrl, status } = project.data;
+---
+
+<PortfolioLayout>
+  <div class="relative min-h-screen pt-20 pb-32">
+    {/* Grid Background Overlay */}
+    <div class="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_50%_0%,rgba(245,158,11,0.05),transparent_70%)]"></div>
+
+    <div class="mx-auto max-w-6xl px-6">
+      {/* Phase 3: Header (Top HUD) */}
+      <header class="mb-8 space-y-5 reveal">
+        <div class="flex items-center gap-4">
+          <div class="flex items-center gap-2 rounded-full border border-amber-500/20 bg-amber-500/10 px-3 py-1.5 backdrop-blur-md">
+            <div class="h-2 w-2 animate-pulse rounded-full bg-amber-500"></div>
+            <span class="font-mono text-[9px] font-bold tracking-widest text-amber-500 uppercase">
+              STATUS: {status || 'DEPLOYED'}
+            </span>
+          </div>
+          <div class="h-px flex-1 bg-gradient-to-r from-amber-500/20 to-transparent"></div>
+        </div>
+
+        <div class="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+          <div class="space-y-2">
+            <span class="font-mono text-[10px] font-bold tracking-[0.4em] text-amber-500/60 uppercase">
+              {badge || '// MISSION_BRIEF'}
+            </span>
+            <h1 class="font-serif text-4xl leading-tight text-white md:text-5xl lg:text-6xl">
+              {title}
+            </h1>
+          </div>
+
+          <div class="flex flex-wrap gap-3 pb-1">
+            {githubUrl && (
+              <a href={githubUrl} target="_blank" class="flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-4 py-2 font-mono text-[9px] font-bold text-slate-300 transition-all hover:border-amber-500/30 hover:bg-amber-500/10 hover:text-amber-400">
+                <Icon name="tabler:brand-github" class="h-4 w-4" />
+                SOURCE
+              </a>
+            )}
+            {liveUrl && (
+              <a href={liveUrl} target="_blank" class="flex items-center gap-2 rounded-xl border border-amber-500/20 bg-amber-500/10 px-5 py-2.5 font-mono text-[10px] font-bold text-amber-400 transition-all hover:bg-amber-500/20">
+                <Icon name="tabler:external-link" class="h-4 w-4" />
+                LIVE_ACCESS
+              </a>
+            )}
+          </div>
+        </div>
+      </header>
+
+      {/* Phase 3: Visual (Hero Image) */}
+      <div class="mb-10 flex justify-center reveal reveal-scale" style="transition-delay: 100ms">
+        <div class="group relative inline-flex justify-center">
+          <img 
+            src={mainImage} 
+            alt={title} 
+            class="max-h-[50vh] w-auto rounded-xl border border-white/10 shadow-2xl object-contain transition-transform duration-1000 group-hover:scale-[1.01]"
+          />
+          {/* Corner Decor Meta */}
+          <div class="absolute top-3 right-3 rounded-md bg-black/60 backdrop-blur-md px-2 py-1 border border-white/5 font-mono text-[8px] tracking-widest text-white/50 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+            LOG_0x{project.id.split("/")[1].slice(0, 6).toUpperCase()}
+          </div>
+        </div>
+      </div>
+
+      {/* Phase 3: Content Grid */}
+      <div class="grid grid-cols-1 gap-12 lg:grid-cols-12">
+        {/* Data Log Body */}
+        <div class="lg:col-span-8">
+          <article class="prose prose-invert prose-emerald max-w-none reveal" style="transition-delay: 200ms">
+            <div class="mb-8 border-l-2 border-amber-500/80 pl-6">
+              <p class="text-lg font-medium leading-relaxed text-slate-200" set:html={description} />
+            </div>
+            
+            <div class="space-y-6 font-sans text-base leading-relaxed text-slate-300">
+              <Content />
+            </div>
+
+            {/* NEXO Visual Hub (HUD Collage) */}
+            {images && images.length > 0 && (
+              <div class="mt-12 space-y-6">
+                <div class="flex items-center gap-3 border-b border-white/10 pb-3">
+                  <div class="h-1.5 w-1.5 animate-pulse rounded-full bg-amber-500"></div>
+                  <h3 class="font-mono text-[10px] font-bold tracking-[0.3em] text-white/60 uppercase">
+                    // VISUAL_ARCHIVE_DATA
+                  </h3>
+                </div>
+                
+                {/* CSS Columns (Masonry) equilibrado */}
+                <div class="columns-1 sm:columns-2 lg:columns-3 gap-4 space-y-4">
+                  {images.map((img: string, i: number) => (
+                    <a 
+                      href={img} 
+                      target="_blank"
+                      style={`transition-delay: ${(i % 4) * 100}ms`}
+                      class="group relative block overflow-hidden rounded-lg border border-white/5 bg-black/20 break-inside-avoid shadow-lg transition-all duration-300 hover:border-amber-500/50 hover:shadow-[0_0_20px_rgba(245,158,11,0.15)] reveal reveal-scale"
+                    >
+                      <img 
+                        src={img} 
+                        alt={`${title} Archive Data ${i + 1}`} 
+                        loading="lazy"
+                        class="w-full h-auto object-contain transition-transform duration-500 group-hover:scale-105"
+                      />
+                      
+                      {/* Frame Meta */}
+                      <div class="absolute bottom-2 left-2 z-20 flex opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                        <span class="font-mono text-[8px] font-bold tracking-[0.2em] text-amber-400 drop-shadow-md bg-[#050505]/80 px-1.5 py-0.5 rounded border border-amber-500/20">
+                          FRM_0{i + 1}
+                        </span>
+                      </div>
+                    </a>
+                  ))}
+                </div>
+              </div>
+            )}
+          </article>
+        </div>
+
+        {/* Sidebar (Tech Stack) */}
+        <aside class="space-y-12 lg:col-span-4 reveal reveal-right" style="transition-delay: 300ms">
+          <div class="sticky top-24 space-y-10">
+            <section class="rounded-2xl border border-amber-500/10 bg-amber-500/[0.02] p-8 backdrop-blur-md">
+              <h3 class="mb-6 font-mono text-[10px] font-bold tracking-[0.3em] text-amber-500 uppercase">
+                // SYSTEM_CORE_STACK
+              </h3>
+              <div class="flex flex-wrap gap-2">
+                {techStack.map((tech: string) => (
+                  <span class="rounded border border-white/10 bg-white/5 px-2.5 py-1 font-mono text-[10px] text-slate-300">
+                    [MOD: {tech.toUpperCase()}]
+                  </span>
+                ))}
+              </div>
+            </section>
+
+            <section class="px-8 font-mono">
+              <h3 class="mb-4 text-[10px] font-bold tracking-[0.3em] text-white/40 uppercase">
+                ENGINEERING_METRICS
+              </h3>
+              <div class="space-y-3 text-[10px]">
+                <div class="flex justify-between border-b border-white/5 pb-2">
+                  <span class="text-white/30">CLIENT_NODE</span>
+                  <span class="text-slate-400">{badge || 'N/A'}</span>
+                </div>
+                <div class="flex justify-between border-b border-white/5 pb-2">
+                  <span class="text-white/30">LOG_ID</span>
+                  <span class="text-slate-400">#PX-{project.id.split("/")[1].slice(0, 4).toUpperCase()}</span>
+                </div>
+              </div>
+            </section>
+
+            <div class="pt-10">
+              <a href={`/${lang}#projects`} class="group flex items-center gap-4 border-t border-white/5 pt-8 font-mono text-[10px] font-bold tracking-[0.4em] text-amber-500 uppercase">
+                <Icon name="tabler:arrow-left" class="h-4 w-4 transition-transform group-hover:-translate-x-2" />
+                RETURN_TO_BASE
+              </a>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </div>
+</PortfolioLayout>
+
+<style>
+  .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .reveal-scale {
+    transform: scale(0.95);
+  }
+  .reveal-scale.active {
+    transform: scale(1);
+  }
+  .reveal-right {
+    transform: translateX(20px);
+  }
+  .reveal-right.active {
+    transform: translateX(0);
+  }
+</style>
+
+<script>
+  function initReveal() {
+    const reveals = document.querySelectorAll(".reveal");
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("active");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0, rootMargin: "50px" },
+    );
+    reveals.forEach((el) => observer.observe(el));
+  }
+  initReveal();
+  document.addEventListener("astro:page-load", initReveal);
+</script>

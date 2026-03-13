@@ -7,16 +7,16 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
 const sections = [
-  { label: t("nav.startup"), href: "#hero", icon: "tabler:home" },
-  { label: t("nav.profile"), href: "#about-me", icon: "tabler:user-code" },
-  { label: t("nav.stack"), href: "#tech-stack", icon: "tabler:cpu" },
-  { label: t("nav.projects"), href: "#projects", icon: "tabler:stack-2" },
-  { label: t("nav.exp"), href: "#experience", icon: "tabler:briefcase" },
-  { label: t("nav.certs"), href: "#certificates", icon: "tabler:certificate" },
-  { label: t("nav.lab"), href: "#laboratory", icon: "tabler:flask" },
+  { label: t("nav.startup"), href: `/${lang}/#hero`, icon: "tabler:home" },
+  { label: t("nav.profile"), href: `/${lang}/#about-me`, icon: "tabler:user-code" },
+  { label: t("nav.stack"), href: `/${lang}/#tech-stack`, icon: "tabler:cpu" },
+  { label: t("nav.projects"), href: `/${lang}/#projects`, icon: "tabler:stack-2" },
+  { label: t("nav.exp"), href: `/${lang}/#experience`, icon: "tabler:briefcase" },
+  { label: t("nav.certs"), href: `/${lang}/#certificates`, icon: "tabler:certificate" },
+  { label: t("nav.lab"), href: `/${lang}/#laboratory`, icon: "tabler:flask" },
   {
     label: t("nav.engineering"),
-    href: "#engineering",
+    href: `/${lang}/#engineering`,
     icon: "tabler:brand-github",
   },
 ];
@@ -39,7 +39,7 @@ const sections = [
       sections.map((section) => (
         <a
           href={section.href}
-          data-section={section.href.replace("#", "")}
+          data-section={section.href.split("#")[1] || ''}
           class="nav-link group relative flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full text-slate-400 transition-all duration-300 hover:text-amber-400 active:scale-75 md:h-9 md:w-9 md:rounded-xl"
           aria-label={section.label}
         >

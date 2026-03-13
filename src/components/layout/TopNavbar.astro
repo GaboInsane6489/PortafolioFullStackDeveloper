@@ -7,10 +7,10 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
 const links = [
-  { label: t("nav.startup"), href: "#hero" },
-  { label: t("nav.projects"), href: "#projects" },
-  { label: t("nav.exp"), href: "#experience" },
-  { label: t("nav.lab"), href: "#laboratory" },
+  { label: t("nav.startup"), href: `/${lang}/#hero` },
+  { label: t("nav.projects"), href: `/${lang}/#projects` },
+  { label: t("nav.exp"), href: `/${lang}/#experience` },
+  { label: t("nav.lab"), href: `/${lang}/#laboratory` },
 ];
 ---
 

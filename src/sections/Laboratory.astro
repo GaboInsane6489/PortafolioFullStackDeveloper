@@ -88,7 +88,7 @@ const t = useTranslations(lang);
                   val: t("lab.specs.os.val"),
                   icon: "tabler:lambda",
                 },
-              ].map((item) => (
+              ].map((item: any) => (
                 <div class="group/item flex flex-col gap-1 border-b border-white/[0.02] pb-3 last:border-0">
                   <div class="flex items-center gap-2">
                     <Icon
@@ -174,7 +174,7 @@ const t = useTranslations(lang);
                   { name: t("lab.active.res1"), icon: "tabler:brain" },
                   { name: t("lab.active.res2"), icon: "tabler:arrows-join-2" },
                   { name: t("lab.active.res3"), icon: "tabler:components" },
-                ].map((res) => (
+                ].map((res: any) => (
                   <div class="group flex items-center gap-4 border-b border-white/[0.03] pb-3 transition-all last:border-0 hover:translate-x-1">
                     <div class="flex h-7 w-7 items-center justify-center rounded-lg bg-amber-500/10 text-amber-500/60 transition-colors group-hover:bg-amber-500/20 group-hover:text-amber-500">
                       <Icon name={res.icon} size={14} />
