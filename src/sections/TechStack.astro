@@ -109,7 +109,7 @@ const techStack = [
 
 <section
   id="tech-stack"
-  class="relative flex flex-col justify-center border-t border-white/5 py-16 lg:py-24 overflow-x-hidden"
+  class="relative flex flex-col justify-center border-t border-white/5 py-12 lg:py-20 overflow-x-hidden"
 >
   <div
     class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(252,211,77,0.06),transparent_60%)]"
@@ -118,7 +118,7 @@ const techStack = [
 
   <div class="relative mx-auto w-full max-w-6xl px-6">
     <!-- Header Section -->
-    <div class="mb-16 flex flex-col items-center text-center lg:items-start lg:text-left">
+    <div class="mb-10 flex flex-col items-center text-center lg:items-start lg:text-left">
       <div class="reveal mb-4 inline-flex items-center gap-3 rounded-full border border-amber-500/20 bg-amber-500/5 px-4 py-1.5 backdrop-blur-md">
         <span class="relative flex h-2 w-2">
           <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-amber-400 opacity-75"></span>
@@ -129,41 +129,59 @@ const techStack = [
         </span>
       </div>
 
-      <h2 class="reveal font-serif text-4xl leading-tight text-white md:text-5xl lg:text-7xl">
+      <h2 class="reveal font-serif text-3xl leading-tight text-white md:text-5xl lg:text-6xl">
         {t("stack.title1")} <br />
         <span class="font-light text-white/30 italic">{t("stack.title2")}</span>
       </h2>
     </div>
 
     <!-- CLI Filter Bar -->
-    <div class="reveal mb-12 flex flex-col gap-6 lg:mb-16">
-      <div class="flex items-center gap-4 border-b border-white/5 pb-4 min-w-0">
-        <span class="font-mono text-[11px] font-bold text-amber-500 uppercase tracking-widest sm:block hidden whitespace-nowrap">{t("stack.filter")}</span>
-        <div class="flex flex-1 gap-2 overflow-x-auto pb-2 scrollbar-none sm:pb-0 min-w-0">
+    <div class="reveal mb-8 flex flex-col gap-4 lg:mb-12">
+      <!-- Desktop: Label (hidden on mobile) -->
+      <div class="hidden items-center gap-4 border-b border-white/5 pb-4 sm:flex">
+        <span class="font-mono text-[11px] font-bold text-amber-500 uppercase tracking-widest whitespace-nowrap">{t("stack.filter")}</span>
+        <div class="flex flex-1 flex-wrap gap-2">
           {categories.map((cat: string) => (
             <button
               data-filter={cat}
-              class="filter-btn cursor-pointer group relative flex items-center gap-2 overflow-hidden rounded-lg border border-white/20 bg-white/10 px-5 py-2.5 font-mono text-[10px] font-black tracking-widest text-slate-200 transition-all duration-200 hover:border-amber-500/30 hover:bg-white/15 hover:text-white sm:px-4 sm:py-2 whitespace-nowrap shadow-lg shadow-black/20"
+              class="filter-btn cursor-pointer group relative flex items-center gap-2 overflow-hidden rounded-lg border border-white/20 bg-white/10 px-4 py-2 font-mono text-[10px] font-black tracking-widest text-slate-200 transition-all duration-200 hover:border-amber-500/30 hover:bg-white/15 hover:text-white whitespace-nowrap shadow-lg shadow-black/20"
               aria-label={`Filter by ${cat}`}
             >
               <!-- Flash Effect Shadow -->
               <span class="flash-effect absolute inset-0 -translate-x-full bg-amber-500/30 transition-transform duration-300 ease-out"></span>
-              
               <span class="relative z-10 text-amber-500/60 transition-colors group-hover:text-amber-400">></span>
               <span class="relative z-10 text-slate-200 transition-colors group-hover:text-white uppercase">{cat}</span>
-              
               <!-- Active Indicator -->
               <div class="absolute bottom-0 left-0 h-[2px] w-0 bg-amber-500 transition-all duration-500 marker-line"></div>
             </button>
           ))}
         </div>
       </div>
+
+      <!-- Mobile: 3-Column Tap Grid (hidden on sm+) -->
+      <div class="grid grid-cols-3 gap-2 border-b border-white/5 pb-4 sm:hidden">
+        {categories.map((cat: string) => (
+          <button
+            data-filter={cat}
+            class="filter-btn cursor-pointer group relative flex items-center justify-center gap-1.5 overflow-hidden rounded-lg border border-white/20 bg-white/10 py-3 font-mono text-[9px] font-black tracking-wider text-slate-200 transition-all duration-200 active:border-amber-500/50 active:bg-amber-500/10 active:text-white"
+            aria-label={`Filter by ${cat}`}
+          >
+            <!-- Flash Effect Shadow -->
+            <span class="flash-effect absolute inset-0 -translate-x-full bg-amber-500/30 transition-transform duration-300 ease-out"></span>
+            <span class="relative z-10 text-amber-500/50 text-[8px]">></span>
+            <span class="relative z-10 uppercase truncate">{cat}</span>
+            <!-- Active Indicator -->
+            <div class="absolute bottom-0 left-0 h-[2px] w-0 bg-amber-500 transition-all duration-500 marker-line"></div>
+          </button>
+        ))}
+      </div>
     </div>
+
 
     <!-- The Rack Grid -->
     <div 
       id="tech-rack"
-      class="reveal reveal-scale grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4"
+      class="reveal reveal-scale grid grid-cols-2 gap-3 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4"
     >
       {
         techStack.map((tech: any, index: number) => (

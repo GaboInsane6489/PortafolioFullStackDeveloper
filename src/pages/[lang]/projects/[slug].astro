@@ -25,7 +25,7 @@ const { title, description, badge, techStack, mainImage, images, githubUrl, live
 ---
 
 <PortfolioLayout>
-  <div class="relative min-h-screen pt-20 pb-32">
+  <div class="relative min-h-screen pt-12 pb-24 md:pt-20 md:pb-32">
     {/* Grid Background Overlay */}
     <div class="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_50%_0%,rgba(245,158,11,0.05),transparent_70%)]"></div>
 
@@ -47,7 +47,7 @@ const { title, description, badge, techStack, mainImage, images, githubUrl, live
             <span class="font-mono text-[10px] font-bold tracking-[0.4em] text-amber-500/60 uppercase">
               {badge || '// MISSION_BRIEF'}
             </span>
-            <h1 class="font-serif text-4xl leading-tight text-white md:text-5xl lg:text-6xl">
+            <h1 class="font-serif text-3xl leading-tight text-white sm:text-4xl md:text-5xl lg:text-6xl">
               {title}
             </h1>
           </div>
@@ -108,7 +108,7 @@ const { title, description, badge, techStack, mainImage, images, githubUrl, live
                 </div>
                 
                 {/* CSS Columns (Masonry) equilibrado */}
-                <div class="columns-1 sm:columns-2 lg:columns-3 gap-4 space-y-4">
+                <div class="columns-1 gap-3 space-y-3 sm:columns-2 lg:columns-3 lg:gap-4 lg:space-y-4">
                   {images.map((img: string, i: number) => (
                     <a 
                       href={img} 
@@ -140,20 +140,41 @@ const { title, description, badge, techStack, mainImage, images, githubUrl, live
         {/* Sidebar (Tech Stack) */}
         <aside class="space-y-12 lg:col-span-4 reveal reveal-right" style="transition-delay: 300ms">
           <div class="sticky top-24 space-y-10">
-            <section class="rounded-2xl border border-amber-500/10 bg-amber-500/[0.02] p-8 backdrop-blur-md">
+            <section class="rounded-2xl border border-amber-500/10 bg-amber-500/[0.02] p-5 backdrop-blur-md sm:p-8">
               <h3 class="mb-6 font-mono text-[10px] font-bold tracking-[0.3em] text-amber-500 uppercase">
                 // SYSTEM_CORE_STACK
               </h3>
-              <div class="flex flex-wrap gap-2">
-                {techStack.map((tech: string) => (
-                  <span class="rounded border border-white/10 bg-white/5 px-2.5 py-1 font-mono text-[10px] text-slate-300">
-                    [MOD: {tech.toUpperCase()}]
-                  </span>
-                ))}
+              <div class="flex flex-wrap gap-3">
+                {techStack.map((tech: string) => {
+                  const techLower = tech.toLowerCase();
+                  let iconName = "tabler:code"; // Default fallback
+                  
+                  if (techLower.includes("astro")) iconName = "tabler:brand-astro";
+                  else if (techLower.includes("react")) iconName = "tabler:brand-react";
+                  else if (techLower.includes("tailwind")) iconName = "tabler:brand-tailwind";
+                  else if (techLower.includes("framer")) iconName = "tabler:brand-framer-motion";
+                  else if (techLower.includes("vite")) iconName = "tabler:brand-vite";
+                  else if (techLower.includes("node")) iconName = "tabler:brand-nodejs";
+                  else if (techLower.includes("typescript") || techLower.includes("ts")) iconName = "tabler:brand-typescript";
+                  else if (techLower.includes("javascript") || techLower.includes("js")) iconName = "tabler:brand-javascript";
+                  else if (techLower.includes("css") || techLower.includes("html")) iconName = "tabler:browser";
+                  else if (techLower.includes("next")) iconName = "tabler:brand-nextjs";
+                  else if (techLower.includes("supabase")) iconName = "tabler:brand-supabase";
+                  else if (techLower.includes("postgres") || techLower.includes("sql")) iconName = "tabler:database";
+
+                  return (
+                    <div class="group relative flex items-center gap-2 rounded-lg border border-white/10 bg-white/5 px-3 py-1.5 transition-all duration-300 hover:border-amber-500/50 hover:bg-amber-500/10 hover:shadow-[0_0_15px_rgba(245,158,11,0.2)]">
+                      <Icon name={iconName} class="h-4 w-4 text-slate-400 transition-colors duration-300 group-hover:text-amber-400" />
+                      <span class="font-mono text-[9px] font-bold text-slate-300 tracking-widest transition-colors duration-300 group-hover:text-amber-100">
+                        {tech.toUpperCase()}
+                      </span>
+                    </div>
+                  );
+                })}
               </div>
             </section>
 
-            <section class="px-8 font-mono">
+            <section class="px-5 font-mono sm:px-8">
               <h3 class="mb-4 text-[10px] font-bold tracking-[0.3em] text-white/40 uppercase">
                 ENGINEERING_METRICS
               </h3>

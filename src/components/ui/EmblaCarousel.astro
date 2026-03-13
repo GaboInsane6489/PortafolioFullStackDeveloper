@@ -100,7 +100,7 @@ const { images, autoplay = true, interval = 5000 } = Astro.props as Props;
 
   <button
     type="button"
-    class="embla-prev absolute top-1/2 -left-2 z-[70] flex h-10 w-10 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full border border-white/10 bg-black/40 text-white shadow-2xl backdrop-blur-xl transition-all duration-300 active:scale-90 md:-left-5 md:h-12 md:w-12 md:opacity-0 md:group-hover:left-4 md:group-hover:opacity-100 hover:border-amber-500/50 hover:text-amber-500"
+    class="embla-prev absolute top-1/2 left-2 z-[70] flex h-11 w-11 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full border border-white/10 bg-black/60 text-white shadow-2xl backdrop-blur-xl transition-all duration-300 active:scale-90 md:-left-5 md:h-12 md:w-12 md:opacity-0 md:group-hover:left-4 md:group-hover:opacity-100 hover:border-amber-500/50 hover:text-amber-500"
     aria-label="Previous Slide"
   >
     <Icon name="tabler:chevron-left" size={24} />
@@ -108,7 +108,7 @@ const { images, autoplay = true, interval = 5000 } = Astro.props as Props;
 
   <button
     type="button"
-    class="embla-next absolute top-1/2 -right-2 z-[70] flex h-10 w-10 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full border border-white/10 bg-black/40 text-white shadow-2xl backdrop-blur-xl transition-all duration-300 active:scale-90 md:-right-5 md:h-12 md:w-12 md:opacity-0 md:group-hover:right-4 md:group-hover:opacity-100 hover:border-amber-500/50 hover:text-amber-500"
+    class="embla-next absolute top-1/2 right-2 z-[70] flex h-11 w-11 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full border border-white/10 bg-black/40 text-white shadow-2xl backdrop-blur-xl transition-all duration-300 active:scale-90 md:-right-5 md:h-12 md:w-12 md:opacity-0 md:group-hover:right-4 md:group-hover:opacity-100 hover:border-amber-500/50 hover:text-amber-500"
     aria-label="Next Slide"
   >
     <Icon name="tabler:chevron-right" size={24} />
@@ -124,8 +124,8 @@ const { images, autoplay = true, interval = 5000 } = Astro.props as Props;
   /* En móviles muy verticales, ajustamos un poco el ratio si es necesario */
   @media (max-width: 640px) {
     .aspect-video {
-      aspect-ratio: 1 / 1.1; /* Más alto para capturas de móvil si tienes */
-      min-height: 350px;
+      aspect-ratio: 4 / 3;
+      min-height: 250px;
     }
   }
 

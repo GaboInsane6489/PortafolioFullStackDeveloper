@@ -38,6 +38,13 @@ const links = [
     ))
   }
 
+  <!-- Mobile Language Switcher -->
+  <div class="mt-4 flex translate-y-8 items-center gap-6 opacity-0 transition-all delay-250 duration-700" id="mobileLang">
+    <a href="/es" class={`font-mono text-xs font-bold tracking-[0.3em] ${lang === 'es' ? 'text-amber-500' : 'text-white/40 hover:text-white'}`}>ES PAÑOL</a>
+    <div class="h-4 w-px bg-white/10"></div>
+    <a href="/en" class={`font-mono text-xs font-bold tracking-[0.3em] ${lang === 'en' ? 'text-amber-500' : 'text-white/40 hover:text-white'}`}>EN GLISH</a>
+  </div>
+
   <div
     class="mt-12 flex translate-y-8 gap-10 opacity-0 transition-all delay-300 duration-700"
     id="mobileSocials"
@@ -144,14 +151,18 @@ const links = [
       id="menuBtn"
       class="group relative z-[210] flex h-11 w-11 items-center justify-center rounded-lg border border-white/10 bg-white/5 backdrop-blur-md transition-all active:scale-95 lg:hidden"
     >
-      <div class="flex h-[12px] w-[22px] flex-col justify-between">
+      <div class="flex h-[16px] w-[24px] flex-col justify-between overflow-hidden">
         <span
           id="line1"
-          class="h-[2px] w-full rounded-full bg-white transition-all duration-300"
+          class="h-[2px] w-full rounded-full bg-white transition-all duration-500 ease-in-out"
         ></span>
         <span
           id="line2"
-          class="h-[2px] w-[14px] self-end rounded-full bg-white transition-all duration-300 group-hover:w-full"
+          class="h-[2px] w-[16px] self-end rounded-full bg-white transition-all duration-500 ease-in-out group-hover:w-full"
+        ></span>
+        <span
+          id="line3"
+          class="h-[2px] w-full rounded-full bg-white transition-all duration-500 ease-in-out"
         ></span>
       </div>
     </button>
@@ -172,12 +183,15 @@ const links = [
   }
 
   .menu-active #line1 {
-    transform: translateY(5px) rotate(45deg);
+    transform: translateY(7px) rotate(45deg);
     background-color: #f59e0b;
   }
   .menu-active #line2 {
-    width: 100%;
-    transform: translateY(-5px) rotate(-45deg);
+    transform: translateX(30px);
+    opacity: 0;
+  }
+  .menu-active #line3 {
+    transform: translateY(-7px) rotate(-45deg);
     background-color: #f59e0b;
   }
 
@@ -186,6 +200,7 @@ const links = [
     pointer-events: auto !important;
   }
   #mobileMenu.is-visible .mobile-link,
+  #mobileMenu.is-visible #mobileLang,
   #mobileMenu.is-visible #mobileSocials {
     transform: translateY(0);
     opacity: 1;

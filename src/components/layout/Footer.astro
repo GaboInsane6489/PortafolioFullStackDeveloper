@@ -37,7 +37,7 @@ const socials = [
 ---
 
 <footer
-  class="relative w-full overflow-hidden border-t border-white/5 bg-[#0A0908] pt-20 pb-10 text-white md:pt-24 md:pb-12"
+  class="relative w-full overflow-hidden border-t border-white/5 bg-[#0A0908] pt-12 pb-8 text-white md:pt-20 md:pb-10"
 >
   <div class="pointer-events-none absolute inset-0 z-0">
     <div
@@ -66,7 +66,7 @@ const socials = [
   </div>
 
   <div class="relative z-10 mx-auto max-w-[1600px] px-6 lg:px-12">
-    <div class="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-12">
+    <div class="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:gap-12">
       <div
         class="flex flex-col items-center space-y-8 text-center lg:col-span-5 lg:items-start lg:text-left"
       >
@@ -190,7 +190,7 @@ const socials = [
     </div>
 
     <div
-      class="mt-20 flex flex-col items-center justify-between gap-10 border-t border-white/5 pt-12 md:flex-row"
+      class="mt-10 flex flex-col items-center justify-between gap-6 border-t border-white/5 pt-8 md:mt-16 md:flex-row md:gap-10"
     >
       <div class="flex flex-col items-center space-y-3 md:items-start">
         <p
@@ -208,6 +208,15 @@ const socials = [
       <div
         class="flex w-full flex-col items-center gap-4 sm:flex-row sm:justify-center md:w-auto"
       >
+        <!-- Real-time Clock HUD -->
+        <div class="flex items-center gap-3 rounded-full border border-white/5 bg-white/[0.02] px-5 py-3 backdrop-blur-md">
+          <Icon name="tabler:clock-bolt" size={14} class="text-amber-500/50" />
+          <div class="flex flex-col">
+            <span class="font-mono text-[8px] leading-none text-white/30 uppercase tracking-[0.2em]">GEO_TEMPORAL_NODE</span>
+            <span id="footer-clock" class="font-mono text-[10px] font-black tabular-nums text-white uppercase tracking-wider">VENEZUELA // 00:00:00</span>
+          </div>
+        </div>
+
         <div
           class="flex items-center gap-3 rounded-full border border-white/10 bg-black/60 px-6 py-3 shadow-2xl backdrop-blur-md"
         >
@@ -221,14 +230,14 @@ const socials = [
             >
             </div>
           </div>
-          <span
-            class="font-mono text-[9px] font-bold tracking-tighter text-slate-200 uppercase"
-            >{t("footer.status")}</span
-          >
-          <div class="mx-3 h-4 w-px bg-white/20"></div>
-          <span class="font-mono text-[9px] font-black text-amber-500 uppercase drop-shadow-[0_0_5px_rgba(245,158,11,0.3)]"
-            >LATENCY: 14MS</span
-          >
+          <div class="flex flex-col">
+            <span class="font-mono text-[8px] leading-none text-white/30 uppercase tracking-[0.2em] mb-1">AVAILABILITY_STATUS</span>
+            <div class="flex items-center gap-2">
+              <span class="font-mono text-[9px] font-bold tracking-tighter text-slate-200 uppercase">{t("footer.status")}</span>
+              <div class="mx-1 h-3 w-px bg-white/20"></div>
+              <span class="font-mono text-[9px] font-black text-amber-500 uppercase drop-shadow-[0_0_5px_rgba(245,158,11,0.3)]">LOAD: [|||||-----] 50%</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -265,3 +274,30 @@ const socials = [
     -webkit-tap-highlight-color: transparent;
   }
 </style>
+
+<script>
+  function updateClock() {
+    const clockElement = document.getElementById('footer-clock');
+    if (!clockElement) return;
+
+    const now = new Date();
+    // Venezuela is GMT-4
+    const options: Intl.DateTimeFormatOptions = {
+      timeZone: 'America/Caracas',
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit',
+      hour12: false,
+    };
+    
+    const timeString = new Intl.DateTimeFormat('en-US', options).format(now);
+    clockElement.textContent = `VENEZUELA // ${timeString}`;
+  }
+
+  // Update clock every second
+  setInterval(updateClock, 1000);
+  updateClock();
+
+  // Re-init on Astro transitions
+  document.addEventListener('astro:page-load', updateClock);
+</script>

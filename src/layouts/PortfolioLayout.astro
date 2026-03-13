@@ -99,7 +99,7 @@ const t = useTranslations(lang);
     <div class="relative z-10 flex min-h-screen flex-col">
       <div class="mx-auto flex w-full max-w-[1600px] flex-1">
         <!-- Sidebar Desktop -->
-        <aside class="hidden w-24 flex-shrink-0 md:block">
+        <aside class="relative z-50 hidden w-24 flex-shrink-0 md:block">
           <div
             class="sticky top-0 flex h-screen w-full items-center justify-center"
           >
@@ -108,12 +108,12 @@ const t = useTranslations(lang);
         </aside>
 
         <!-- Main -->
-        <main class="flex-1 px-4 pb-24 md:pr-24 md:pb-0">
+        <main class="flex-1 px-4 pb-28 md:pr-24 md:pb-0 overflow-x-hidden">
           <slot />
         </main>
       </div>
 
-      <div class="pb-24 md:pb-0">
+      <div class="pb-24 md:pb-0 overflow-x-hidden">
         <Footer />
       </div>
     </div>
@@ -186,7 +186,9 @@ const t = useTranslations(lang);
         transition-delay: 200ms;
       }
     </style>
-    <Analytics />
-    <SpeedInsights />
-  </body>
+      {import.meta.env.PROD && (
+        <Analytics />
+        <SpeedInsights />
+      )}
+    </body>
 </html>

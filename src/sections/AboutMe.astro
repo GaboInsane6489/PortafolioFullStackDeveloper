@@ -7,7 +7,7 @@ const t = useTranslations(lang);
 ---
 
 <section
-  class="relative flex items-center overflow-hidden border-t border-white/5 py-12 md:py-20"
+  class="relative flex items-center overflow-hidden border-t border-white/5 py-8 md:py-12"
   id="about-me"
 >
   <div
@@ -16,129 +16,110 @@ const t = useTranslations(lang);
   </div>
 
   <div class="relative mx-auto w-full max-w-[1200px] px-6 sm:px-12 lg:px-16">
-    <div class="grid grid-cols-1 items-start gap-12 lg:grid-cols-12 lg:gap-16">
-      <div class="space-y-6 lg:col-span-8">
-        <div class="space-y-3">
-          <div class="reveal flex items-center gap-3">
-            <div class="h-px w-8 bg-amber-500/60"></div>
-            <span
-              class="text-[9px] font-black tracking-[0.4em] text-amber-500 uppercase drop-shadow-[0_0_8px_rgba(245,158,11,0.3)]"
-              >{t("about.badge")}</span
-            >
+    <div class="flex flex-col gap-6 lg:gap-10">
+      
+      {/* Top Row: Introduction & Stats */}
+      <div class="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
+        
+        {/* Left: Text */}
+        <div class="space-y-4 lg:w-[60%]">
+          <div class="space-y-3">
+            <div class="reveal flex items-center gap-3">
+              <div class="h-px w-8 bg-amber-500/60"></div>
+              <span class="text-[9px] font-black tracking-[0.4em] text-amber-500 uppercase drop-shadow-[0_0_8px_rgba(245,158,11,0.3)]">
+                {t("about.badge")}
+              </span>
+            </div>
+
+            <h2 class="reveal font-serif text-3xl leading-[1.1] tracking-tighter text-white delay-100 md:text-4xl lg:text-5xl xl:text-6xl">
+              {t("about.title1")}
+              <br />
+              <span class="font-light text-white/30 italic">{t("about.title2")}</span>
+            </h2>
           </div>
 
-          <h2
-            class="reveal font-serif text-4xl leading-[1.1] tracking-tighter text-white delay-100 md:text-5xl lg:text-7xl"
-          >
-            {t("about.title1")}
-            <br />
-            <span class="font-light text-white/30 italic"
-              >{t("about.title2")}</span
-            >
-          </h2>
+          <div class="reveal space-y-3 text-sm leading-relaxed font-medium text-slate-300 delay-200 md:text-base">
+            <p set:html={t("about.p1")} />
+            <p set:html={t("about.p2")} />
+            <p set:html={t("about.p3")} />
+          </div>
         </div>
 
-        <div
-          class="reveal max-w-2xl space-y-4 text-base leading-relaxed font-medium text-slate-300 delay-200 md:text-lg"
-        >
-          <p set:html={t("about.p1")} />
-          <p set:html={t("about.p2")} />
-          <p set:html={t("about.p3")} />
+        {/* Right: Stats & Tags */}
+        <div class="flex flex-col gap-6 lg:w-[35%] lg:pb-2">
+          <div class="reveal reveal-right flex flex-row flex-wrap gap-x-6 gap-y-4 border-l border-amber-900/30 pl-5 delay-500">
+            {
+              [
+                { label: t("about.stat1.label"), value: t("about.stat1.value") },
+                { label: t("about.stat2.label"), value: t("about.stat2.value") },
+                { label: t("about.stat3.label"), value: t("about.stat3.value") },
+              ].map((item: any) => (
+                <div class="group cursor-default">
+                  <p class="text-[8px] font-black tracking-widest text-amber-500 uppercase drop-shadow-[0_0_5px_rgba(245,158,11,0.2)]">
+                    {item.label}
+                  </p>
+                  <p class="text-sm font-bold text-white transition-colors group-hover:text-amber-400 md:text-base">
+                    {item.value}
+                  </p>
+                </div>
+              ))
+            }
+          </div>
+
+          <div class="flex flex-wrap gap-2">
+            {
+              [
+                "PostgreSQL",
+                "Event-Driven",
+                "CI/CD Pipelines",
+                "REST APIs",
+                "Node.js",
+                "MVC",
+              ].map((tag: string, index: number) => (
+                <span
+                  class="reveal rounded-md border border-white/10 bg-white/[0.05] px-2.5 py-1 text-[8px] font-black tracking-widest text-amber-200 uppercase backdrop-blur-sm transition-colors hover:border-amber-500/50 hover:text-white"
+                  style={`transition-delay: ${(index + 6) * 100}ms`}
+                >
+                  {tag}
+                </span>
+              ))
+            }
+          </div>
         </div>
+
       </div>
 
-      <div class="flex flex-col gap-8 lg:col-span-4 lg:pt-20">
-        <div
-          class="reveal reveal-right space-y-5 border-l border-amber-900/30 pl-6 delay-500"
-        >
-          {
-            [
-              { label: t("about.stat1.label"), value: t("about.stat1.value") },
-              { label: t("about.stat2.label"), value: t("about.stat2.value") },
-              { label: t("about.stat3.label"), value: t("about.stat3.value") },
-            ].map((item: any) => (
-              <div class="group cursor-default">
-                <p class="text-[8px] font-black tracking-widest text-amber-500 uppercase drop-shadow-[0_0_5px_rgba(245,158,11,0.2)]">
-                  {item.label}
-                </p>
-                <p class="text-sm font-bold text-white transition-colors group-hover:text-amber-400 md:text-base">
-                  {item.value}
-                </p>
-              </div>
-            ))
-          }
-        </div>
-
-        <div class="flex flex-wrap gap-2">
-          {
-            [
-              "PostgreSQL",
-              "Event-Driven",
-              "CI/CD Pipelines",
-              "REST APIs",
-              "Node.js",
-              "MVC",
-            ].map((tag: string, index: number) => (
-              <span
-                class="reveal rounded-md border border-white/10 bg-white/[0.05] px-2.5 py-1 text-[8px] font-black tracking-widest text-amber-200 uppercase backdrop-blur-sm transition-colors hover:border-amber-500/50 hover:text-white"
-                style={`transition-delay: ${(index + 6) * 100}ms`}
-              >
-                {tag}
-              </span>
-            ))
-          }
-        </div>
-      </div>
-
-      <div
-        class="reveal reveal-scale group relative mt-4 delay-700 lg:col-span-12"
-      >
-        <div
-          class="overflow-hidden rounded-xl border border-white/10 bg-[#0A0908] shadow-2xl transition-all duration-700 group-hover:border-amber-500/40 group-hover:shadow-[0_0_40px_rgba(245,158,11,0.1)]"
-        >
-          <div class="flex h-8 items-center justify-between bg-[#1A1513] px-4">
+      {/* Bottom Row: Panoramic Hero Video */}
+      <div class="reveal reveal-scale group relative w-full delay-700">
+        <div class="flex w-full flex-col overflow-hidden rounded-xl border border-white/10 bg-[#0A0908] shadow-2xl transition-all duration-700 group-hover:border-amber-500/40 group-hover:shadow-[0_0_40px_rgba(245,158,11,0.1)]">
+          <div class="flex h-8 shrink-0 items-center justify-between bg-[#1A1513] px-4">
             <div class="flex items-center gap-4">
               <div class="flex gap-1.5">
                 <div class="h-2 w-2 rounded-full bg-red-500/20"></div>
                 <div class="h-2 w-2 rounded-full bg-yellow-500/20"></div>
                 <div class="h-2 w-2 rounded-full bg-green-500/20"></div>
               </div>
-              <div
-                class="flex h-8 items-center gap-2 border-t border-t-amber-500/50 bg-[#0A0908] px-4"
-              >
-                <Icon
-                  name="tabler:brand-typescript"
-                  size={12}
-                  class="text-[#8caaee]"
-                />
-                <span class="font-mono text-[10px] text-[#c6d0f5]"
-                  >TechnicalExpertise.ts</span
-                >
+              <div class="flex h-8 items-center gap-2 border-t border-t-amber-500/50 bg-[#0A0908] px-4">
+                <Icon name="tabler:brand-typescript" size={12} class="text-[#8caaee]" />
+                <span class="font-mono text-[10px] text-[#c6d0f5]">TechnicalExpertise.ts</span>
               </div>
             </div>
-            <span
-              class="hidden font-mono text-[9px] tracking-widest text-white/10 uppercase md:block"
-              >Production Environment — Global</span
-            >
+            <span class="hidden font-mono text-[9px] tracking-widest text-white/10 uppercase md:block">Production Environment — Global</span>
           </div>
 
-          <div class="relative aspect-video lg:aspect-[21/9]">
+          <div class="relative h-[250px] w-full sm:h-[300px] lg:h-[320px]">
             <video
               src="/videos/Programando.mp4"
-              class="h-full w-full object-cover opacity-60 transition-all duration-1000 group-hover:scale-[1.02] group-hover:opacity-100"
+              class="absolute inset-0 h-full w-full object-cover opacity-60 transition-all duration-1000 group-hover:scale-[1.02] group-hover:opacity-100"
               autoplay
               loop
               muted
-              playsinline></video>
-            <div
-              class="absolute inset-0 bg-gradient-to-t from-[#0A0908] via-transparent to-transparent"
-            >
-            </div>
+              playsinline
+            ></video>
+            <div class="absolute inset-0 bg-gradient-to-t from-[#0A0908]/90 via-[#0A0908]/10 to-transparent"></div>
 
-            <div class="absolute bottom-6 left-8">
-              <p
-                class="font-serif text-xl leading-tight text-white/90 italic md:text-2xl"
-              >
+            <div class="absolute bottom-6 left-6 z-10">
+              <p class="font-serif text-xl leading-tight text-white/90 italic md:text-2xl">
                 "{t("about.quote1")}"<br />
                 <span class="text-amber-500/80">"{t("about.quote2")}"</span>
               </p>
@@ -146,11 +127,9 @@ const t = useTranslations(lang);
           </div>
         </div>
 
-        <div
-          class="absolute -inset-4 -z-10 rounded-full bg-amber-500/5 opacity-0 blur-3xl transition-opacity duration-700 group-hover:opacity-100"
-        >
-        </div>
+        <div class="absolute -inset-4 -z-10 rounded-[2rem] bg-amber-500/5 opacity-0 blur-3xl transition-opacity duration-700 group-hover:opacity-100"></div>
       </div>
+
     </div>
   </div>
 </section>

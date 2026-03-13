@@ -12,30 +12,31 @@ const projects = allProjects
   .sort((a: CollectionEntry<"projects">, b: CollectionEntry<"projects">) => a.data.order - b.data.order);
 ---
 
-<section id="projects" class="relative overflow-hidden pb-16 lg:pb-32">
+<section id="projects" class="relative overflow-hidden py-12 pb-12 lg:pb-24">
   <div class="pointer-events-none absolute top-0 left-1/2 h-full w-full -translate-x-1/2 bg-[radial-gradient(circle_at_top,rgba(252,211,77,0.05),transparent_60%)]"></div>
 
   <div class="relative mx-auto w-full max-w-[1400px] px-6">
-    <div class="mb-12 flex flex-col justify-between gap-6 md:flex-row md:items-end lg:mb-20">
-      <div class="reveal space-y-4">
+    <div class="mb-6 flex flex-col justify-between gap-3 md:flex-row md:items-end lg:mb-10">
+      <div class="reveal space-y-1">
         <div class="flex items-center gap-3">
-          <span class="h-px w-8 bg-amber-500/50"></span>
-          <span class="font-mono text-[10px] font-bold tracking-[0.4em] text-amber-500 uppercase">{t("projects.badge")}</span>
+          <span class="h-px w-6 bg-amber-500/50"></span>
+          <span class="font-mono text-[9px] font-bold tracking-[0.4em] text-amber-500 uppercase">{t("projects.badge")}</span>
         </div>
-        <h2 class="font-serif text-5xl leading-[1.1] text-white md:text-7xl lg:text-8xl">
+        <h2 class="font-serif text-3xl leading-tight text-white md:text-4xl lg:text-6xl">
           {t("projects.title1")}
           <span class="bg-gradient-to-r from-amber-400 to-amber-600 bg-clip-text text-transparent italic">{t("projects.title2")}</span>
         </h2>
       </div>
-      <p class="reveal max-w-[320px] font-mono text-[11px] leading-relaxed text-slate-400 md:text-right" set:html={t("projects.description")} />
+      <p class="reveal hidden max-w-[320px] font-mono text-[10px] leading-relaxed text-slate-400 md:block md:text-right" set:html={t("projects.description")} />
     </div>
 
     {/* Bento Grid Index */}
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      {projects.map((project: CollectionEntry<"projects">) => (
+      {projects.map((project: CollectionEntry<"projects">, i: number) => (
         <a
           href={`/${lang}/projects/${project.id.split("/")[1]}`}
-          class="group relative flex flex-col overflow-hidden rounded-2xl border border-amber-500/10 bg-black/40 p-1 backdrop-blur-md transition-all duration-500 hover:border-amber-500/40 hover:shadow-[0_0_30px_rgba(245,158,11,0.1)]"
+          style={`transition-delay: ${(i % 3) * 150}ms`}
+          class="group relative flex flex-col overflow-hidden rounded-2xl border border-amber-500/10 bg-black/40 p-1 backdrop-blur-xl transition-all duration-500 hover:-translate-y-1 hover:border-amber-500/60 hover:shadow-[0_0_40px_rgba(245,158,11,0.15)] reveal reveal-scale"
         >
           {/* Main Visual Preview */}
           <div class="relative aspect-video overflow-hidden rounded-xl border border-white/5">
@@ -62,13 +63,36 @@ const projects = allProjects
             <p class="mb-6 line-clamp-2 text-sm leading-relaxed text-slate-400" set:html={project.data.description} />
 
             <div class="mt-auto flex flex-wrap gap-2">
-              {project.data.techStack.slice(0, 3).map((tech: string) => (
-                <span class="rounded border border-white/5 bg-white/5 px-2 py-0.5 font-mono text-[8px] text-slate-500 uppercase">
-                  {tech}
-                </span>
-              ))}
-              {project.data.techStack.length > 3 && (
-                <span class="font-mono text-[8px] text-slate-600">+{project.data.techStack.length - 3}</span>
+              {project.data.techStack.slice(0, 4).map((tech: string) => {
+                const techLower = tech.toLowerCase();
+                let iconName = "tabler:code";
+                if (techLower.includes("astro")) iconName = "tabler:brand-astro";
+                else if (techLower.includes("react")) iconName = "tabler:brand-react";
+                else if (techLower.includes("tailwind")) iconName = "tabler:brand-tailwind";
+                else if (techLower.includes("framer")) iconName = "tabler:brand-framer-motion";
+                else if (techLower.includes("vite")) iconName = "tabler:brand-vite";
+                else if (techLower.includes("node")) iconName = "tabler:brand-nodejs";
+                else if (techLower.includes("typescript") || techLower.includes("ts")) iconName = "tabler:brand-typescript";
+                else if (techLower.includes("javascript") || techLower.includes("js")) iconName = "tabler:brand-javascript";
+                else if (techLower.includes("css") || techLower.includes("html")) iconName = "tabler:browser";
+                else if (techLower.includes("next")) iconName = "tabler:brand-nextjs";
+                else if (techLower.includes("supabase")) iconName = "tabler:brand-supabase";
+                else if (techLower.includes("postgres") || techLower.includes("sql")) iconName = "tabler:database";
+                else if (techLower.includes("convex")) iconName = "tabler:brand-databricks";
+
+                return (
+                  <div class="flex items-center gap-1.5 rounded-md border border-white/10 bg-white/5 px-2 py-1 transition-colors hover:border-amber-500/30 hover:bg-amber-500/10">
+                    <Icon name={iconName} class="h-3.5 w-3.5 text-slate-400 transition-colors group-hover:text-amber-400" />
+                    <span class="font-mono text-[8.5px] font-bold text-slate-300 uppercase tracking-widest transition-colors group-hover:text-amber-100">
+                      {tech}
+                    </span>
+                  </div>
+                );
+              })}
+              {project.data.techStack.length > 4 && (
+                <div class="flex items-center rounded-md border border-transparent px-1">
+                  <span class="font-mono text-[9px] font-bold text-slate-500">+{project.data.techStack.length - 4}</span>
+                </div>
               )}
             </div>
           </div>
@@ -83,3 +107,41 @@ const projects = allProjects
     </div>
   </div>
 </section>
+
+<style>
+  .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .reveal-scale {
+    transform: scale(0.95);
+  }
+  .reveal-scale.active {
+    transform: scale(1);
+  }
+</style>
+
+<script>
+  function initReveal() {
+    const reveals = document.querySelectorAll(".reveal");
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("active");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0, rootMargin: "50px" },
+    );
+    reveals.forEach((el) => observer.observe(el));
+  }
+  initReveal();
+  document.addEventListener("astro:page-load", initReveal);
+</script>
