@@ -7,61 +7,119 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
 const links = [
-  { label: t("nav.startup"), href: `/${lang}/#hero` },
-  { label: t("nav.projects"), href: `/${lang}/#projects` },
-  { label: t("nav.exp"), href: `/${lang}/#experience` },
-  { label: t("nav.lab"), href: `/${lang}/#laboratory` },
+  { label: "hero.tsx", href: `/${lang}/#hero` },
+  { label: "projects.db", href: `/${lang}/#projects` },
+  { label: "experience.cpp", href: `/${lang}/#experience` },
+  { label: "laboratory.py", href: `/${lang}/#laboratory` },
 ];
 ---
 
 <div
   id="mobileMenu"
-  class="will-change-opacity pointer-events-none fixed inset-0 z-[150] flex flex-col items-center justify-center gap-8 bg-[#050505]/80 opacity-0 backdrop-blur-xl transition-all duration-500 ease-in-out lg:hidden"
+  class="will-change-transform will-change-opacity pointer-events-none fixed inset-0 z-[150] flex flex-col items-center justify-center bg-[#050505]/98 opacity-0 backdrop-blur-md transition-all duration-300 ease-out lg:hidden"
 >
-  <div
-    class="absolute inset-0 bg-[linear-gradient(to_right,#808080_1px,transparent_1px),linear-gradient(to_bottom,#808080_1px,transparent_1px)] bg-[size:40px_40px] opacity-[0.03]"
-  >
+  <!-- --- TERMINAL BACKGROUND: Binary & Grid --- -->
+  <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+    <div class="absolute inset-0 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-[size:32px_32px]"></div>
+    <div class="binary-overlay absolute inset-0 flex flex-wrap gap-4 p-4 opacity-[0.03] font-mono text-[8px] text-lofi-accent select-none pointer-events-none">
+       {Array.from({ length: 24 }).map(() => (
+         <div class="flex flex-col gap-1">
+            <span>01001101_SYS_NAV</span>
+            <span>GRI_GONZALEZ_v1.5</span>
+            <span>PING_PONG_24ms</span>
+         </div>
+       ))}
+    </div>
+    <div class="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-lofi-accent/10 to-transparent opacity-30"></div>
   </div>
 
-  {
-    links.map((link, index) => (
-      <a
-        href={link.href}
-        style={`transition-delay: ${index * 50}ms`}
-        class="mobile-link flex translate-y-8 items-center gap-4 font-sans text-3xl font-black tracking-widest text-white uppercase transition-all duration-500 hover:scale-105 hover:text-amber-500 active:scale-95"
-      >
-        <span class="font-mono text-sm font-normal text-amber-500/50">
-          0{index + 1}.
-        </span>
-        {link.label}
-      </a>
-    ))
-  }
+  <!-- --- TERMINAL WINDOW: Main Interface --- -->
+  <div class="relative z-10 flex w-full max-w-sm flex-col px-6">
+    <!-- Window Header -->
+    <div class="mb-4 flex items-center justify-between border border-white/10 bg-white/5 px-4 py-2.5 backdrop-blur-md">
+      <div class="flex items-center gap-2">
+        <div class="h-2 w-2 rounded-full bg-rose-500/60 shadow-[0_0_8px_#F43F5E]"></div>
+        <div class="h-2 w-2 rounded-full bg-amber-500/60 shadow-[0_0_8px_#F59E0B]"></div>
+        <div class="h-2 w-2 rounded-full bg-emerald-500/60 shadow-[0_0_8px_#10B981]"></div>
+      </div>
+      <div class="flex items-center gap-2 font-mono text-[9px] font-black tracking-widest text-white/20 uppercase">
+         $ session_manager --nav
+      </div>
+    </div>
 
-  <!-- Mobile Language Switcher -->
-  <div class="mt-4 flex translate-y-8 items-center gap-6 opacity-0 transition-all delay-250 duration-700" id="mobileLang">
-    <a href="/es" class={`font-mono text-xs font-bold tracking-[0.3em] ${lang === 'es' ? 'text-amber-500' : 'text-white/40 hover:text-white'}`}>ES PAÑOL</a>
-    <div class="h-4 w-px bg-white/10"></div>
-    <a href="/en" class={`font-mono text-xs font-bold tracking-[0.3em] ${lang === 'en' ? 'text-amber-500' : 'text-white/40 hover:text-white'}`}>EN GLISH</a>
-  </div>
+    <!-- Active Prompt (Typing Animation Effect) -->
+    <div class="mb-10 px-2">
+       <div class="flex items-center gap-3 font-mono text-sm text-lofi-accent">
+          <span class="opacity-50">$</span>
+          <span id="terminal-prompt" class="font-bold tracking-tight"></span>
+          <span class="h-4 w-2 animate-pulse bg-lofi-accent shadow-[0_0_10px_#A5A6F6]"></span>
+       </div>
+    </div>
 
-  <div
-    class="mt-12 flex translate-y-8 gap-10 opacity-0 transition-all delay-300 duration-700"
-    id="mobileSocials"
-  >
-    <a
-      href="https://github.com/GaboInsane6489"
-      target="_blank"
-      class="text-white/40 transition-colors hover:text-amber-400"
-    >
-      <Icon name="tabler:brand-github" size={32} />
-    </a>
+    <!-- NAVIGATION NODES: Compact Grid -->
+    <div class="grid grid-cols-2 gap-3 mb-12">
+      {[
+        { id: "hero", label: "startup.sh", icon: "tabler:terminal" },
+        { id: "about-me", label: "profile.md", icon: "tabler:user-code" },
+        { id: "tech-stack", label: "stack.json", icon: "tabler:cpu" },
+        { id: "projects", label: "projects.ts", icon: "tabler:stack-2" },
+        { id: "experience", label: "exp.log", icon: "tabler:briefcase" },
+        { id: "certificates", label: "certs.gpg", icon: "tabler:certificate" },
+        { id: "laboratory", label: "lab.py", icon: "tabler:flask" },
+        { id: "contact", label: "contact.git", icon: "tabler:mail" }
+      ].map((node, i) => (
+        <a
+          href={`/${lang}/#${node.id}`}
+          style={`transition-delay: ${i * 20}ms`}
+          class="mobile-link group flex h-[72px] translate-y-2 flex-col items-start justify-center border border-lofi-accent/20 bg-lofi-accent/5 p-4 opacity-0 transition-all duration-200 ease-out hover:border-lofi-accent/50 hover:bg-lofi-accent/10 active:scale-95 active:bg-lofi-accent/15"
+        >
+          <div class="flex w-full items-center justify-between pointer-events-none">
+            <Icon name={node.icon} class="h-5 w-5 text-lofi-accent/80 group-hover:text-lofi-pop transition-colors" />
+            <span class="font-mono text-[8px] text-lofi-accent/30 uppercase tracking-widest">Node_{i+1}</span>
+          </div>
+          <span class="mt-2 font-mono text-[10px] font-bold tracking-widest text-white group-hover:text-white transition-colors pointer-events-none">
+            {node.label}
+          </span>
+        </a>
+      ))}
+    </div>
+
+    <!-- TERMINAL FOOTER: Metadata & Socials -->
+    <div class="flex flex-col gap-6 border-t border-white/10 pt-8 opacity-0 translate-y-2 transition-all duration-300 delay-150" id="mobileMetadata">
+      <div class="flex items-center justify-between">
+        <div class="flex flex-col gap-1">
+          <span class="font-mono text-[8px] text-white/20 uppercase tracking-[0.4em]">system_metadata</span>
+          <div class="flex items-center gap-1.5">
+            <div class="h-1 w-1 rounded-full bg-emerald-500 shadow-[0_0_5px_#10B981]"></div>
+            <span class="font-mono text-[9px] font-black text-white uppercase italic">Status: Optimal</span>
+          </div>
+        </div>
+        
+        <div class="flex items-center gap-4">
+          <a href="/es" class={`font-mono text-[10px] font-bold ${lang === 'es' ? 'text-lofi-accent' : 'text-white/30'}`}>ES</a>
+          <div class="h-3 w-px bg-white/10"></div>
+          <a href="/en" class={`font-mono text-[10px] font-bold ${lang === 'en' ? 'text-lofi-accent' : 'text-white/30'}`}>EN</a>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-6">
+        {[
+          { icon: "tabler:brand-github", href: "https://github.com/GaboInsane6489" },
+          { icon: "tabler:brand-linkedin", href: "https://www.linkedin.com/in/gabriel-gonzalez-fullstack/" },
+          { icon: "tabler:brand-instagram", href: "https://www.instagram.com/dreamsfallen6488/" }
+        ].map((social) => (
+          <a href={social.href} target="_blank" class="text-white/60 transition-all hover:text-lofi-accent hover:scale-110">
+            <Icon name={social.icon} size={22} />
+          </a>
+        ))}
+      </div>
+    </div>
   </div>
 </div>
 
 <nav
   id="topNav"
-  class="fixed top-0 left-0 z-[200] w-full border-b border-white/0 bg-transparent transition-all duration-500 ease-out"
+  class="relative z-[200] w-full border-b border-white/5 bg-black/20 backdrop-blur-md"
 >
   <div
     class="mx-auto flex max-w-[1440px] items-center justify-between px-6 py-5 transition-all duration-500 lg:px-10"
@@ -69,78 +127,62 @@ const links = [
   >
     <a
       href="/"
-      class="group relative z-[210] flex items-center gap-3 transition-transform active:scale-95"
+      class="group relative z-[210] flex items-center gap-3 border-r border-white/5 pr-6 transition-transform active:scale-95"
     >
       <div
-        class="relative h-10 w-10 overflow-hidden rounded-lg border border-white/10 bg-white/5 p-[2px] transition-all group-hover:border-amber-500/50"
+        class="relative h-10 w-10 overflow-hidden rounded-lg border border-white/10 bg-white/5 p-[2px] transition-all group-hover:border-lofi-accent/50 group-hover:shadow-[0_0_15px_rgba(165,166,246,0.2)]"
       >
         <img
           src="/images/LogoPortafolio.webp"
           alt="Logo"
-          class="h-full w-full rounded-md object-cover"
+          class="h-full w-full rounded-md object-cover transition-transform duration-500 group-hover:scale-110"
         />
       </div>
       <div class="flex flex-col leading-none">
-        <span class="text-[11px] font-black tracking-[0.2em] text-white"
+        <span class="text-[11px] font-black tracking-[0.2em] text-white/80 group-hover:text-white transition-colors"
           >G. GONZÁLEZ</span
         >
         <span
-          class="font-mono text-[7px] tracking-[0.3em] text-amber-500 uppercase"
-          >{t("hero.role")}</span
-        >
+          class="font-mono text-[7px] tracking-[0.3em] text-lofi-accent/70 uppercase"
+          >STABLE_v1.5</span>
       </div>
     </a>
 
-    <div class="hidden items-center gap-8 lg:flex">
-      <div class="flex items-center gap-2 border-r border-white/5 pr-6">
+    <!-- IDE Breadcrumbs (Subtle) -->
+    <div class="hidden flex-1 items-center px-6 md:flex opacity-20 hover:opacity-100 transition-opacity">
+       <div class="flex items-center gap-2 font-mono text-[9px] text-white/40">
+          <Icon name="tabler:folder" size={14} />
+          <span>src</span>
+          <Icon name="tabler:chevron-right" size={8} />
+          <span class="text-white/60">main.astro</span>
+       </div>
+    </div>
+
+    <div class="hidden items-center lg:flex">
+      <div class="flex items-center h-full">
         {
           links.map((link) => (
             <a
               href={link.href}
-              class="nav-link group relative flex items-center px-4 py-2 font-mono text-[10px] font-bold tracking-[0.2em] text-slate-200 transition-all duration-300 hover:text-white"
+              class="nav-link group relative flex items-center border-x border-white/5 px-6 py-4 font-mono text-[10px] font-bold text-white/70 transition-all hover:bg-white/5 hover:text-white"
             >
-              <div class="relative flex items-center">
-                <span class="absolute -left-2 flex items-center justify-center transition-all duration-300 group-hover:-left-3">
-                  <span class="h-[3px] w-[3px] animate-pulse rounded-full bg-amber-500 transition-all duration-300 group-hover:h-0 group-hover:w-0 group-hover:opacity-0" />
-                  <span class="scale-0 font-bold text-amber-500 opacity-0 transition-all duration-300 group-hover:scale-110 group-hover:opacity-100">
-                    {" "}
-                    //{" "}
-                  </span>
-                </span>
-                <span class="uppercase transition-transform duration-300 group-hover:translate-x-3">
-                  {link.label}
-                </span>
+              <div class="flex items-center gap-2 lowercase tracking-widest">
+                <Icon name="tabler:file-code" size={14} class="text-lofi-accent transition-transform group-hover:rotate-12" />
+                {link.label}
               </div>
+              <div class="absolute bottom-0 left-0 h-[2px] w-0 bg-lofi-pop transition-all group-hover:w-full"></div>
             </a>
           ))
         }
       </div>
 
-      <div class="flex items-center gap-6">
+      <div class="flex items-center gap-6 pl-4">
         <a
           href="https://github.com/GaboInsane6489"
           target="_blank"
-          class="group relative flex items-center gap-2 text-white/60 transition-all hover:text-white"
+          class="text-white/30 transition-all hover:text-lofi-pop hover:scale-110"
         >
-          <Icon
-            name="tabler:brand-github"
-            size={20}
-            class="transition-transform group-hover:rotate-12"
-          />
-          <span
-            class="absolute -bottom-1 left-1/2 h-[1px] w-0 -translate-x-1/2 bg-amber-500 transition-all group-hover:w-full"
-          ></span>
-          <span
-            class="translate-y-1 font-mono text-[8px] opacity-0 transition-all group-hover:translate-y-0 group-hover:opacity-100"
-            >SOURCE</span
-          >
-        </a>
-
-        <a
-          href="#contact"
-          class="relative overflow-hidden rounded-full border border-amber-500/40 bg-amber-500/10 px-6 py-2.5 font-mono text-[9px] font-black tracking-widest text-amber-500 uppercase transition-all hover:bg-amber-500 hover:text-black hover:shadow-[0_0_30px_rgba(245,158,11,0.5)]"
-        >
-          {t("hero.cta")}
+          <Icon name="tabler:brand-github" size={17} />
         </a>
 
         <LanguagePicker />
@@ -184,7 +226,7 @@ const links = [
 
   .menu-active #line1 {
     transform: translateY(7px) rotate(45deg);
-    background-color: #f59e0b;
+    background-color: #a5a6f6;
   }
   .menu-active #line2 {
     transform: translateX(30px);
@@ -192,7 +234,7 @@ const links = [
   }
   .menu-active #line3 {
     transform: translateY(-7px) rotate(-45deg);
-    background-color: #f59e0b;
+    background-color: #a5a6f6;
   }
 
   #mobileMenu.is-visible {
@@ -200,10 +242,13 @@ const links = [
     pointer-events: auto !important;
   }
   #mobileMenu.is-visible .mobile-link,
-  #mobileMenu.is-visible #mobileLang,
-  #mobileMenu.is-visible #mobileSocials {
+  #mobileMenu.is-visible #mobileMetadata {
     transform: translateY(0);
     opacity: 1;
+  }
+  
+  .binary-overlay {
+    mask-image: linear-gradient(to bottom, black 10%, transparent 40%);
   }
 </style>
 
@@ -219,9 +264,11 @@ const links = [
     window.addEventListener(
       "scroll",
       () => {
+        const scrollTop = window.scrollY;
+        
         if (!scrollTimeout) {
           scrollTimeout = setTimeout(() => {
-            window.scrollY > 20
+            scrollTop > 20
               ? nav?.classList.add("nav-scrolled")
               : nav?.classList.remove("nav-scrolled");
             scrollTimeout = null;
@@ -231,11 +278,26 @@ const links = [
       { passive: true },
     );
 
+    const typePrompt = (text: string, element: HTMLElement | null) => {
+      if (!element) return;
+      let i = 0;
+      element.textContent = "";
+      const interval = setInterval(() => {
+        element.textContent += text.charAt(i);
+        i++;
+        if (i > text.length) clearInterval(interval);
+      }, 50);
+    };
+
     const toggleMenu = () => {
       const isOpen = menu?.classList.contains("is-visible");
       menu?.classList.toggle("is-visible");
       btn?.classList.toggle("menu-active");
       document.body.style.overflow = isOpen ? "" : "hidden";
+      
+      if (!isOpen) {
+        typePrompt("g_gonzalez --nav --active", document.getElementById("terminal-prompt"));
+      }
     };
 
     btn?.addEventListener("click", (e) => {

@@ -13,18 +13,18 @@ const projects = allProjects
 ---
 
 <section id="projects" class="relative overflow-hidden py-12 pb-12 lg:pb-24">
-  <div class="pointer-events-none absolute top-0 left-1/2 h-full w-full -translate-x-1/2 bg-[radial-gradient(circle_at_top,rgba(252,211,77,0.05),transparent_60%)]"></div>
+  <div class="pointer-events-none absolute top-0 left-1/2 h-full w-full -translate-x-1/2 bg-[radial-gradient(circle_at_top,rgba(165,166,246,0.05),transparent_60%)]"></div>
 
   <div class="relative mx-auto w-full max-w-[1400px] px-6">
     <div class="mb-6 flex flex-col justify-between gap-3 md:flex-row md:items-end lg:mb-10">
       <div class="reveal space-y-1">
         <div class="flex items-center gap-3">
-          <span class="h-px w-6 bg-amber-500/50"></span>
-          <span class="font-mono text-[9px] font-bold tracking-[0.4em] text-amber-500 uppercase">{t("projects.badge")}</span>
+          <span class="h-px w-6 bg-lofi-accent/50"></span>
+          <span class="font-mono text-[9px] font-bold tracking-[0.4em] text-lofi-accent uppercase">{t("projects.badge")}</span>
         </div>
         <h2 class="font-serif text-3xl leading-tight text-white md:text-4xl lg:text-6xl">
           {t("projects.title1")}
-          <span class="bg-gradient-to-r from-amber-400 to-amber-600 bg-clip-text text-transparent italic">{t("projects.title2")}</span>
+          <span class="bg-gradient-to-r from-lofi-accent to-lofi-soft bg-clip-text text-transparent italic">{t("projects.title2")}</span>
         </h2>
       </div>
       <p class="reveal hidden max-w-[320px] font-mono text-[10px] leading-relaxed text-slate-400 md:block md:text-right" set:html={t("projects.description")} />
@@ -36,7 +36,7 @@ const projects = allProjects
         <a
           href={`/${lang}/projects/${project.id.split("/")[1]}`}
           style={`transition-delay: ${(i % 3) * 150}ms`}
-          class="group relative flex flex-col overflow-hidden rounded-2xl border border-amber-500/10 bg-black/40 p-1 backdrop-blur-xl transition-all duration-500 hover:-translate-y-1 hover:border-amber-500/60 hover:shadow-[0_0_40px_rgba(245,158,11,0.15)] reveal reveal-scale"
+          class="group relative flex flex-col overflow-hidden rounded-2xl border border-lofi-accent/10 bg-black/40 p-1 backdrop-blur-xl transition-all duration-500 hover:-translate-y-1 hover:border-lofi-accent/40 hover:shadow-[0_0_40px_rgba(165,166,246,0.15)] reveal reveal-scale"
         >
           {/* Main Visual Preview */}
           <div class="relative aspect-video overflow-hidden rounded-xl border border-white/5">
@@ -50,13 +50,13 @@ const projects = allProjects
 
           <div class="flex flex-1 flex-col p-5">
             <div class="mb-3 flex items-center justify-between">
-              <span class="font-mono text-[9px] font-bold tracking-widest text-amber-500/60 uppercase">
+              <span class="font-mono text-[9px] font-bold tracking-widest text-lofi-accent/60 uppercase">
                 [{project.data.status}]
               </span>
-              <Icon name="tabler:arrow-up-right" class="h-4 w-4 text-amber-500/40 transition-all group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-amber-500" />
+              <Icon name="tabler:arrow-up-right" class="h-4 w-4 text-lofi-pop/40 transition-all group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-lofi-pop" />
             </div>
 
-            <h3 class="mb-2 font-serif text-2xl text-white transition-colors group-hover:text-amber-400">
+            <h3 class="mb-2 font-serif text-2xl text-white transition-colors group-hover:text-lofi-soft">
               {project.data.title}
             </h3>
 
@@ -81,9 +81,9 @@ const projects = allProjects
                 else if (techLower.includes("convex")) iconName = "tabler:brand-databricks";
 
                 return (
-                  <div class="flex items-center gap-1.5 rounded-md border border-white/10 bg-white/5 px-2 py-1 transition-colors hover:border-amber-500/30 hover:bg-amber-500/10">
-                    <Icon name={iconName} class="h-3.5 w-3.5 text-slate-400 transition-colors group-hover:text-amber-400" />
-                    <span class="font-mono text-[8.5px] font-bold text-slate-300 uppercase tracking-widest transition-colors group-hover:text-amber-100">
+                  <div class="flex items-center gap-1.5 rounded-md border border-white/10 bg-white/5 px-2 py-1 transition-colors hover:border-lofi-accent/30 hover:bg-lofi-accent/10">
+                    <Icon name={iconName} class="h-3.5 w-3.5 text-slate-400 transition-colors group-hover:text-lofi-accent" />
+                    <span class="font-mono text-[8.5px] font-bold text-slate-300 uppercase tracking-widest transition-colors group-hover:text-white">
                       {tech}
                     </span>
                   </div>
@@ -99,8 +99,8 @@ const projects = allProjects
 
           {/* HUD Corner Decor */}
           <div class="absolute top-0 right-0 h-8 w-8 overflow-hidden pointer-events-none opacity-20 group-hover:opacity-100 transition-opacity">
-            <div class="absolute top-0 right-0 h-[1px] w-4 bg-amber-500"></div>
-            <div class="absolute top-0 right-0 h-4 w-[1px] bg-amber-500"></div>
+            <div class="absolute top-0 right-0 h-[1px] w-4 bg-lofi-pop"></div>
+            <div class="absolute top-0 right-0 h-4 w-[1px] bg-lofi-pop"></div>
           </div>
         </a>
       ))}

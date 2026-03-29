@@ -5,13 +5,23 @@
   --font-mono: "JetBrains Mono", monospace;
   --font-serif: "Playfair Display", serif;
 
+  --color-lofi-base: #0c0b1a;
+  --color-lofi-accent: #a5a6f6;
+  --color-lofi-mid: #5d5fef;
+  --color-lofi-soft: #cbb0e4;
+  --color-lofi-pop: #fa91cf;
+
   --color-brand-dark: #0a0908;
-  --color-brand-accent: #f59e0b;
+  --color-brand-accent: var(--color-lofi-accent);
 }
 
 @layer utilities {
   .text-gradient {
     @apply bg-gradient-to-r from-white via-white/80 to-white/40 bg-clip-text text-transparent;
+  }
+
+  .text-lofi-gradient {
+    @apply bg-gradient-to-r from-white via-lofi-accent to-lofi-soft bg-clip-text text-transparent;
   }
 
   .glass-panel {

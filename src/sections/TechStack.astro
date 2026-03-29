@@ -112,19 +112,19 @@ const techStack = [
   class="relative flex flex-col justify-center border-t border-white/5 py-12 lg:py-20 overflow-x-hidden"
 >
   <div
-    class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(252,211,77,0.06),transparent_60%)]"
+    class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(165,166,246,0.06),transparent_60%)]"
   >
   </div>
 
   <div class="relative mx-auto w-full max-w-6xl px-6">
     <!-- Header Section -->
     <div class="mb-10 flex flex-col items-center text-center lg:items-start lg:text-left">
-      <div class="reveal mb-4 inline-flex items-center gap-3 rounded-full border border-amber-500/20 bg-amber-500/5 px-4 py-1.5 backdrop-blur-md">
+      <div class="reveal mb-4 inline-flex items-center gap-3 rounded-full border border-lofi-accent/20 bg-lofi-accent/5 px-4 py-1.5 backdrop-blur-md">
         <span class="relative flex h-2 w-2">
-          <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-amber-400 opacity-75"></span>
-          <span class="relative inline-flex h-2 w-2 rounded-full bg-amber-500"></span>
+          <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-lofi-pop opacity-75"></span>
+          <span class="relative inline-flex h-2 w-2 rounded-full bg-lofi-pop"></span>
         </span>
-        <span class="font-mono text-[10px] font-black tracking-[0.3em] text-amber-500 uppercase">
+        <span class="font-mono text-[10px] font-black tracking-[0.3em] text-lofi-accent uppercase">
           {t("stack.badge")}
         </span>
       </div>
@@ -139,20 +139,20 @@ const techStack = [
     <div class="reveal mb-8 flex flex-col gap-4 lg:mb-12">
       <!-- Desktop: Label (hidden on mobile) -->
       <div class="hidden items-center gap-4 border-b border-white/5 pb-4 sm:flex">
-        <span class="font-mono text-[11px] font-bold text-amber-500 uppercase tracking-widest whitespace-nowrap">{t("stack.filter")}</span>
+        <span class="font-mono text-[11px] font-bold text-lofi-soft uppercase tracking-widest whitespace-nowrap">{t("stack.filter")}</span>
         <div class="flex flex-1 flex-wrap gap-2">
           {categories.map((cat: string) => (
             <button
               data-filter={cat}
-              class="filter-btn cursor-pointer group relative flex items-center gap-2 overflow-hidden rounded-lg border border-white/20 bg-white/10 px-4 py-2 font-mono text-[10px] font-black tracking-widest text-slate-200 transition-all duration-200 hover:border-amber-500/30 hover:bg-white/15 hover:text-white whitespace-nowrap shadow-lg shadow-black/20"
+              class="filter-btn cursor-pointer group relative flex items-center gap-2 overflow-hidden rounded-lg border border-white/20 bg-white/10 px-4 py-2 font-mono text-[10px] font-black tracking-widest text-slate-200 transition-all duration-200 hover:border-lofi-mid/30 hover:bg-white/15 hover:text-white whitespace-nowrap shadow-lg shadow-black/20"
               aria-label={`Filter by ${cat}`}
             >
               <!-- Flash Effect Shadow -->
-              <span class="flash-effect absolute inset-0 -translate-x-full bg-amber-500/30 transition-transform duration-300 ease-out"></span>
-              <span class="relative z-10 text-amber-500/60 transition-colors group-hover:text-amber-400">></span>
+              <span class="flash-effect absolute inset-0 -translate-x-full bg-lofi-mid/30 transition-transform duration-300 ease-out"></span>
+              <span class="relative z-10 text-lofi-mid/60 transition-colors group-hover:text-lofi-accent">></span>
               <span class="relative z-10 text-slate-200 transition-colors group-hover:text-white uppercase">{cat}</span>
               <!-- Active Indicator -->
-              <div class="absolute bottom-0 left-0 h-[2px] w-0 bg-amber-500 transition-all duration-500 marker-line"></div>
+              <div class="absolute bottom-0 left-0 h-[2px] w-0 bg-lofi-accent transition-all duration-500 marker-line"></div>
             </button>
           ))}
         </div>
@@ -163,15 +163,15 @@ const techStack = [
         {categories.map((cat: string) => (
           <button
             data-filter={cat}
-            class="filter-btn cursor-pointer group relative flex items-center justify-center gap-1.5 overflow-hidden rounded-lg border border-white/20 bg-white/10 py-3 font-mono text-[9px] font-black tracking-wider text-slate-200 transition-all duration-200 active:border-amber-500/50 active:bg-amber-500/10 active:text-white"
+            class="filter-btn cursor-pointer group relative flex items-center justify-center gap-1.5 overflow-hidden rounded-lg border border-white/20 bg-white/10 py-3 font-mono text-[9px] font-black tracking-wider text-slate-200 transition-all duration-200 active:border-lofi-mid/50 active:bg-lofi-mid/10 active:text-white"
             aria-label={`Filter by ${cat}`}
           >
             <!-- Flash Effect Shadow -->
-            <span class="flash-effect absolute inset-0 -translate-x-full bg-amber-500/30 transition-transform duration-300 ease-out"></span>
-            <span class="relative z-10 text-amber-500/50 text-[8px]">></span>
+            <span class="flash-effect absolute inset-0 -translate-x-full bg-lofi-mid/30 transition-transform duration-300 ease-out"></span>
+            <span class="relative z-10 text-lofi-mid/50 text-[8px]">></span>
             <span class="relative z-10 uppercase truncate">{cat}</span>
             <!-- Active Indicator -->
-            <div class="absolute bottom-0 left-0 h-[2px] w-0 bg-amber-500 transition-all duration-500 marker-line"></div>
+            <div class="absolute bottom-0 left-0 h-[2px] w-0 bg-lofi-accent transition-all duration-500 marker-line"></div>
           </button>
         ))}
       </div>
@@ -191,17 +191,17 @@ const techStack = [
             style={`transition-delay: ${index * 30}ms`}
           >
             <!-- Background Scanning Line -->
-            <div class="pointer-events-none absolute inset-0 -z-10 translate-y-[-100%] bg-gradient-to-b from-transparent via-amber-500/[0.03] to-transparent transition-transform duration-[2000ms] group-hover:translate-y-[100%] animate-scan"></div>
+            <div class="pointer-events-none absolute inset-0 -z-10 translate-y-[-100%] bg-gradient-to-b from-transparent via-lofi-pop/[0.05] to-transparent transition-transform duration-[2000ms] group-hover:translate-y-[100%] animate-scan"></div>
 
             <!-- LED Status Indicator -->
             <div class="absolute top-4 right-4 flex items-center gap-2">
                 <span class="font-mono text-[7px] font-bold text-white/20 uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">{t("stack.status.online")}</span>
-                <div class={`h-1.5 w-1.5 rounded-full ${tech.tag === "OPTIMIZING" ? "bg-amber-500 shadow-[0_0_10px_rgba(245,158,11,0.6)]" : "bg-emerald-500 shadow-[0_0_10px_rgba(16,185,129,0.6)]"} animate-pulse`}></div>
+                <div class={`h-1.5 w-1.5 rounded-full ${tech.tag === "OPTIMIZING" ? "bg-lofi-pop shadow-[0_0_10px_rgba(250,145,207,0.6)]" : "bg-emerald-500 shadow-[0_0_10px_rgba(16,185,129,0.6)]"} animate-pulse`}></div>
             </div>
 
             <div class="flex items-start gap-4">
               <!-- Icon Container with Rotating Energy -->
-              <div class="energy-border relative flex h-14 w-14 shrink-0 items-center justify-center rounded-xl border border-white/5 bg-white/[0.03] group-hover:bg-amber-500/[0.05] transition-colors duration-500">
+              <div class="energy-border relative flex h-14 w-14 shrink-0 items-center justify-center rounded-xl border border-white/5 bg-white/[0.03] group-hover:bg-lofi-accent/[0.05] transition-colors duration-500">
                 <Icon
                   name={tech.icon}
                   class={`relative z-10 text-3xl ${tech.color} opacity-80 transition-all duration-500 group-hover:scale-110 group-hover:opacity-100 group-hover:drop-shadow-[0_0_20px_rgba(255,255,255,0.3)]`}
@@ -211,11 +211,11 @@ const techStack = [
               <!-- Module Info -->
               <div class="flex flex-1 flex-col justify-center overflow-hidden">
                 <div class="flex flex-col">
-                  <span class="truncate font-mono text-[13px] font-black tracking-tighter text-white uppercase group-hover:text-amber-500/90 transition-colors">
+                  <span class="truncate font-mono text-[13px] font-black tracking-tighter text-white uppercase group-hover:text-lofi-accent transition-colors">
                     {tech.name}
                   </span>
                   <div class="mt-1 flex items-center gap-2">
-                    <span class="flex-none rounded bg-black/80 px-2 py-0.5 font-mono text-[7px] font-bold tracking-widest text-amber-400 uppercase border border-amber-500/10">
+                    <span class="flex-none rounded bg-black/80 px-2 py-0.5 font-mono text-[7px] font-bold tracking-widest text-lofi-soft uppercase border border-white/10">
                       {tech.role}
                     </span>
                   </div>
@@ -224,7 +224,7 @@ const techStack = [
                 <div class="mt-4 flex flex-col gap-1">
                    <div class="flex items-center justify-between font-mono text-[8px] font-medium tracking-[0.2em] text-white/20 uppercase">
                       <span class="group-hover:text-white/40 transition-colors">{tech.category}</span>
-                      <span class={`flex items-center gap-1 ${tech.tag === "OPTIMIZING" ? "text-amber-500/50" : "text-emerald-500/40"}`}>
+                      <span class={`flex items-center gap-1 ${tech.tag === "OPTIMIZING" ? "text-lofi-pop/50" : "text-emerald-500/40"}`}>
                         <span class="inline-block h-1 w-1 rounded-full bg-current opacity-50"></span>
                         {tech.tag}
                       </span>
@@ -245,11 +245,11 @@ const techStack = [
     <div class="reveal mt-12 flex flex-col items-center gap-6 lg:hidden">
        <button 
          id="initialize-full-stack"
-         class="group relative flex items-center gap-3 overflow-hidden rounded-xl border border-white/10 bg-white/5 px-8 py-4 font-mono text-[10px] font-black tracking-[0.3em] text-white uppercase transition-all hover:border-amber-500/50 hover:bg-amber-500/10 active:scale-95"
+         class="group relative flex items-center gap-3 overflow-hidden rounded-xl border border-white/10 bg-white/5 px-8 py-4 font-mono text-[10px] font-black tracking-[0.3em] text-white uppercase transition-all hover:border-lofi-accent/50 hover:bg-lofi-accent/10 active:scale-95"
       >
-        <span class="relative z-10 text-amber-500/40 group-hover:text-amber-500 transition-colors">>_</span>
+        <span class="relative z-10 text-lofi-accent opacity-40 group-hover:opacity-100 transition-colors">>_</span>
         <span class="relative z-10" id="expansion-text">LOAD_EXTENDED_PROTOCOL</span>
-        <Icon name="tabler:cpu" size={16} class="relative z-10 text-amber-500/50 group-hover:rotate-180 transition-transform duration-700" />
+        <Icon name="tabler:cpu" size={16} class="relative z-10 text-lofi-accent opacity-50 group-hover:rotate-180 transition-transform duration-700" />
       </button>
 
       <div class="flex items-center gap-4 opacity-20">
@@ -273,7 +273,7 @@ const techStack = [
       from 0deg,
       transparent 0deg,
       transparent 90deg,
-      rgba(245, 158, 11, 0.4) 180deg,
+      rgba(165, 166, 246, 0.4) 180deg,
       transparent 270deg,
       transparent 360deg
     );
@@ -315,14 +315,14 @@ const techStack = [
   /* Active Filter Indicator */
   .marker-line.active {
     width: 100%;
-    box-shadow: 0 0 15px rgba(245, 158, 11, 0.4);
+    box-shadow: 0 0 15px rgba(165, 166, 246, 0.4);
   }
 
   .filter-btn.active-filter {
-    border-color: rgba(245, 158, 11, 0.5);
-    background: rgba(245, 158, 11, 0.05);
+    border-color: rgba(165, 166, 246, 0.5);
+    background: rgba(165, 166, 246, 0.05);
     color: white;
-    box-shadow: 0 0 20px rgba(245, 158, 11, 0.1);
+    box-shadow: 0 0 20px rgba(165, 166, 246, 0.1);
   }
 
   /* Flash Effect Logic */
@@ -403,7 +403,7 @@ const techStack = [
     const expansionText = document.getElementById('expansion-text');
     expansionBtn?.addEventListener('click', () => {
       if (expansionText) expansionText.textContent = "PROTOCOL_ESTABLISHED_";
-      expansionBtn.classList.add('border-amber-500/50', 'bg-amber-500/20', 'text-amber-500');
+      expansionBtn.classList.add('border-lofi-accent/50', 'bg-lofi-accent/20', 'text-lofi-accent');
     });
   };
 

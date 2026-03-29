@@ -7,182 +7,276 @@ const t = useTranslations(lang);
 ---
 
 <section
-  class="relative flex min-h-[100dvh] w-full flex-col justify-start overflow-hidden border-b border-white/5 pt-20 pb-8 md:justify-start md:pt-28 lg:justify-center lg:pt-20 lg:pb-10"
+  class="relative flex min-h-[100dvh] w-full flex-col justify-start overflow-hidden border-b border-white/5 pt-12 pb-12 md:justify-start md:pt-16 lg:justify-center lg:pt-0 lg:pb-12"
   id="hero"
 >
-  <div
-    class="grid-bg pointer-events-none absolute inset-0 opacity-15 md:opacity-25"
-  >
+  <!-- --- REFINED BACKGROUND: Isometric Grid + Main Grid --- -->
+  <div class="pointer-events-none absolute inset-0 z-0">
+    <div class="grid-bg absolute inset-0 opacity-15 md:opacity-20"></div>
+    <!-- Isometric Perspective Grid (Depth) -->
+    <div
+      class="isometric-grid absolute inset-x-0 bottom-0 h-1/2 opacity-[0.04]"
+    >
+    </div>
   </div>
 
-  <div class="relative mx-auto w-full max-w-[1300px] px-6 sm:px-12 lg:px-16">
+  <div
+    class="relative z-10 mx-auto w-full max-w-[1200px] px-6 sm:px-12 lg:px-16"
+  >
     <div
-      class="grid grid-cols-1 items-center gap-6 md:grid-cols-12 md:gap-8 lg:gap-6"
+      class="grid grid-cols-1 items-center gap-12 md:grid-cols-12 md:gap-8 lg:gap-20"
     >
-      <!-- AVATAR CONTAINER: T=700ms (Main Entrance) -->
+      <!-- AVATAR MOD (Sync & Rescale) -->
       <div
-        class="reveal relative order-first col-span-1 flex justify-center opacity-0 transition-all delay-700 duration-1000 md:order-last md:col-span-5"
+        class="reveal reveal-right relative order-first col-span-1 flex justify-center opacity-0 transition-all delay-150 duration-1000 md:order-last md:col-span-5"
       >
+        <!-- Floating Tech Nodes (Downsized) -->
+        <div
+          class="animate-float-slow absolute -top-4 -left-4 z-20 hidden sm:block"
+        >
+          <div
+            class="flex h-8 w-8 items-center justify-center rounded-lg border border-lofi-accent/30 bg-black/60 shadow-[0_0_15px_rgba(165,166,246,0.2)] backdrop-blur-md"
+          >
+            <Icon
+              name="tabler:brand-react"
+              size={16}
+              class="text-lofi-accent"
+            />
+          </div>
+        </div>
+        <div
+          class="animate-float-medium absolute -right-6 bottom-12 z-20 hidden sm:block"
+        >
+          <div
+            class="flex h-10 w-10 items-center justify-center rounded-lg border border-lofi-pop/30 bg-black/60 shadow-[0_0_15px_rgba(139,92,246,0.15)] backdrop-blur-md"
+          >
+            <Icon name="tabler:brand-nodejs" size={20} class="text-white" />
+          </div>
+        </div>
+        <div
+          class="animate-float-fast absolute -bottom-2 left-12 z-20 hidden sm:block"
+        >
+          <div
+            class="flex h-7 w-7 items-center justify-center rounded-lg border border-white/20 bg-black/60 shadow-[0_0_10px_rgba(255,255,255,0.1)] backdrop-blur-md"
+          >
+            <Icon name="tabler:brand-astro" size={14} class="text-white" />
+          </div>
+        </div>
+
         <div
           id="hero-avatar-container"
-          class="group relative z-10 w-full max-w-[160px] cursor-pointer rounded-2xl border border-white/10 bg-[#0A0908]/50 p-1.5 backdrop-blur-md transition-all duration-500 will-change-transform hover:scale-[1.03] hover:shadow-[0_0_40px_rgba(245,158,11,0.2)] active:scale-[0.98] active:ring-2 active:ring-amber-500/30 sm:max-w-[220px] md:max-w-[260px] md:backdrop-blur-xl lg:max-w-[300px]"
+          class="group relative z-10 w-full max-w-[170px] cursor-pointer rounded-2xl border border-white/20 bg-lofi-base/40 p-1.5 backdrop-blur-md transition-all duration-700 will-change-transform hover:scale-[1.03] hover:shadow-[0_0_40px_rgba(165,166,246,0.15)] active:scale-[0.98] sm:max-w-[220px] md:max-w-[240px] lg:max-w-[260px]"
         >
+          <!-- Corner Markers (Subtle) -->
+          <div
+            class="absolute -top-1 -left-1 h-2 w-2 border-t border-l border-lofi-accent/40"
+          >
+          </div>
+          <div
+            class="absolute -top-1 -right-1 h-2 w-2 border-t border-r border-white/10"
+          >
+          </div>
+          <div
+            class="absolute -bottom-1 -left-1 h-2 w-2 border-b border-l border-white/10"
+          >
+          </div>
+          <div
+            class="absolute -right-1 -bottom-1 h-2 w-2 border-r border-b border-lofi-accent/40"
+          >
+          </div>
+
           <div
             class="overflow-hidden rounded-xl border border-white/5 bg-[#050505] shadow-2xl"
           >
             <div
-              class="flex items-center justify-between border-b border-white/5 bg-[#0F0F0F] px-4 py-2"
+              class="flex items-center justify-between border-b border-white/10 bg-[#0F0F0F] px-4 py-2"
             >
-              <div class="flex gap-1.5">
-                <div class="h-1.5 w-1.5 rounded-full bg-red-500/20"></div>
-                <div class="h-1.5 w-1.5 rounded-full bg-yellow-500/20"></div>
-                <div class="h-1.5 w-1.5 rounded-full bg-green-500/20"></div>
+              <div class="flex gap-1">
+                <div
+                  class="h-1 w-1 rounded-full bg-red-500/60 shadow-[0_0_5px_rgba(239,68,68,0.4)]"
+                >
+                </div>
+                <div class="h-1 w-1 rounded-full bg-yellow-500/20"></div>
+                <div class="h-1 w-1 rounded-full bg-green-500/20"></div>
               </div>
               <div
-                class="font-mono text-[clamp(9px,1.2vw,11px)] tracking-[0.2em] text-gray-600 uppercase"
+                class="font-mono text-[8px] font-black tracking-[0.2em] text-white/30 uppercase"
               >
-                env:production
+                ENV_PROD
               </div>
             </div>
 
             <div class="relative aspect-[4/5] overflow-hidden bg-[#0A0A0A]">
-              <img
-                src="/images/FotoPerfil.webp"
-                alt="Gabriel Gonzalez Profile"
-                class="h-full w-full object-cover transition-all duration-700 group-hover:scale-110"
-              />
+              <!-- Scanning Line FX -->
               <div
-                class="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-transparent opacity-40 transition-opacity duration-700 group-hover:opacity-20"
+                class="animate-scanline absolute inset-x-0 z-30 h-1/2 w-full bg-gradient-to-b from-transparent via-lofi-accent/5 to-transparent opacity-30"
               >
               </div>
+
+              <img
+                src="/images/PerfilProgramador.webp"
+                alt="Gabriel Gonzalez Profile"
+                class="h-full w-full object-cover transition-all duration-1000 group-hover:scale-105"
+              />
               <div
-                class="absolute bottom-3 left-3 z-30 rounded-lg border border-white/5 bg-black/60 px-2.5 py-1.5 font-mono text-[clamp(10px,1.5vw,12px)] text-amber-500 shadow-lg backdrop-blur-md"
+                class="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-transparent opacity-50"
               >
-                <span class="animate-pulse">></span> online_active
+              </div>
+
+              <!-- HUD Metadata Overlay (Micro) -->
+              <div
+                class="absolute top-2.5 right-2.5 flex flex-col items-end gap-0.5 opacity-40"
+              >
+                <span
+                  class="font-mono text-[5px] tracking-widest text-white/50 uppercase"
+                  >LAT_10.48</span
+                >
+                <span
+                  class="font-mono text-[5px] tracking-widest text-white/50 uppercase"
+                  >LON_66.90</span
+                >
+              </div>
+
+              <div
+                class="absolute bottom-2.5 left-2.5 z-30 flex items-center gap-2 rounded-lg border border-white/10 bg-black/60 px-2.5 py-1 font-mono text-[9px] text-white/90 shadow-xl backdrop-blur-md"
+              >
+                <div class="relative h-1.5 w-1.5">
+                  <div
+                    class="absolute inset-0 animate-ping rounded-full bg-lofi-accent/40 opacity-40"
+                  >
+                  </div>
+                  <div
+                    class="h-full w-full rounded-full bg-lofi-accent shadow-[0_0_5px_#A5A6F6]"
+                  >
+                  </div>
+                </div>
+                <span class="font-black tracking-widest uppercase italic"
+                  >SYST_ACT</span
+                >
               </div>
             </div>
           </div>
         </div>
+        <!-- Shadow Glow -->
         <div
-          class="absolute -inset-10 -z-10 rounded-full bg-amber-500/5 opacity-20 blur-[60px] transition-all duration-700 group-hover:bg-amber-500/10 group-hover:opacity-40"
+          class="absolute -inset-10 -z-10 rounded-full bg-lofi-accent/[0.04] blur-[80px] transition-all duration-1000 group-hover:bg-lofi-accent/[0.08]"
         >
         </div>
       </div>
 
-      <!-- TEXT CONTENT -->
+      <!-- TEXT CONTENT (Rescale) -->
       <div
-        class="flex flex-col items-center justify-center space-y-4 text-center md:col-span-7 md:items-start md:space-y-4 md:text-left lg:space-y-4"
+        class="flex flex-col items-center justify-center space-y-4 text-center md:col-span-7 md:items-start md:space-y-4 md:text-left"
       >
-        <div class="space-y-4 lg:space-y-3">
-          <!-- STATUS: T=0ms -->
-          <div
-            class="reveal translate-y-4 opacity-0 transition-all duration-700 ease-out"
-          >
+        <div class="space-y-3 lg:space-y-3.5">
+          <!-- STATUS: Downsized -->
+          <div class="reveal opacity-0 transition-all duration-700 ease-out">
             <div
-              class="inline-flex items-center gap-2 rounded-full border border-amber-500/20 bg-amber-500/5 px-3 py-1.5 backdrop-blur-md"
+              class="inline-flex items-center gap-2 rounded-full border border-lofi-accent/20 bg-lofi-accent/5 px-3 py-1.5 backdrop-blur-md"
             >
-              <span class="relative flex h-2 w-2">
+              <span class="relative flex h-1.5 w-1.5">
                 <span
-                  class="absolute inline-flex h-full w-full animate-ping rounded-full bg-amber-400 opacity-75"
+                  class="absolute inline-flex h-full w-full animate-ping rounded-full bg-lofi-pop/50 opacity-75"
                 ></span>
                 <span
-                  class="relative inline-flex h-2 w-2 rounded-full bg-amber-500"
+                  class="relative inline-flex h-1.5 w-1.5 rounded-full bg-lofi-pop shadow-[0_0_5px_#8B5CF6]"
                 ></span>
               </span>
               <span
-                class="font-mono text-[clamp(10px,1.5vw,12px)] font-bold tracking-[0.2em] text-amber-500 uppercase"
+                class="font-mono text-[10px] font-black tracking-[0.2em] text-white/80 uppercase italic"
                 >{t("nav.status")}</span
               >
             </div>
           </div>
 
-          <!-- HEADLINE: T=150ms -->
+          <!-- HEADLINE: Downsized from 7xl to balanced size -->
           <h1
-            class="reveal translate-y-4 font-sans text-[clamp(1.5rem,6vw,2.2rem)] leading-[1.1] font-bold tracking-tighter text-white opacity-0 transition-all delay-150 duration-700 md:text-[clamp(2.5rem,5vw,3rem)] lg:text-5xl"
+            class="reveal font-sans text-[clamp(1.7rem,6vw,2.2rem)] leading-[1.1] font-black tracking-tighter text-white opacity-0 transition-all duration-1000 md:text-[clamp(2.2rem,5vw,3rem)] lg:text-5xl"
           >
             {t("hero.description1")}
             <br />
             <span
-              class="bg-gradient-to-r from-white via-amber-400/80 to-white/40 bg-clip-text text-transparent"
+              class="text-lofi-gradient drop-shadow-[0_0_10px_rgba(165,166,246,0.2)] transition-all duration-500 hover:drop-shadow-[0_0_20px_rgba(165,166,246,0.4)]"
               >{t("hero.description2")}</span
             >
           </h1>
 
-          <!-- TAGLINE: T=300ms -->
+          <!-- TAGLINE: Subtle -->
           <p
-            class="reveal mx-auto max-w-lg translate-y-4 font-mono text-xs font-medium tracking-[0.1em] text-amber-500/80 uppercase opacity-0 transition-all delay-300 duration-700 md:text-sm lg:mx-0"
+            class="reveal mx-auto max-w-md translate-y-3 font-mono text-[10px] font-bold tracking-[0.15em] text-white/40 uppercase opacity-0 transition-all delay-150 duration-700 md:text-[11px] lg:mx-0"
           >
             {t("hero.tagline")}
           </p>
         </div>
 
-        <!-- REFINED BUTTONS: T=450ms -->
+        <!-- REFINED BUTTONS: Tighter -->
         <div
-          class="reveal flex w-full translate-y-4 flex-col gap-4 opacity-0 transition-all delay-[450ms] duration-700 sm:flex-row sm:justify-center md:justify-start lg:justify-start"
+          class="reveal flex w-full translate-y-3 flex-col gap-3.5 opacity-0 transition-all delay-300 duration-700 sm:flex-row sm:justify-center md:justify-start lg:justify-start"
         >
           <a
             href="#projects"
-            class="group relative flex w-full items-center justify-center gap-3 overflow-hidden rounded-xl bg-white px-6 py-3.5 text-[10px] font-black tracking-widest text-black transition-all hover:shadow-[0_0_25px_rgba(255,255,255,0.2)] active:scale-95 sm:w-auto"
+            class="group relative flex w-full items-center justify-center gap-3 overflow-hidden rounded-xl bg-white px-6 py-3.5 text-[9px] font-black tracking-widest text-black transition-all hover:shadow-[0_0_25px_rgba(255,255,255,0.4)] active:scale-95 sm:w-auto"
           >
-            <span class="relative z-10">EXPLORE WORK</span>
+            <span class="relative z-10 transition-colors group-hover:text-white"
+              >EXPLORE_COLLECTION</span
+            >
             <Icon
-              name="tabler:arrow-right"
-              size={18}
-              class="relative z-10 transition-transform group-hover:translate-x-1"
+              name="tabler:arrow-up-right"
+              size={16}
+              class="relative z-10 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:text-white"
             />
             <div
-              class="absolute inset-0 -translate-x-full bg-amber-400 transition-transform duration-500 ease-out group-hover:translate-x-0"
+              class="absolute inset-0 -translate-x-full bg-lofi-accent transition-transform duration-500 ease-out group-hover:translate-x-0"
             >
             </div>
           </a>
           <a
             href="#contact"
-            class="group relative flex w-full items-center justify-center gap-3 overflow-hidden rounded-xl border border-white/10 bg-white/5 px-6 py-3.5 text-[10px] font-black tracking-widest text-white transition-all hover:bg-white/10 active:scale-95 sm:w-auto"
+            class="group relative flex w-full items-center justify-center gap-3 overflow-hidden rounded-xl border border-white/10 bg-black/40 px-6 py-3.5 text-[9px] font-black tracking-widest text-white transition-all hover:border-lofi-accent/40 hover:bg-lofi-accent/[0.03] active:scale-95 sm:w-auto"
           >
-            <span class="uppercase">{t("hero.cta")}</span>
-            <div
-              class="absolute inset-x-0 bottom-0 h-px scale-x-0 bg-gradient-to-r from-transparent via-amber-500 to-transparent transition-transform duration-500 group-hover:scale-x-100"
-            >
-            </div>
+            <span class="uppercase italic">{t("hero.cta")}</span>
+            <Icon
+              name="tabler:terminal"
+              size={16}
+              class="text-white/30 transition-colors group-hover:text-lofi-accent"
+            />
           </a>
         </div>
 
-        <!-- STRATEGIC SELLING STATS: T=600ms -->
+        <!-- STRATEGIC SELLING STATS: Balanced -->
         <div
-          class="reveal grid w-full max-w-sm grid-cols-2 gap-6 border-t border-white/5 pt-6 opacity-0 transition-all delay-[600ms] duration-1000 sm:max-w-md sm:grid-cols-3 md:pt-8 lg:max-w-none lg:pt-5"
+          class="reveal grid w-full max-w-sm grid-cols-2 gap-x-8 gap-y-4 border-t border-white/10 pt-6 opacity-0 transition-all delay-500 duration-1000 sm:max-w-md sm:grid-cols-3 md:pt-8 lg:max-w-none lg:pt-6"
         >
-          <div class="flex flex-col items-center space-y-1.5 lg:items-start">
-            <span
-              class="font-mono text-[clamp(10px,1.5vw,12px)] tracking-[0.3em] text-gray-600 uppercase"
-              >{t("hero.stats.label1")}</span
-            >
-            <span
-              class="block text-[clamp(12px,1.8vw,14px)] font-bold text-gray-200"
-              >{t("hero.stats.value1")}</span
-            >
-          </div>
-          <div class="flex flex-col items-center space-y-1.5 lg:items-start">
-            <span
-              class="font-mono text-[clamp(10px,1.5vw,12px)] tracking-[0.3em] text-gray-600 uppercase"
-              >{t("hero.stats.label2")}</span
-            >
-            <span
-              class="block text-[clamp(12px,1.8vw,14px)] font-bold text-amber-500"
-              >{t("hero.stats.value2")}</span
-            >
-          </div>
-          <div
-            class="col-span-2 flex flex-col items-center space-y-1.5 sm:col-span-1 lg:items-start"
-          >
-            <span
-              class="font-mono text-[clamp(10px,1.5vw,12px)] tracking-[0.3em] text-gray-600 uppercase"
-              >{t("hero.stats.label3")}</span
-            >
-            <span
-              class="block text-[clamp(12px,1.8vw,14px)] font-bold text-gray-200"
-              >{t("hero.stats.value3")}</span
-            >
-          </div>
+          {
+            [
+              {
+                label: t("hero.stats.label1"),
+                value: t("hero.stats.value1"),
+                accent: false,
+              },
+              {
+                label: t("hero.stats.label2"),
+                value: t("hero.stats.value2"),
+                accent: true,
+              },
+              {
+                label: t("hero.stats.label3"),
+                value: t("hero.stats.value3"),
+                accent: false,
+              },
+            ].map((stat) => (
+              <div class="group/stat flex touch-none flex-col items-center space-y-1 selection:hidden lg:items-start">
+                <span class="font-mono text-[8.5px] font-black tracking-[0.3em] text-white/20 uppercase transition-colors group-hover/stat:text-lofi-accent/80">
+                  {stat.label}
+                </span>
+                <span
+                  class={`block text-base font-black tracking-tight ${stat.accent ? "text-lofi-accent shadow-[0_0_10px_#A5A6F6_30%]" : "text-white"}`}
+                >
+                  {stat.value}
+                </span>
+              </div>
+            ))
+          }
         </div>
       </div>
     </div>
@@ -190,54 +284,76 @@ const t = useTranslations(lang);
 </section>
 
 <style>
-  /* Entrance Sequence Trigger */
-  .reveal {
-    opacity: 0;
-  }
-
-  .reveal.active {
-    opacity: 1;
-    transform: translateY(0) translateX(0) scale(1);
+  /* Perspective Depth (Subtle) */
+  .isometric-grid {
+    background-image:
+      linear-gradient(45deg, rgba(165, 166, 246, 0.03) 1px, transparent 1px),
+      linear-gradient(-45deg, rgba(165, 166, 246, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+    perspective: 1200px;
+    transform: rotateX(65deg) scale(1.8);
+    mask-image: linear-gradient(to top, black, transparent 80%);
   }
 
   /* Optimized Grid BG */
   .grid-bg {
-    background-size: 50px 50px;
+    background-size: 40px 40px;
     background-image:
-      linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
-    mask-image: radial-gradient(circle at 50% 50%, black 20%, transparent 80%);
+      linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+    mask-image: radial-gradient(circle at 50% 50%, black 10%, transparent 90%);
   }
 
-  .will-change-transform {
-    will-change: transform, box-shadow;
+  /* ANIMATIONS */
+  @keyframes float-slow {
+    0%,
+    100% {
+      transform: translate(0, 0) rotate(0deg);
+    }
+    33% {
+      transform: translate(8px, -12px) rotate(4deg);
+    }
+    66% {
+      transform: translate(-8px, 8px) rotate(-4deg);
+    }
+  }
+  @keyframes float-medium {
+    0%,
+    100% {
+      transform: translate(0, 0) rotate(0deg);
+    }
+    50% {
+      transform: translate(-12px, -8px) rotate(-6deg);
+    }
+  }
+  @keyframes float-fast {
+    0%,
+    100% {
+      transform: translate(0, 0);
+    }
+    50% {
+      transform: translate(10px, 10px);
+    }
+  }
+  @keyframes scanline {
+    0% {
+      transform: translateY(-100%);
+    }
+    100% {
+      transform: translateY(400%);
+    }
+  }
+
+  .animate-float-slow {
+    animation: float-slow 14s infinite ease-in-out;
+  }
+  .animate-float-medium {
+    animation: float-medium 10s infinite ease-in-out;
+  }
+  .animate-float-fast {
+    animation: float-fast 8s infinite ease-in-out;
+  }
+  .animate-scanline {
+    animation: scanline 10s infinite linear;
   }
 </style>
-
-<script>
-  function initReveal() {
-    const reveals = document.querySelectorAll(".reveal");
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: "0px 0px -50px 0px",
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("active");
-          // Once revealed, no need to keep observing
-          observer.unobserve(entry.target);
-        }
-      });
-    }, observerOptions);
-
-    reveals.forEach((el) => observer.observe(el));
-  }
-
-  // Run on first load
-  initReveal();
-
-  // Run on view transition (Astro integration)
-  document.addEventListener("astro:page-load", initReveal);
-</script>

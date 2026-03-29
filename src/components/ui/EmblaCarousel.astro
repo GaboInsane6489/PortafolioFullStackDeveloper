@@ -18,14 +18,14 @@ const { images, autoplay = true, interval = 5000 } = Astro.props as Props;
   <div class="absolute -top-px left-0 z-[60] h-[2px] w-full px-5">
     <div class="h-full w-full overflow-hidden rounded-full bg-white/5">
       <div
-        class="embla-progress h-full w-0 bg-gradient-to-r from-amber-600 to-amber-400 shadow-[0_0_15px_rgba(245,158,11,0.5)] transition-all duration-300 ease-out"
+        class="embla-progress h-full w-0 bg-gradient-to-r from-lofi-accent to-lofi-pop shadow-[0_0_15px_rgba(165,166,246,0.5)] transition-all duration-300 ease-out"
       >
       </div>
     </div>
   </div>
 
   <div
-    class="relative rounded-2xl border border-amber-500/10 bg-[#0A0908] shadow-[0_40px_100px_-20px_rgba(0,0,0,0.8)]"
+    class="relative rounded-2xl border border-lofi-accent/10 bg-[#0A0908] shadow-[0_40px_100px_-20px_rgba(0,0,0,0.8)]"
   >
     <div
       class="flex h-11 items-center justify-between border-b border-white/5 bg-[#121110] px-4 md:px-6"
@@ -33,15 +33,15 @@ const { images, autoplay = true, interval = 5000 } = Astro.props as Props;
       <div class="flex items-center gap-3">
         <div class="flex gap-1.5">
           <div class="h-2 w-2 rounded-full bg-red-500/30"></div>
-          <div class="h-2 w-2 rounded-full bg-amber-500/30"></div>
-          <div class="h-2 w-2 rounded-full bg-amber-500/10"></div>
+          <div class="h-2 w-2 rounded-full bg-lofi-accent/30"></div>
+          <div class="h-2 w-2 rounded-full bg-lofi-accent/10"></div>
         </div>
         <div
-          class="ml-2 flex h-11 items-center gap-2 border-t-2 border-t-amber-500 bg-[#1A1614] px-3 font-mono"
+          class="ml-2 flex h-11 items-center gap-2 border-t-2 border-t-lofi-accent bg-[#1A1614] px-3 font-mono"
         >
-          <Icon name="tabler:terminal-2" size={14} class="text-amber-500" />
+          <Icon name="tabler:terminal-2" size={14} class="text-lofi-accent" />
           <span
-            class="text-[9px] font-bold tracking-[0.2em] text-amber-200/60 uppercase"
+            class="text-[9px] font-bold tracking-[0.2em] text-lofi-soft/60 uppercase"
             >DATA_VIEWER_v2.0</span
           >
         </div>
@@ -49,9 +49,9 @@ const { images, autoplay = true, interval = 5000 } = Astro.props as Props;
       <div
         class="hidden items-center gap-4 md:flex"
       >
-        <div class="flex items-center gap-2 rounded-md bg-amber-500/5 px-2 py-1">
-          <Icon name="tabler:activity-heartbeat" size={10} class="text-amber-500/40 animate-pulse" />
-          <span class="font-mono text-[8px] text-amber-500/30 uppercase tracking-widest"
+        <div class="flex items-center gap-2 rounded-md bg-lofi-pop/5 px-2 py-1">
+          <Icon name="tabler:activity-heartbeat" size={10} class="text-lofi-pop/40 animate-pulse" />
+          <span class="font-mono text-[8px] text-lofi-pop/30 uppercase tracking-widest"
             >SYNC_ACTIVE</span
           >
         </div>
@@ -73,14 +73,14 @@ const { images, autoplay = true, interval = 5000 } = Astro.props as Props;
                   loading="lazy"
                 />
                 <!-- Subtle HUD Scanlines -->
-                <div class="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(245,158,11,0.02)_50%)] bg-[length:100%_4px] opacity-20"></div>
+                <div class="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(165,166,246,0.02)_50%)] bg-[length:100%_4px] opacity-20"></div>
               </div>
 
               <div class="absolute right-6 bottom-6 z-20 flex items-center gap-3 font-mono text-[9px]">
-                <span class="font-bold text-amber-500/80">
+                <span class="font-bold text-lofi-pop/80">
                   [{String(index + 1).padStart(2, "0")}]
                 </span>
-                <div class="h-[1px] w-4 bg-amber-500/20" />
+                <div class="h-[1px] w-4 bg-lofi-pop/20" />
                 <span class="text-gray-600">{String(images.length).padStart(2, "0")}</span>
               </div>
             </div>
@@ -100,7 +100,7 @@ const { images, autoplay = true, interval = 5000 } = Astro.props as Props;
 
   <button
     type="button"
-    class="embla-prev absolute top-1/2 left-2 z-[70] flex h-11 w-11 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full border border-white/10 bg-black/60 text-white shadow-2xl backdrop-blur-xl transition-all duration-300 active:scale-90 md:-left-5 md:h-12 md:w-12 md:opacity-0 md:group-hover:left-4 md:group-hover:opacity-100 hover:border-amber-500/50 hover:text-amber-500"
+    class="embla-prev absolute top-1/2 left-2 z-[70] flex h-11 w-11 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full border border-white/10 bg-black/60 text-white shadow-2xl backdrop-blur-xl transition-all duration-300 active:scale-90 md:-left-5 md:h-12 md:w-12 md:opacity-0 md:group-hover:left-4 md:group-hover:opacity-100 hover:border-lofi-accent/50 hover:text-lofi-accent"
     aria-label="Previous Slide"
   >
     <Icon name="tabler:chevron-left" size={24} />
@@ -108,7 +108,7 @@ const { images, autoplay = true, interval = 5000 } = Astro.props as Props;
 
   <button
     type="button"
-    class="embla-next absolute top-1/2 right-2 z-[70] flex h-11 w-11 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full border border-white/10 bg-black/40 text-white shadow-2xl backdrop-blur-xl transition-all duration-300 active:scale-90 md:-right-5 md:h-12 md:w-12 md:opacity-0 md:group-hover:right-4 md:group-hover:opacity-100 hover:border-amber-500/50 hover:text-amber-500"
+    class="embla-next absolute top-1/2 right-2 z-[70] flex h-11 w-11 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full border border-white/10 bg-black/40 text-white shadow-2xl backdrop-blur-xl transition-all duration-300 active:scale-90 md:-right-5 md:h-12 md:w-12 md:opacity-0 md:group-hover:right-4 md:group-hover:opacity-100 hover:border-lofi-accent/50 hover:text-lofi-accent"
     aria-label="Next Slide"
   >
     <Icon name="tabler:chevron-right" size={24} />

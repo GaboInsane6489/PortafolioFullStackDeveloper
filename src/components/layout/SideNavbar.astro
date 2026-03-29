@@ -7,32 +7,26 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
 const sections = [
-  { label: t("nav.startup"), href: `/${lang}/#hero`, icon: "tabler:home" },
-  { label: t("nav.profile"), href: `/${lang}/#about-me`, icon: "tabler:user-code" },
-  { label: t("nav.stack"), href: `/${lang}/#tech-stack`, icon: "tabler:cpu" },
-  { label: t("nav.projects"), href: `/${lang}/#projects`, icon: "tabler:stack-2" },
-  { label: t("nav.exp"), href: `/${lang}/#experience`, icon: "tabler:briefcase" },
-  { label: t("nav.certs"), href: `/${lang}/#certificates`, icon: "tabler:certificate" },
-  { label: t("nav.lab"), href: `/${lang}/#laboratory`, icon: "tabler:flask" },
-  {
-    label: t("nav.engineering"),
-    href: `/${lang}/#engineering`,
-    icon: "tabler:brand-github",
-  },
+  { label: "startup.sh", href: `/${lang}/#hero`, icon: "tabler:terminal" },
+  { label: "profile.md", href: `/${lang}/#about-me`, icon: "tabler:user-code" },
+  { label: "stack.json", href: `/${lang}/#tech-stack`, icon: "tabler:cpu" },
+  { label: "projects.ts", href: `/${lang}/#projects`, icon: "tabler:stack-2" },
+  { label: "experience.log", href: `/${lang}/#experience`, icon: "tabler:briefcase" },
+  { label: "certs.gpg", href: `/${lang}/#certificates`, icon: "tabler:certificate" },
+  { label: "laboratory.py", href: `/${lang}/#laboratory`, icon: "tabler:flask" },
 ];
 ---
 
 <div
-  class="relative z-[250] flex flex-row items-center gap-2 md:flex-col md:gap-3"
+  class="flex h-full flex-col items-center justify-center gap-6"
 >
   <nav
     id="side-nav"
-    class="relative flex max-w-full items-center gap-1 overflow-x-auto overflow-y-hidden rounded-full border border-white/10 bg-[#0A0908]/80 px-2 py-1.5 shadow-[0_0_20px_rgba(0,0,0,0.5),inset_0_0_10px_rgba(255,255,255,0.05)] backdrop-blur-2xl md:flex-col md:overflow-visible md:rounded-2xl md:bg-[#0A0908]/60 md:p-1.5 [&::-webkit-scrollbar]:hidden"
+    class="relative flex flex-col items-center gap-2"
   >
-    {/* Fluid Active Indicator Background */}
     <div
       id="nav-indicator"
-      class="absolute bg-amber-500/15 border border-amber-500/30 rounded-full transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] md:rounded-xl opacity-0 pointer-events-none"
+      class="absolute left-[-12px] h-10 w-1 bg-lofi-accent shadow-[0_0_15px_rgba(165,166,246,0.6)] transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] opacity-0 pointer-events-none rounded-r-full"
     ></div>
 
     {
@@ -40,77 +34,48 @@ const sections = [
         <a
           href={section.href}
           data-section={section.href.split("#")[1] || ''}
-          class="nav-link group relative flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full text-slate-400 transition-all duration-300 hover:text-amber-400 active:scale-75 md:h-9 md:w-9 md:rounded-xl"
+          class="nav-link group relative flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl text-slate-400/60 transition-all duration-300 hover:bg-lofi-accent/10 hover:text-lofi-accent active:scale-90"
           aria-label={section.label}
         >
           <Icon
             name={section.icon}
             stroke-width={1.5}
-            class="relative z-10 h-[18px] w-[18px] transition-transform duration-300 group-hover:scale-110 md:h-[20px] md:w-[20px] lg:h-[22px] lg:w-[22px]"
+            class="relative z-10 h-[22px] w-[22px] transition-transform duration-300 group-hover:scale-110"
           />
 
-          <div class="pointer-events-none absolute left-16 z-[300] hidden rounded-md border border-white/10 bg-[#0A0908]/90 px-3 py-1.5 opacity-0 shadow-2xl backdrop-blur-md transition-all duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] group-hover:translate-x-[-8px] group-hover:opacity-100 md:block">
-            <span class="font-mono text-[10px] font-medium tracking-[0.2em] whitespace-nowrap text-amber-500/90 uppercase drop-shadow-[0_0_8px_rgba(245,158,11,0.3)]">
+          <div class="pointer-events-none absolute left-full ml-4 z-[300] hidden rounded-md border border-white/10 bg-[#0A0908]/95 px-3 py-1.5 opacity-0 shadow-2xl backdrop-blur-md transition-all duration-300 group-hover:opacity-100 md:block">
+            <span class="font-mono text-[10px] font-medium tracking-widest whitespace-nowrap text-lofi-soft lowercase">
               {section.label}
             </span>
           </div>
-
-          <div class="active-indicator absolute -bottom-1 left-1/2 h-1 w-1 -translate-x-1/2 scale-0 rounded-full bg-amber-500 shadow-[0_0_12px_rgba(245,158,11,1)] transition-all duration-500 md:bottom-auto md:-left-2 md:h-5 md:w-0.5 md:translate-x-0" />
         </a>
       ))
     }
   </nav>
 
-  <div class="hidden sm:block md:w-full">
-    <div
-      class="mx-auto mb-2 hidden h-6 w-px bg-gradient-to-b from-white/10 to-transparent md:block"
-    >
-    </div>
-    <a
-      href="https://www.linkedin.com/in/gabriel-gonzalez-fullstack/"
-      target="_blank"
-      class="group relative flex h-9 w-9 items-center justify-center rounded-full border border-white/20 bg-[#0A0908]/70 text-slate-400 transition-all hover:text-amber-400 md:mx-auto md:rounded-xl"
-    >
-      <Icon name="tabler:brand-linkedin" size={17} stroke-width={1.5} />
-    </a>
-    <div class="mt-2 md:hidden">
-      <LanguagePicker />
-    </div>
-  </div>
+  <div class="h-px w-6 bg-white/5"></div>
+
+  <a
+    href="https://www.linkedin.com/in/gabriel-gonzalez-fullstack/"
+    target="_blank"
+    class="group relative flex h-10 w-10 items-center justify-center rounded-xl text-slate-400/40 transition-all hover:bg-lofi-accent/10 hover:text-lofi-accent"
+  >
+    <Icon name="tabler:brand-linkedin" size={20} stroke-width={1.5} />
+    <div class="pointer-events-none absolute left-full ml-4 z-[300] hidden rounded-md border border-white/10 bg-[#0A0908]/95 px-3 py-1.5 opacity-0 shadow-2xl backdrop-blur-md transition-all group-hover:opacity-100 md:block">
+       <span class="font-mono text-[9px] font-medium tracking-widest text-white/50 uppercase">Network</span>
+     </div>
+  </a>
 </div>
 
 <style>
-  /* Estado Activo */
+  /* Active State for IDE Activity Bar */
   .nav-link.is-active {
-    color: #fbbf24 !important; /* amber-400 */
+    color: #fff !important;
   }
 
-  .nav-link.is-active .active-indicator {
-    scale: 1;
-    opacity: 1;
-  }
-
-  /* HUD Pulse Animation */
-  @keyframes active-pulse {
-    0%, 100% { box-shadow: 0 0 12px rgba(245, 158, 11, 0.4); }
-    50% { box-shadow: 0 0 20px rgba(245, 158, 11, 0.8); }
-  }
-
-  #nav-indicator {
-    animation: active-pulse 2s infinite ease-in-out;
-  }
-
-  /* Ajuste específico para Desktop en el indicador lateral */
-  @media (min-width: 768px) {
-    .nav-link.is-active .active-indicator {
-      width: 2px;
-      height: 20px;
-    }
-  }
-
-  /* Animación de entrada suave */
-  .nav-link {
-    -webkit-tap-highlight-color: transparent;
+  /* Reset redundant indicators */
+  .active-indicator {
+    display: none !important;
   }
 </style>
 
@@ -128,16 +93,12 @@ const sections = [
       const linkRect = activeLink.getBoundingClientRect();
 
       navIndicator.style.opacity = "1";
-      navIndicator.style.width = `${linkRect.width}px`;
-      navIndicator.style.height = `${linkRect.height}px`;
-      navIndicator.style.left = `${linkRect.left - navRect.left}px`;
       navIndicator.style.top = `${linkRect.top - navRect.top}px`;
     }
 
     const observerOptions = {
-      root: null,
-      rootMargin: "-45% 0px -45% 0px",
-      threshold: 0,
+      rootMargin: "-20% 0px -70% 0px",
+      threshold: [0, 1],
     };
 
     const observer = new IntersectionObserver((entries) => {

@@ -9,13 +9,48 @@ import Analytics from "@vercel/analytics/astro";
 import SpeedInsights from "@vercel/speed-insights/astro";
 import { ClientRouter } from "astro:transitions";
 import { getLangFromUrl, useTranslations } from "../i18n/utils";
+import { Icon } from "astro-icon/components"; // Added this import
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+
+// These variables seem to be intended for Footer.astro or SideNavbar.astro,
+// but the instruction implies they should be added here.
+// If they are not used in this layout file, they might be dead code.
+// However, following the instruction to add them.
+const links = [
+  { label: "hero.tsx", href: `/${lang}/#hero` },
+  { label: "projects.db", href: `/${lang}/#projects` },
+  { label: "experience.cpp", href: `/${lang}/#experience` },
+  { label: "laboratory.py", href: `/${lang}/#laboratory` },
+];
+
+const socials = [
+  {
+    label: "GitHub",
+    href: "https://github.com/GaboInsane6489",
+    icon: "tabler:brand-github",
+  },
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/gabriel-gonzalez-fullstack/",
+    icon: "tabler:brand-linkedin",
+  },
+  {
+    label: "Instagram",
+    href: "https://www.instagram.com/dreamsfallen6488/",
+    icon: "tabler:brand-instagram",
+  },
+  {
+    label: "YouTube",
+    href: "https://www.youtube.com/@Gabo6489Gaming-pe2tg",
+    icon: "tabler:brand-youtube",
+  },
+];
 ---
 
 <!doctype html>
-<html lang={lang} class="scroll-smooth">
+<html lang={lang} class="h-full scroll-smooth overflow-x-hidden">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -68,13 +103,15 @@ const t = useTranslations(lang);
   </head>
 
   <body
-    class="bg-[#0A0908] font-sans text-white antialiased selection:bg-amber-500/30"
+    class="min-h-screen font-sans text-white antialiased selection:bg-lofi-accent/30 overflow-x-hidden"
   >
+    <!-- Base background color layer (behind everything) -->
+    <div class="fixed inset-0 -z-[100] bg-lofi-base"></div>
     <Noise />
     <div class="pointer-events-none fixed inset-0 -z-50 overflow-hidden">
       <video
-        class="absolute h-full w-full object-cover opacity-80 mix-blend-lighten transition-opacity duration-1000 blur-[2px]"
-        src="/videos/Cozy-Bedroom-Rainy-City-Moewalls-Com.mp4"
+        class="absolute h-full w-full object-cover opacity-40 mix-blend-lighten transition-opacity duration-1000 blur-[2px]"
+        src="/videos/Programando.mp4"
         autoplay
         muted
         loop
@@ -83,7 +120,7 @@ const t = useTranslations(lang);
         aria-hidden="true"></video>
 
       <div
-        class="absolute inset-0 bg-gradient-to-b from-[#0A0908]/20 via-transparent to-[#0A0908]/80 shadow-[inset_0_0_100px_rgba(0,0,0,0.2)]"
+        class="absolute inset-0 bg-gradient-to-b from-lofi-base/20 via-transparent to-lofi-base/80 shadow-[inset_0_0_100px_rgba(0,0,0,0.2)]"
       >
       </div>
 
@@ -93,97 +130,95 @@ const t = useTranslations(lang);
       </div>
     </div>
 
-    <TopNavbar />
+    <!-- IDE Frame Layout: PERSISTENT INVERTED L -->
+    <div class="relative flex w-full overflow-x-hidden">
+      <!-- Top Bar: Fixed (Horizontal part of L) -->
+      <header class="fixed top-0 left-0 z-[500] w-full flex-shrink-0 transition-transform duration-300">
+        <TopNavbar />
+      </header>
 
-    <!-- Layout adjustments for Sidebar vs Footer collision -->
-    <div class="relative z-10 flex min-h-screen flex-col">
-      <div class="mx-auto flex w-full max-w-[1600px] flex-1">
-        <!-- Sidebar Desktop -->
-        <aside class="relative z-50 hidden w-24 flex-shrink-0 md:block">
-          <div
-            class="sticky top-0 flex h-screen w-full items-center justify-center"
-          >
-            <SideNavbar />
-          </div>
-        </aside>
+      <!-- Sidebar: Fixed (Vertical part of L) -->
+      <aside
+        class="fixed top-0 left-0 z-[400] hidden h-full w-20 flex-shrink-0 flex-col items-center justify-center border-r border-white/5 bg-[#0D0C0B]/40 pt-24 backdrop-blur-xl md:flex"
+      >
+        <SideNavbar />
+      </aside>
 
-        <!-- Main -->
-        <main class="flex-1 px-4 pb-28 md:pr-24 md:pb-0 overflow-x-hidden">
+      <!-- Main Content Area: Natural Scroll (The actual workspace) -->
+      <main class="relative min-h-screen w-full flex-1 pt-[72px] md:pl-20 overflow-x-hidden">
+        <div class="relative z-10 mx-auto w-full max-w-full">
           <slot />
-        </main>
-      </div>
-
-      <div class="pb-24 md:pb-0 overflow-x-hidden">
-        <Footer />
-      </div>
+          <Footer />
+        </div>
+      </main>
     </div>
 
-    <!-- Sidebar Mobile -->
-    <div
-      class="fixed right-0 bottom-4 left-0 z-40 mx-auto flex w-full max-w-[95%] justify-center md:hidden"
-    >
-      <SideNavbar />
-    </div>
 
     <script>
       const setupRevealObserver = () => {
-        const observer = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry) => {
-              if (entry.isIntersecting) {
-                entry.target.classList.add("active");
-              } else {
-                entry.target.classList.remove("active");
-              }
-            });
-          },
-          { threshold: 0.1, rootMargin: "0px 0px -80px 0px" },
-        );
+        const observerOptions = {
+          threshold: 0.01,
+          // Rootmargin positivo: Dispara 100px ANTES de que el elemento entre al viewport
+          rootMargin: "0px 0px 100px 0px",
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("active");
+              // Senior Tip: Unobserve once active for better performance
+              observer.unobserve(entry.target);
+            }
+          });
+        }, observerOptions);
 
         document
           .querySelectorAll(".reveal")
           .forEach((el) => observer.observe(el));
       };
 
+      // Initial execution
       setupRevealObserver();
+      // Execute on each Astro View Transition swap
       document.addEventListener("astro:after-swap", setupRevealObserver);
     </script>
 
     <style is:global>
-      /* Mejoras en el renderizado del texto sobre video */
-      body {
-        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-      }
-
+      /* --- PREMIUM ANIMATION SYSTEM --- */
+      
+      /* Base reveal class with Hardware Acceleration */
       .reveal {
         opacity: 0;
-        transform: translateY(20px);
-        transition: all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1);
+        transform: translateY(30px);
+        /* Cubic-bezier "Out Quint" para sensación elástica y suave */
+        transition: 
+          opacity 1.2s cubic-bezier(0.23, 1, 0.32, 1), 
+          transform 1.2s cubic-bezier(0.23, 1, 0.32, 1);
         will-change: opacity, transform;
       }
 
+      /* Entrance State */
       .reveal.active {
         opacity: 1;
-        transform: translateY(0);
+        transform: translateY(0) translateX(0) scale(1);
       }
 
-      /* Variaciones y Delays se mantienen igual... */
-      .reveal-left {
-        transform: translateX(-20px);
-      }
-      .reveal-right {
-        transform: translateX(20px);
-      }
-      .reveal-left.active,
-      .reveal-right.active {
-        transform: translateX(0);
-      }
+      /* Directional Reveal Variants */
+      .reveal-left { transform: translateX(-30px); }
+      .reveal-right { transform: translateX(30px); }
+      .reveal-scale { transform: scale(0.95); }
 
-      .delay-100 {
-        transition-delay: 100ms;
-      }
-      .delay-200 {
-        transition-delay: 200ms;
+      /* Multi-level Delay System (Staggered entries) */
+      .delay-100 { transition-delay: 100ms; }
+      .delay-200 { transition-delay: 200ms; }
+      .delay-300 { transition-delay: 300ms; }
+      .delay-400 { transition-delay: 400ms; }
+      .delay-500 { transition-delay: 500ms; }
+      .delay-700 { transition-delay: 700ms; }
+
+      /* Texto sobre video optimization */
+      body {
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
       }
     </style>
       {import.meta.env.PROD && (

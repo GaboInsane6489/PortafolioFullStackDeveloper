@@ -16,17 +16,17 @@ const t = useTranslations(lang);
         class="text-center lg:sticky lg:top-32 lg:col-span-5 lg:mb-0 lg:text-left"
       >
         <div
-          class="reveal mb-6 inline-flex items-center gap-3 rounded-full border border-amber-500/20 bg-amber-500/5 px-5 py-2 backdrop-blur-md"
+          class="reveal mb-6 inline-flex items-center gap-3 rounded-full border border-lofi-accent/20 bg-lofi-accent/5 px-5 py-2 backdrop-blur-md"
         >
           <span class="relative flex h-2 w-2">
             <span
-              class="absolute inline-flex h-full w-full animate-ping rounded-full bg-amber-400 opacity-75"
+              class="absolute inline-flex h-full w-full animate-ping rounded-full bg-lofi-pop opacity-75"
             ></span>
-            <span class="relative inline-flex h-2 w-2 rounded-full bg-amber-500"
+            <span class="relative inline-flex h-2 w-2 rounded-full bg-lofi-pop"
             ></span>
           </span>
           <span
-            class="font-mono text-[9px] font-black tracking-[0.3em] text-amber-500 uppercase"
+            class="font-mono text-[9px] font-black tracking-[0.3em] text-lofi-accent uppercase"
           >
             {t("nav.status")}
           </span>
@@ -38,7 +38,7 @@ const t = useTranslations(lang);
           {t("contact.title")}
           <br />
           <span
-            class="bg-gradient-to-r from-amber-200 via-amber-400 to-amber-200 bg-clip-text font-light text-transparent italic"
+            class="bg-gradient-to-r from-lofi-accent via-lofi-soft to-lofi-accent bg-clip-text font-light text-transparent italic"
           >
             {t("contact.subtitle")}
           </span>
@@ -82,7 +82,7 @@ const t = useTranslations(lang);
           <div class="flex flex-col gap-2 sm:col-span-1">
             <label
               for="name"
-              class="font-mono text-[10px] font-bold tracking-widest text-amber-500 uppercase"
+              class="font-mono text-[10px] font-bold tracking-widest text-lofi-soft uppercase"
             >
               {t("contact.form.name")} _</label
             >
@@ -91,7 +91,7 @@ const t = useTranslations(lang);
               id="name"
               name="OPERATOR_IDENTITY"
               required
-              class="w-full rounded-none border border-white/20 bg-black/60 px-4 py-3 font-mono text-sm text-white placeholder-slate-400 transition-colors outline-none focus:border-amber-500/50 focus:bg-amber-500/5"
+              class="w-full rounded-none border border-white/20 bg-black/60 px-4 py-3 font-mono text-sm text-white placeholder-slate-400 transition-colors outline-none focus:border-lofi-accent/50 focus:bg-lofi-accent/5"
               placeholder="Enter your name"
             />
           </div>
@@ -99,7 +99,7 @@ const t = useTranslations(lang);
           <div class="flex flex-col gap-2 sm:col-span-1">
             <label
               for="email"
-              class="font-mono text-[10px] font-bold tracking-widest text-amber-500 uppercase"
+              class="font-mono text-[10px] font-bold tracking-widest text-lofi-soft uppercase"
             >
               {t("contact.form.email")} _</label
             >
@@ -108,7 +108,7 @@ const t = useTranslations(lang);
               id="email"
               name="CONTACT_ENDPOINT"
               required
-              class="w-full rounded-none border border-white/20 bg-black/60 px-4 py-3 font-mono text-sm text-white placeholder-slate-400 transition-colors outline-none focus:border-amber-500/50 focus:bg-amber-500/5"
+              class="w-full rounded-none border border-white/20 bg-black/60 px-4 py-3 font-mono text-sm text-white placeholder-slate-400 transition-colors outline-none focus:border-lofi-accent/50 focus:bg-lofi-accent/5"
               placeholder="Enter your email"
             />
           </div>
@@ -116,7 +116,7 @@ const t = useTranslations(lang);
           <div class="flex flex-col gap-2 sm:col-span-2">
             <label
               for="message"
-              class="font-mono text-[10px] font-bold tracking-widest text-amber-500 uppercase"
+              class="font-mono text-[10px] font-bold tracking-widest text-lofi-soft uppercase"
             >
               {t("contact.form.message")} _</label
             >
@@ -125,7 +125,7 @@ const t = useTranslations(lang);
               name="TRANSMITTED_PAYLOAD"
               required
               rows="4"
-              class="w-full resize-none rounded-none border border-white/20 bg-black/60 px-4 py-3 font-mono text-sm text-white placeholder-slate-400 transition-colors outline-none focus:border-amber-500/50 focus:bg-amber-500/5"
+              class="w-full resize-none rounded-none border border-white/20 bg-black/60 px-4 py-3 font-mono text-sm text-white placeholder-slate-400 transition-colors outline-none focus:border-lofi-accent/50 focus:bg-lofi-accent/5"
               placeholder="Type your message here..."></textarea>
           </div>
 
@@ -139,10 +139,10 @@ const t = useTranslations(lang);
             <button
               type="submit"
               id="submit-btn"
-              class="group relative flex w-full items-center justify-center gap-3 overflow-hidden border border-amber-500/50 bg-amber-500/10 px-8 py-4 font-mono text-[11px] font-black tracking-[0.2em] text-amber-500 uppercase transition-all duration-300 hover:border-amber-500 hover:bg-amber-500/20 hover:shadow-[0_0_40px_rgba(245,158,11,0.25)]"
+              class="group relative flex w-full items-center justify-center gap-3 overflow-hidden border border-lofi-pop/50 bg-lofi-pop/10 px-8 py-4 font-mono text-[11px] font-black tracking-[0.2em] text-lofi-pop uppercase transition-all duration-300 hover:border-lofi-pop hover:bg-lofi-pop/20 hover:shadow-[0_0_40px_rgba(250,145,207,0.25)]"
             >
               <span
-                class="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-amber-500/20 to-transparent transition-transform duration-500 ease-out group-hover:translate-x-full"
+                class="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-lofi-pop/20 to-transparent transition-transform duration-500 ease-out group-hover:translate-x-full"
               ></span>
               <Icon
                 name="tabler:terminal-2"
@@ -168,12 +168,12 @@ const t = useTranslations(lang);
                 <Icon
                   name="tabler:map-pin"
                   size={12}
-                  class="text-amber-500/50"
+                  class="text-lofi-accent/50"
                 />
                 <span>{t("contact.info.location")}</span>
               </div>
               <div
-                class="mx-4 h-px flex-1 bg-gradient-to-r from-amber-500/20 to-transparent"
+                class="mx-4 h-px flex-1 bg-gradient-to-r from-lofi-accent/20 to-transparent"
               >
               </div>
               <div
@@ -244,7 +244,7 @@ const t = useTranslations(lang);
       statusMessage.classList.remove(
         "hidden",
         "text-red-500",
-        "text-amber-500",
+        "text-lofi-pop",
       );
       statusMessage.classList.add("text-gray-400");
       statusMessage.textContent = msgEstablishing;
@@ -261,24 +261,24 @@ const t = useTranslations(lang);
           form.reset();
           btnText.textContent = originalBtnText;
           statusMessage.classList.remove("text-gray-400", "text-red-500");
-          statusMessage.classList.add("text-amber-500");
+          statusMessage.classList.add("text-lofi-pop");
           statusMessage.textContent = msgSuccess;
         } else {
           btnText.textContent = btnRetry;
-          statusMessage.classList.remove("text-gray-400", "text-amber-500");
+          statusMessage.classList.remove("text-gray-400", "text-lofi-pop");
           statusMessage.classList.add("text-red-500");
           statusMessage.textContent = msgError;
         }
       } catch (error) {
         btnText.textContent = btnRetry;
-        statusMessage.classList.remove("text-gray-400", "text-amber-500");
+        statusMessage.classList.remove("text-gray-400", "text-lofi-pop");
         statusMessage.classList.add("text-red-500");
         statusMessage.textContent = msgConnectionLost;
       } finally {
         submitBtn.disabled = false;
 
         // Hide success message after 5 seconds
-        if (statusMessage.classList.contains("text-amber-500")) {
+        if (statusMessage.classList.contains("text-lofi-pop")) {
           setTimeout(() => {
             statusMessage.classList.add("hidden");
           }, 5000);

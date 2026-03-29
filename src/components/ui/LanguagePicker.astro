@@ -40,13 +40,13 @@ const getLocalizedPath = (l: string) => {
   </button>
 
   <div
-    class="invisible absolute right-0 z-50 mt-2 w-32 origin-top-right scale-95 transform rounded-xl border border-white/10 bg-[#0A0908] py-2 opacity-0 shadow-2xl transition-all group-hover:visible group-hover:scale-100 group-hover:opacity-100"
+    class="invisible absolute right-0 z-50 mt-2 w-32 origin-top-right scale-95 transform rounded-xl border border-white/10 bg-lofi-base py-2 opacity-0 shadow-2xl transition-all group-hover:visible group-hover:scale-100 group-hover:opacity-100"
   >
     {
       Object.entries(languages).map(([l, label]: [string, string]) => (
         <a
           href={getLocalizedPath(l)}
-          class={`block px-4 py-2 font-mono text-[10px] font-bold tracking-widest transition-colors hover:bg-white/5 ${l === lang ? "text-amber-500" : "text-white/60 hover:text-white"}`}
+          class={`block px-4 py-2 font-mono text-[10px] font-bold tracking-widest transition-colors hover:bg-white/5 ${l === lang ? "text-lofi-pop drop-shadow-[0_0_5px_rgba(250,145,207,0.3)]" : "text-slate-400 hover:text-lofi-accent"}`}
         >
           {label.toUpperCase()}
         </a>
