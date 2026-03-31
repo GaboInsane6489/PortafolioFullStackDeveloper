@@ -112,7 +112,7 @@ const socials = [
     <BootScreen />
     <CustomCursor />
     <Noise />
-    <div id="backdrop-container" class="pointer-events-none fixed inset-0 -z-50 overflow-hidden transition-transform duration-700 ease-out">
+    <div id="backdrop-container" class="pointer-events-none fixed inset-[-5%] -z-50 overflow-hidden transition-transform duration-700 ease-out">
       <video
         class="absolute h-[110%] w-[110%] -left-[5%] -top-[5%] object-cover opacity-30 transition-opacity duration-1000"
         src="/videos/Programando.mp4"
@@ -252,6 +252,12 @@ const socials = [
       .delay-700 { transition-delay: 700ms; }
 
       /* Texto sobre video optimization */
+      html, body {
+        overflow-x: hidden;
+        width: 100%;
+        position: relative;
+      }
+      
       body {
         text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
       }
