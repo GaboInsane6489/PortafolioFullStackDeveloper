@@ -190,13 +190,13 @@ const techStack = [
             data-category={tech.category}
             style={`transition-delay: ${index * 30}ms`}
           >
-            <!-- Background Scanning Line -->
-            <div class="pointer-events-none absolute inset-0 -z-10 translate-y-[-100%] bg-gradient-to-b from-transparent via-lofi-pop/[0.05] to-transparent transition-transform duration-[2000ms] group-hover:translate-y-[100%] animate-scan"></div>
+            <!-- Background Scanning Line (Triggered on reveal) -->
+            <div class="tech-scan pointer-events-none absolute inset-0 -z-10 translate-y-[-100%] bg-gradient-to-b from-transparent via-lofi-pop/[0.15] to-transparent opacity-0"></div>
 
             <!-- LED Status Indicator -->
             <div class="absolute top-4 right-4 flex items-center gap-2">
                 <span class="font-mono text-[7px] font-bold text-white/20 uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">{t("stack.status.online")}</span>
-                <div class={`h-1.5 w-1.5 rounded-full ${tech.tag === "OPTIMIZING" ? "bg-lofi-pop shadow-[0_0_10px_rgba(250,145,207,0.6)]" : "bg-emerald-500 shadow-[0_0_10px_rgba(16,185,129,0.6)]"} animate-pulse`}></div>
+                <div class={`h-1.5 w-1.5 rounded-full ${tech.tag === "OPTIMIZING" ? "bg-lofi-pop shadow-[0_0_10px_rgba(250,145,207,0.6)]" : "bg-emerald-500 shadow-[0_0_10px_rgba(16,185,129,0.6)]"} group-hover:animate-pulse`}></div>
             </div>
 
             <div class="flex items-start gap-4">
@@ -278,16 +278,16 @@ const techStack = [
   .tech-card {
   }
 
-  /* Materialization Animation */
+  /* Materialization Animation (Premium) */
   .animate-materialize {
-    animation: materialize 0.5s cubic-bezier(0.2, 1, 0.3, 1) both;
+    animation: materialize 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
   }
 
   @keyframes materialize {
     from {
       opacity: 0;
-      transform: scale(0.95) translateY(10px);
-      filter: blur(10px);
+      transform: scale(0.9) translateY(20px);
+      filter: blur(15px);
     }
     to {
       opacity: 1;
@@ -320,13 +320,17 @@ const techStack = [
     100% { transform: translateX(100%); opacity: 0; }
   }
 
-  /* Scan Animation */
-  .animate-scan {
-    animation: scan-line 4s linear infinite;
+  /* Scan Animation (Optimized to run once or on demand) */
+  .run-scan {
+    animation: scan-line 2.5s cubic-bezier(0.45, 0.05, 0.55, 0.95) forwards;
+    opacity: 1;
   }
+
   @keyframes scan-line {
-    from { transform: translateY(-100%); }
-    to { transform: translateY(100%); }
+    0% { transform: translateY(-100%); opacity: 0; }
+    20% { opacity: 1; }
+    80% { opacity: 1; }
+    100% { transform: translateY(100%); opacity: 0; }
   }
 
   .scrollbar-none::-webkit-scrollbar { display: none; }
@@ -337,29 +341,43 @@ const techStack = [
   const setupTechStack = () => {
     const filterBtns = document.querySelectorAll('.filter-btn');
     const cards = document.querySelectorAll('.tech-card');
+    const rack = document.getElementById('tech-rack');
     
+    // IntersectionObserver for Staggered Power-up
+    const powerUpObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const visibleCards = Array.from(cards).filter(c => !c.classList.contains('hidden'));
+          visibleCards.forEach((card, i) => {
+            setTimeout(() => {
+              card.classList.add('animate-materialize');
+              const scanLine = card.querySelector('.tech-scan');
+              scanLine?.classList.add('run-scan');
+            }, i * 100);
+          });
+          powerUpObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2 });
+
+    if (rack) powerUpObserver.observe(rack);
+
     filterBtns.forEach(btn => {
       btn.addEventListener('click', () => {
         const filter = btn.getAttribute('data-filter');
         
-        // Update Buttons State
         filterBtns.forEach(b => {
           const marker = b.querySelector('.marker-line');
           if (b === btn) {
             b.classList.add('text-white', 'flash-active', 'active-filter');
-            const label = b.querySelector('span:last-child');
-            if (label) label.classList.replace('text-slate-200', 'text-white');
             marker?.classList.add('active');
             setTimeout(() => b.classList.remove('flash-active'), 500);
           } else {
             b.classList.remove('text-white', 'active-filter');
-            const label = b.querySelector('span:last-child');
-            if (label) label.classList.replace('text-white', 'text-slate-200');
             marker?.classList.remove('active');
           }
         });
 
-        // Re-Assembly Protocol
         let visibleCount = 0;
         cards.forEach((card) => {
           const category = card.getAttribute('data-category');
@@ -367,13 +385,17 @@ const techStack = [
           
           if (isMatch) {
             card.classList.remove('hidden');
-            // Remove old animation class to re-trigger
-            (card as HTMLElement).classList.remove('animate-materialize');
-            // Trigger reflow
+            card.classList.remove('animate-materialize');
+            const scanLine = card.querySelector('.tech-scan');
+            scanLine?.classList.remove('run-scan');
+            
             void (card as HTMLElement).offsetWidth;
-            // Add animation with staggered delay
-            (card as HTMLElement).style.animationDelay = `${visibleCount * 50}ms`;
-            (card as HTMLElement).classList.add('animate-materialize');
+            
+            setTimeout(() => {
+              (card as HTMLElement).style.animationDelay = `0ms`;
+              card.classList.add('animate-materialize');
+              scanLine?.classList.add('run-scan');
+            }, visibleCount * 60);
             visibleCount++;
           } else {
             card.classList.add('hidden');
@@ -382,7 +404,6 @@ const techStack = [
       });
     });
 
-    // Mobile Extension Logic
     const expansionBtn = document.getElementById('initialize-full-stack');
     const expansionText = document.getElementById('expansion-text');
     expansionBtn?.addEventListener('click', () => {

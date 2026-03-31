@@ -30,11 +30,12 @@ const sections = [
     ></div>
 
     {
-      sections.map((section) => (
+      sections.map((section, i) => (
         <a
           href={section.href}
           data-section={section.href.split("#")[1] || ''}
-          class="nav-link group relative flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl text-slate-400/60 transition-all duration-300 hover:bg-lofi-accent/10 hover:text-lofi-accent active:scale-90"
+          style={`animation-delay: ${100 + i * 100}ms`}
+          class="nav-link group relative flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl text-slate-400/60 transition-all duration-300 hover:bg-lofi-accent/10 hover:text-lofi-accent active:scale-90 animate-reveal-right"
           aria-label={section.label}
         >
           <Icon
@@ -58,7 +59,8 @@ const sections = [
   <a
     href="https://www.linkedin.com/in/gabriel-gonzalez-fullstack/"
     target="_blank"
-    class="group relative flex h-10 w-10 items-center justify-center rounded-xl text-slate-400/40 transition-all hover:bg-lofi-accent/10 hover:text-lofi-accent"
+    style="animation-delay: 800ms;"
+    class="group relative flex h-10 w-10 items-center justify-center rounded-xl text-slate-400/40 transition-all hover:bg-lofi-accent/10 hover:text-lofi-accent animate-reveal-right"
   >
     <Icon name="tabler:brand-linkedin" size={20} stroke-width={1.5} />
     <div class="pointer-events-none absolute left-full ml-4 z-[300] hidden rounded-md border border-white/10 bg-[#0A0908]/95 px-3 py-1.5 opacity-0 shadow-2xl backdrop-blur-md transition-all group-hover:opacity-100 md:block">
@@ -76,6 +78,25 @@ const sections = [
   /* Reset redundant indicators */
   .active-indicator {
     display: none !important;
+  }
+
+  /* Premium Entrance Animations */
+  .animate-reveal-right {
+    animation: reveal-right 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    opacity: 0;
+  }
+
+  @keyframes reveal-right {
+    from {
+      opacity: 0;
+      transform: translateX(-20px);
+      filter: blur(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+      filter: blur(0);
+    }
   }
 </style>
 

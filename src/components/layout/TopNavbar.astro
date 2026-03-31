@@ -16,7 +16,7 @@ const links = [
 
 <div
   id="mobileMenu"
-  class="will-change-transform will-change-opacity pointer-events-none fixed inset-0 z-[150] flex flex-col items-center justify-center bg-[#050505]/98 opacity-0 backdrop-blur-md transition-all duration-300 ease-out lg:hidden"
+  class="will-change-transform will-change-opacity pointer-events-none fixed inset-0 z-[150] flex flex-col items-center justify-center bg-[#050505]/98 opacity-0 backdrop-blur-md transition-all duration-500 cubic-bezier(0.16, 1, 0.3, 1) lg:hidden"
 >
   <!-- --- TERMINAL BACKGROUND: Binary & Grid --- -->
   <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
@@ -127,7 +127,8 @@ const links = [
   >
     <a
       href="/"
-      class="group relative z-[210] flex items-center gap-3 border-r border-white/5 pr-6 transition-transform active:scale-95"
+      class="group relative z-[210] flex items-center gap-3 border-r border-white/5 pr-6 transition-all active:scale-95 animate-reveal-down"
+      style="animation-delay: 100ms;"
     >
       <div
         class="relative h-10 w-10 overflow-hidden rounded-lg border border-white/10 bg-white/5 p-[2px] transition-all group-hover:border-lofi-accent/50 group-hover:shadow-[0_0_15px_rgba(165,166,246,0.2)]"
@@ -161,16 +162,17 @@ const links = [
     <div class="hidden items-center lg:flex">
       <div class="flex items-center h-full">
         {
-          links.map((link) => (
+          links.map((link, i) => (
             <a
               href={link.href}
-              class="nav-link group relative flex items-center border-x border-white/5 px-6 py-4 font-mono text-[10px] font-bold text-white/70 transition-all hover:bg-white/5 hover:text-white"
+              style={`animation-delay: ${200 + i * 80}ms`}
+              class="nav-link group relative flex items-center border-x border-white/5 px-6 py-4 font-mono text-[10px] font-bold text-white/70 transition-all hover:bg-white/5 hover:text-white animate-reveal-down"
             >
               <div class="flex items-center gap-2 lowercase tracking-widest">
                 <Icon name="tabler:file-code" size={14} class="text-lofi-accent transition-transform group-hover:rotate-12" />
                 {link.label}
               </div>
-              <div class="absolute bottom-0 left-0 h-[2px] w-0 bg-lofi-pop transition-all group-hover:w-full"></div>
+              <div class="absolute bottom-0 left-0 h-[2px] w-0 bg-lofi-pop transition-all duration-300 ease-out group-hover:w-full"></div>
             </a>
           ))
         }
@@ -249,6 +251,25 @@ const links = [
   
   .binary-overlay {
     mask-image: linear-gradient(to bottom, black 10%, transparent 40%);
+  }
+
+  /* Premium Entrance Animations */
+  .animate-reveal-down {
+    animation: reveal-down 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    opacity: 0;
+  }
+
+  @keyframes reveal-down {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+      filter: blur(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+      filter: blur(0);
+    }
   }
 </style>
 

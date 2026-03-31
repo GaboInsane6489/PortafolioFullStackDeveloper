@@ -1,0 +1,93 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<div id="boot-screen" class="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-[#0A0908] p-6 transition-all duration-700 ease-out">
+  <div class="relative w-full max-w-lg">
+    <!-- Boot Logs -->
+    <div class="space-y-2 font-mono text-[10px] text-lofi-accent/60">
+      <div class="boot-log opacity-0 animate-boot-line-1 flex justify-between">
+        <span>[BOOT] INITIALIZING_FS_KERNEL_V1.5</span>
+        <span class="text-white/40">0x00A1</span>
+      </div>
+      <div class="boot-log opacity-0 animate-boot-line-2 flex justify-between">
+        <span>[SYS] LOADING_VIRTUAL_DOM... DONE</span>
+        <span class="text-white/40">0x1B2C</span>
+      </div>
+      <div class="boot-log opacity-0 animate-boot-line-3 flex justify-between">
+        <span>[SYNC] CONNECTING_VENEZUELA_NODE_06... OK</span>
+        <span class="text-white/40">PING_18ms</span>
+      </div>
+      <div class="boot-log opacity-0 animate-boot-line-4 flex justify-between">
+         <span class="text-lofi-pop font-black">[AUTH] WELCOME_G_GONZÁLEZ_SYSTEM</span>
+         <span class="animate-pulse text-lofi-pop">_</span>
+      </div>
+    </div>
+
+    <!-- Progress Scanner -->
+    <div class="mt-8 h-px w-full overflow-hidden bg-white/5">
+        <div class="boot-progress h-full w-full bg-lofi-accent animate-boot-progress origin-left shadow-[0_0_15px_#A5A6F6]"></div>
+    </div>
+  </div>
+
+  <!-- Background Glitch Pulse -->
+  <div class="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_center,rgba(165,166,246,0.03),transparent_70%)] animate-pulse"></div>
+</div>
+
+<style>
+  @keyframes boot-line {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .animate-boot-line-1 { animation: boot-line 0.1s forwards 0.1s; }
+  .animate-boot-line-2 { animation: boot-line 0.1s forwards 0.3s; }
+  .animate-boot-line-3 { animation: boot-line 0.1s forwards 0.5s; }
+  .animate-boot-line-4 { animation: boot-line 0.1s forwards 0.6s; }
+
+  @keyframes boot-progress {
+    0% { transform: scaleX(0); }
+    100% { transform: scaleX(1); }
+  }
+  .animate-boot-progress {
+    animation: boot-progress 0.8s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+  }
+
+  /* Fade out entire screen */
+  .boot-screen-fade-out {
+    opacity: 0;
+    pointer-events: none;
+    filter: blur(20px);
+  }
+</style>
+
+<script>
+  function handleBoot() {
+    const bootScreen = document.getElementById("boot-screen");
+    if (!bootScreen) return;
+
+    // Check if seen before in session
+    const hasSeenBoot = sessionStorage.getItem("hasSeenBoot");
+    
+    if (hasSeenBoot) {
+      bootScreen.remove(); // No wait, just leave
+      return;
+    }
+
+    // After 0.8s animation, fade out
+    setTimeout(() => {
+      bootScreen.classList.add("boot-screen-fade-out");
+      sessionStorage.setItem("hasSeenBoot", "true");
+      
+      // Remove from DOM to free resources
+      setTimeout(() => {
+        bootScreen.remove();
+      }, 700);
+    }, 900);
+  }
+
+  // Initial load
+  handleBoot();
+  // Handle it on every View Transition navigation
+  document.addEventListener('astro:page-load', handleBoot);
+</script>

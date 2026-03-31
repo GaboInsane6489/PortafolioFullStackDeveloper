@@ -3,6 +3,8 @@ import TopNavbar from "../components/layout/TopNavbar.astro";
 import SideNavbar from "../components/layout/SideNavbar.astro";
 import Footer from "../components/layout/Footer.astro";
 import Noise from "../components/ui/Noise.astro";
+import BootScreen from "../components/ui/BootScreen.astro";
+import CustomCursor from "../components/ui/CustomCursor.astro";
 import "../styles/index.css";
 import "flowbite";
 import Analytics from "@vercel/analytics/astro";
@@ -107,10 +109,12 @@ const socials = [
   >
     <!-- Base background color layer (behind everything) -->
     <div class="fixed inset-0 -z-[100] bg-lofi-base"></div>
+    <BootScreen />
+    <CustomCursor />
     <Noise />
-    <div class="pointer-events-none fixed inset-0 -z-50 overflow-hidden">
+    <div id="backdrop-container" class="pointer-events-none fixed inset-0 -z-50 overflow-hidden transition-transform duration-700 ease-out">
       <video
-        class="absolute h-full w-full object-cover opacity-40 transition-opacity duration-1000"
+        class="absolute h-[110%] w-[110%] -left-[5%] -top-[5%] object-cover opacity-30 transition-opacity duration-1000"
         src="/videos/Programando.mp4"
         autoplay
         muted
@@ -120,18 +124,19 @@ const socials = [
         aria-hidden="true"></video>
 
       <div
-        class="absolute inset-0 bg-gradient-to-b from-lofi-base/20 via-transparent to-lofi-base/80 shadow-[inset_0_0_100px_rgba(0,0,0,0.2)]"
+        class="absolute inset-0 bg-gradient-to-b from-lofi-base/20 via-transparent to-lofi-base/80 shadow-[inset:0_0_100px_rgba(0,0,0,0.2)]"
       >
       </div>
 
       <div
-        class="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.01)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.01)_1px,transparent_1px)] [mask-image:radial-gradient(ellipse_at_center,black,transparent_90%)] bg-[size:6rem_6rem]"
+        id="parallax-grid"
+        class="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.01)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.01)_1px,transparent_1px)] [mask-image:radial-gradient(ellipse_at_center,black,transparent_90%)] bg-[size:6rem_6rem] transition-transform duration-500 ease-out"
       >
       </div>
     </div>
 
     <!-- IDE Frame Layout: PERSISTENT INVERTED L -->
-    <div class="relative flex w-full overflow-x-hidden">
+    <div class="relative w-full">
       <!-- Top Bar: Fixed (Horizontal part of L) -->
       <header class="fixed top-0 left-0 z-[500] w-full flex-shrink-0 transition-transform duration-300">
         <TopNavbar />
@@ -145,7 +150,7 @@ const socials = [
       </aside>
 
       <!-- Main Content Area: Natural Scroll (The actual workspace) -->
-      <main class="relative min-h-screen w-full flex-1 pt-[72px] md:pl-20 overflow-x-hidden">
+      <main class="relative min-h-screen w-full pt-[72px] md:pl-20">
         <div class="relative z-10 mx-auto w-full max-w-full">
           <slot />
           <Footer />
@@ -153,20 +158,29 @@ const socials = [
       </main>
     </div>
 
+    <!-- Optimization: Browser Rendering Hint -->
+    <style is:global>
+      section {
+        content-visibility: auto;
+        contain-intrinsic-size: 1px 500px;
+      }
+      #hero {
+        content-visibility: visible;
+      }
+    </style>
+
 
     <script>
       const setupRevealObserver = () => {
         const observerOptions = {
-          threshold: 0.01,
-          // Rootmargin positivo: Dispara 100px ANTES de que el elemento entre al viewport
-          rootMargin: "0px 0px 100px 0px",
+          threshold: 0.05,
+          rootMargin: "0px 0px -50px 0px",
         };
 
         const observer = new IntersectionObserver((entries) => {
           entries.forEach((entry) => {
             if (entry.isIntersecting) {
               entry.target.classList.add("active");
-              // Senior Tip: Unobserve once active for better performance
               observer.unobserve(entry.target);
             }
           });
@@ -177,10 +191,29 @@ const socials = [
           .forEach((el) => observer.observe(el));
       };
 
+      // --- DYNAMIC BACKDROP PARALLAX ---
+      const setupParallax = () => {
+        const backdrop = document.getElementById('backdrop-container');
+        const grid = document.getElementById('parallax-grid');
+        if (!backdrop || !grid) return;
+
+        window.addEventListener('mousemove', (e) => {
+          const moveX = (e.clientX - window.innerWidth / 2) * 0.01;
+          const moveY = (e.clientY - window.innerHeight / 2) * 0.01;
+          
+          backdrop.style.transform = `translate3d(${moveX}px, ${moveY}px, 0)`;
+          grid.style.transform = `translate3d(${moveX * 2}px, ${moveY * 2}px, 0)`;
+        });
+      };
+
       // Initial execution
       setupRevealObserver();
+      setupParallax();
       // Execute on each Astro View Transition swap
-      document.addEventListener("astro:after-swap", setupRevealObserver);
+      document.addEventListener("astro:after-swap", () => {
+        setupRevealObserver();
+        setupParallax();
+      });
     </script>
 
     <style is:global>
@@ -189,24 +222,26 @@ const socials = [
       /* Base reveal class with Hardware Acceleration */
       .reveal {
         opacity: 0;
-        transform: translateY(30px);
-        /* Cubic-bezier "Out Quint" para sensación elástica y suave */
+        filter: blur(10px);
+        transform: translateY(20px) scale(0.98);
         transition: 
-          opacity 1.2s cubic-bezier(0.23, 1, 0.32, 1), 
-          transform 1.2s cubic-bezier(0.23, 1, 0.32, 1);
-        will-change: opacity, transform;
+          opacity 1.4s cubic-bezier(0.16, 1, 0.3, 1), 
+          filter 1.2s cubic-bezier(0.16, 1, 0.3, 1),
+          transform 1.4s cubic-bezier(0.16, 1, 0.3, 1);
+        will-change: opacity, transform, filter;
       }
 
       /* Entrance State */
       .reveal.active {
         opacity: 1;
+        filter: blur(0);
         transform: translateY(0) translateX(0) scale(1);
       }
 
       /* Directional Reveal Variants */
-      .reveal-left { transform: translateX(-30px); }
-      .reveal-right { transform: translateX(30px); }
-      .reveal-scale { transform: scale(0.95); }
+      .reveal-left { transform: translateX(-20px) scale(0.98); }
+      .reveal-right { transform: translateX(20px) scale(0.98); }
+      .reveal-scale { transform: scale(0.92); }
 
       /* Multi-level Delay System (Staggered entries) */
       .delay-100 { transition-delay: 100ms; }

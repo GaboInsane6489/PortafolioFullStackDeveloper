@@ -1,0 +1,103 @@
+<div id="custom-cursor" class="pointer-events-none fixed left-0 top-0 z-[10000] hidden md:block opacity-0 transition-opacity duration-300">
+  <!-- Outer Ring: Lagging/Elastic -->
+  <div class="cursor-outer fixed -left-3 -top-3 h-6 w-6 rounded-full border border-lofi-accent/40 will-change-transform"></div>
+  
+  <!-- Inner Dot: Precise -->
+  <div class="cursor-inner fixed -left-1 -top-1 h-2 w-2 rounded-full bg-lofi-accent shadow-[0_0_10px_#A5A6F6] transition-colors duration-200 will-change-transform"></div>
+</div>
+
+<style is:global>
+  /* Hide default cursor on desktop */
+  @media (pointer: fine) {
+    body, a, button, [role="button"], .project-card {
+      cursor: none !important;
+    }
+  }
+
+  /* Interaction States */
+  .cursor-active .cursor-outer {
+    transform: scale(1.6);
+    border-color: #A5A6F6;
+    background: rgba(165,166,246,0.1);
+  }
+
+  .cursor-active .cursor-inner {
+    transform: scale(0.4);
+    background: #fff !important;
+    box-shadow: 0 0 15px #fff;
+  }
+</style>
+
+<script>
+  function initCursor() {
+    const cursor = document.getElementById('custom-cursor');
+    if (!cursor) return;
+
+    const outer = cursor.querySelector<HTMLElement>('.cursor-outer');
+    const inner = cursor.querySelector<HTMLElement>('.cursor-inner');
+    if (!outer || !inner) return;
+
+    let mouseX = -100;
+    let mouseY = -100;
+    let outerX = -100;
+    let outerY = -100;
+    let innerX = -100;
+    let innerY = -100;
+    let isMoving = false;
+
+    // Movement Tracking
+    window.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      
+      if (!isMoving) {
+        cursor.style.opacity = "1";
+        isMoving = true;
+      }
+    });
+
+    // Unified Animation Loop (60Hz+ Sync)
+    function animate() {
+      // Lerp logic for both parts
+      // Inner is very fast but smooth (0.6), Outer is elastic (0.2)
+      innerX += (mouseX - innerX) * 0.6; 
+      innerY += (mouseY - innerY) * 0.6;
+      
+      outerX += (mouseX - outerX) * 0.2;
+      outerY += (mouseY - outerY) * 0.2;
+      
+      if (inner) inner.style.transform = `translate3d(${innerX}px, ${innerY}px, 0)`;
+      if (outer) outer.style.transform = `translate3d(${outerX}px, ${outerY}px, 0)`;
+      
+      requestAnimationFrame(animate);
+    }
+    animate();
+
+    // High Performance Interaction Detection
+    const interactiveElements = 'a, button, .nav-link, .group, [role="button"], .project-card';
+    
+    const onMouseOver = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      if (target.closest(interactiveElements)) {
+        cursor.classList.add('cursor-active');
+      }
+    };
+    
+    const onMouseOut = (e: MouseEvent) => {
+       const target = e.target as HTMLElement;
+       if (target.closest(interactiveElements)) {
+         cursor.classList.remove('cursor-active');
+       }
+    };
+
+    document.addEventListener('mouseover', onMouseOver);
+    document.addEventListener('mouseout', onMouseOut);
+  }
+
+  // Pre-check for pointer type
+  if (window.matchMedia("(pointer: fine)").matches) {
+    // Only init if not already initialized (Astro After-Swap safety)
+    initCursor();
+    document.addEventListener('astro:after-swap', initCursor);
+  }
+</script>

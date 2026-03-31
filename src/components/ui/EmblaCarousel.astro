@@ -64,13 +64,14 @@ const { images, autoplay = true, interval = 5000 } = Astro.props as Props;
       <div class="embla__container flex">
         {
           images.map((src, index) => (
-            <div class="embla__slide relative min-w-0 flex-[0_0_100%] bg-[#0A0908]">
+            <div class="embla__slide relative min-w-0 flex-[0_0_100%] bg-[#0A0908] [transform:translate3d(0,0,0)] will-change-transform">
               <div class="relative flex aspect-video w-full items-center justify-center p-2 md:p-4">
                 <img
                   src={src}
                   alt={`Preview ${index + 1}`}
-                  class="h-full w-full object-contain drop-shadow-[0_10px_30px_rgba(0,0,0,0.5)] group-hover:scale-[1.02] will-change-transform"
-                  loading="lazy"
+                  class="h-full w-full object-contain drop-shadow-[0_10px_30px_rgba(0,0,0,0.5)] group-hover:scale-[1.02] transition-transform duration-500"
+                  loading={index === 0 ? "eager" : "lazy"}
+                  fetchpriority={index === 0 ? "high" : "low"}
                 />
                 <!-- Subtle HUD Scanlines -->
                 <div class="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(165,166,246,0.02)_50%)] bg-[length:100%_4px] opacity-20"></div>

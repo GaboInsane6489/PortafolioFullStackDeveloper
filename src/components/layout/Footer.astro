@@ -98,7 +98,7 @@ const socials = [
     <div class="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
       <!-- BRANDING SECTION -->
       <div
-        class="flex flex-col items-center space-y-12 text-center lg:col-span-5 lg:items-start lg:text-left"
+        class="reveal flex flex-col items-center space-y-12 text-center lg:col-span-5 lg:items-start lg:text-left"
       >
         <div
           class="flex flex-col items-center gap-7 sm:flex-row lg:items-start"
@@ -156,7 +156,7 @@ const socials = [
 
       <!-- INDEX SECTION -->
       <div
-        class="grid grid-cols-2 gap-8 sm:gap-12 lg:col-span-3 lg:block lg:space-y-12"
+        class="reveal delay-100 grid grid-cols-2 gap-8 sm:gap-12 lg:col-span-3 lg:block lg:space-y-12"
       >
         <h4
           class="col-span-2 flex items-center gap-3 font-mono text-[11px] font-black tracking-[0.6em] text-white uppercase lg:col-auto lg:mb-12"
@@ -184,7 +184,7 @@ const socials = [
       </div>
 
       <!-- NODES SECTION -->
-      <div class="lg:col-span-4">
+      <div class="reveal delay-200 lg:col-span-4">
         <h4
           class="mb-12 flex items-center gap-3 font-mono text-[11px] font-black tracking-[0.6em] text-white uppercase"
         >
@@ -192,11 +192,12 @@ const socials = [
         </h4>
         <div class="grid grid-cols-2 gap-4">
           {
-            socials.map((social) => (
+            socials.map((social, i) => (
               <a
                 href={social.href}
                 target="_blank"
-                class="group relative flex flex-col gap-4 overflow-hidden rounded-2xl border border-white/10 bg-white/[0.04] p-5 transition-all active:scale-95 lg:hover:-translate-y-2 lg:hover:border-lofi-accent/50 lg:hover:bg-lofi-accent/[0.05] lg:hover:shadow-[0_0_30px_rgba(165,166,246,0.1)]"
+                style={`transition-delay: ${i * 100}ms`}
+                class="footer-node group relative flex flex-col gap-4 overflow-hidden rounded-2xl border border-white/10 bg-white/[0.04] p-5 transition-all active:scale-95 lg:hover:-translate-y-2 lg:hover:border-lofi-accent/50 lg:hover:bg-lofi-accent/[0.05] lg:hover:shadow-[0_0_30px_rgba(165,166,246,0.1)]"
               >
                 <!-- Scanner Line FX (Intense) -->
                 <div class="absolute inset-0 -translate-y-full bg-gradient-to-b from-transparent via-lofi-accent/20 to-transparent transition-transform duration-[1500ms] group-hover:translate-y-full"></div>
@@ -274,49 +275,17 @@ const socials = [
   }
   
   a { -webkit-tap-highlight-color: transparent; }
-</style>
 
-<script>
-  function updateClock() {
-    const clockElement = document.getElementById('footer-clock');
-    if (!clockElement) return;
-
-    const now = new Date();
-    const options = {
-      timeZone: 'America/Caracas',
-      hour: '2-digit',
-      minute: '2-digit',
-      second: '2-digit',
-      hour12: false,
-    };
-    
-    // @ts-ignore
-    const timeString = new Intl.DateTimeFormat('en-US', options).format(now);
-    clockElement.textContent = `VENEZUELA // ${timeString}`;
+  .footer-node {
+    opacity: 0;
+    transform: translateY(15px) scale(0.98);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
-  setInterval(updateClock, 1000);
-  updateClock();
-  document.addEventListener('astro:page-load', updateClock);
-</script>
-
-<style>
-  @keyframes loading-bar {
-    0% { transform: translateX(-100%); }
-    100% { transform: translateX(300%); }
+  .reveal.active .footer-node {
+    opacity: 1;
+    transform: translateY(0) scale(1);
   }
-  .animate-loading-bar {
-    animation: loading-bar 4s infinite linear;
-  }
-  .animate-spin-slow {
-    animation: spin 15s linear infinite;
-  }
-  @keyframes spin {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-  }
-  
-  a { -webkit-tap-highlight-color: transparent; }
 </style>
 
 <script>
