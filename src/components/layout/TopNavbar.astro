@@ -10,7 +10,7 @@ const links = [
   { label: "hero.tsx", href: `/${lang}/#hero` },
   { label: "projects.db", href: `/${lang}/#projects` },
   { label: "experience.cpp", href: `/${lang}/#experience` },
-  { label: "laboratory.py", href: `/${lang}/#laboratory` },
+  { label: "uplink.sh", href: `/${lang}/#contact` },
 ];
 ---
 
@@ -60,13 +60,12 @@ const links = [
     <div class="grid grid-cols-2 gap-3 mb-12">
       {[
         { id: "hero", label: "startup.sh", icon: "tabler:terminal" },
+        { id: "projects", label: "projects.ts", icon: "tabler:stack-2" },
         { id: "about-me", label: "profile.md", icon: "tabler:user-code" },
         { id: "tech-stack", label: "stack.json", icon: "tabler:cpu" },
-        { id: "projects", label: "projects.ts", icon: "tabler:stack-2" },
         { id: "experience", label: "exp.log", icon: "tabler:briefcase" },
         { id: "certificates", label: "certs.gpg", icon: "tabler:certificate" },
-        { id: "laboratory", label: "lab.py", icon: "tabler:flask" },
-        { id: "contact", label: "contact.git", icon: "tabler:mail" }
+        { id: "contact", label: "uplink.sh", icon: "tabler:topology-ring-3" }
       ].map((node, i) => (
         <a
           href={`/${lang}/#${node.id}`}
