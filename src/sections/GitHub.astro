@@ -44,6 +44,7 @@ const t = useTranslations(lang);
         class="reveal reveal-scale group relative col-span-12 row-span-2 min-h-[250px] overflow-hidden rounded-3xl border border-white/10 bg-black/40 lg:col-span-8"
       >
         <video
+          id="engineering-video"
           src="/videos/Programando2.mp4"
           class="h-full w-full object-cover opacity-100 transition-transform duration-700 group-hover:scale-[1.02]"
           autoplay
@@ -175,12 +176,26 @@ const t = useTranslations(lang);
   </div>
 </section>
 
-<style>
-  @keyframes scan {
-    from { background-position: 0% 100%; }
-    to { background-position: 0% -100%; }
-  }
-  .animate-scan {
-    animation: scan 4s linear infinite;
-  }
 </style>
+
+<script>
+  const setupEngineeringVideo = () => {
+    const video = document.getElementById('engineering-video') as HTMLVideoElement;
+    if (!video) return;
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          video.play().catch(() => {});
+        } else {
+          video.pause();
+        }
+      });
+    }, { threshold: 0.1 });
+
+    observer.observe(video);
+  };
+
+  setupEngineeringVideo();
+  document.addEventListener('astro:after-swap', setupEngineeringVideo);
+</script>

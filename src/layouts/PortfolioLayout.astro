@@ -9,7 +9,7 @@ import Analytics from "@vercel/analytics/astro";
 import SpeedInsights from "@vercel/speed-insights/astro";
 import { ClientRouter } from "astro:transitions";
 import { getLangFromUrl, useTranslations } from "../i18n/utils";
-import { Icon } from "astro-icon/components"; // Added this import
+import { Icon } from "astro-icon/components";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -110,7 +110,7 @@ const socials = [
     <Noise />
     <div class="pointer-events-none fixed inset-0 -z-50 overflow-hidden">
       <video
-        class="absolute h-full w-full object-cover opacity-40 mix-blend-lighten transition-opacity duration-1000 blur-[2px]"
+        class="absolute h-full w-full object-cover opacity-40 transition-opacity duration-1000"
         src="/videos/Programando.mp4"
         autoplay
         muted

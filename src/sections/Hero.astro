@@ -28,14 +28,14 @@ const t = useTranslations(lang);
     >
       <!-- AVATAR MOD (Sync & Rescale) -->
       <div
-        class="reveal reveal-right relative order-first col-span-1 flex justify-center opacity-0 transition-all delay-150 duration-1000 md:order-last md:col-span-5"
+        class="reveal reveal-right relative order-first col-span-1 flex justify-center md:order-last md:col-span-5"
       >
         <!-- Floating Tech Nodes (Downsized) -->
         <div
           class="animate-float-slow absolute -top-4 -left-4 z-20 hidden sm:block"
         >
           <div
-            class="flex h-8 w-8 items-center justify-center rounded-lg border border-lofi-accent/30 bg-black/60 shadow-[0_0_15px_rgba(165,166,246,0.2)] backdrop-blur-md"
+            class="flex h-8 w-8 items-center justify-center rounded-lg border border-lofi-accent/30 bg-black/60 shadow-[0_0_15px_rgba(165,166,246,0.1)] backdrop-blur-md"
           >
             <Icon
               name="tabler:brand-react"
@@ -45,19 +45,19 @@ const t = useTranslations(lang);
           </div>
         </div>
         <div
-          class="animate-float-medium absolute -right-6 bottom-12 z-20 hidden sm:block"
+          class="animate-float-medium absolute -right-6 bottom-12 z-20 hidden sm:block delay-200"
         >
           <div
-            class="flex h-10 w-10 items-center justify-center rounded-lg border border-lofi-pop/30 bg-black/60 shadow-[0_0_15px_rgba(139,92,246,0.15)] backdrop-blur-md"
+            class="flex h-10 w-10 items-center justify-center rounded-lg border border-lofi-pop/30 bg-black/60 shadow-[0_0_15px_rgba(139,92,246,0.1)] backdrop-blur-md"
           >
             <Icon name="tabler:brand-nodejs" size={20} class="text-white" />
           </div>
         </div>
         <div
-          class="animate-float-fast absolute -bottom-2 left-12 z-20 hidden sm:block"
+          class="animate-float-fast absolute -bottom-2 left-12 z-20 hidden sm:block delay-300"
         >
           <div
-            class="flex h-7 w-7 items-center justify-center rounded-lg border border-white/20 bg-black/60 shadow-[0_0_10px_rgba(255,255,255,0.1)] backdrop-blur-md"
+            class="flex h-7 w-7 items-center justify-center rounded-lg border border-white/20 bg-black/60 shadow-[0_0_10px_rgba(255,255,255,0.05)] backdrop-blur-md"
           >
             <Icon name="tabler:brand-astro" size={14} class="text-white" />
           </div>
@@ -65,7 +65,7 @@ const t = useTranslations(lang);
 
         <div
           id="hero-avatar-container"
-          class="group relative z-10 w-full max-w-[170px] cursor-pointer rounded-2xl border border-white/20 bg-lofi-base/40 p-1.5 backdrop-blur-md transition-all duration-700 will-change-transform hover:scale-[1.03] hover:shadow-[0_0_40px_rgba(165,166,246,0.15)] active:scale-[0.98] sm:max-w-[220px] md:max-w-[240px] lg:max-w-[260px]"
+          class="group relative z-10 w-full max-w-[170px] cursor-pointer rounded-2xl border border-white/20 bg-lofi-base/40 p-1.5 backdrop-blur-md transition-all duration-300 hover:scale-[1.03] active:scale-[0.98] sm:max-w-[220px] md:max-w-[240px] lg:max-w-[260px]"
         >
           <!-- Corner Markers (Subtle) -->
           <div
@@ -86,14 +86,14 @@ const t = useTranslations(lang);
           </div>
 
           <div
-            class="overflow-hidden rounded-xl border border-white/5 bg-[#050505] shadow-2xl"
+            class="overflow-hidden rounded-xl border border-white/5 bg-[#050505] shadow-xl"
           >
             <div
               class="flex items-center justify-between border-b border-white/10 bg-[#0F0F0F] px-4 py-2"
             >
               <div class="flex gap-1">
                 <div
-                  class="h-1 w-1 rounded-full bg-red-500/60 shadow-[0_0_5px_rgba(239,68,68,0.4)]"
+                  class="h-1 w-1 rounded-full bg-red-500/60"
                 >
                 </div>
                 <div class="h-1 w-1 rounded-full bg-yellow-500/20"></div>
@@ -116,7 +116,8 @@ const t = useTranslations(lang);
               <img
                 src="/images/PerfilProgramador.webp"
                 alt="Gabriel Gonzalez Profile"
-                class="h-full w-full object-cover transition-all duration-1000 group-hover:scale-105"
+                class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                loading="eager"
               />
               <div
                 class="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-transparent opacity-50"
@@ -146,7 +147,7 @@ const t = useTranslations(lang);
                   >
                   </div>
                   <div
-                    class="h-full w-full rounded-full bg-lofi-accent shadow-[0_0_5px_#A5A6F6]"
+                    class="h-full w-full rounded-full bg-lofi-accent"
                   >
                   </div>
                 </div>
@@ -159,7 +160,7 @@ const t = useTranslations(lang);
         </div>
         <!-- Shadow Glow -->
         <div
-          class="absolute -inset-10 -z-10 rounded-full bg-lofi-accent/[0.04] blur-[80px] transition-all duration-1000 group-hover:bg-lofi-accent/[0.08]"
+          class="absolute -inset-10 -z-10 rounded-full bg-lofi-accent/[0.03] blur-[60px]"
         >
         </div>
       </div>
@@ -170,7 +171,7 @@ const t = useTranslations(lang);
       >
         <div class="space-y-3 lg:space-y-3.5">
           <!-- STATUS: Downsized -->
-          <div class="reveal opacity-0 transition-all duration-700 ease-out">
+          <div class="reveal">
             <div
               class="inline-flex items-center gap-2 rounded-full border border-lofi-accent/20 bg-lofi-accent/5 px-3 py-1.5 backdrop-blur-md"
             >
@@ -179,7 +180,7 @@ const t = useTranslations(lang);
                   class="absolute inline-flex h-full w-full animate-ping rounded-full bg-lofi-pop/50 opacity-75"
                 ></span>
                 <span
-                  class="relative inline-flex h-1.5 w-1.5 rounded-full bg-lofi-pop shadow-[0_0_5px_#8B5CF6]"
+                  class="relative inline-flex h-1.5 w-1.5 rounded-full bg-lofi-pop"
                 ></span>
               </span>
               <span
@@ -191,19 +192,19 @@ const t = useTranslations(lang);
 
           <!-- HEADLINE: Downsized from 7xl to balanced size -->
           <h1
-            class="reveal font-sans text-[clamp(1.7rem,6vw,2.2rem)] leading-[1.1] font-black tracking-tighter text-white opacity-0 transition-all duration-1000 md:text-[clamp(2.2rem,5vw,3rem)] lg:text-5xl"
+            class="reveal font-sans text-[clamp(1.7rem,6vw,2.2rem)] leading-[1.1] font-black tracking-tighter text-white md:text-[clamp(2.2rem,5vw,3rem)] lg:text-5xl"
           >
             {t("hero.description1")}
             <br />
             <span
-              class="text-lofi-gradient drop-shadow-[0_0_10px_rgba(165,166,246,0.2)] transition-all duration-500 hover:drop-shadow-[0_0_20px_rgba(165,166,246,0.4)]"
+              class="text-lofi-gradient transition-all duration-300"
               >{t("hero.description2")}</span
             >
           </h1>
 
           <!-- TAGLINE: Subtle -->
           <p
-            class="reveal mx-auto max-w-md translate-y-3 font-mono text-[10px] font-bold tracking-[0.15em] text-white/40 uppercase opacity-0 transition-all delay-150 duration-700 md:text-[11px] lg:mx-0"
+            class="reveal delay-100 mx-auto max-w-md translate-y-3 font-mono text-[10px] font-bold tracking-[0.15em] text-white/40 uppercase md:text-[11px] lg:mx-0"
           >
             {t("hero.tagline")}
           </p>
@@ -211,11 +212,11 @@ const t = useTranslations(lang);
 
         <!-- REFINED BUTTONS: Tighter -->
         <div
-          class="reveal flex w-full translate-y-3 flex-col gap-3.5 opacity-0 transition-all delay-300 duration-700 sm:flex-row sm:justify-center md:justify-start lg:justify-start"
+          class="reveal delay-200 flex w-full translate-y-3 flex-col gap-3.5 sm:flex-row sm:justify-center md:justify-start lg:justify-start"
         >
           <a
             href="#projects"
-            class="group relative flex w-full items-center justify-center gap-3 overflow-hidden rounded-xl bg-white px-6 py-3.5 text-[9px] font-black tracking-widest text-black transition-all hover:shadow-[0_0_25px_rgba(255,255,255,0.4)] active:scale-95 sm:w-auto"
+            class="group relative flex w-full items-center justify-center gap-3 overflow-hidden rounded-xl bg-white px-6 py-3.5 text-[9px] font-black tracking-widest text-black transition-all active:scale-95 sm:w-auto"
           >
             <span class="relative z-10 transition-colors group-hover:text-white"
               >EXPLORE_COLLECTION</span
@@ -226,7 +227,7 @@ const t = useTranslations(lang);
               class="relative z-10 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:text-white"
             />
             <div
-              class="absolute inset-0 -translate-x-full bg-lofi-accent transition-transform duration-500 ease-out group-hover:translate-x-0"
+              class="absolute inset-0 -translate-x-full bg-lofi-accent transition-transform duration-300 ease-out group-hover:translate-x-0"
             >
             </div>
           </a>
@@ -245,7 +246,7 @@ const t = useTranslations(lang);
 
         <!-- STRATEGIC SELLING STATS: Balanced -->
         <div
-          class="reveal grid w-full max-w-sm grid-cols-2 gap-x-8 gap-y-4 border-t border-white/10 pt-6 opacity-0 transition-all delay-500 duration-1000 sm:max-w-md sm:grid-cols-3 md:pt-8 lg:max-w-none lg:pt-6"
+          class="reveal delay-300 grid w-full max-w-sm grid-cols-2 gap-x-8 gap-y-4 border-t border-white/10 pt-6 sm:max-w-md sm:grid-cols-3 md:pt-8 lg:max-w-none lg:pt-6"
         >
           {
             [
@@ -270,7 +271,7 @@ const t = useTranslations(lang);
                   {stat.label}
                 </span>
                 <span
-                  class={`block text-base font-black tracking-tight ${stat.accent ? "text-lofi-accent shadow-[0_0_10px_#A5A6F6_30%]" : "text-white"}`}
+                  class={`block text-base font-black tracking-tight ${stat.accent ? "text-lofi-accent" : "text-white"}`}
                 >
                   {stat.value}
                 </span>

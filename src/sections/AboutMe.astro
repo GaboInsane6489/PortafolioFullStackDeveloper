@@ -108,9 +108,9 @@ const t = useTranslations(lang);
       </div>
 
       {/* Bottom Row: Panoramic Hero Video */}
-      <div class="reveal reveal-scale group relative w-full delay-700">
+      <div class="reveal reveal-scale group relative w-full delay-300">
         <div
-          class="flex w-full flex-col overflow-hidden rounded-xl border border-white/10 bg-[#0A0908] shadow-2xl transition-all duration-700 group-hover:border-lofi-accent/40 group-hover:shadow-[0_0_40px_rgba(165,166,246,0.1)]"
+          class="flex w-full flex-col overflow-hidden rounded-xl border border-white/10 bg-[#0A0908] shadow-2xl transition-all duration-300 group-hover:border-lofi-accent/40"
         >
           <div
             class="flex h-8 shrink-0 items-center justify-between bg-[#1A1513] px-4"
@@ -142,8 +142,9 @@ const t = useTranslations(lang);
 
           <div class="relative h-[250px] w-full sm:h-[340px] lg:h-[420px]">
             <video
+              id="about-video"
               src="/videos/Code3.mp4"
-              class="absolute inset-0 h-full w-full object-cover opacity-60 transition-all duration-1000 group-hover:scale-[1.02] group-hover:opacity-100"
+              class="absolute inset-0 h-full w-full object-cover opacity-60 transition-transform duration-700 group-hover:scale-[1.01] group-hover:opacity-100"
               autoplay
               loop
               muted
@@ -165,10 +166,32 @@ const t = useTranslations(lang);
         </div>
 
         <div
-          class="absolute -inset-4 -z-10 rounded-[2rem] bg-lofi-accent/5 opacity-0 blur-3xl transition-opacity duration-700 group-hover:opacity-100"
+          class="absolute -inset-4 -z-10 rounded-[2rem] bg-lofi-accent/5 opacity-0 blur-3xl transition-opacity duration-500 group-hover:opacity-100"
         >
         </div>
       </div>
     </div>
   </div>
 </section>
+
+<script>
+  const setupAboutVideo = () => {
+    const video = document.getElementById('about-video') as HTMLVideoElement;
+    if (!video) return;
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          video.play().catch(() => {}); // Handle potential play() rejection
+        } else {
+          video.pause();
+        }
+      });
+    }, { threshold: 0.1 });
+
+    observer.observe(video);
+  };
+
+  setupAboutVideo();
+  document.addEventListener('astro:after-swap', setupAboutVideo);
+</script>

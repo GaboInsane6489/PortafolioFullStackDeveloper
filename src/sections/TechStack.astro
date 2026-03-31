@@ -186,7 +186,7 @@ const techStack = [
       {
         techStack.map((tech: any, index: number) => (
           <div
-            class="tech-card group relative overflow-hidden rounded-xl border border-white/5 bg-[#050505]/60 p-5 backdrop-blur-md transition-all duration-500"
+            class="tech-card group relative overflow-hidden rounded-xl border border-white/5 bg-[#0A0A0A]/95 p-5 transition-all duration-500"
             data-category={tech.category}
             style={`transition-delay: ${index * 30}ms`}
           >
@@ -262,36 +262,20 @@ const techStack = [
 </section>
 
 <style>
-  /* Rotating Energy Border */
-  .energy-border::before {
-    content: '';
-    position: absolute;
-    inset: -1px;
-    padding: 1px;
-    border-radius: inherit;
-    background: conic-gradient(
-      from 0deg,
-      transparent 0deg,
-      transparent 90deg,
-      rgba(165, 166, 246, 0.4) 180deg,
-      transparent 270deg,
-      transparent 360deg
-    );
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    opacity: 0.3;
-    animation: rotate-border 6s linear infinite;
+  /* Simplified Energy Border */
+  .energy-border {
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
   }
-
-  @keyframes rotate-border {
-    to { transform: rotate(360deg); }
+  
+  .group:hover .energy-border {
+    border-color: rgba(165, 166, 246, 0.3);
+    box-shadow: 0 0 15px rgba(165, 166, 246, 0.1);
   }
 
   /* Filter Logic State Transitions */
   .tech-card {
-    will-change: transform, opacity, filter;
   }
 
   /* Materialization Animation */

@@ -35,15 +35,15 @@ const projects = allProjects
       {projects.map((project: CollectionEntry<"projects">, i: number) => (
         <a
           href={`/${lang}/projects/${project.id.split("/")[1]}`}
-          style={`transition-delay: ${(i % 3) * 150}ms`}
-          class="group relative flex flex-col overflow-hidden rounded-2xl border border-lofi-accent/10 bg-black/40 p-1 backdrop-blur-xl transition-all duration-500 hover:-translate-y-1 hover:border-lofi-accent/40 hover:shadow-[0_0_40px_rgba(165,166,246,0.15)] reveal reveal-scale"
+          style={`transition-delay: ${(i % 3) * 100}ms`}
+          class="group relative flex flex-col overflow-hidden rounded-2xl border border-lofi-accent/10 bg-[#0A0A0A]/95 p-1 transition-all duration-300 hover:-translate-y-1 hover:border-lofi-accent/40 hover:shadow-[0_0_40px_rgba(165,166,246,0.1)] reveal reveal-scale"
         >
           {/* Main Visual Preview */}
           <div class="relative aspect-video overflow-hidden rounded-xl border border-white/5">
             <img
               src={project.data.mainImage}
               alt={project.data.title}
-              class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+              class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
             />
             <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
           </div>
@@ -107,41 +107,3 @@ const projects = allProjects
     </div>
   </div>
 </section>
-
-<style>
-  .reveal {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-  .reveal.active {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  .reveal-scale {
-    transform: scale(0.95);
-  }
-  .reveal-scale.active {
-    transform: scale(1);
-  }
-</style>
-
-<script>
-  function initReveal() {
-    const reveals = document.querySelectorAll(".reveal");
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("active");
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0, rootMargin: "50px" },
-    );
-    reveals.forEach((el) => observer.observe(el));
-  }
-  initReveal();
-  document.addEventListener("astro:page-load", initReveal);
-</script>

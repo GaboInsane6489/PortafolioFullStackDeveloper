@@ -50,7 +50,7 @@ const t = useTranslations(lang);
       <div class="grid grid-cols-1 gap-6 lg:grid-cols-3 lg:gap-8">
         <!-- Column 1: Engineering Toolkit (The Base) -->
         <div
-          class="reveal reveal-right group relative overflow-hidden rounded-xl border border-white/5 bg-black/60 p-6 backdrop-blur-xl transition-all duration-500 hover:border-lofi-accent/30"
+          class="reveal reveal-right group relative overflow-hidden rounded-xl border border-white/5 bg-black/60 p-6 backdrop-blur-xl hover:border-lofi-accent/30"
         >
           <div
             class="mb-6 flex items-center justify-between border-b border-white/5 pb-4"
@@ -233,32 +233,14 @@ const t = useTranslations(lang);
     min-height: auto;
   }
 
-  .reveal {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-  .reveal.active {
-    opacity: 1;
-    transform: translateY(0);
-  }
   .reveal-scale {
     transform: scale(0.95);
-  }
-  .reveal-scale.active {
-    transform: scale(1);
   }
   .reveal-right {
     transform: translateX(-20px);
   }
-  .reveal-right.active {
-    transform: translateX(0);
-  }
   .reveal-left {
     transform: translateX(20px);
-  }
-  .reveal-left.active {
-    transform: translateX(0);
   }
 
   @keyframes spin-slow {
@@ -274,22 +256,3 @@ const t = useTranslations(lang);
   }
 </style>
 
-<script>
-  function initReveal() {
-    const reveals = document.querySelectorAll(".reveal");
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("active");
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.1 },
-    );
-    reveals.forEach((el) => observer.observe(el));
-  }
-  initReveal();
-  document.addEventListener("astro:page-load", initReveal);
-</script>
