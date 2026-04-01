@@ -59,7 +59,7 @@ const HarryPotterHeadForumImages = Array.from(
              ].map((stat) => (
                <div class="group/stat relative overflow-hidden rounded-lg border border-white/5 bg-white/[0.02] p-3 transition-all hover:border-lofi-accent/30 hover:bg-lofi-accent/5">
                  <div class="flex flex-col gap-1">
-                   <span class="font-mono text-[8px] font-bold text-white/20 uppercase tracking-widest">{stat.label}</span>
+                   <span class="font-mono text-[8px] font-bold text-white/50 uppercase tracking-widest">{stat.label}</span>
                    <span class="font-mono text-[11px] font-black text-lofi-accent group-hover/stat:text-white transition-colors">{stat.val}</span>
                  </div>
                  <div class="absolute -right-2 -bottom-2 opacity-0 group-hover/stat:opacity-10 transition-opacity">
@@ -90,7 +90,7 @@ const HarryPotterHeadForumImages = Array.from(
           <div class="relative overflow-hidden rounded-xl border border-white/5 bg-white/[0.01] p-4">
              <div class="mb-3 flex justify-between items-center">
                 <span class="font-mono text-[9px] font-black text-lofi-accent tracking-widest uppercase drop-shadow-[0_0_8px_rgba(165,166,246,0.3)]">{t("exp.pulse.title")}</span>
-                <span class="font-mono text-[8px] text-white/40">{t("exp.pulse.calibration")}</span>
+                <span class="font-mono text-[8px] text-white/70">{t("exp.pulse.calibration")}</span>
              </div>
              <div class="space-y-3">
                 {[
@@ -99,12 +99,12 @@ const HarryPotterHeadForumImages = Array.from(
                   { label: "CLOUD_SYN", val: 82, color: "bg-lofi-pop" }
                 ].map((bar) => (
                   <div class="space-y-1">
-                    <div class="flex justify-between font-mono text-[7px] text-white/30 uppercase tracking-tighter">
+                    <div class="flex justify-between font-mono text-[7px] text-white/60 uppercase tracking-tighter">
                       <span>{bar.label}</span>
                       <span>{bar.val}%</span>
                     </div>
                     <div class="h-1 w-full bg-white/5 rounded-full overflow-hidden">
-                      <div class={`h-full ${bar.color} opacity-60 rounded-full`} style={`width: ${bar.val}%`}></div>
+                      <div class={`h-full ${bar.color} opacity-100 drop-shadow-[0_0_5px_currentColor] rounded-full`} style={`width: ${bar.val}%`}></div>
                     </div>
                   </div>
                 ))}
@@ -118,7 +118,7 @@ const HarryPotterHeadForumImages = Array.from(
               <div class="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse"></div>
               <span class="text-white/40 uppercase tracking-widest">{t("exp.logs.title")}</span>
            </div>
-           <ul class="space-y-1.5 text-white/60">
+           <ul class="space-y-1.5 text-white/90">
               <li class="flex gap-2">
                  <span class="text-white/20">[01]</span>
                  <span class="text-emerald-500/70">{t("exp.logs.item1")}</span>
@@ -140,7 +140,7 @@ const HarryPotterHeadForumImages = Array.from(
 
 
         <!-- Visual Schematic Filler (Background) -->
-        <div class="reveal delay-300 pointer-events-none relative mt-4 h-40 w-full opacity-30">
+        <div class="reveal delay-300 pointer-events-none relative mt-4 h-40 w-full opacity-60">
           <svg width="100%" height="100%" viewBox="0 0 400 160" class="text-lofi-accent">
             <path d="M 0 20 L 380 20 L 380 140 L 20 140 Z" fill="none" stroke="currentColor" stroke-width="0.5" stroke-dasharray="4 4" />
             <circle cx="20" cy="20" r="2" fill="currentColor" />
@@ -181,7 +181,7 @@ const HarryPotterHeadForumImages = Array.from(
             >
               <div class="space-y-1">
                 <span
-                  class="font-mono text-[8px] font-bold tracking-[0.2em] text-lofi-accent uppercase"
+                  class="font-mono text-[8px] font-bold tracking-[0.2em] text-lofi-accent drop-shadow-[0_0_5px_currentColor] uppercase"
                   >MISSION_ACTIVE // PRD_STP</span
                 >
                 <h3
@@ -213,7 +213,7 @@ const HarryPotterHeadForumImages = Array.from(
               </div>
               <div class="flex flex-col">
                 <span
-                  class="font-mono text-[9px] font-bold text-lofi-accent/80 uppercase"
+                  class="font-mono text-[9px] font-bold text-lofi-accent drop-shadow-[0_0_5px_currentColor] uppercase"
                   >ENTITY_NODE</span
                 >
                 <span

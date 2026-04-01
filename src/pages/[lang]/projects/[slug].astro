@@ -5,11 +5,11 @@ import { Icon } from "astro-icon/components";
 
 export async function getStaticPaths() {
   const allProjects = await getCollection("projects");
-  return allProjects.map((project: CollectionEntry<"projects">, index) => {
+  return allProjects.map((project: CollectionEntry<"projects">, index: number) => {
     const [lang, slug] = project.id.split("/");
     // Filter collection by language for internal navigation
-    const projectsInLang = allProjects.filter(p => p.id.startsWith(`${lang}/`));
-    const projectIndex = projectsInLang.findIndex(p => p.id === project.id);
+    const projectsInLang = allProjects.filter((p: CollectionEntry<"projects">) => p.id.startsWith(`${lang}/`));
+    const projectIndex = projectsInLang.findIndex((p: CollectionEntry<"projects">) => p.id === project.id);
     const nextProject = projectsInLang[(projectIndex + 1) % projectsInLang.length];
     
     return {
@@ -46,20 +46,20 @@ const projectShortTitle = title.split(' ')[0].toLowerCase();
       <header class="mb-10 space-y-4 reveal">
         <div class="flex flex-wrap items-center gap-3 border-b border-white/10 pb-4">
           <div class="flex items-center gap-2">
-             <div class="h-1.5 w-1.5 rounded-full bg-emerald-500 shadow-[0_0_5px_#10B981]"></div>
-             <span class="font-mono text-[9px] font-black tracking-[0.3em] text-white/90 uppercase italic">{status || 'STABLE'}</span>
+             <div class="h-1.5 w-1.5 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,1)] animate-pulse"></div>
+             <span class="font-mono text-[9px] font-black tracking-[0.3em] text-white uppercase italic drop-shadow-sm">{status || 'STABLE'}</span>
           </div>
-          <span class="font-mono text-[9px] text-white/20">/</span>
-          <span class="font-mono text-[9px] font-bold text-white/30 tracking-widest uppercase">{project.id.toUpperCase()}</span>
-          <span class="font-mono text-[9px] text-white/20">/</span>
-          <span class="font-mono text-[9px] font-bold text-white/30 tracking-widest uppercase italic">0x{projectShortTitle}_sys</span>
+          <span class="font-mono text-[9px] text-white/40">/</span>
+          <span class="font-mono text-[9px] font-bold text-white/60 tracking-widest uppercase">{project.id.toUpperCase()}</span>
+          <span class="font-mono text-[9px] text-white/40">/</span>
+          <span class="font-mono text-[9px] font-bold text-white/60 tracking-widest uppercase italic drop-shadow-[0_0_5px_rgba(255,255,255,0.3)]">0x{projectShortTitle}_sys</span>
         </div>
 
         <div class="space-y-2">
            <h1 class="font-sans text-[clamp(1.8rem,7vw,3.2rem)] font-black tracking-tighter text-white leading-[1.05]">
-             {title}<span class="text-lofi-accent animate-pulse italic">_</span>
+             {title}<span class="text-lofi-accent drop-shadow-[0_0_10px_currentColor] animate-pulse italic">_</span>
            </h1>
-           <p class="max-w-xl text-base font-normal leading-relaxed text-white/50" set:html={description} />
+           <p class="max-w-xl text-base font-normal leading-relaxed text-white/80" set:html={description} />
         </div>
       </header>
 
@@ -77,9 +77,9 @@ const projectShortTitle = title.split(' ')[0].toLowerCase();
                
                <div class="overflow-hidden rounded-lg bg-[#050505] relative">
                   <div class="absolute inset-x-0 top-0 z-30 h-1/2 w-full animate-scanline bg-gradient-to-b from-transparent via-lofi-accent/5 to-transparent"></div>
-                  <img src={mainImage} alt={title} class="w-full h-auto object-cover grayscale-[20%] transition-all duration-1000 group-hover:grayscale-0 group-hover:scale-[1.01]" />
-                  <div class="absolute bottom-3 left-3 flex items-center gap-2 rounded border border-white/10 bg-black/60 px-2 py-1 font-mono text-[8px] text-white/60">
-                     <span class="h-1 w-1 rounded-full bg-lofi-accent underline"></span>
+                  <img src={mainImage} alt={title} class="w-full h-auto object-cover grayscale-[5%] transition-all duration-1000 group-hover:grayscale-0 group-hover:scale-[1.01]" />
+                  <div class="absolute bottom-3 left-3 flex items-center gap-2 rounded border border-lofi-accent/30 bg-black/60 shadow-[0_0_15px_rgba(165,166,246,0.15)] backdrop-blur-md px-2 py-1 font-mono text-[8px] text-white/90">
+                     <span class="h-1.5 w-1.5 rounded-full bg-lofi-accent animate-pulse shadow-[0_0_5px_currentColor]"></span>
                      PRIMARY_PAYLOAD::ROOT
                   </div>
                </div>
@@ -89,8 +89,8 @@ const projectShortTitle = title.split(' ')[0].toLowerCase();
           {/* ASYMMETRIC NARRATIVE START */}
           <div class="reveal">
              <div class="flex items-center gap-4 mb-8">
-                <span class="font-mono text-[10px] font-black tracking-[0.4em] text-white/30 uppercase">SYSTEM_LOGS</span>
-                <div class="h-px flex-1 bg-white/5"></div>
+                <span class="font-mono text-[10px] font-black tracking-[0.4em] text-white/70 drop-shadow-sm uppercase">SYSTEM_LOGS</span>
+                <div class="h-px flex-1 bg-white/10"></div>
              </div>
              
              <article class="prose prose-invert prose-lofi max-w-none">
@@ -108,9 +108,9 @@ const projectShortTitle = title.split(' ')[0].toLowerCase();
           {images && images.length > 0 && (
              <div class="grid grid-cols-1 md:grid-cols-2 gap-8 reveal">
                 {images.slice(0, 2).map((img : string, i : number) => (
-                   <div class="group relative rounded-lg border border-white/10 p-1 bg-black/40 transition-all hover:border-lofi-accent/20">
-                      <div class="absolute top-2 left-2 z-20 font-mono text-[7px] text-white/30 tracking-widest uppercase">ASSET_REF_{i+1}</div>
-                      <img src={img} alt={`Asset ${i}`} class="w-full aspect-[4/3] object-cover rounded shadow-inner opacity-80 group-hover:opacity-100 transition-opacity" />
+                   <div class="group relative rounded-lg border border-white/10 p-1 bg-black/40 transition-all hover:border-lofi-accent/40">
+                      <div class="absolute top-2 left-2 z-20 font-mono text-[7px] text-white/70 tracking-widest uppercase drop-shadow-[0_0_5px_rgba(0,0,0,0.8)]">ASSET_REF_{i+1}</div>
+                      <img src={img} alt={`Asset ${i}`} class="w-full aspect-[4/3] object-cover rounded shadow-inner opacity-90 group-hover:opacity-100 transition-opacity" />
                    </div>
                 ))}
              </div>
@@ -132,25 +132,25 @@ const projectShortTitle = title.split(' ')[0].toLowerCase();
                 </a>
              )}
              {githubUrl && (
-                <a href={githubUrl} target="_blank" class="group flex items-center justify-between gap-3 overflow-hidden rounded-lg border border-white/10 bg-black/40 px-5 py-3 text-white transition-all hover:border-lofi-accent/40 active:scale-95">
+                <a href={githubUrl} target="_blank" class="group flex items-center justify-between gap-3 overflow-hidden rounded-lg border border-white/20 bg-black/40 px-5 py-3 text-white transition-all hover:border-lofi-accent/60 hover:shadow-[0_0_15px_rgba(165,166,246,0.3)] active:scale-95">
                    <div class="flex items-center gap-3">
-                      <Icon name="tabler:brand-github" size={16} class="text-white/40 group-hover:text-lofi-accent transition-colors" />
+                      <Icon name="tabler:brand-github" size={16} class="text-white/60 group-hover:text-lofi-accent drop-shadow-[0_0_5px_currentColor] transition-colors" />
                       <span class="font-mono text-[9px] font-black tracking-[0.2em] uppercase">DECRYPT::SRC</span>
                    </div>
-                   <Icon name="tabler:code" size={12} class="text-white/20 group-hover:text-lofi-accent transition-colors" />
+                   <Icon name="tabler:code" size={12} class="text-white/40 group-hover:text-lofi-accent transition-colors" />
                 </a>
              )}
           </div>
 
           {/* TECH STACK: Dynamic Gutter */}
           <div class="space-y-4 rounded-xl border border-white/5 bg-white/[0.01] p-5">
-             <div class="flex items-center justify-between border-b border-white/5 pb-3">
-                <span class="font-mono text-[9px] font-black tracking-[0.3em] text-white/20 uppercase">TECH_CORE</span>
-                <span class="font-mono text-[9px] text-lofi-accent/60 italic overflow-hidden">[{techStack.length}]</span>
+             <div class="flex items-center justify-between border-b border-white/10 pb-3">
+                <span class="font-mono text-[9px] font-black tracking-[0.3em] text-white/60 uppercase">TECH_CORE</span>
+                <span class="font-mono text-[9px] text-lofi-accent italic drop-shadow-[0_0_5px_currentColor] overflow-hidden">[{techStack.length}]</span>
              </div>
              <div class="flex flex-wrap gap-2">
                 {techStack.map((tech: string) => (
-                   <span class="font-mono text-[9px] font-black text-white/50 tracking-tight uppercase hover:text-white transition-colors cursor-default">
+                   <span class="font-mono text-[9px] font-black text-white/80 tracking-tight uppercase hover:text-white drop-shadow-sm transition-colors cursor-default">
                       {tech}
                    </span>
                 ))}
@@ -177,14 +177,14 @@ const projectShortTitle = title.split(' ')[0].toLowerCase();
       {images && images.length > 2 && (
          <section class="mt-24 space-y-12">
             <div class="flex items-center gap-4">
-               <span class="font-mono text-[10px] font-black tracking-[0.4em] text-white/10 uppercase">EXTENDED_ASSET_CACHE</span>
+               <span class="font-mono text-[10px] font-black tracking-[0.4em] text-white/40 uppercase">EXTENDED_ASSET_CACHE</span>
                <div class="h-px flex-1 bg-white/5"></div>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 reveal">
                {images.slice(2).map((img : string, i : number) => (
                   <div class="group relative rounded-xl border border-white/5 bg-white/[0.02] p-1 transition-all hover:bg-white/[0.04]">
-                     <img src={img} alt={`Asset Cache ${i}`} class="w-full aspect-video object-cover rounded-lg grayscale-[40%] group-hover:grayscale-0 transition-all duration-700" loading="lazy" />
+                     <img src={img} alt={`Asset Cache ${i}`} class="w-full aspect-video object-cover rounded-lg grayscale-[15%] opacity-90 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700" loading="lazy" />
                      <div class="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-all transform translate-x-2 group-hover:translate-x-0">
                         <span class="font-mono text-[7px] text-white bg-lofi-accent px-1.5 py-0.5 rounded italic">NODE_0x0{i+3}</span>
                      </div>
@@ -199,13 +199,13 @@ const projectShortTitle = title.split(' ')[0].toLowerCase();
          <footer class="mt-32 pt-16 border-t border-white/10 reveal">
             <a href={`/${lang}/projects/${nextProject.id.split('/')[1]}`} class="group relative flex items-center justify-between p-8 rounded-2xl border border-white/5 bg-white/[0.01] hover:border-lofi-accent/20 transition-all overflow-hidden">
                <div class="space-y-2 relative z-10">
-                  <span class="font-mono text-[8px] font-black tracking-[0.5em] text-white/20 uppercase">UPCOMING_MODULE</span>
+                  <span class="font-mono text-[8px] font-black tracking-[0.5em] text-white/50 uppercase">UPCOMING_MODULE</span>
                   <h4 class="font-sans text-2xl font-black tracking-tighter text-white group-hover:text-lofi-accent transition-colors">
                      {nextProject.data.title}
                   </h4>
                </div>
                <div class="flex items-center gap-4 relative z-10">
-                  <span class="font-mono text-[9px] font-black text-white/20 uppercase hidden sm:block">REQUEST_INIT</span>
+                  <span class="font-mono text-[9px] font-black text-white/50 uppercase hidden sm:block">REQUEST_INIT</span>
                   <div class="h-10 w-10 flex items-center justify-center rounded-full border border-white/10 text-white transition-all group-hover:bg-lofi-accent group-hover:border-lofi-accent group-hover:text-black">
                      <Icon name="tabler:chevron-right" size={20} />
                   </div>

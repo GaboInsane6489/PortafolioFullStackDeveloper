@@ -20,14 +20,14 @@ const projects = allProjects
       <div class="reveal space-y-1">
         <div class="flex items-center gap-3">
           <span class="h-px w-6 bg-lofi-accent/50"></span>
-          <span class="font-mono text-[9px] font-bold tracking-[0.4em] text-lofi-accent uppercase">{t("projects.badge")}</span>
+          <span class="font-mono text-[9px] font-bold tracking-[0.4em] text-lofi-accent drop-shadow-[0_0_5px_currentColor] uppercase">{t("projects.badge")}</span>
         </div>
         <h2 class="font-serif text-3xl leading-tight text-white md:text-4xl lg:text-6xl">
           {t("projects.title1")}
           <span class="bg-gradient-to-r from-lofi-accent to-lofi-soft bg-clip-text text-transparent italic">{t("projects.title2")}</span>
         </h2>
       </div>
-      <p class="reveal hidden max-w-[320px] font-mono text-[10px] leading-relaxed text-slate-400 md:block md:text-right" set:html={t("projects.description")} />
+      <p class="reveal hidden max-w-[320px] font-mono text-[10px] leading-relaxed text-slate-300 md:block md:text-right" set:html={t("projects.description")} />
     </div>
 
     {/* Bento Grid Index */}
@@ -52,30 +52,30 @@ const projects = allProjects
                   <div class="absolute inset-0 z-20 flex flex-col items-center justify-center bg-black/60 opacity-0 backdrop-blur-sm transition-opacity duration-300 group-hover:opacity-100 pointer-events-none">
                     <div class="mb-4 h-px w-2/3 bg-gradient-to-r from-transparent via-lofi-accent to-transparent" />
                     <div class="flex flex-col items-center gap-2 font-mono">
-                      <span class="text-[10px] font-black tracking-[0.5em] text-lofi-accent uppercase animate-pulse">
+                      <span class="text-[10px] font-black tracking-[0.5em] text-lofi-accent drop-shadow-[0_0_8px_currentColor] uppercase animate-pulse">
                         {project.data.badge}
                       </span>
                       <div class="flex items-center gap-4 py-1">
-                        <div class="h-2 w-2 rounded-full bg-emerald-500 animate-ping" />
-                        <span class="text-[9px] text-white/50 tracking-widest">
+                        <div class="h-2 w-2 rounded-full bg-emerald-500 shadow-[0_0_10px_rgba(16,185,129,1)] animate-pulse" />
+                        <span class="text-[9px] font-bold text-white/90 tracking-widest">
                           {project.data.status}
                         </span>
                       </div>
                     </div>
                     <div class="mt-4 h-px w-2/3 bg-gradient-to-r from-transparent via-lofi-accent to-transparent" />
-                    <div class="scanner-line pointer-events-none absolute inset-x-0 h-10 w-full bg-gradient-to-b from-transparent via-lofi-accent/10 to-transparent" />
+                    <div class="scanner-line pointer-events-none absolute inset-x-0 h-10 w-full bg-gradient-to-b from-transparent via-lofi-accent/40 to-transparent" />
                   </div>
                   <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
                 </div>
 
                 <div class="flex flex-1 flex-col p-5 [transform:translateZ(30px)]">
                   <div class="mb-2 flex items-center justify-between">
-                    <span class="font-mono text-[9px] font-bold tracking-widest text-white/20 uppercase">
+                    <span class="font-mono text-[9px] font-bold tracking-widest text-white/50 uppercase">
                       ID_NODE: 0x{i + 1}
                     </span>
                     <Icon
                       name="tabler:arrow-up-right"
-                      class="h-5 w-5 text-lofi-pop/20 transition-all group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:text-lofi-pop group-hover:drop-shadow-[0_0_8px_#F6A5A5]"
+                      class="h-5 w-5 text-lofi-pop/50 transition-all group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:text-lofi-pop group-hover:drop-shadow-[0_0_10px_currentColor]"
                     />
                   </div>
 
@@ -85,7 +85,7 @@ const projects = allProjects
                   </h3>
 
                   <p
-                    class="mb-4 line-clamp-2 text-xs leading-relaxed text-slate-400 group-hover:text-slate-300 transition-colors"
+                    class="mb-4 line-clamp-2 text-xs leading-relaxed text-slate-300 group-hover:text-slate-100 transition-colors"
                     set:html={project.data.description}
                   />
 
@@ -115,9 +115,9 @@ const projects = allProjects
                         <div class="flex items-center gap-1.5 rounded-lg border border-white/5 bg-white/[0.02] px-2 py-1 transition-all hover:bg-lofi-accent/10 hover:border-lofi-accent/30 group-hover:border-white/10">
                           <Icon
                             name={iconName}
-                            class="h-3.5 w-3.5 text-slate-500 transition-all group-hover:text-lofi-accent group-hover:drop-shadow-[0_0_5px_#A5A6F6]"
+                            class="h-3.5 w-3.5 text-slate-300 transition-all group-hover:text-lofi-accent group-hover:drop-shadow-[0_0_8px_currentColor]"
                           />
-                          <span class="font-mono text-[8.5px] font-bold text-slate-400 uppercase tracking-widest group-hover:text-white">
+                          <span class="font-mono text-[8.5px] font-bold text-slate-300 uppercase tracking-widest group-hover:text-white drop-shadow-sm">
                             {tech}
                           </span>
                         </div>
@@ -128,7 +128,7 @@ const projects = allProjects
               </div>
 
               {/* Decorators: pointer-events-none */}
-              <div class="absolute -right-2 -bottom-2 h-16 w-16 opacity-10 group-hover:opacity-40 transition-opacity pointer-events-none">
+              <div class="absolute -right-2 -bottom-2 h-16 w-16 opacity-30 group-hover:opacity-100 transition-opacity pointer-events-none drop-shadow-[0_0_5px_currentColor]">
                 <svg viewBox="0 0 100 100" class="h-full w-full text-lofi-pop fill-current">
                   <path d="M 100 0 L 100 100 L 0 100 Z" />
                 </svg>
@@ -173,8 +173,8 @@ const projects = allProjects
         const centerX = rect.width / 2;
         const centerY = rect.height / 2;
         
-        const rotateX = (y - centerY) / 20;
-        const rotateY = (centerX - x) / 20;
+        const rotateX = (y - centerY) / 80;
+        const rotateY = (centerX - x) / 80;
         
         content.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
       });

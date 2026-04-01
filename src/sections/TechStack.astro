@@ -149,8 +149,8 @@ const techStack = [
             >
               <!-- Flash Effect Shadow -->
               <span class="flash-effect absolute inset-0 -translate-x-full bg-lofi-mid/30 transition-transform duration-300 ease-out"></span>
-              <span class="relative z-10 text-lofi-mid/60 transition-colors group-hover:text-lofi-accent">></span>
-              <span class="relative z-10 text-slate-200 transition-colors group-hover:text-white uppercase">{cat}</span>
+              <span class="relative z-10 text-lofi-accent/80 transition-colors group-hover:text-lofi-accent drop-shadow-[0_0_5px_currentColor]">></span>
+              <span class="relative z-10 text-slate-100 transition-colors group-hover:text-white uppercase drop-shadow-sm">{cat}</span>
               <!-- Active Indicator -->
               <div class="absolute bottom-0 left-0 h-[2px] w-0 bg-lofi-accent transition-all duration-500 marker-line"></div>
             </button>
@@ -168,8 +168,8 @@ const techStack = [
           >
             <!-- Flash Effect Shadow -->
             <span class="flash-effect absolute inset-0 -translate-x-full bg-lofi-mid/30 transition-transform duration-300 ease-out"></span>
-            <span class="relative z-10 text-lofi-mid/50 text-[8px]">></span>
-            <span class="relative z-10 uppercase truncate">{cat}</span>
+            <span class="relative z-10 text-lofi-accent/80 text-[8px] drop-shadow-[0_0_5px_currentColor]">></span>
+            <span class="relative z-10 text-slate-100 uppercase truncate drop-shadow-sm">{cat}</span>
             <!-- Active Indicator -->
             <div class="absolute bottom-0 left-0 h-[2px] w-0 bg-lofi-accent transition-all duration-500 marker-line"></div>
           </button>
@@ -193,10 +193,9 @@ const techStack = [
             <!-- Background Scanning Line (Triggered on reveal) -->
             <div class="tech-scan pointer-events-none absolute inset-0 -z-10 translate-y-[-100%] bg-gradient-to-b from-transparent via-lofi-pop/[0.15] to-transparent opacity-0"></div>
 
-            <!-- LED Status Indicator -->
             <div class="absolute top-4 right-4 flex items-center gap-2">
-                <span class="font-mono text-[7px] font-bold text-white/20 uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">{t("stack.status.online")}</span>
-                <div class={`h-1.5 w-1.5 rounded-full ${tech.tag === "OPTIMIZING" ? "bg-lofi-pop shadow-[0_0_10px_rgba(250,145,207,0.6)]" : "bg-emerald-500 shadow-[0_0_10px_rgba(16,185,129,0.6)]"} group-hover:animate-pulse`}></div>
+                <span class="font-mono text-[7px] font-bold text-white/50 uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">{t("stack.status.online")}</span>
+                <div class={`h-1.5 w-1.5 rounded-full ${tech.tag === "OPTIMIZING" ? "bg-lofi-pop shadow-[0_0_12px_rgba(250,145,207,1)]" : "bg-emerald-500 shadow-[0_0_12px_rgba(16,185,129,1)]"} group-hover:animate-pulse`}></div>
             </div>
 
             <div class="flex items-start gap-4">
@@ -204,7 +203,7 @@ const techStack = [
               <div class="energy-border relative flex h-14 w-14 shrink-0 items-center justify-center rounded-xl border border-white/5 bg-white/[0.03] group-hover:bg-lofi-accent/[0.05] transition-colors duration-500">
                 <Icon
                   name={tech.icon}
-                  class={`relative z-10 text-3xl ${tech.color} opacity-80 transition-all duration-500 group-hover:scale-110 group-hover:opacity-100 group-hover:drop-shadow-[0_0_20px_rgba(255,255,255,0.3)]`}
+                  class={`relative z-10 text-3xl ${tech.color} opacity-100 drop-shadow-[0_0_8px_currentColor] transition-all duration-500 group-hover:scale-110 group-hover:drop-shadow-[0_0_25px_currentColor]`}
                 />
               </div>
 
@@ -222,10 +221,10 @@ const techStack = [
                 </div>
                 
                 <div class="mt-4 flex flex-col gap-1">
-                   <div class="flex items-center justify-between font-mono text-[8px] font-medium tracking-[0.2em] text-white/20 uppercase">
-                      <span class="group-hover:text-white/40 transition-colors">{tech.category}</span>
-                      <span class={`flex items-center gap-1 ${tech.tag === "OPTIMIZING" ? "text-lofi-pop/50" : "text-emerald-500/40"}`}>
-                        <span class="inline-block h-1 w-1 rounded-full bg-current opacity-50"></span>
+                   <div class="flex items-center justify-between font-mono text-[8px] font-medium tracking-[0.2em] text-white/40 uppercase">
+                      <span class="group-hover:text-white/90 transition-colors">{tech.category}</span>
+                      <span class={`flex items-center gap-1 ${tech.tag === "OPTIMIZING" ? "text-lofi-pop/90" : "text-emerald-500/80"}`}>
+                        <span class="inline-block h-1 w-1 rounded-full bg-current opacity-80"></span>
                         {tech.tag}
                       </span>
                    </div>
@@ -278,16 +277,16 @@ const techStack = [
   .tech-card {
   }
 
-  /* Materialization Animation (Premium) */
+  /* Materialization Animation — 'both' aplica el from-state antes de arrancar y retiene el to-state al terminar */
   .animate-materialize {
-    animation: materialize 0.5s cubic-bezier(0.25, 1, 0.5, 1) both;
+    animation: materialize 0.45s cubic-bezier(0.25, 1, 0.5, 1) both;
   }
 
   @keyframes materialize {
     from {
       opacity: 0;
-      transform: scale(0.99) translateY(15px) translateZ(0);
-      filter: blur(5px);
+      transform: scale(0.98) translateY(12px) translateZ(0);
+      filter: blur(3px);
     }
     to {
       opacity: 1;
@@ -344,21 +343,26 @@ const techStack = [
     const rack = document.getElementById('tech-rack');
     
     // IntersectionObserver for Staggered Power-up
+    // Waits until the rack is visible (after global .reveal fires) to avoid
+    // competing CSS animations on the same properties.
     const powerUpObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          const visibleCards = Array.from(cards).filter(c => !c.classList.contains('hidden'));
-          visibleCards.forEach((card, i) => {
-            setTimeout(() => {
-              card.classList.add('animate-materialize');
-              const scanLine = card.querySelector('.tech-scan');
-              scanLine?.classList.add('run-scan');
-            }, i * 40);
-          });
+          // Small delay so the global .reveal transition finishes first
+          setTimeout(() => {
+            const visibleCards = Array.from(cards).filter(c => !c.classList.contains('hidden'));
+            visibleCards.forEach((card, i) => {
+              setTimeout(() => {
+                card.classList.add('animate-materialize');
+                const scanLine = card.querySelector('.tech-scan');
+                scanLine?.classList.add('run-scan');
+              }, i * 45);
+            });
+          }, 200);
           powerUpObserver.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.2 });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
 
     if (rack) powerUpObserver.observe(rack);
 
@@ -385,17 +389,18 @@ const techStack = [
           
           if (isMatch) {
             card.classList.remove('hidden');
+            // Remove and re-trigger materialize cleanly
             card.classList.remove('animate-materialize');
             const scanLine = card.querySelector('.tech-scan');
             scanLine?.classList.remove('run-scan');
             
+            // Force reflow to reset animation state
             void (card as HTMLElement).offsetWidth;
             
             setTimeout(() => {
-              (card as HTMLElement).style.animationDelay = `0ms`;
               card.classList.add('animate-materialize');
               scanLine?.classList.add('run-scan');
-            }, visibleCount * 40);
+            }, visibleCount * 45);
             visibleCount++;
           } else {
             card.classList.add('hidden');

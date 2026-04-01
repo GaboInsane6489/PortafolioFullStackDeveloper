@@ -57,7 +57,7 @@ const t = useTranslations(lang);
              <!-- Floating HUD Labels -->
              <div class="absolute -right-8 top-0 flex flex-col gap-1 opacity-40">
                 <span class="font-mono text-[6px] text-lofi-pop uppercase tracking-[0.4em]">system_active</span>
-                <span class="font-mono text-[6px] text-white/50 uppercase tracking-[0.4em]">latency_12ms</span>
+                <span class="font-mono text-[6px] text-white/80 uppercase tracking-[0.4em]">latency_12ms</span>
              </div>
           </div>
         </div>
@@ -69,12 +69,12 @@ const t = useTranslations(lang);
            ].map((item) => (
              <div class="group/signal rounded-xl border border-white/5 bg-white/[0.02] p-4 backdrop-blur-sm transition-all hover:border-lofi-accent/20 hover:bg-lofi-accent/5">
                 <div class="flex items-center justify-between mb-2">
-                   <Icon name={item.icon} size={14} class={`${item.color}/40 group-hover/signal:${item.color} transition-colors`} />
+                   <Icon name={item.icon} size={14} class={`${item.color}/80 group-hover/signal:${item.color} drop-shadow-[0_0_5px_currentColor] transition-colors`} />
                    <div class="h-1 w-8 rounded-full bg-white/5 overflow-hidden">
-                      <div class={`h-full ${item.color.replace('text', 'bg')} opacity-40 animate-pulse`} style="width: 70%"></div>
+                      <div class={`h-full ${item.color.replace('text', 'bg')} opacity-100 drop-shadow-[0_0_5px_currentColor] animate-pulse`} style="width: 70%"></div>
                    </div>
                 </div>
-                <span class="block font-mono text-[8px] font-bold text-gray-500 uppercase tracking-widest">{item.label}</span>
+                <span class="block font-mono text-[8px] font-bold text-gray-300 uppercase tracking-widest">{item.label}</span>
                 <span class="font-mono text-[10px] font-black text-white">{item.val}</span>
              </div>
            ))}
@@ -83,10 +83,10 @@ const t = useTranslations(lang);
         <!-- NEW: Operational Logs (Fills space) -->
         <div class="reveal delay-300 mt-6 rounded-lg border border-white/5 bg-white/[0.02] p-4 font-mono text-[9px] backdrop-blur-md">
            <div class="mb-3 flex items-center justify-between border-b border-white/5 pb-2">
-              <span class="text-white/40 uppercase tracking-widest">{t("contact.logs.title")}</span>
+              <span class="text-white/70 uppercase tracking-widest">{t("contact.logs.title")}</span>
               <span class="text-lofi-accent animate-pulse">●</span>
            </div>
-           <ul class="space-y-2 text-white/50">
+           <ul class="space-y-2 text-white/90">
               <li class="flex gap-2">
                  <span class="text-white/20">01</span>
                  <span class="text-emerald-500/70">{t("contact.logs.item1")}</span>
@@ -107,7 +107,7 @@ const t = useTranslations(lang);
         </div>
 
         <!-- System Metadata relocated from form bottom -->
-        <div class="reveal delay-400 mt-8 space-y-4 border-t border-white/5 pt-6 opacity-60">
+        <div class="reveal delay-400 mt-8 space-y-4 border-t border-white/5 pt-6 opacity-100">
            <div class="flex items-center gap-3 font-mono text-[9px] tracking-widest text-gray-400 uppercase">
               <Icon name="tabler:map-pin" size={14} class="text-lofi-accent" />
               <span>{t("contact.info.location")}</span>
