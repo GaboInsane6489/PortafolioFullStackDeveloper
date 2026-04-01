@@ -41,7 +41,7 @@ const t = useTranslations(lang);
 
     <div class="grid gap-4 lg:grid-cols-12 lg:grid-rows-2">
       <div
-        class="reveal reveal-scale group relative col-span-12 row-span-2 min-h-[250px] overflow-hidden rounded-3xl border border-white/10 bg-black/40 lg:col-span-8"
+        class="reveal reveal-scale group relative col-span-12 row-span-2 min-h-[250px] overflow-hidden rounded-3xl border border-white/10 bg-white/[0.02] backdrop-blur-sm lg:col-span-8"
       >
         <video
           id="engineering-video"
@@ -58,7 +58,7 @@ const t = useTranslations(lang);
         </div>
         <div class="absolute bottom-6 left-6 flex items-center gap-4">
           <div
-            class="flex h-10 w-10 items-center justify-center rounded-full border border-lofi-pop/30 bg-black/60 backdrop-blur-md"
+            class="flex h-10 w-10 items-center justify-center rounded-full border border-lofi-pop/30 bg-white/[0.02] backdrop-blur-md"
           >
             <Icon
               name="tabler:device-analytics"
@@ -99,7 +99,7 @@ const t = useTranslations(lang);
         <div class="absolute inset-x-0 bottom-0 flex flex-col justify-between p-6 z-20">
           <Icon name="tabler:brand-github" class="text-lofi-accent mb-2 drop-shadow-[0_0_8px_rgba(165,166,246,0.5)]" size={28} />
           <span
-            class="w-fit rounded border border-lofi-accent/30 bg-black/60 p-1 px-2 font-mono text-[10px] font-black tracking-widest text-lofi-accent uppercase backdrop-blur-sm"
+            class="w-fit rounded border border-lofi-accent/30 bg-white/[0.02] p-1 px-2 font-mono text-[10px] font-black tracking-widest text-lofi-accent uppercase backdrop-blur-sm"
             >{t("eng.identity")}</span
           >
         </div>

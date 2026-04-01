@@ -81,7 +81,7 @@ const t = useTranslations(lang);
         </div>
 
         <!-- NEW: Operational Logs (Fills space) -->
-        <div class="reveal delay-300 mt-6 rounded-lg border border-white/5 bg-black/40 p-4 font-mono text-[9px] backdrop-blur-md">
+        <div class="reveal delay-300 mt-6 rounded-lg border border-white/5 bg-white/[0.02] p-4 font-mono text-[9px] backdrop-blur-md">
            <div class="mb-3 flex items-center justify-between border-b border-white/5 pb-2">
               <span class="text-white/40 uppercase tracking-widest">{t("contact.logs.title")}</span>
               <span class="text-lofi-accent animate-pulse">●</span>
@@ -169,7 +169,7 @@ const t = useTranslations(lang);
                  id="name"
                  name="OPERATOR_IDENTITY"
                  required
-                 class="w-full rounded border border-white/10 bg-black/40 px-4 py-3 font-mono text-sm text-white placeholder-slate-500 transition-all outline-none focus:border-lofi-accent/50 focus:bg-lofi-accent/5 focus:ring-1 focus:ring-lofi-accent/20"
+                 class="w-full rounded border border-white/10 bg-white/[0.02] backdrop-blur-sm px-4 py-3 font-mono text-sm text-white placeholder-slate-500 transition-all outline-none focus:border-lofi-accent/50 focus:bg-lofi-accent/5 focus:ring-1 focus:ring-lofi-accent/20"
                  placeholder="Operator name"
                />
              </div>
@@ -189,7 +189,7 @@ const t = useTranslations(lang);
                  id="email"
                  name="CONTACT_ENDPOINT"
                  required
-                 class="w-full rounded border border-white/10 bg-black/40 px-4 py-3 font-mono text-sm text-white placeholder-slate-500 transition-all outline-none focus:border-lofi-accent/50 focus:bg-lofi-accent/5 focus:ring-1 focus:ring-lofi-accent/20"
+                 class="w-full rounded border border-white/10 bg-white/[0.02] backdrop-blur-sm px-4 py-3 font-mono text-sm text-white placeholder-slate-500 transition-all outline-none focus:border-lofi-accent/50 focus:bg-lofi-accent/5 focus:ring-1 focus:ring-lofi-accent/20"
                  placeholder="operator@system.io"
                />
              </div>
@@ -209,7 +209,7 @@ const t = useTranslations(lang);
                  name="TRANSMITTED_PAYLOAD"
                  required
                  rows="4"
-                 class="w-full resize-none rounded border border-white/10 bg-black/40 px-4 py-3 font-mono text-sm text-white placeholder-slate-500 transition-all outline-none focus:border-lofi-accent/50 focus:bg-lofi-accent/5 focus:ring-1 focus:ring-lofi-accent/20"
+                 class="w-full resize-none rounded border border-white/10 bg-white/[0.02] backdrop-blur-sm px-4 py-3 font-mono text-sm text-white placeholder-slate-500 transition-all outline-none focus:border-lofi-accent/50 focus:bg-lofi-accent/5 focus:ring-1 focus:ring-lofi-accent/20"
                  placeholder="Type your transmission here..."></textarea>
              </div>
 
@@ -260,7 +260,7 @@ const t = useTranslations(lang);
 
               <!-- Node 1 -->
               <div class="flex flex-col items-center gap-2">
-                 <div class="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-[#0A0908]">
+                 <div class="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-white/[0.02] backdrop-blur-sm">
                     <div class="h-2 w-2 rounded-full bg-slate-400"></div>
                  </div>
                  <span class="font-mono text-[8px] font-bold text-slate-500 uppercase tracking-widest">{t("contact.route.node1")}</span>
@@ -268,7 +268,7 @@ const t = useTranslations(lang);
 
               <!-- Node 2 -->
               <div class="flex flex-col items-center gap-2">
-                 <div class="flex h-10 w-10 items-center justify-center rounded-full border border-lofi-accent/50 bg-[#0A0908] shadow-[0_0_15px_rgba(165,166,246,0.2)] hover:-translate-y-1 transition-transform">
+                 <div class="flex h-10 w-10 items-center justify-center rounded-full border border-lofi-accent/50 bg-white/[0.02] backdrop-blur-sm shadow-[0_0_15px_rgba(165,166,246,0.2)] hover:-translate-y-1 transition-transform">
                     <Icon name="tabler:shield-lock" size={14} class="text-lofi-accent" />
                  </div>
                  <span class="font-mono text-[8px] font-bold text-lofi-accent uppercase tracking-widest">{t("contact.route.node2")}</span>
@@ -276,7 +276,7 @@ const t = useTranslations(lang);
 
               <!-- Node 3 -->
               <div class="flex flex-col items-center gap-2">
-                 <div class="relative flex h-10 w-10 items-center justify-center rounded-full border border-lofi-pop/50 bg-[#0A0908] shadow-[0_0_15px_rgba(250,145,207,0.2)] hover:-translate-y-1 transition-transform">
+                 <div class="relative flex h-10 w-10 items-center justify-center rounded-full border border-lofi-pop/50 bg-white/[0.02] backdrop-blur-sm shadow-[0_0_15px_rgba(250,145,207,0.2)] hover:-translate-y-1 transition-transform">
                     <div class="absolute inset-0 flex items-center justify-center">
                        <div class="h-2.5 w-2.5 animate-ping rounded-full bg-lofi-pop opacity-75"></div>
                     </div>

@@ -186,7 +186,7 @@ const techStack = [
       {
         techStack.map((tech: any, index: number) => (
           <div
-            class="tech-card group relative overflow-hidden rounded-xl border border-white/5 bg-[#0A0A0A]/95 p-5 transition-all duration-500"
+            class="tech-card group relative overflow-hidden rounded-xl border border-white/5 bg-white/[0.02] backdrop-blur-sm p-5 transition-all duration-500"
             data-category={tech.category}
             style={`transition-delay: ${index * 30}ms`}
           >
@@ -215,7 +215,7 @@ const techStack = [
                     {tech.name}
                   </span>
                   <div class="mt-1 flex items-center gap-2">
-                    <span class="flex-none rounded bg-black/80 px-2 py-0.5 font-mono text-[7px] font-bold tracking-widest text-lofi-soft uppercase border border-white/10">
+                    <span class="flex-none rounded bg-white/[0.02] backdrop-blur-sm px-2 py-0.5 font-mono text-[7px] font-bold tracking-widest text-lofi-soft uppercase border border-white/10">
                       {tech.role}
                     </span>
                   </div>
