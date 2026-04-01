@@ -62,154 +62,235 @@ const t = useTranslations(lang);
           </div>
         </div>
 
-        <div class="reveal delay-200 grid grid-cols-2 gap-4 mt-10">
+        <div class="reveal delay-200 grid grid-cols-2 gap-4 mt-6">
            {[
-             { label: "COMM_SSL", val: "AES_256", icon: "tabler:shield-lock" },
-             { label: "UPLINK_TYPE", val: "TERMINAL_PR", icon: "tabler:binary-tree" }
+             { label: "COMM_SIGNAL", val: "STABLE", icon: "tabler:broadcast", color: "text-emerald-400" },
+             { label: "ENCRYPTION", val: t("contact.signal.status"), icon: "tabler:shield-lock", color: "text-lofi-accent" }
            ].map((item) => (
-             <div class="rounded-xl border border-white/5 bg-white/[0.02] p-4 backdrop-blur-sm transition-colors hover:border-lofi-accent/20">
-                <Icon name={item.icon} size={14} class="text-lofi-accent/40 mb-2" />
+             <div class="group/signal rounded-xl border border-white/5 bg-white/[0.02] p-4 backdrop-blur-sm transition-all hover:border-lofi-accent/20 hover:bg-lofi-accent/5">
+                <div class="flex items-center justify-between mb-2">
+                   <Icon name={item.icon} size={14} class={`${item.color}/40 group-hover/signal:${item.color} transition-colors`} />
+                   <div class="h-1 w-8 rounded-full bg-white/5 overflow-hidden">
+                      <div class={`h-full ${item.color.replace('text', 'bg')} opacity-40 animate-pulse`} style="width: 70%"></div>
+                   </div>
+                </div>
                 <span class="block font-mono text-[8px] font-bold text-gray-500 uppercase tracking-widest">{item.label}</span>
-                <span class="font-mono text-[11px] font-black text-white">{item.val}</span>
+                <span class="font-mono text-[10px] font-black text-white">{item.val}</span>
              </div>
            ))}
         </div>
+
+        <!-- NEW: Operational Logs (Fills space) -->
+        <div class="reveal delay-300 mt-6 rounded-lg border border-white/5 bg-black/40 p-4 font-mono text-[9px] backdrop-blur-md">
+           <div class="mb-3 flex items-center justify-between border-b border-white/5 pb-2">
+              <span class="text-white/40 uppercase tracking-widest">{t("contact.logs.title")}</span>
+              <span class="text-lofi-accent animate-pulse">●</span>
+           </div>
+           <ul class="space-y-2 text-white/50">
+              <li class="flex gap-2">
+                 <span class="text-white/20">01</span>
+                 <span class="text-emerald-500/70">{t("contact.logs.item1")}</span>
+              </li>
+              <li class="flex gap-2">
+                 <span class="text-white/20">02</span>
+                 <span class="text-lofi-accent/70">{t("contact.logs.item2")}</span>
+              </li>
+              <li class="flex gap-2">
+                 <span class="text-white/20">03</span>
+                 <span class="text-lofi-pop/70">{t("contact.logs.item3")}</span>
+              </li>
+              <li class="flex gap-2">
+                 <span class="text-white/20">04</span>
+                 <span class="text-emerald-500/70">{t("contact.logs.item4")}</span>
+              </li>
+           </ul>
+        </div>
+
+        <!-- System Metadata relocated from form bottom -->
+        <div class="reveal delay-400 mt-8 space-y-4 border-t border-white/5 pt-6 opacity-60">
+           <div class="flex items-center gap-3 font-mono text-[9px] tracking-widest text-gray-400 uppercase">
+              <Icon name="tabler:map-pin" size={14} class="text-lofi-accent" />
+              <span>{t("contact.info.location")}</span>
+              <div class="h-px flex-1 bg-gradient-to-r from-white/10 to-transparent"></div>
+           </div>
+           <div class="flex items-center gap-3 font-mono text-[9px] tracking-widest text-gray-400 uppercase">
+              <Icon name="tabler:calendar-check" size={14} class="text-lofi-pop" />
+              <span>{t("contact.info.availability")}</span>
+              <div class="h-px flex-1 bg-gradient-to-r from-white/10 to-transparent"></div>
+           </div>
+        </div>
       </div>
 
-      <!-- Command Interface -->
       <div class="lg:col-span-7">
-        <form
-          id="contact-form"
-          class="reveal grid grid-cols-1 gap-6 sm:grid-cols-2"
-        >
-          <input
-            type="hidden"
-            name="access_key"
-            value="91d5dea0-56d8-4a01-9589-27909b6301ac"
-          />
-          <input
-            type="hidden"
-            name="subject"
-            value="[PORTFOLIO_SYSTEM_UPLINK] New Message Received"
-          />
-          <input
-            type="hidden"
-            name="from_name"
-            value="PORTFOLIO COMMAND CENTER"
-          />
-          <input type="hidden" name="replyto" id="hidden-replyto" value="" />
-          <input type="hidden" name="00_PROTOCOL_STATUS" value="ESTABLISHED" />
-          <input
-            type="hidden"
-            name="01_SECURITY_LEVEL"
-            value="ENCRYPTED_USER_DATA"
-          />
+        <div class="reveal relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.02] p-1 backdrop-blur-sm">
+           <!-- HUD Corner Accents -->
+           <div class="absolute -top-1 -right-1 h-8 w-8 border-r-2 border-t-2 border-lofi-accent/30 pointer-events-none"></div>
+           <div class="absolute -bottom-1 -left-1 h-8 w-8 border-l-2 border-b-2 border-lofi-pop/30 pointer-events-none"></div>
 
-          <div class="flex flex-col gap-2 sm:col-span-1">
-            <label
-              for="name"
-              class="font-mono text-[10px] font-bold tracking-widest text-lofi-soft uppercase"
-            >
-              {t("contact.form.name")} _</label
-            >
-            <input
-              type="text"
-              id="name"
-              name="OPERATOR_IDENTITY"
-              required
-              class="w-full rounded-none border border-white/20 bg-black/60 px-4 py-3 font-mono text-sm text-white placeholder-slate-400 transition-colors outline-none focus:border-lofi-accent/50 focus:bg-lofi-accent/5"
-              placeholder="Enter your name"
-            />
-          </div>
+           <form
+             id="contact-form"
+             class="grid grid-cols-1 gap-6 sm:grid-cols-2 p-6 md:p-10"
+           >
+             <input
+               type="hidden"
+               name="access_key"
+               value="91d5dea0-56d8-4a01-9589-27909b6301ac"
+             />
+             <input
+               type="hidden"
+               name="subject"
+               value="[PORTFOLIO_SYSTEM_UPLINK] New Message Received"
+             />
+             <input
+               type="hidden"
+               name="from_name"
+               value="PORTFOLIO COMMAND CENTER"
+             />
+             <input type="hidden" name="replyto" id="hidden-replyto" value="" />
+             <input type="hidden" name="00_PROTOCOL_STATUS" value="ESTABLISHED" />
+             <input
+               type="hidden"
+               name="01_SECURITY_LEVEL"
+               value="ENCRYPTED_USER_DATA"
+             />
 
-          <div class="flex flex-col gap-2 sm:col-span-1">
-            <label
-              for="email"
-              class="font-mono text-[10px] font-bold tracking-widest text-lofi-soft uppercase"
-            >
-              {t("contact.form.email")} _</label
-            >
-            <input
-              type="email"
-              id="email"
-              name="CONTACT_ENDPOINT"
-              required
-              class="w-full rounded-none border border-white/20 bg-black/60 px-4 py-3 font-mono text-sm text-white placeholder-slate-400 transition-colors outline-none focus:border-lofi-accent/50 focus:bg-lofi-accent/5"
-              placeholder="Enter your email"
-            />
-          </div>
+             <div class="flex flex-col gap-2 sm:col-span-1">
+               <div class="flex items-center justify-between">
+                  <label
+                    for="name"
+                    class="font-mono text-[10px] font-bold tracking-widest text-lofi-soft uppercase"
+                  >
+                    {t("contact.form.name")} _</label
+                  >
+                  <span class="font-mono text-[7px] text-white/20 uppercase tracking-widest">[IDENTITY_01]</span>
+               </div>
+               <input
+                 type="text"
+                 id="name"
+                 name="OPERATOR_IDENTITY"
+                 required
+                 class="w-full rounded border border-white/10 bg-black/40 px-4 py-3 font-mono text-sm text-white placeholder-slate-500 transition-all outline-none focus:border-lofi-accent/50 focus:bg-lofi-accent/5 focus:ring-1 focus:ring-lofi-accent/20"
+                 placeholder="Operator name"
+               />
+             </div>
 
-          <div class="flex flex-col gap-2 sm:col-span-2">
-            <label
-              for="message"
-              class="font-mono text-[10px] font-bold tracking-widest text-lofi-soft uppercase"
-            >
-              {t("contact.form.message")} _</label
-            >
-            <textarea
-              id="message"
-              name="TRANSMITTED_PAYLOAD"
-              required
-              rows="4"
-              class="w-full resize-none rounded-none border border-white/20 bg-black/60 px-4 py-3 font-mono text-sm text-white placeholder-slate-400 transition-colors outline-none focus:border-lofi-accent/50 focus:bg-lofi-accent/5"
-              placeholder="Type your message here..."></textarea>
-          </div>
+             <div class="flex flex-col gap-2 sm:col-span-1">
+               <div class="flex items-center justify-between">
+                  <label
+                    for="email"
+                    class="font-mono text-[10px] font-bold tracking-widest text-lofi-soft uppercase"
+                  >
+                    {t("contact.form.email")} _</label
+                  >
+                  <span class="font-mono text-[7px] text-white/20 uppercase tracking-widest">[ENDPOINT_02]</span>
+               </div>
+               <input
+                 type="email"
+                 id="email"
+                 name="CONTACT_ENDPOINT"
+                 required
+                 class="w-full rounded border border-white/10 bg-black/40 px-4 py-3 font-mono text-sm text-white placeholder-slate-500 transition-all outline-none focus:border-lofi-accent/50 focus:bg-lofi-accent/5 focus:ring-1 focus:ring-lofi-accent/20"
+                 placeholder="operator@system.io"
+               />
+             </div>
 
-          <input
-            type="hidden"
-            name="ZZ_LOG_END"
-            value="--- END OF TRANSMISSION ---"
-          />
+             <div class="flex flex-col gap-2 sm:col-span-2">
+               <div class="flex items-center justify-between">
+                  <label
+                    for="message"
+                    class="font-mono text-[10px] font-bold tracking-widest text-lofi-soft uppercase"
+                  >
+                    {t("contact.form.message")} _</label
+                  >
+                  <span class="font-mono text-[7px] text-white/20 uppercase tracking-widest">[DATA_PAYLOAD_03]</span>
+               </div>
+               <textarea
+                 id="message"
+                 name="TRANSMITTED_PAYLOAD"
+                 required
+                 rows="4"
+                 class="w-full resize-none rounded border border-white/10 bg-black/40 px-4 py-3 font-mono text-sm text-white placeholder-slate-500 transition-all outline-none focus:border-lofi-accent/50 focus:bg-lofi-accent/5 focus:ring-1 focus:ring-lofi-accent/20"
+                 placeholder="Type your transmission here..."></textarea>
+             </div>
 
-          <div class="sm:col-span-2">
-            <button
-              type="submit"
-              id="submit-btn"
-              class="group relative flex w-full items-center justify-center gap-3 overflow-hidden border border-lofi-pop/50 bg-lofi-pop/10 px-8 py-4 font-mono text-[11px] font-black tracking-[0.2em] text-lofi-pop uppercase transition-all duration-300 hover:border-lofi-pop hover:bg-lofi-pop/20 hover:shadow-[0_0_40px_rgba(250,145,207,0.25)]"
-            >
-              <span
-                class="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-lofi-pop/20 to-transparent transition-transform duration-500 ease-out group-hover:translate-x-full"
-              ></span>
-              <Icon
-                name="tabler:terminal-2"
-                size={18}
-                class="transition-transform group-hover:scale-110"
-              />
-              <span id="btn-text">{t("contact.form.cta")}</span>
-            </button>
+             <input
+               type="hidden"
+               name="ZZ_LOG_END"
+               value="--- END OF TRANSMISSION ---"
+             />
 
-            <div
-              id="status-message"
-              class="mt-4 hidden text-center font-mono text-[11px] tracking-widest uppercase"
-            >
-            </div>
+             <div class="sm:col-span-2">
+               <button
+                 type="submit"
+                 id="submit-btn"
+                 class="group relative flex w-full items-center justify-center gap-3 overflow-hidden border border-lofi-pop/50 bg-lofi-pop/10 px-8 py-5 font-mono text-[11px] font-black tracking-[0.2em] text-lofi-pop uppercase transition-all duration-300 hover:border-lofi-pop hover:bg-lofi-pop/20 hover:shadow-[0_0_40px_rgba(250,145,207,0.25)]"
+               >
+                 <span
+                   class="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-lofi-pop/20 to-transparent transition-transform duration-500 ease-out group-hover:translate-x-full"
+                 ></span>
+                 <Icon
+                   name="tabler:send"
+                   size={18}
+                   class="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"
+                 />
+                 <span id="btn-text">{t("contact.form.cta")}</span>
+               </button>
 
-            <!-- Compact System Metadata -->
-            <div
-              class="mt-8 flex items-center justify-between border-t border-white/10 pt-6 opacity-60"
-            >
-              <div
-                class="flex items-center gap-2 font-mono text-[8px] tracking-widest text-gray-500 uppercase"
-              >
-                <Icon
-                  name="tabler:map-pin"
-                  size={12}
-                  class="text-lofi-accent/50"
-                />
-                <span>{t("contact.info.location")}</span>
+               <div
+                 id="status-message"
+                 class="mt-4 hidden text-center font-mono text-[11px] tracking-widest uppercase"
+               >
+               </div>
+             </div>
+           </form>
+        </div>
+
+        <!-- NEW: Data Routing Pathway Module -->
+        <div class="reveal delay-200 mt-6 overflow-hidden rounded-xl border border-white/5 bg-white/[0.01] p-6 backdrop-blur-sm hidden lg:block">
+           <div class="mb-6 flex items-center justify-between">
+              <span class="font-mono text-[10px] font-black tracking-widest text-lofi-accent uppercase drop-shadow-[0_0_8px_rgba(165,166,246,0.3)]">{t("contact.route.title")}</span>
+              <Icon name="tabler:route" size={16} class="text-white/30" />
+           </div>
+
+           <div class="relative flex items-center justify-between">
+              <!-- Animated Line -->
+              <div class="absolute inset-x-0 top-1/2 -z-10 h-0.5 -translate-y-1/2 bg-white/5">
+                 <div class="h-full w-full origin-left bg-gradient-to-r from-lofi-accent/0 via-lofi-accent/50 to-lofi-accent/0 animate-pulse"></div>
               </div>
-              <div
-                class="mx-4 h-px flex-1 bg-gradient-to-r from-lofi-accent/20 to-transparent"
-              >
+
+              <!-- Node 1 -->
+              <div class="flex flex-col items-center gap-2">
+                 <div class="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-[#0A0908]">
+                    <div class="h-2 w-2 rounded-full bg-slate-400"></div>
+                 </div>
+                 <span class="font-mono text-[8px] font-bold text-slate-500 uppercase tracking-widest">{t("contact.route.node1")}</span>
               </div>
-              <div
-                class="font-mono text-[8px] tracking-widest text-gray-500 uppercase"
-              >
-                <span>{t("contact.info.availability")}</span>
+
+              <!-- Node 2 -->
+              <div class="flex flex-col items-center gap-2">
+                 <div class="flex h-10 w-10 items-center justify-center rounded-full border border-lofi-accent/50 bg-[#0A0908] shadow-[0_0_15px_rgba(165,166,246,0.2)] hover:-translate-y-1 transition-transform">
+                    <Icon name="tabler:shield-lock" size={14} class="text-lofi-accent" />
+                 </div>
+                 <span class="font-mono text-[8px] font-bold text-lofi-accent uppercase tracking-widest">{t("contact.route.node2")}</span>
               </div>
-            </div>
-          </div>
-        </form>
+
+              <!-- Node 3 -->
+              <div class="flex flex-col items-center gap-2">
+                 <div class="relative flex h-10 w-10 items-center justify-center rounded-full border border-lofi-pop/50 bg-[#0A0908] shadow-[0_0_15px_rgba(250,145,207,0.2)] hover:-translate-y-1 transition-transform">
+                    <div class="absolute inset-0 flex items-center justify-center">
+                       <div class="h-2.5 w-2.5 animate-ping rounded-full bg-lofi-pop opacity-75"></div>
+                    </div>
+                    <div class="h-2 w-2 rounded-full bg-lofi-pop"></div>
+                 </div>
+                 <span class="font-mono text-[8px] font-bold text-lofi-pop uppercase tracking-widest">{t("contact.route.node3")}</span>
+              </div>
+           </div>
+
+           <div class="mt-8 flex items-center gap-2 rounded bg-emerald-500/10 px-3 py-2 border border-emerald-500/20">
+              <Icon name="tabler:check" size={14} class="text-emerald-500" />
+              <span class="font-mono text-[8px] font-bold tracking-widest text-emerald-500/80 uppercase">{t("contact.route.secure")}</span>
+           </div>
+        </div>
       </div>
     </div>
   </div>

@@ -174,7 +174,7 @@ const socials = [
       const setupRevealObserver = () => {
         const observerOptions = {
           threshold: 0.05,
-          rootMargin: "0px 0px -50px 0px",
+          rootMargin: "0px 0px -20px 0px",
         };
 
         const observer = new IntersectionObserver((entries) => {
@@ -201,7 +201,6 @@ const socials = [
           const moveX = (e.clientX - window.innerWidth / 2) * 0.01;
           const moveY = (e.clientY - window.innerHeight / 2) * 0.01;
           
-          backdrop.style.transform = `translate3d(${moveX}px, ${moveY}px, 0)`;
           grid.style.transform = `translate3d(${moveX * 2}px, ${moveY * 2}px, 0)`;
         });
       };
@@ -222,12 +221,13 @@ const socials = [
       /* Base reveal class with Hardware Acceleration */
       .reveal {
         opacity: 0;
-        filter: blur(10px);
-        transform: translateY(20px) scale(0.98);
+        filter: blur(5px);
+        transform: translateY(15px) scale(0.99) translateZ(0); /* HW Accel Boost */
+        backface-visibility: hidden;
         transition: 
-          opacity 1.4s cubic-bezier(0.16, 1, 0.3, 1), 
-          filter 1.2s cubic-bezier(0.16, 1, 0.3, 1),
-          transform 1.4s cubic-bezier(0.16, 1, 0.3, 1);
+          opacity 0.6s cubic-bezier(0.25, 1, 0.5, 1), 
+          filter 0.5s cubic-bezier(0.25, 1, 0.5, 1),
+          transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
         will-change: opacity, transform, filter;
       }
 
@@ -235,21 +235,21 @@ const socials = [
       .reveal.active {
         opacity: 1;
         filter: blur(0);
-        transform: translateY(0) translateX(0) scale(1);
+        transform: translateY(0) translateX(0) scale(1) translateZ(0);
       }
 
       /* Directional Reveal Variants */
-      .reveal-left { transform: translateX(-20px) scale(0.98); }
-      .reveal-right { transform: translateX(20px) scale(0.98); }
-      .reveal-scale { transform: scale(0.92); }
+      .reveal-left { transform: translateX(-15px) scale(0.99) translateZ(0); }
+      .reveal-right { transform: translateX(15px) scale(0.99) translateZ(0); }
+      .reveal-scale { transform: scale(0.96) translateZ(0); }
 
       /* Multi-level Delay System (Staggered entries) */
-      .delay-100 { transition-delay: 100ms; }
-      .delay-200 { transition-delay: 200ms; }
-      .delay-300 { transition-delay: 300ms; }
-      .delay-400 { transition-delay: 400ms; }
-      .delay-500 { transition-delay: 500ms; }
-      .delay-700 { transition-delay: 700ms; }
+      .delay-100 { transition-delay: 50ms; }
+      .delay-200 { transition-delay: 100ms; }
+      .delay-300 { transition-delay: 150ms; }
+      .delay-400 { transition-delay: 200ms; }
+      .delay-500 { transition-delay: 250ms; }
+      .delay-700 { transition-delay: 350ms; }
 
       /* Texto sobre video optimization */
       html, body {

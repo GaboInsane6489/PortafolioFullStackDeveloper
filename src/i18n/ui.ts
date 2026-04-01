@@ -132,6 +132,16 @@ export const ui = {
     "exp.hph.desc":
       "Lead maintainer for a high-traffic community infrastructure with <span class='text-white/60'>20k+ daily cycles</span>. Engineered <strong>Atomic SQL systems</strong> and mass-data ingestion pipelines.",
     "exp.hph.archive": "SYSTEM_ARCHIVE_v2.4",
+    "exp.pulse.title": "TECH_STACK_PULSE",
+    "exp.pulse.calibration": "CALIBRATION: 98.4%",
+    "exp.logs.title": "OPERATIONAL_LOGS",
+    "exp.logs.item1": "DATABASE_MIGRATION_SUCCESSFUL",
+    "exp.logs.item2": "LATENCY_OPTIMIZATION_LEVEL_7",
+    "exp.logs.item3": "SSR_CACHING_STABILIZED",
+    "exp.logs.item4": "CI/CD_PIPELINE_RESOLVED",
+    "exp.garcia.achievement": "Implemented automated enterprise engine and field reporting.",
+    "exp.hph.achievement": "Maintained high-traffic infrastructure for 20k daily users.",
+    "exp.ucab.achievement": "Algorithm design and complex data structures mastery.",
     "exp.ucab.role": "Computer Engineering",
     "exp.ucab.date": "UCAB • 3RD SEMESTER",
     "exp.ucab.desc":
@@ -177,9 +187,22 @@ export const ui = {
     "contact.info.location": "LATENCY_BASE",
     "contact.info.availability": "AVAILABILITY",
     "contact.description":
-      "Ready to initialize protocol? I'm available for scalable infrastructure or technical consulting.",
+      "Ready to initialize the protocol? I'm available for scalable infrastructures or technical consultancy.",
+    "contact.signal.title": "SIGNAL_UPLINK",
+    "contact.signal.status": "ENCRYPTED_AES256",
+    "contact.logs.title": "UPLINK_INITIALIZATION",
+    "contact.logs.item1": "AUTHENTICATING_USER_PROTOCOL",
+    "contact.logs.item2": "ESTABLISHING_SECURE_TUNNEL",
+    "contact.logs.item3": "HEARTBEAT_SIGNAL_SYNC",
+    "contact.logs.item4": "UPLINK_READY_FOR_TRANSMISSION",
+    "contact.route.title": "DATA_ROUTING_PATHWAY",
+    "contact.route.node1": "LOCAL_NODE",
+    "contact.route.node2": "ENCRYPTION_GATEWAY",
+    "contact.route.node3": "MAIN_SERVER",
+    "contact.route.secure": "SECURE_CONNECTION_CONFIRMED",
 
     // SEO
+
     "seo.title": "Gabriel González | Digital Architect & Full Stack Developer",
     "seo.description":
       "Portfolio of Gabriel González, Full Stack Developer & System Architect. Specialized in scalable web infrastructure, robust APIs and high-impact digital experiences.",
@@ -310,6 +333,16 @@ export const ui = {
     "exp.hph.desc":
       "Mantenedor principal de infraestructura comunitaria con <span class='text-white/60'>20k+ ciclos diarios</span>. Diseñé sistemas de <strong>SQL Atómico</strong> y pipelines de ingesta de datos masivos.",
     "exp.hph.archive": "ARCHIVO_DEL_SISTEMA_v2.4",
+    "exp.pulse.title": "PULSO_STACK_TECNOLOGICO",
+    "exp.pulse.calibration": "CALIBRACIÓN: 98.4%",
+    "exp.logs.title": "LOGS_OPERACIONALES",
+    "exp.logs.item1": "MIGRACIÓN_DE_BD_EXITOSA",
+    "exp.logs.item2": "OPTIMIZACIÓN_DE_LATENCIA_LVL_7",
+    "exp.logs.item3": "CACHÉ_SSR_ESTABILIZADA",
+    "exp.logs.item4": "PIPELINE_CI/CD_RESOLVIDO",
+    "exp.garcia.achievement": "Implementé motor empresarial personalizado y reportes de campo.",
+    "exp.hph.achievement": "Mantenimiento de infraestructura de alto tráfico (20k usuarios).",
+    "exp.ucab.achievement": "Dominio de diseño de algoritmos y estructuras de datos complejas.",
     "exp.ucab.role": "Ingeniería Informática",
     "exp.ucab.date": "UCAB • 3ER SEMESTRE",
     "exp.ucab.desc":
@@ -356,8 +389,21 @@ export const ui = {
     "contact.info.availability": "DISPONIBILIDAD",
     "contact.description":
       "¿Listo para inicializar el protocolo? Estoy disponible para infraestructuras escalables o consultoría técnica.",
+    "contact.signal.title": "ENLACE_DE_SEÑAL",
+    "contact.signal.status": "ENCRIPTADO_AES256",
+    "contact.logs.title": "INICIALIZACIÓN_DE_UPLINK",
+    "contact.logs.item1": "AUTENTICANDO_PROTOCOLO_DE_USUARIO",
+    "contact.logs.item2": "ESTABLECIENDO_TÚNEL_SEGURO",
+    "contact.logs.item3": "SINCRONIZACIÓN_DE_LATIDO",
+    "contact.logs.item4": "UPLINK_LISTO_PARA_TRANSMISIÓN",
+    "contact.route.title": "RUTA_DE_DATOS_ESTABLECIDA",
+    "contact.route.node1": "NODO_LOCAL",
+    "contact.route.node2": "PASARELA_DE_ENCRIPTACIÓN",
+    "contact.route.node3": "SERVIDOR_PRINCIPAL",
+    "contact.route.secure": "CONEXIÓN_SEGURA_CONFIRMADA",
 
     // SEO
+
     "seo.title":
       "Gabriel González | Arquitecto Digital & Desarrollador Full Stack",
     "seo.description":
