@@ -3,7 +3,6 @@ import TopNavbar from "../components/layout/TopNavbar.astro";
 import SideNavbar from "../components/layout/SideNavbar.astro";
 import Footer from "../components/layout/Footer.astro";
 import Noise from "../components/ui/Noise.astro";
-import BootScreen from "../components/ui/BootScreen.astro";
 import CustomCursor from "../components/ui/CustomCursor.astro";
 import "../styles/index.css";
 import "flowbite";
@@ -15,6 +14,28 @@ import { Icon } from "astro-icon/components";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+
+interface Props {
+  title?: string;
+  description?: string;
+  ogImage?: string;
+  ogType?: string;
+}
+
+const { 
+  title: customTitle, 
+  description: customDescription, 
+  ogImage: customOgImage,
+  ogType = "website"
+} = Astro.props;
+
+const title = customTitle || t("seo.title");
+const description = customDescription || t("seo.description");
+
+// Automated Screenshot Logic: If no custom image is provided, generate a live screenshot of the current page.
+// This ensures the preview always matches the site's current state.
+const currentUrl = encodeURIComponent(Astro.url.href);
+const ogImage = customOgImage || `https://api.microlink.io/?url=${currentUrl}&screenshot=true&meta=false&embed=screenshot.url`;
 
 // These variables seem to be intended for Footer.astro or SideNavbar.astro,
 // but the instruction implies they should be added here.
@@ -58,9 +79,9 @@ const socials = [
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!-- Primary SEO -->
-    <title>{t("seo.title")}</title>
-    <meta name="title" content={t("seo.title")} />
-    <meta name="description" content={t("seo.description")} />
+    <title>{title}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
     <meta name="author" content="Gabriel González" />
     <meta
       name="keywords"
@@ -70,26 +91,26 @@ const socials = [
     <link rel="canonical" href="https://gabo-fullstack.vercel.app" />
 
     <!-- Open Graph -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://gabo-fullstack.vercel.app" />
-    <meta property="og:title" content={t("seo.title")} />
-    <meta property="og:description" content={t("seo.description")} />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:url" content={Astro.url} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
     <meta
       property="og:image"
-      content="https://gabo-fullstack.vercel.app/images/PortafolioFullStackDeveloper.webp"
+      content={ogImage}
     />
-    <meta property="og:image:alt" content="Gabriel González - Portfolio" />
+    <meta property="og:image:alt" content={title} />
     <meta property="og:locale" content={lang === "es" ? "es_VE" : "en_US"} />
     <meta property="og:site_name" content="Gabriel González Portfolio" />
 
     <!-- Twitter Cards -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:url" content="https://gabo-fullstack.vercel.app" />
-    <meta name="twitter:title" content={t("seo.title")} />
-    <meta name="twitter:description" content={t("seo.description")} />
+    <meta name="twitter:url" content={Astro.url} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
     <meta
       name="twitter:image"
-      content="https://gabo-fullstack.vercel.app/images/PortafolioFullStackDeveloper.webp"
+      content={ogImage}
     />
 
     <link rel="icon" type="image/png" href="/images/LogoPortafolio.webp" />
@@ -109,7 +130,6 @@ const socials = [
   >
     <!-- Base background color layer (behind everything) -->
     <div class="fixed inset-0 -z-[100] bg-lofi-base"></div>
-    <BootScreen />
     <CustomCursor />
     <Noise />
     <div id="backdrop-container" class="pointer-events-none fixed inset-[-5%] -z-50 overflow-hidden transition-transform duration-700 ease-out">

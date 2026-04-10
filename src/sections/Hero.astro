@@ -7,7 +7,7 @@ const t = useTranslations(lang);
 ---
 
 <section
-  class="relative flex min-h-[100dvh] w-full flex-col justify-start overflow-clip border-b border-white/5 pt-12 pb-12 md:justify-start md:pt-16 lg:justify-center lg:pt-0 lg:pb-12"
+  class="relative flex min-h-[100dvh] w-full flex-col justify-start overflow-clip border-b border-white/5 pt-8 pb-12 md:justify-start md:pt-16 lg:justify-center lg:pt-0 lg:pb-12"
   id="hero"
 >
   <!-- --- REFINED BACKGROUND: Isometric Grid + Main Grid --- -->
@@ -65,7 +65,7 @@ const t = useTranslations(lang);
 
         <div
           id="hero-avatar-container"
-          class="group relative z-10 w-full max-w-[170px] cursor-pointer rounded-2xl border border-white/20 bg-lofi-base/40 p-1.5 backdrop-blur-md transition-all duration-300 hover:scale-[1.03] active:scale-[0.98] sm:max-w-[220px] md:max-w-[240px] lg:max-w-[260px]"
+          class="group relative z-10 w-full max-w-[150px] cursor-pointer rounded-2xl border border-white/20 bg-lofi-base/40 p-1.5 backdrop-blur-md transition-all duration-300 hover:scale-[1.03] active:scale-[0.95] sm:max-w-[220px] md:max-w-[240px] lg:max-w-[260px]"
         >
           <!-- Corner Markers (Subtle) -->
           <div
@@ -129,11 +129,11 @@ const t = useTranslations(lang);
                 class="absolute top-2.5 right-2.5 flex flex-col items-end gap-0.5 opacity-40"
               >
                 <span
-                  class="font-mono text-[5px] tracking-widest text-white/50 uppercase"
+                  class="font-mono text-[8px] tracking-widest text-white/50 uppercase"
                   >LAT_10.48</span
                 >
                 <span
-                  class="font-mono text-[5px] tracking-widest text-white/50 uppercase"
+                  class="font-mono text-[8px] tracking-widest text-white/50 uppercase"
                   >LON_66.90</span
                 >
               </div>
@@ -216,7 +216,7 @@ const t = useTranslations(lang);
         >
           <a
             href="#projects"
-            class="group relative flex w-full items-center justify-center gap-3 overflow-hidden rounded-xl bg-white px-6 py-3.5 text-[9px] font-black tracking-widest text-black transition-all active:scale-95 sm:w-auto"
+            class="group relative flex w-full items-center justify-center gap-3 overflow-hidden rounded-xl bg-white px-6 py-3.5 text-[9px] font-black tracking-widest text-black transition-all active:scale-95 active:shadow-[0_0_20px_rgba(255,255,255,0.4)] sm:w-auto"
           >
             <span class="relative z-10 transition-colors group-hover:text-white"
               >EXPLORE_COLLECTION</span
@@ -233,7 +233,7 @@ const t = useTranslations(lang);
           </a>
           <a
             href="#contact"
-            class="group relative flex w-full items-center justify-center gap-3 overflow-hidden rounded-xl border border-white/10 bg-white/[0.02] backdrop-blur-sm px-6 py-3.5 text-[9px] font-black tracking-widest text-white transition-all hover:border-lofi-accent/40 hover:bg-lofi-accent/[0.03] active:scale-95 sm:w-auto"
+            class="group relative flex w-full items-center justify-center gap-3 overflow-hidden rounded-xl border border-white/10 bg-white/[0.02] backdrop-blur-sm px-6 py-3.5 text-[9px] font-black tracking-widest text-white transition-all hover:border-lofi-accent/40 hover:bg-lofi-accent/[0.03] active:scale-95 active:bg-lofi-accent/10 active:border-lofi-accent/30 sm:w-auto"
           >
             <span class="uppercase italic">{t("hero.cta")}</span>
             <Icon
@@ -246,7 +246,7 @@ const t = useTranslations(lang);
 
         <!-- STRATEGIC SELLING STATS: Balanced -->
         <div
-          class="reveal delay-300 grid w-full max-w-sm grid-cols-2 gap-x-8 gap-y-4 border-t border-white/10 pt-6 sm:max-w-md sm:grid-cols-3 md:pt-8 lg:max-w-none lg:pt-6"
+          class="reveal delay-300 grid w-full max-w-[300px] grid-cols-2 justify-center gap-x-6 gap-y-4 border-t border-white/10 pt-6 sm:max-w-md sm:grid-cols-3 md:pt-8 lg:max-w-none lg:pt-6"
         >
           {
             [
@@ -356,5 +356,6 @@ const t = useTranslations(lang);
   }
   .animate-scanline {
     animation: scanline 10s infinite linear;
+    will-change: transform;
   }
 </style>
